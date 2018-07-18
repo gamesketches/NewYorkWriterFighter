@@ -33,7 +33,7 @@ public class CharacterAnimator : MonoBehaviour {
 			case AnimationType.Walk:
 				if(TimesUp()) {
 					NextFrame();
-					frameCounter = walkAnimation.Length - 1;
+					frameCounter = walkAnimation.Length;
 				}
 				break;
 			/*case AnimationState.PreJump:
@@ -61,6 +61,8 @@ public class CharacterAnimator : MonoBehaviour {
 				}
 				break;
 		}
+		Debug.Log(curFrame);
+		//if(curFrame == 1) Debug.Break();
 		renderer.sprite = curAnimation[curFrame];
 	}
 
@@ -76,7 +78,7 @@ public class CharacterAnimator : MonoBehaviour {
 				break;
 			case AnimationType.Walk:
 				curAnimation = walkAnimation;
-				frameCounter = 4;
+				frameCounter = walkAnimation.Length - 1;
 				animationFinished = true;
 				break;
 			/*case AnimationState.Jump:

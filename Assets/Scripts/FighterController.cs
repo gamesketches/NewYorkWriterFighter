@@ -6,6 +6,7 @@ public class FighterController : MonoBehaviour {
 
 	public bool leftSide;
 	CharacterAnimator animator;
+	public float walkSpeed = 1;
 
 	// Use this for initialization
 	void Start () {
@@ -16,7 +17,12 @@ public class FighterController : MonoBehaviour {
 	void Update () {
 		if(Input.GetKey(KeyCode.RightArrow)){
 			animator.SwitchAnimation("Walk");
+			MoveRight(walkSpeed * Time.deltaTime);
 		}
 		else animator.SwitchAnimation("Idle");
+	}
+
+	public void MoveRight(float distance) {
+		transform.Translate(distance, 0, 0);
 	}
 }
