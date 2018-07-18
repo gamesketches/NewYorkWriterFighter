@@ -19,10 +19,18 @@ public class FighterController : MonoBehaviour {
 			animator.SwitchAnimation("Walk");
 			MoveRight(walkSpeed * Time.deltaTime);
 		}
+		else if(Input.GetKey(KeyCode.LeftArrow)) {
+			animator.SwitchAnimation("Walk");
+			MoveLeft(walkSpeed * Time.deltaTime);
+		}
 		else animator.SwitchAnimation("Idle");
 	}
 
 	public void MoveRight(float distance) {
 		transform.Translate(distance, 0, 0);
+	}
+
+	public void MoveLeft(float distance) {
+		transform.Translate(-distance, 0, 0);
 	}
 }
