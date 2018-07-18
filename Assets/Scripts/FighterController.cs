@@ -15,7 +15,10 @@ public class FighterController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKey(KeyCode.RightArrow)){
+		if(Input.GetKey(KeyCode.DownArrow)) {
+			animator.SwitchAnimation("Crouch");
+		}
+		else if(Input.GetKey(KeyCode.RightArrow)){
 			animator.SwitchAnimation("Walk");
 			MoveRight(walkSpeed * Time.deltaTime);
 		}

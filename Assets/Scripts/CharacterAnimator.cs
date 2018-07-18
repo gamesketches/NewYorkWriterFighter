@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum AnimationType {Idle, Walk, PreJump, Jump, Damage, Fall, Throw, Block};
+public enum AnimationType {Idle, Walk, Crouch, PreJump, Jump, Damage, Fall, Throw, Block};
 public class CharacterAnimator : MonoBehaviour {
 
 	public Sprite[] walkAnimation;
 	public Sprite[] idleAnimation;
+	public Sprite[] crouchAnimation;
 
 	Sprite[] curAnimation;
 
@@ -30,10 +31,21 @@ public class CharacterAnimator : MonoBehaviour {
 	void FixedUpdate () {
 		// Leaving this for lots of animation specific timing code/frame manipulations
 		switch(state) {
+			case AnimationType.Idle:
+				if(TimesUp()) {
+					NextFrame();
+					frameCounter = idleAnimation.Length - 1;
+				}
+				break;
 			case AnimationType.Walk:
 				if(TimesUp()) {
 					NextFrame();
 					frameCounter = walkAnimation.Length;
+				}
+				break;
+			case AnimationType.Crouch:
+				if(TimesUp()) {
+					animationFinished = true;
 				}
 				break;
 			/*case AnimationState.PreJump:
@@ -54,15 +66,8 @@ public class CharacterAnimator : MonoBehaviour {
 				}
 				break;
 			*/
-			case AnimationType.Idle:
-				if(TimesUp()) {
-					NextFrame();
-					frameCounter = idleAnimation.Length - 1;
-				}
-				break;
+			
 		}
-		Debug.Log(curFrame);
-		//if(curFrame == 1) Debug.Break();
 		renderer.sprite = curAnimation[curFrame];
 	}
 
@@ -79,6 +84,11 @@ public class CharacterAnimator : MonoBehaviour {
 			case AnimationType.Walk:
 				curAnimation = walkAnimation;
 				frameCounter = walkAnimation.Length - 1;
+				animationFinished = true;
+				break;
+			case AnimationType.Crouch:
+				curAnimation = crouchAnimation;
+				frameCounter = 1;
 				animationFinished = true;
 				break;
 			/*case AnimationState.Jump:
