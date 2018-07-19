@@ -410,6 +410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftSide: 0
   walkSpeed: 2
+  identity: 0
 --- !u!1 &1197345704
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,7 +522,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fb7dd9f0b33a64d44acfd1725d19578b, type: 3}
   idleAnimation:
   - {fileID: 21300000, guid: 3e71e0e577be24bc1b0a78a4b75e5116, type: 3}
-  crouchAnimation: []
+  crouchAnimation:
+  - {fileID: 21300000, guid: 21841ac30abe146afbedbdab524edf09, type: 3}
   animationFinished: 0
 --- !u!114 &1243797385
 MonoBehaviour:
@@ -529,13 +531,14 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1243797383}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71a010a4eb1e846539a86123994f97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   leftSide: 0
   walkSpeed: 2
+  identity: 1
 --- !u!95 &1243797386
 Animator:
   serializedVersion: 3
