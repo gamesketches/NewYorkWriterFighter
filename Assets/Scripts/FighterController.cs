@@ -7,11 +7,13 @@ public enum MovementState {Standing, Crouching, Jumping, Attacking, KnockedDown,
 public class FighterController : MonoBehaviour {
 
 	static float jumpHeight = 2.37f;
+	static int inputLeniency = 3;
 	public bool leftSide;
 	CharacterAnimator animator;
 	public float walkSpeed = 1;
 	public playerNumber identity;
 	MovementState state;
+	public AnimationCurve jumpY;
 
 	// Use this for initialization
 	void Start () {
@@ -58,11 +60,11 @@ public class FighterController : MonoBehaviour {
 	IEnumerator Jump() {
 		float groundedY = transform.position.y;
 		state = MovementState.Jumping;
-		Vector3 startPos = transform.position;
-		Vector3 endPos = transform.position;
-		endPos.y = 2.37f;
+		Vector3 temp = transform.position;
+		animator.SwitchAnimation("Jump");
 		for(float t = 0; t < 2; t += Time.deltaTime) {
-			transform.position = Vector3.Lerp(startPos, endPos, Mathf.PingPong(t, 1));
+			temp.y = Mathf.Lerp(groundedY, jumpHeight, jumpY.Evaluate(t)); 
+			transform.position = temp;
 			yield return null;
 		}
 		transform.position = startPos;

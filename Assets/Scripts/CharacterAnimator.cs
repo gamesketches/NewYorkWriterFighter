@@ -8,7 +8,7 @@ public class CharacterAnimator : MonoBehaviour {
 	public Sprite[] walkAnimation;
 	public Sprite[] idleAnimation;
 	public Sprite[] crouchAnimation;
-
+	public Sprite[] jumpAnimation;
 	Sprite[] curAnimation;
 
 	int curFrame;
@@ -44,6 +44,11 @@ public class CharacterAnimator : MonoBehaviour {
 				}
 				break;
 			case AnimationType.Crouch:
+				if(TimesUp()) {
+					animationFinished = true;
+				}
+				break;
+			case AnimationType.Jump:
 				if(TimesUp()) {
 					animationFinished = true;
 				}
@@ -91,21 +96,21 @@ public class CharacterAnimator : MonoBehaviour {
 				frameCounter = 1;
 				animationFinished = true;
 				break;
-			/*case AnimationState.Jump:
-				curAnimation = new Sprite[] {jumpAnimation};
+			case AnimationType.Jump:
+				curAnimation = jumpAnimation;
 				animationFinished = true;
 				break;
-			case AnimationState.PreJump:
+			/*case AnimationType.PreJump:
 				curAnimation = preJumpAnimation;
 				animationFinished = false;
 				frameCounter = 7;
 				break;
-			case AnimationState.Land:
+			case AnimationType.Land:
 				curAnimation = new Sprite[] {landingFrame};
 				animationFinished = false;
 				frameCounter = 4;
 				break;
-			case AnimationState.Glide:
+			case AnimationType.Glide:
 				curAnimation = glideAnimation;
 				animationFinished = true;
 				frameCounter = 4;
