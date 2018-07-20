@@ -32,17 +32,17 @@ public class FighterController : MonoBehaviour {
 		if(state == MovementState.Jumping) {
 			Debug.Log("Cancel into attacks here");
 		}
-		else if(Input.GetAxisRaw(playerID + "Vertical") < 0) {
+		else if(VerticalInput() < 0) {
 			animator.SwitchAnimation("Crouch");
 		}
-		else if(Input.GetAxisRaw(playerID + "Vertical") > 0) {
+		else if(VerticalInput() > 0) {
 			StartCoroutine(Jump());
 		}
-		else if(Input.GetAxisRaw(playerID + "Horizontal") > 0){
+		else if(HorizontalInput() > 0){
 			animator.SwitchAnimation("Walk");
 			MoveRight(walkSpeed * Time.deltaTime);
 		}
-		else if(Input.GetAxisRaw(playerID + "Horizontal") < 0) {
+		else if(HorizontalInput() < 0) {
 			animator.SwitchAnimation("Walk");
 			MoveLeft(walkSpeed * Time.deltaTime);
 		}
