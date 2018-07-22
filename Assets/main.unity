@@ -257,13 +257,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ffeae539f4f1472a90c3a69b3fda340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frames: []
-  damage: 0
+  frames:
+  - {fileID: 21300000, guid: 014875de29b434ef6817bb53030b52b6, type: 3}
+  - {fileID: 21300000, guid: ef9228ff9d6d64ee391b9bebb3a11268, type: 3}
+  - {fileID: 21300000, guid: 509863acf4bff4a1184183577a5a8dd1, type: 3}
+  - {fileID: 21300000, guid: 849b4a6c1672946f39a55e721d11530c, type: 3}
+  - {fileID: 21300000, guid: 8bccc395ee27a44dd9ab4071477a66f9, type: 3}
+  damage: 10
   blockType: 0
   knockdown: 0
-  knockBack: 0
-  hitStop: 0
-  hitStun: 0
+  knockBack: 1
+  hitStop: 0.3
+  hitStun: 1
 --- !u!1 &412253861
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,7 +410,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1063016979}
   - component: {fileID: 1063016978}
-  - component: {fileID: 1063016977}
   - component: {fileID: 1063016981}
   - component: {fileID: 1063016980}
   - component: {fileID: 1063016982}
@@ -416,24 +420,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &1063016977
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1063016976}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!212 &1063016978
 SpriteRenderer:
   m_ObjectHideFlags: 0

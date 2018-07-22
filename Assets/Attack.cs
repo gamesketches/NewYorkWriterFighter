@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum BlockType {Mid, Low, Overhead};
+public enum AttackButtons {LP, MP, HP, LK, MK, HK};
+
 public class Attack : MonoBehaviour {
 
 	public Sprite[] frames;
 	public Rect[][] hitBoxes;
 	public Rect[][] hurtBoxes;
-
 
 	public int damage;
 	public BlockType blockType;

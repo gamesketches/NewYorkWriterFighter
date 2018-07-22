@@ -19,16 +19,18 @@ public class FighterController : MonoBehaviour {
 	void Start () {
 		animator = GetComponent<CharacterAnimator>();
 		state = MovementState.Standing;
+		foreach(Transform child in transform) {
+			child.gameObject.SetActive(false);
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		CheckDirectionalInput();
-		
+		CheckButtonInput();
 	}
 
 	void CheckDirectionalInput() {
-		string playerID = identity.ToString();
 		if(state == MovementState.Jumping) {
 			Debug.Log("Cancel into attacks here");
 		}
@@ -47,6 +49,13 @@ public class FighterController : MonoBehaviour {
 			MoveLeft(walkSpeed * Time.deltaTime);
 		}
 		else animator.SwitchAnimation("Idle");
+	}
+
+	void CheckButtonInput() {
+		string playerID = identity.ToString();
+		if(Input.GetButtonDown(playerID + "LP")) {
+			transform.GetChild(0).gameObject.SetActive(true);
+		}
 	}
 
 	public void MoveRight(float distance) {

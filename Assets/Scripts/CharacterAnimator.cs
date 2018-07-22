@@ -58,6 +58,7 @@ public class CharacterAnimator : MonoBehaviour {
 					curFrame++;
 					if(curFrame >= curAnimation.Length) {
 						curFrame = 0;
+						animationFinished = true;
 						SwitchAnimation("Idle");
 					}
 				}
