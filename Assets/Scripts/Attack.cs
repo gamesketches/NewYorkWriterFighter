@@ -8,9 +8,10 @@ public enum AttackButtons {LP, MP, HP, LK, MK, HK};
 [ExecuteInEditMode]
 public class Attack : MonoBehaviour {
 
-	public Sprite[] frames;
-	public Rect[][] hitBoxes = new Rect[4][];
-	public Rect[][] hurtBoxes;
+	//public Sprite[] frames;
+	//public Rect[][] hitBoxes = new Rect[4][];
+	//public Rect[][] hurtBoxes;
+	public List<Frame> frames;
 
 	public int damage;
 	public BlockType blockType;
@@ -32,17 +33,35 @@ public class Attack : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		curFrame++;
-		if(curFrame >= frames.Length) {
-			this.enabled = false;
+		if(curFrame >= frames.Count) {
+			gameObject.SetActive(false);
 		}
 		else {
-			hitBoxController.UpdateHitBoxes(hitBoxes[curFrame]);
-			hurtBoxController.UpdateHurtBoxes(hurtBoxes[curFrame]);
+			hitBoxController.UpdateHitBoxes(frames[curFrame].hitBoxes);
+			hurtBoxController.UpdateHurtBoxes(frames[curFrame].hurtBoxes);
 		}
 	}
 
 	void OnEnable() {
 		curFrame = 0;
-		transform.parent.GetComponent<CharacterAnimator>().AttackAnimation(frames);
+		transform.parent.GetComponent<CharacterAnimator>().AttackAnimation(GetSprites());
 	}
+
+	Sprite[] GetSprites() {
+		Sprite[] sprites = new Sprite[frames.Count];
+		for(int i = 0; i < frames.Count; i++) {
+			sprites[i] = frames[i].sprite;
+		}
+		
+		return sprites;
+	}
+}
+
+[System.Serializable]
+public class Frame {
+	
+	public Sprite sprite;
+	public Rect[] hitBoxes;
+	public Rect[] hurtBoxes;
+
 }
