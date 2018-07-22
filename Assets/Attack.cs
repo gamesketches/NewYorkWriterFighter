@@ -5,10 +5,11 @@ using UnityEngine;
 public enum BlockType {Mid, Low, Overhead};
 public enum AttackButtons {LP, MP, HP, LK, MK, HK};
 
+[ExecuteInEditMode]
 public class Attack : MonoBehaviour {
 
 	public Sprite[] frames;
-	public Rect[][] hitBoxes;
+	public Rect[][] hitBoxes = new Rect[4][];
 	public Rect[][] hurtBoxes;
 
 	public int damage;
