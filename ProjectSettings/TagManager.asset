@@ -13,11 +13,11 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Pushboxes
+  - P1HitBoxes
+  - P1HurtBoxes
+  - P2HitBoxes
+  - P2HurtBoxes
   - 
   - 
   - 

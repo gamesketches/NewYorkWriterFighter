@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum AnimationType {Idle, Walk, Crouch, PreJump, Jump, Damage, Fall, Throw, Block};
+public enum AnimationType {Idle, Walk, Crouch, PreJump, Jump, Damage, Fall, Throw, Block, Attacking};
 public class CharacterAnimator : MonoBehaviour {
 
 	public Sprite[] walkAnimation;
@@ -51,6 +51,15 @@ public class CharacterAnimator : MonoBehaviour {
 			case AnimationType.Jump:
 				if(TimesUp()) {
 					animationFinished = true;
+				}
+				break;
+			case AnimationType.Attacking:
+				if(TimesUp()) {
+					curFrame++;
+					if(curFrame >= curAnimation.Length) {
+						curFrame = 0;
+						SwitchAnimation("Idle");
+					}
 				}
 				break;
 			/*case AnimationState.PreJump:
@@ -118,6 +127,13 @@ public class CharacterAnimator : MonoBehaviour {
 			*/
 		}
 		curFrame = 0;
+	}
+
+	public void AttackAnimation(Sprite[] frames) {
+		state = AnimationType.Attacking;
+		curAnimation = frames;
+		frameCounter = frames.Length;
+		animationFinished = false;
 	}
 
 	bool TimesUp() {
