@@ -26,8 +26,8 @@ public class Attack : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		hitBoxController = GetComponentInChildren<HitBoxController>();
-		hurtBoxController = GetComponentInChildren<HurtBoxController>();	
+		hitBoxController = transform.parent.GetChild(0).gameObject.GetComponent<HitBoxController>();
+		hurtBoxController = transform.parent.GetChild(1).gameObject.GetComponent<HurtBoxController>();	
 	}
 	
 	// Update is called once per frame

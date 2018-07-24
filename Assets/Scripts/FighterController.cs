@@ -19,9 +19,9 @@ public class FighterController : MonoBehaviour {
 	void Start () {
 		animator = GetComponent<CharacterAnimator>();
 		state = MovementState.Standing;
-		foreach(Transform child in transform) {
-			child.gameObject.SetActive(false);
-		}
+		//foreach(Transform child in transform) {
+			transform.GetChild(2).gameObject.SetActive(false);
+		//}
 	}
 	
 	// Update is called once per frame
@@ -54,7 +54,7 @@ public class FighterController : MonoBehaviour {
 	void CheckButtonInput() {
 		string playerID = identity.ToString();
 		if(Input.GetButtonDown(playerID + "LP")) {
-			transform.GetChild(0).gameObject.SetActive(true);
+			transform.GetChild(2).gameObject.SetActive(true);
 		}
 	}
 

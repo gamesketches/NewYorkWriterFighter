@@ -27,4 +27,8 @@ public class HurtBoxController : MonoBehaviour {
 			}
 		}
 	}
+
+	void OnTriggerEnter2D(Collider2D other) {
+		Debug.Log("Hit!");
+	}
 }

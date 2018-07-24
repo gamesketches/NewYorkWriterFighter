@@ -8,6 +8,7 @@ public class HitBoxController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		colliders = GetComponents<BoxCollider2D>();
+		Debug.Log(colliders);
 	}
 	
 	// Update is called once per frame
@@ -16,6 +17,8 @@ public class HitBoxController : MonoBehaviour {
 	}
 
 	public void UpdateHitBoxes(Rect[] dimensions) {
+		Debug.Log(dimensions.Length);
+		Debug.Log(colliders);
 		for(int i = 0; i < colliders.Length; i++) {
 			if(i < dimensions.Length) {
 				colliders[i].enabled = true;
