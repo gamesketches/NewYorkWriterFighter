@@ -34,6 +34,9 @@ public class FighterController : MonoBehaviour {
 		if(state == MovementState.Jumping) {
 			Debug.Log("Cancel into attacks here");
 		}
+		else if(state == MovementState.Recoiling) {
+			Debug.Log("taking damage");
+		}
 		else if(VerticalInput() < 0) {
 			animator.SwitchAnimation("Crouch");
 		}
@@ -88,6 +91,13 @@ public class FighterController : MonoBehaviour {
 		transform.position = temp;
 		state = MovementState.Standing;
 	} 
+
+	public IEnumerator GetHit(AttackData attackData) {
+		animator.SwitchAnimation("Damage");
+		state = MovementState.Recoiling;
+		yield return new WaitForSeconds(attackData.hitStun);
+		state = MovementState.Standing;
+	}
 
 	float HorizontalInput() {
 		return Input.GetAxisRaw(identity.ToString() + "Horizontal");

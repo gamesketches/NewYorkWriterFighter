@@ -285,7 +285,7 @@ MonoBehaviour:
   blockType: 0
   knockdown: 0
   knockBack: 1
-  hitStop: 0.3
+  hitStop: 0.1
   hitStun: 1
 --- !u!1 &412253861
 GameObject:
@@ -639,7 +639,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 21841ac30abe146afbedbdab524edf09, type: 3}
   jumpAnimation:
   - {fileID: 21300000, guid: 380fc8dcd10a34f9d8eef423f6b3b33d, type: 3}
+  damageAnimation: []
   animationFinished: 0
+  frameSpeed: 4
 --- !u!114 &1063016981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -912,7 +914,13 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 21841ac30abe146afbedbdab524edf09, type: 3}
   jumpAnimation:
   - {fileID: 21300000, guid: 380fc8dcd10a34f9d8eef423f6b3b33d, type: 3}
+  damageAnimation:
+  - {fileID: 21300000, guid: 004735147278e4b45a280d505e630d14, type: 3}
+  - {fileID: 21300000, guid: 1fb1e7411389d40bc9840f84aec73a2e, type: 3}
+  - {fileID: 21300000, guid: 346368033e8ae4ae98dcdbd1da5000db, type: 3}
+  - {fileID: 21300000, guid: a8eb198f007e04e1586f8fd99a5c23d7, type: 3}
   animationFinished: 0
+  frameSpeed: 4
 --- !u!114 &1243797385
 MonoBehaviour:
   m_ObjectHideFlags: 0

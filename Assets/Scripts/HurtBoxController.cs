@@ -5,9 +5,12 @@ using UnityEngine;
 public class HurtBoxController : MonoBehaviour {
 
 	BoxCollider2D[] colliders;
+	FighterController player;
+
 	// Use this for initialization
 	void Start () {
 		colliders = GetComponents<BoxCollider2D>();
+		player = transform.parent.gameObject.GetComponent<FighterController>();
 	}
 	
 	// Update is called once per frame
@@ -31,7 +34,10 @@ public class HurtBoxController : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) {
 		AttackData data = other.gameObject.GetComponent<HitBoxController>().GetAttackData();
 		
+		StartCoroutine(player.GetHit(data));
 		StartCoroutine(HitStop(data.hitStop));
+
+		
 	}
 
 	IEnumerator HitStop(float hitStopTime) {

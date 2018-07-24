@@ -9,6 +9,8 @@ public class CharacterAnimator : MonoBehaviour {
 	public Sprite[] idleAnimation;
 	public Sprite[] crouchAnimation;
 	public Sprite[] jumpAnimation;
+	public Sprite[] damageAnimation;
+
 	Sprite[] curAnimation;
 
 	int curFrame;
@@ -18,6 +20,8 @@ public class CharacterAnimator : MonoBehaviour {
 
 	SpriteRenderer renderer;
 	AnimationType state;
+
+	public int frameSpeed;
 
 	// Use this for initialization
 	void Awake () {
@@ -32,7 +36,10 @@ public class CharacterAnimator : MonoBehaviour {
 		// Leaving this for lots of animation specific timing code/frame manipulations
 		switch(state) {
 			case AnimationType.Idle:
-				if(TimesUp()) {
+			case AnimationType.Walk:
+				LoopingAnimation();
+				break;
+				/*if(TimesUp()) {
 					NextFrame();
 					frameCounter = idleAnimation.Length - 1;
 				}
@@ -42,7 +49,7 @@ public class CharacterAnimator : MonoBehaviour {
 					NextFrame();
 					frameCounter = walkAnimation.Length;
 				}
-				break;
+				break;*/
 			case AnimationType.Crouch:
 				if(TimesUp()) {
 					animationFinished = true;
@@ -54,6 +61,7 @@ public class CharacterAnimator : MonoBehaviour {
 				}
 				break;
 			case AnimationType.Attacking:
+			case AnimationType.Damage:
 				if(TimesUp()) {
 					curFrame++;
 					if(curFrame >= curAnimation.Length) {
@@ -61,6 +69,7 @@ public class CharacterAnimator : MonoBehaviour {
 						animationFinished = true;
 						SwitchAnimation("Idle");
 					}
+					frameCounter = frameSpeed;
 				}
 				break;
 			/*case AnimationState.PreJump:
@@ -110,6 +119,11 @@ public class CharacterAnimator : MonoBehaviour {
 				curAnimation = jumpAnimation;
 				animationFinished = true;
 				break;
+			case AnimationType.Damage:
+				curAnimation = damageAnimation;
+				Debug.Log("Changed to damage state");
+				animationFinished = true;
+				break;
 			/*case AnimationType.PreJump:
 				curAnimation = preJumpAnimation;
 				animationFinished = false;
@@ -137,6 +151,13 @@ public class CharacterAnimator : MonoBehaviour {
 		animationFinished = false;
 	}
 
+	void LoopingAnimation() {
+		if(TimesUp()) {
+			NextFrame();
+			frameCounter = frameSpeed;
+		}
+	}
+
 	bool TimesUp() {
 		frameCounter--;
 		return frameCounter < 0;
@@ -146,4 +167,6 @@ public class CharacterAnimator : MonoBehaviour {
 		curFrame++;
 		if(curFrame >= curAnimation.Length) curFrame = 0;
 	}
+	
+	
 }
