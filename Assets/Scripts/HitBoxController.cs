@@ -5,10 +5,10 @@ using UnityEngine;
 public class HitBoxController : MonoBehaviour {
 
 	BoxCollider2D[] colliders;
+	AttackData attackData;
 	// Use this for initialization
 	void Start () {
 		colliders = GetComponents<BoxCollider2D>();
-		Debug.Log(colliders);
 	}
 	
 	// Update is called once per frame
@@ -17,8 +17,6 @@ public class HitBoxController : MonoBehaviour {
 	}
 
 	public void UpdateHitBoxes(Rect[] dimensions) {
-		Debug.Log(dimensions.Length);
-		Debug.Log(colliders);
 		for(int i = 0; i < colliders.Length; i++) {
 			if(i < dimensions.Length) {
 				colliders[i].enabled = true;
@@ -31,4 +29,18 @@ public class HitBoxController : MonoBehaviour {
 		}
 	}
 
+	public void UpdateAttackData(AttackData newData) {
+		attackData = newData;
+	}
+
+	public AttackData GetAttackData() {
+		return attackData;
+	}
+
+	public void EndAttack() {
+		foreach(BoxCollider2D collider in colliders) {
+			collider.enabled = false;
+		}
+		attackData = new AttackData(0, BlockType.Mid, false, 0, 0, 0);
+	}
 }

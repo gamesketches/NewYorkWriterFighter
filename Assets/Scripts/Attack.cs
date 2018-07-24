@@ -20,6 +20,8 @@ public class Attack : MonoBehaviour {
 	public float hitStop;
 	public float hitStun;
 
+	public AttackData attackData;
+
 	HitBoxController hitBoxController;
 	HurtBoxController hurtBoxController;
 	int curFrame;
@@ -28,12 +30,15 @@ public class Attack : MonoBehaviour {
 	void Start () {
 		hitBoxController = transform.parent.GetChild(0).gameObject.GetComponent<HitBoxController>();
 		hurtBoxController = transform.parent.GetChild(1).gameObject.GetComponent<HurtBoxController>();	
+	
+		attackData = new AttackData(damage, blockType, knockdown, knockBack, hitStop, hitStun);
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 		curFrame++;
 		if(curFrame >= frames.Count) {
+			hitBoxController.EndAttack();
 			gameObject.SetActive(false);
 		}
 		else {
@@ -45,6 +50,7 @@ public class Attack : MonoBehaviour {
 	void OnEnable() {
 		curFrame = 0;
 		transform.parent.GetComponent<CharacterAnimator>().AttackAnimation(GetSprites());
+		hitBoxController.UpdateAttackData(attackData);
 	}
 
 	Sprite[] GetSprites() {
@@ -63,5 +69,23 @@ public class Frame {
 	public Sprite sprite;
 	public Rect[] hitBoxes;
 	public Rect[] hurtBoxes;
-
 }
+
+public struct AttackData {
+	public int damage;
+	public BlockType blockType;
+	public bool knockdown;
+	public float knockBack;
+	public float hitStop;
+	public float hitStun;
+
+	public AttackData(int attackDamage, BlockType attackBlockType, bool knocksDown, float knockBackDistance, float hitStopTime, float hitStunTime) {
+		damage = attackDamage;
+		blockType = attackBlockType;
+		knockdown = knocksDown;
+		knockBack = knockBackDistance;
+		hitStop = hitStopTime;
+		hitStun = hitStunTime;
+	}
+}
+

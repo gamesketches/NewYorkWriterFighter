@@ -29,6 +29,14 @@ public class HurtBoxController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		Debug.Log("Hit!");
+		AttackData data = other.gameObject.GetComponent<HitBoxController>().GetAttackData();
+		
+		StartCoroutine(HitStop(data.hitStop));
+	}
+
+	IEnumerator HitStop(float hitStopTime) {
+		Time.timeScale = 0;
+		yield return new WaitForSecondsRealtime(hitStopTime);
+		Time.timeScale = 1;
 	}
 }
