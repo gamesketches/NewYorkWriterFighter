@@ -10,6 +10,7 @@ public class CharacterAnimator : MonoBehaviour {
 	public Sprite[] crouchAnimation;
 	public Sprite[] jumpAnimation;
 	public Sprite[] damageAnimation;
+	public Sprite[] blockAnimation;
 
 	Sprite[] curAnimation;
 
@@ -37,6 +38,7 @@ public class CharacterAnimator : MonoBehaviour {
 		switch(state) {
 			case AnimationType.Idle:
 			case AnimationType.Walk:
+			case AnimationType.Block:
 				LoopingAnimation();
 				break;
 				/*if(TimesUp()) {
@@ -103,6 +105,11 @@ public class CharacterAnimator : MonoBehaviour {
 			case AnimationType.Idle:
 				curAnimation = idleAnimation;
 				frameCounter = idleAnimation.Length;
+				animationFinished = true;
+				break;
+			case AnimationType.Block:
+				curAnimation = blockAnimation;
+				frameCounter = blockAnimation.Length;
 				animationFinished = true;
 				break;
 			case AnimationType.Walk:

@@ -8,12 +8,14 @@ public class FighterController : MonoBehaviour {
 
 	static float jumpHeight = 2.37f;
 	static int inputLeniency = 3;
+	//[HideInInspector]
 	public bool leftSide;
 	CharacterAnimator animator;
 	public float walkSpeed = 1;
 	public playerNumber identity;
 	MovementState state;
 	public AnimationCurve jumpY;
+	public FighterController opponent;
 
 	// Use this for initialization
 	void Start () {
@@ -26,37 +28,48 @@ public class FighterController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		CheckDirectionalInput();
 		CheckButtonInput();
+		CheckDirectionalInput();
 	}
 
 	void CheckDirectionalInput() {
+		if(state == MovementState.Attacking) return;
 		if(state == MovementState.Jumping) {
 			Debug.Log("Cancel into attacks here");
 		}
 		else if(state == MovementState.Recoiling) {
 			Debug.Log("taking damage");
 		}
+		else if(opponent.GetState() == MovementState.Attacking && HoldingBack()) {
+			animator.SwitchAnimation("Block");
+		}
 		else if(VerticalInput() < 0) {
 			animator.SwitchAnimation("Crouch");
+			state = MovementState.Crouching;
 		}
 		else if(VerticalInput() > 0) {
 			StartCoroutine(Jump());
 		}
 		else if(HorizontalInput() > 0){
 			animator.SwitchAnimation("Walk");
+			state = MovementState.Standing;
 			MoveRight(walkSpeed * Time.deltaTime);
 		}
 		else if(HorizontalInput() < 0) {
 			animator.SwitchAnimation("Walk");
+			state = MovementState.Standing;
 			MoveLeft(walkSpeed * Time.deltaTime);
 		}
-		else animator.SwitchAnimation("Idle");
+		else {
+			animator.SwitchAnimation("Idle");
+			state = MovementState.Standing;
+		}
 	}
 
 	void CheckButtonInput() {
 		string playerID = identity.ToString();
 		if(Input.GetButtonDown(playerID + "LP")) {
+			state = MovementState.Attacking;
 			transform.GetChild(2).gameObject.SetActive(true);
 		}
 	}
@@ -105,5 +118,14 @@ public class FighterController : MonoBehaviour {
 
 	float VerticalInput() {
 		return Input.GetAxisRaw(identity.ToString() + "Vertical");
+	}
+
+	bool HoldingBack() {
+		if(leftSide) return HorizontalInput() < 0;
+		else return HorizontalInput() > 0;
+	} 
+
+	public MovementState GetState() {
+		return state;
 	}
 }

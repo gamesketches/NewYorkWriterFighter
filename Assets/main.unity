@@ -640,6 +640,8 @@ MonoBehaviour:
   jumpAnimation:
   - {fileID: 21300000, guid: 380fc8dcd10a34f9d8eef423f6b3b33d, type: 3}
   damageAnimation: []
+  blockAnimation:
+  - {fileID: 21300000, guid: 1f40a5507680541c0952e2f50072a53a, type: 3}
   animationFinished: 0
   frameSpeed: 4
 --- !u!114 &1063016981
@@ -680,6 +682,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 0
     m_RotationOrder: 4
+  opponent: {fileID: 1243797385}
 --- !u!61 &1063016982
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -919,6 +922,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1fb1e7411389d40bc9840f84aec73a2e, type: 3}
   - {fileID: 21300000, guid: 346368033e8ae4ae98dcdbd1da5000db, type: 3}
   - {fileID: 21300000, guid: a8eb198f007e04e1586f8fd99a5c23d7, type: 3}
+  blockAnimation:
+  - {fileID: 21300000, guid: 1f40a5507680541c0952e2f50072a53a, type: 3}
   animationFinished: 0
   frameSpeed: 4
 --- !u!114 &1243797385
@@ -959,6 +964,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 0
     m_RotationOrder: 4
+  opponent: {fileID: 1063016981}
 --- !u!95 &1243797386
 Animator:
   serializedVersion: 3
