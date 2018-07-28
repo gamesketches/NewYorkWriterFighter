@@ -11,6 +11,7 @@ public class CharacterAnimator : MonoBehaviour {
 	public Sprite[] jumpAnimation;
 	public Sprite[] damageAnimation;
 	public Sprite[] blockAnimation;
+	public Sprite[] fallAnimation;
 
 	Sprite[] curAnimation;
 
@@ -64,6 +65,7 @@ public class CharacterAnimator : MonoBehaviour {
 				break;
 			case AnimationType.Attacking:
 			case AnimationType.Damage:
+			case AnimationType.Fall:
 				if(TimesUp()) {
 					curFrame++;
 					if(curFrame >= curAnimation.Length) {
@@ -129,6 +131,10 @@ public class CharacterAnimator : MonoBehaviour {
 			case AnimationType.Damage:
 				curAnimation = damageAnimation;
 				Debug.Log("Changed to damage state");
+				animationFinished = true;
+				break;
+			case AnimationType.Fall:
+				curAnimation = fallAnimation;
 				animationFinished = true;
 				break;
 			/*case AnimationType.PreJump:

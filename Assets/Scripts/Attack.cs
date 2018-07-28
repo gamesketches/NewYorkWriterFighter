@@ -28,7 +28,7 @@ public class Attack : MonoBehaviour {
 	int curFrame;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		hitBoxController = transform.parent.GetChild(0).gameObject.GetComponent<HitBoxController>();
 		hurtBoxController = transform.parent.GetChild(1).gameObject.GetComponent<HurtBoxController>();	
 	

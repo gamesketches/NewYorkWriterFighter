@@ -23,12 +23,13 @@ public class FighterController : MonoBehaviour {
 		state = MovementState.Standing;
 		//foreach(Transform child in transform) {
 			transform.GetChild(2).gameObject.SetActive(false);
+			transform.GetChild(3).gameObject.SetActive(false);
 		//}
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if(state == MovementState.Attacking) { 
+		if(state == MovementState.Attacking || state == MovementState.KnockedDown) { 
 			if(animator.animationFinished) {
 				state = MovementState.Standing;
 			}
@@ -78,6 +79,10 @@ public class FighterController : MonoBehaviour {
 			state = MovementState.Attacking;
 			transform.GetChild(2).gameObject.SetActive(true);
 		}
+		if(Input.GetButtonDown(playerID + "HK")) {
+			state = MovementState.Attacking;
+			transform.GetChild(3).gameObject.SetActive(true);
+		}
 	}
 
 	public void MoveRight(float distance) {
@@ -116,9 +121,16 @@ public class FighterController : MonoBehaviour {
 			yield return new WaitForSeconds(attackData.blockStun);
 		}
 		else {
-			animator.SwitchAnimation("Damage");
-			state = MovementState.Recoiling;
-			yield return new WaitForSeconds(attackData.hitStun);
+			if(attackData.knockdown) {
+				animator.SwitchAnimation("Fall");
+				state = MovementState.KnockedDown;
+				while(!animator.animationFinished) yield return null;
+			}
+			else {
+				animator.SwitchAnimation("Damage");
+				state = MovementState.Recoiling;
+				yield return new WaitForSeconds(attackData.hitStun);
+			}
 		}
 		state = MovementState.Standing;
 	}

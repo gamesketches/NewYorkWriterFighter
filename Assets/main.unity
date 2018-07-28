@@ -287,6 +287,7 @@ MonoBehaviour:
   knockBack: 1
   hitStop: 0.1
   hitStun: 1
+  blockStun: 0
 --- !u!1 &412253861
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,6 +538,79 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1022072731
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1022072732}
+  - component: {fileID: 1022072733}
+  m_Layer: 8
+  m_Name: HeavyKick
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1022072732
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1022072731}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1063016979}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1022072733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1022072731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36dcb642c15854f188b2d3afe95ba089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frames:
+  - sprite: {fileID: 21300000, guid: 014875de29b434ef6817bb53030b52b6, type: 3}
+    hitBoxes: []
+    hurtBoxes: []
+  - sprite: {fileID: 21300000, guid: ef9228ff9d6d64ee391b9bebb3a11268, type: 3}
+    hitBoxes: []
+    hurtBoxes: []
+  - sprite: {fileID: 21300000, guid: 509863acf4bff4a1184183577a5a8dd1, type: 3}
+    hitBoxes: []
+    hurtBoxes: []
+  - sprite: {fileID: 21300000, guid: 849b4a6c1672946f39a55e721d11530c, type: 3}
+    hitBoxes:
+    - serializedVersion: 2
+      x: 1
+      y: 0
+      width: 1
+      height: 1
+    hurtBoxes: []
+  - sprite: {fileID: 21300000, guid: 8bccc395ee27a44dd9ab4071477a66f9, type: 3}
+    hitBoxes:
+    - serializedVersion: 2
+      x: 1
+      y: 0
+      width: 1
+      height: 1
+    hurtBoxes: []
+  damage: 100
+  blockType: 0
+  knockdown: 1
+  knockBack: 4
+  hitStop: 0.2
+  hitStun: 3
+  blockStun: 1
 --- !u!1 &1063016976
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,6 +689,7 @@ Transform:
   - {fileID: 1137774115}
   - {fileID: 412253862}
   - {fileID: 409871279}
+  - {fileID: 1022072732}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -642,6 +717,12 @@ MonoBehaviour:
   damageAnimation: []
   blockAnimation:
   - {fileID: 21300000, guid: 1f40a5507680541c0952e2f50072a53a, type: 3}
+  fallAnimation:
+  - {fileID: 21300000, guid: 95e363b765dcf4eba9df01884fc9b8a5, type: 3}
+  - {fileID: 21300000, guid: c1402874b119c4b46a4ddf6cc8e56ad9, type: 3}
+  - {fileID: 21300000, guid: 49a06a660de164e47b34c5916a45bd67, type: 3}
+  - {fileID: 21300000, guid: 98c22324c7aa54d05a0de626981b0512, type: 3}
+  - {fileID: 21300000, guid: a1120e3f4fbb0463789d11ae96ceb620, type: 3}
   animationFinished: 0
   frameSpeed: 4
 --- !u!114 &1063016981
@@ -924,6 +1005,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a8eb198f007e04e1586f8fd99a5c23d7, type: 3}
   blockAnimation:
   - {fileID: 21300000, guid: 1f40a5507680541c0952e2f50072a53a, type: 3}
+  fallAnimation:
+  - {fileID: 21300000, guid: 95e363b765dcf4eba9df01884fc9b8a5, type: 3}
+  - {fileID: 21300000, guid: c1402874b119c4b46a4ddf6cc8e56ad9, type: 3}
+  - {fileID: 21300000, guid: 49a06a660de164e47b34c5916a45bd67, type: 3}
+  - {fileID: 21300000, guid: 98c22324c7aa54d05a0de626981b0512, type: 3}
+  - {fileID: 21300000, guid: a1120e3f4fbb0463789d11ae96ceb620, type: 3}
   animationFinished: 0
   frameSpeed: 4
 --- !u!114 &1243797385
