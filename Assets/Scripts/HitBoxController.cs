@@ -41,6 +41,6 @@ public class HitBoxController : MonoBehaviour {
 		foreach(BoxCollider2D collider in colliders) {
 			collider.enabled = false;
 		}
-		attackData = new AttackData(0, BlockType.Mid, false, 0, 0, 0);
+		attackData = new AttackData(0, BlockType.Mid, false, 0, 0, 0, 0);
 	}
 }

@@ -19,6 +19,7 @@ public class Attack : MonoBehaviour {
 	public float knockBack;
 	public float hitStop;
 	public float hitStun;
+	public float blockStun;
 
 	public AttackData attackData;
 
@@ -31,7 +32,7 @@ public class Attack : MonoBehaviour {
 		hitBoxController = transform.parent.GetChild(0).gameObject.GetComponent<HitBoxController>();
 		hurtBoxController = transform.parent.GetChild(1).gameObject.GetComponent<HurtBoxController>();	
 	
-		attackData = new AttackData(damage, blockType, knockdown, knockBack, hitStop, hitStun);
+		attackData = new AttackData(damage, blockType, knockdown, knockBack, hitStop, hitStun, blockStun);
 	}
 	
 	// Update is called once per frame
@@ -78,14 +79,16 @@ public struct AttackData {
 	public float knockBack;
 	public float hitStop;
 	public float hitStun;
+	public float blockStun;
 
-	public AttackData(int attackDamage, BlockType attackBlockType, bool knocksDown, float knockBackDistance, float hitStopTime, float hitStunTime) {
+	public AttackData(int attackDamage, BlockType attackBlockType, bool knocksDown, float knockBackDistance, float hitStopTime, float hitStunTime, float blockStunTime) {
 		damage = attackDamage;
 		blockType = attackBlockType;
 		knockdown = knocksDown;
 		knockBack = knockBackDistance;
 		hitStop = hitStopTime;
 		hitStun = hitStunTime;
+		blockStun = blockStunTime;
 	}
 }
 
