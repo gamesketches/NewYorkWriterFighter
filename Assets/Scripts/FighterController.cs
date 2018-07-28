@@ -27,7 +27,12 @@ public class FighterController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
+		if(state == MovementState.Attacking) { 
+			if(animator.animationFinished) {
+				state = MovementState.Standing;
+			}
+		}
 		CheckButtonInput();
 		CheckDirectionalInput();
 	}
