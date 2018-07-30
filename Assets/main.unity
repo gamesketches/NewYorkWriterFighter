@@ -722,6 +722,7 @@ Transform:
   - {fileID: 412253862}
   - {fileID: 409871279}
   - {fileID: 1022072732}
+  - {fileID: 1906960055}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1205,7 +1206,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 6
 --- !u!1 &1320201327
 GameObject:
   m_ObjectHideFlags: 0
@@ -1246,3 +1247,84 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1dfbf5ea8bec49a093da9b47dc87c48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1906960054
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1906960055}
+  - component: {fileID: 1906960056}
+  m_Layer: 8
+  m_Name: jumpPunch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1906960055
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1906960054}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1063016979}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1906960056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1906960054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36dcb642c15854f188b2d3afe95ba089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frames:
+  - sprite: {fileID: 21300000, guid: 5aa73f734bde24e568ad4385c0c7a99c, type: 3}
+    hitBoxes: []
+    hurtBoxes: []
+  - sprite: {fileID: 21300000, guid: 44355b138136c455fa71308105d4250c, type: 3}
+    hitBoxes: []
+    hurtBoxes: []
+  - sprite: {fileID: 21300000, guid: 6815a6595d5bb485f92e01c410622ab5, type: 3}
+    hitBoxes: []
+    hurtBoxes: []
+  - sprite: {fileID: 21300000, guid: 406020937f8354f8499bd690ce0123c2, type: 3}
+    hitBoxes:
+    - serializedVersion: 2
+      x: 1
+      y: 0
+      width: 1
+      height: 1
+    hurtBoxes: []
+  - sprite: {fileID: 21300000, guid: a9d102e88e0684725bd63feba2b8afaa, type: 3}
+    hitBoxes:
+    - serializedVersion: 2
+      x: 1
+      y: 0
+      width: 1
+      height: 1
+    hurtBoxes: []
+  - sprite: {fileID: 21300000, guid: aeea0ed8b61124793b65a39fa387f4cc, type: 3}
+    hitBoxes:
+    - serializedVersion: 2
+      x: 1
+      y: 0
+      width: 1
+      height: 1
+    hurtBoxes: []
+  damage: 40
+  blockType: 2
+  knockdown: 0
+  knockBack: 4
+  hitStop: 0.2
+  hitStun: 1
+  blockStun: 2

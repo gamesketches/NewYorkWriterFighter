@@ -78,8 +78,11 @@ public class FighterController : MonoBehaviour {
 	void CheckButtonInput() {
 		string playerID = identity.ToString();
 		if(Input.GetButtonDown(playerID + "LP")) {
+			if(state == MovementState.Jumping) {
+				transform.GetChild(4).gameObject.SetActive(true);
+			}
+			else transform.GetChild(2).gameObject.SetActive(true);
 			state = MovementState.Attacking;
-			transform.GetChild(2).gameObject.SetActive(true);
 		}
 		if(Input.GetButtonDown(playerID + "HK")) {
 			state = MovementState.Attacking;
@@ -111,6 +114,10 @@ public class FighterController : MonoBehaviour {
 			}
 			if(jumpDirection != 0) temp.x += (walkSpeed * Time.deltaTime * jumpDirection);
 			transform.position = temp;
+			if(animator.animationFinished) {
+				animator.SwitchAnimation("Jump");
+				state = MovementState.Jumping;
+			}
 			yield return null;
 		}
 		temp.y = groundedY;
