@@ -6,16 +6,18 @@ public class HurtBoxController : MonoBehaviour {
 
 	BoxCollider2D[] colliders;
 	FighterController player;
+	bool hitThisFrame;
 
 	// Use this for initialization
 	void Start () {
+		hitThisFrame = false;
 		colliders = GetComponents<BoxCollider2D>();
 		player = transform.parent.gameObject.GetComponent<FighterController>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void FixedUpdate () {
+		hitThisFrame = false;
 	}
 
 	public void UpdateHurtBoxes(Rect[] dimensions) {
@@ -32,12 +34,16 @@ public class HurtBoxController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		AttackData data = other.gameObject.GetComponent<HitBoxController>().GetAttackData();
-		
-		StartCoroutine(player.GetHit(data));
-		StartCoroutine(HitStop(data.hitStop));
+		if(!hitThisFrame){
+			hitThisFrame = true;
+			AttackData data = other.gameObject.GetComponent<HitBoxController>().GetAttackData();
+			StartCoroutine(player.GetHit(data));
+			StartCoroutine(HitStop(data.hitStop));
+		}
+	}
 
-		
+	void OnTriggerExit2D(Collider2D other) {
+		Debug.Log("Trigger exited");
 	}
 
 	IEnumerator HitStop(float hitStopTime) {

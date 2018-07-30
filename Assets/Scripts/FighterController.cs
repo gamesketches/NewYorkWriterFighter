@@ -29,13 +29,15 @@ public class FighterController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if(state == MovementState.Attacking || state == MovementState.KnockedDown) { 
+		if(state == MovementState.Attacking ) { 
 			if(animator.animationFinished) {
 				state = MovementState.Standing;
 			}
 		}
-		CheckButtonInput();
-		CheckDirectionalInput();
+		else if(state != MovementState.KnockedDown){
+			CheckButtonInput();
+			CheckDirectionalInput();
+		}
 	}
 
 	void CheckDirectionalInput() {
@@ -117,6 +119,7 @@ public class FighterController : MonoBehaviour {
 	} 
 
 	public IEnumerator GetHit(AttackData attackData) {
+		Debug.Log("Hit");
 		if(SuccessfulBlock(attackData.blockType)) {
 			yield return new WaitForSeconds(attackData.blockStun);
 		}
@@ -125,6 +128,7 @@ public class FighterController : MonoBehaviour {
 				animator.SwitchAnimation("Fall");
 				state = MovementState.KnockedDown;
 				while(!animator.animationFinished) yield return null;
+				yield return new WaitForSeconds(1);
 			}
 			else {
 				animator.SwitchAnimation("Damage");

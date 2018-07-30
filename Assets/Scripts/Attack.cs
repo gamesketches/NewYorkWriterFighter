@@ -26,6 +26,7 @@ public class Attack : MonoBehaviour {
 	HitBoxController hitBoxController;
 	HurtBoxController hurtBoxController;
 	int curFrame;
+	int frameCounter = 0;
 
 	// Use this for initialization
 	void Awake () {
@@ -37,14 +38,18 @@ public class Attack : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		curFrame++;
-		if(curFrame >= frames.Count) {
-			hitBoxController.EndAttack();
-			gameObject.SetActive(false);
-		}
-		else {
-			hitBoxController.UpdateHitBoxes(frames[curFrame].hitBoxes);
-			hurtBoxController.UpdateHurtBoxes(frames[curFrame].hurtBoxes);
+		frameCounter++;
+		if(frameCounter >= CharacterAnimator.frameSpeed) {
+			curFrame++;
+			if(curFrame >= frames.Count) {
+				hitBoxController.EndAttack();
+				gameObject.SetActive(false);
+			}
+			else {
+				hitBoxController.UpdateHitBoxes(frames[curFrame].hitBoxes);
+				hurtBoxController.UpdateHurtBoxes(frames[curFrame].hurtBoxes);
+			}
+			frameCounter = 0;
 		}
 	}
 

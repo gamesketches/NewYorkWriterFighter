@@ -23,7 +23,7 @@ public class CharacterAnimator : MonoBehaviour {
 	SpriteRenderer renderer;
 	AnimationType state;
 
-	public int frameSpeed;
+	public static int frameSpeed = 4;
 
 	// Use this for initialization
 	void Awake () {
@@ -35,6 +35,7 @@ public class CharacterAnimator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		//if(gameObject.name == "Character2") Debug.Log(state);
 		// Leaving this for lots of animation specific timing code/frame manipulations
 		switch(state) {
 			case AnimationType.Idle:
@@ -65,13 +66,22 @@ public class CharacterAnimator : MonoBehaviour {
 				break;
 			case AnimationType.Attacking:
 			case AnimationType.Damage:
-			case AnimationType.Fall:
 				if(TimesUp()) {
 					curFrame++;
 					if(curFrame >= curAnimation.Length) {
 						curFrame = 0;
 						animationFinished = true;
 						SwitchAnimation("Idle");
+					}
+					frameCounter = frameSpeed;
+				}
+				break;
+			case AnimationType.Fall:
+				if(TimesUp()) {
+					curFrame++;
+					if(curFrame >= curAnimation.Length) {
+						curFrame--;
+						animationFinished = true;
 					}
 					frameCounter = frameSpeed;
 				}
@@ -85,12 +95,6 @@ public class CharacterAnimator : MonoBehaviour {
 			case AnimationState.Land:
 				if(TimesUp()) {
 					animationFinished = true;
-				}
-				break;
-			case AnimationState.Glide:
-				if(TimesUp()) {
-					NextFrame();
-					frameCounter = 4;
 				}
 				break;
 			*/
@@ -135,7 +139,7 @@ public class CharacterAnimator : MonoBehaviour {
 				break;
 			case AnimationType.Fall:
 				curAnimation = fallAnimation;
-				animationFinished = true;
+				frameCounter = frameSpeed;
 				break;
 			/*case AnimationType.PreJump:
 				curAnimation = preJumpAnimation;

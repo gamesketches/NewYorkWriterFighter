@@ -283,7 +283,7 @@ MonoBehaviour:
     hurtBoxes: []
   damage: 10
   blockType: 0
-  knockdown: 0
+  knockdown: 1
   knockBack: 1
   hitStop: 0.1
   hitStun: 1
@@ -579,16 +579,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frames:
-  - sprite: {fileID: 21300000, guid: 014875de29b434ef6817bb53030b52b6, type: 3}
+  - sprite: {fileID: 21300000, guid: 3fb135beb08df43c884dda26411d9e05, type: 3}
     hitBoxes: []
     hurtBoxes: []
-  - sprite: {fileID: 21300000, guid: ef9228ff9d6d64ee391b9bebb3a11268, type: 3}
+  - sprite: {fileID: 21300000, guid: a06deb23aa673457a9401efa177ed88d, type: 3}
     hitBoxes: []
     hurtBoxes: []
-  - sprite: {fileID: 21300000, guid: 509863acf4bff4a1184183577a5a8dd1, type: 3}
+  - sprite: {fileID: 21300000, guid: 676806127a74040259ef37b59baf131f, type: 3}
     hitBoxes: []
     hurtBoxes: []
-  - sprite: {fileID: 21300000, guid: 849b4a6c1672946f39a55e721d11530c, type: 3}
+  - sprite: {fileID: 21300000, guid: bf506d31d6e2d41f2bf5f6ceb4f45f17, type: 3}
     hitBoxes:
     - serializedVersion: 2
       x: 1
@@ -596,7 +596,39 @@ MonoBehaviour:
       width: 1
       height: 1
     hurtBoxes: []
-  - sprite: {fileID: 21300000, guid: 8bccc395ee27a44dd9ab4071477a66f9, type: 3}
+  - sprite: {fileID: 21300000, guid: c5f45846f558a4ae6a39005f58c5feb2, type: 3}
+    hitBoxes:
+    - serializedVersion: 2
+      x: 1
+      y: 0
+      width: 1
+      height: 1
+    hurtBoxes: []
+  - sprite: {fileID: 21300000, guid: 538c0cc336fac4f32a54db9778cade55, type: 3}
+    hitBoxes:
+    - serializedVersion: 2
+      x: 1
+      y: 0
+      width: 1
+      height: 1
+    hurtBoxes: []
+  - sprite: {fileID: 21300000, guid: e6f207ac42ad44fd5a26cad6b23458a2, type: 3}
+    hitBoxes:
+    - serializedVersion: 2
+      x: 1
+      y: 0
+      width: 1
+      height: 1
+    hurtBoxes: []
+  - sprite: {fileID: 21300000, guid: 65dcb1021e09f4f22a56f74eb8eb3520, type: 3}
+    hitBoxes:
+    - serializedVersion: 2
+      x: 1
+      y: 0
+      width: 1
+      height: 1
+    hurtBoxes: []
+  - sprite: {fileID: 21300000, guid: 41d482740056f4a1eb66d86911c3f5ae, type: 3}
     hitBoxes:
     - serializedVersion: 2
       x: 1
@@ -724,7 +756,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 98c22324c7aa54d05a0de626981b0512, type: 3}
   - {fileID: 21300000, guid: a1120e3f4fbb0463789d11ae96ceb620, type: 3}
   animationFinished: 0
-  frameSpeed: 4
 --- !u!114 &1063016981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1012,7 +1043,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 98c22324c7aa54d05a0de626981b0512, type: 3}
   - {fileID: 21300000, guid: a1120e3f4fbb0463789d11ae96ceb620, type: 3}
   animationFinished: 0
-  frameSpeed: 4
 --- !u!114 &1243797385
 MonoBehaviour:
   m_ObjectHideFlags: 0
