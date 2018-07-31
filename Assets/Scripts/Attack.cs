@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum BlockType {Mid, Low, Overhead};
-public enum AttackButtons {LP, MP, HP, LK, MK, HK};
+public enum AttackButton {LP, MP, HP, LK, MK, HK, JP, JK};
 
 [ExecuteInEditMode]
 public class Attack : MonoBehaviour {

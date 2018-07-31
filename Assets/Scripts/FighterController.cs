@@ -78,10 +78,9 @@ public class FighterController : MonoBehaviour {
 	void CheckButtonInput() {
 		string playerID = identity.ToString();
 		if(Input.GetButtonDown(playerID + "LP")) {
-			if(state == MovementState.Jumping) {
-				transform.GetChild(4).gameObject.SetActive(true);
+			if(!IsJumpAttack("LP")) {
+				transform.GetChild(GetButtonIndex("LP")).gameObject.SetActive(true);
 			}
-			else transform.GetChild(2).gameObject.SetActive(true);
 			state = MovementState.Attacking;
 		}
 		if(Input.GetButtonDown(playerID + "HK")) {
@@ -175,4 +174,22 @@ public class FighterController : MonoBehaviour {
 	public MovementState GetState() {
 		return state;
 	}
+
+	int GetButtonIndex(string button) {
+		AttackButton theButton = (AttackButton)System.Enum.Parse(typeof(AttackButton), button);
+		return (int)theButton + 2;
+	}
+
+	bool IsJumpAttack(string button) {
+		if(state != MovementState.Jumping) return false;
+		else if(button == "LP" || button == "MP" || button == "HP") {
+			transform.GetChild(GetButtonIndex("JP")).gameObject.SetActive(true);
+		}
+		else if(button == "LK" || button == "MK" || button == "HK") {
+			transform.GetChild(GetButtonIndex("JK")).gameObject.SetActive(true);
+		}
+
+		return true;
+	}
+		
 }
