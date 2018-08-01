@@ -25,11 +25,11 @@ public class Attack : MonoBehaviour {
 
 	HitBoxController hitBoxController;
 	HurtBoxController hurtBoxController;
-	int curFrame;
-	int frameCounter = 0;
+	protected int curFrame;
+	protected int frameCounter = 0;
 
 	// Use this for initialization
-	void Awake () {
+	virtual public void Awake () {
 		hitBoxController = transform.parent.GetChild(0).gameObject.GetComponent<HitBoxController>();
 		hurtBoxController = transform.parent.GetChild(1).gameObject.GetComponent<HurtBoxController>();	
 	
@@ -53,7 +53,7 @@ public class Attack : MonoBehaviour {
 		}
 	}
 
-	void OnEnable() {
+	virtual public void OnEnable() {
 		curFrame = 0;
 		transform.parent.GetComponent<CharacterAnimator>().AttackAnimation(GetSprites());
 		hitBoxController.UpdateAttackData(attackData);
