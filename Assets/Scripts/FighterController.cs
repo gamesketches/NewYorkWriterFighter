@@ -181,9 +181,11 @@ public class FighterController : MonoBehaviour {
 				return true;
 			break;
 			case BlockType.Overhead:
-				return false;
+				if(state == MovementState.Blocking) return true;
+				break;
 			case BlockType.Low:
-				return false;
+				if(state == MovementState.CrouchBlocking) return true;
+				break;
 		}
 		return false;
 	}

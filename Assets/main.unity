@@ -905,6 +905,8 @@ MonoBehaviour:
   damageAnimation: []
   blockAnimation:
   - {fileID: 21300000, guid: 1f40a5507680541c0952e2f50072a53a, type: 3}
+  crouchBlockAnimation:
+  - {fileID: 21300000, guid: b3f9abaff9b344c3da37c2a81b37f087, type: 3}
   fallAnimation:
   - {fileID: 21300000, guid: 95e363b765dcf4eba9df01884fc9b8a5, type: 3}
   - {fileID: 21300000, guid: c1402874b119c4b46a4ddf6cc8e56ad9, type: 3}
@@ -1426,6 +1428,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a8eb198f007e04e1586f8fd99a5c23d7, type: 3}
   blockAnimation:
   - {fileID: 21300000, guid: 1f40a5507680541c0952e2f50072a53a, type: 3}
+  crouchBlockAnimation: []
   fallAnimation:
   - {fileID: 21300000, guid: 95e363b765dcf4eba9df01884fc9b8a5, type: 3}
   - {fileID: 21300000, guid: c1402874b119c4b46a4ddf6cc8e56ad9, type: 3}
