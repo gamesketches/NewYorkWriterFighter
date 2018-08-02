@@ -33,8 +33,9 @@ public class ProjectileController : MonoBehaviour {
 		transform.Translate(direction * Time.fixedDeltaTime, 0, 0);
 	}
 
-	public void SetValues(Sprite[] fireballFrames) {
+	public void SetValues(Sprite[] fireballFrames, AttackData fireballAttackData) {
 		frames = fireballFrames;
+		attackData = fireballAttackData;
 	}
 
 	public AttackData GetAttackData() {

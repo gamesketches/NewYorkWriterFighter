@@ -23,7 +23,7 @@ public class ProjectileAttack : Attack {
 			}
 			else if(curFrame == activeFrame) {
 				GameObject tempProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
-				tempProjectile.GetComponent<ProjectileController>().SetValues(projectileFrames);
+				tempProjectile.GetComponent<ProjectileController>().SetValues(projectileFrames, attackData);
 				tempProjectile.layer = transform.parent.parent.GetChild(0).gameObject.layer;
 				frameCounter = 0;
 			}
