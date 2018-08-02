@@ -23,6 +23,7 @@ public class CharacterAnimator : MonoBehaviour {
 
 	SpriteRenderer renderer;
 	AnimationType state;
+	public AnimationType nextState;
 
 	public static int frameSpeed = 4;
 
@@ -43,6 +44,7 @@ public class CharacterAnimator : MonoBehaviour {
 			case AnimationType.Block:
 			case AnimationType.CrouchBlock:
 				LoopingAnimation();
+				nextState = AnimationType.Idle;
 				break;
 				/*if(TimesUp()) {
 					NextFrame();
@@ -72,7 +74,8 @@ public class CharacterAnimator : MonoBehaviour {
 					if(curFrame >= curAnimation.Length) {
 						curFrame = 0;
 						animationFinished = true;
-						SwitchAnimation("Idle");
+						SwitchAnimation(nextState.ToString());
+						//SwitchAnimation("Idle");
 					}
 					frameCounter = frameSpeed;
 				}

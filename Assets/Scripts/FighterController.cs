@@ -36,7 +36,11 @@ public class FighterController : MonoBehaviour {
 	void FixedUpdate () {
 		if(state == MovementState.Attacking ) { 
 			if(animator.animationFinished) {
-				state = MovementState.Standing;
+				if(VerticalInput() < 0) {
+					animator.SwitchAnimation("Crouch"); 
+					state = MovementState.Crouching;
+				}
+				else state = MovementState.Standing;
 			}
 		}
 		else if(state != MovementState.KnockedDown){
@@ -98,7 +102,7 @@ public class FighterController : MonoBehaviour {
 			attackButton = "HK";
 		}
 		if(attackButton != "none") {
-			if(!IsJumpAttack(attackButton)) {
+			if(!IsJumpAttack(attackButton) && !IsCrouchAttack(attackButton)) {
 				attacks.GetChild(GetButtonIndex(attackButton)).gameObject.SetActive(true);
 			}
 			state = MovementState.Attacking;
@@ -179,7 +183,6 @@ public class FighterController : MonoBehaviour {
 		switch(blockType) {
 			case BlockType.Mid:
 				return true;
-			break;
 			case BlockType.Overhead:
 				if(state == MovementState.Blocking) return true;
 				break;
@@ -198,6 +201,19 @@ public class FighterController : MonoBehaviour {
 		else if(button == "LK" || button == "MK" || button == "HK") {
 			attacks.GetChild(GetButtonIndex("JK")).gameObject.SetActive(true);
 		}
+
+		return true;
+	}
+
+	bool IsCrouchAttack(string button) {
+		if(state != MovementState.Crouching) return false;
+		else if(button == "LP" || button == "MP" || button == "HP") {
+			attacks.GetChild(GetButtonIndex("CRP")).gameObject.SetActive(true);
+		}
+		else if(button == "LK" || button == "MK" || button == "HK") {
+			attacks.GetChild(GetButtonIndex("CRK")).gameObject.SetActive(true);
+		}
+		animator.nextState = AnimationType.Crouch;
 
 		return true;
 	}
