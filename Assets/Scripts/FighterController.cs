@@ -20,13 +20,12 @@ public class FighterController : MonoBehaviour {
 	Transform attacks;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		animator = GetComponent<CharacterAnimator>();
 		state = MovementState.Standing;
 		attacks = transform.GetChild(2);
 		foreach(Transform child in attacks) {
-			attacks.GetChild(2).gameObject.SetActive(false);
-			attacks.GetChild(3).gameObject.SetActive(false);
+			child.gameObject.SetActive(false);
 		}
 	}
 	
