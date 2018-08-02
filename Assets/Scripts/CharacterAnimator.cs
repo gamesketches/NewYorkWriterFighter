@@ -160,11 +160,6 @@ public class CharacterAnimator : MonoBehaviour {
 				animationFinished = false;
 				frameCounter = 4;
 				break;
-			case AnimationType.Glide:
-				curAnimation = glideAnimation;
-				animationFinished = true;
-				frameCounter = 4;
-				break;
 			*/
 		}
 		curFrame = 0;
