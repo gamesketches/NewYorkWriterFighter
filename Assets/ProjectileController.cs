@@ -5,7 +5,6 @@ using UnityEngine;
 public class ProjectileController : MonoBehaviour {
 
 	int direction = 1;
-	int damage = 1;
 	float speed = 1;
 	AttackData attackData;
 	
@@ -30,11 +29,12 @@ public class ProjectileController : MonoBehaviour {
 			frameCounter = 0;
 		}
 		renderer.sprite = frames[curFrame];
-		transform.Translate(direction * Time.fixedDeltaTime, 0, 0);
+		transform.Translate(direction * speed * Time.fixedDeltaTime, 0, 0);
 	}
 
-	public void SetValues(Sprite[] fireballFrames, AttackData fireballAttackData) {
+	public void SetValues(Sprite[] fireballFrames, float newSpeed, AttackData fireballAttackData) {
 		frames = fireballFrames;
+		speed = newSpeed;
 		attackData = fireballAttackData;
 	}
 

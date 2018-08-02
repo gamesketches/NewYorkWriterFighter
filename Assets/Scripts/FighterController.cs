@@ -18,15 +18,18 @@ public class FighterController : MonoBehaviour {
 	public AnimationCurve jumpY;
 	public FighterController opponent;
 	Transform attacks;
+	SpriteRenderer renderer;
 
 	// Use this for initialization
 	void Awake () {
 		animator = GetComponent<CharacterAnimator>();
 		state = MovementState.Standing;
 		attacks = transform.GetChild(2);
+		leftSide = identity == playerNumber.P1;
 		foreach(Transform child in attacks) {
 			child.gameObject.SetActive(false);
 		}
+		renderer = GetComponent<SpriteRenderer>();
 	}
 	
 	// Update is called once per frame
@@ -39,6 +42,7 @@ public class FighterController : MonoBehaviour {
 		else if(state != MovementState.KnockedDown){
 			CheckButtonInput();
 			CheckDirectionalInput();
+			if(state != MovementState.Jumping) AdjustFacing();
 		}
 	}
 
@@ -171,29 +175,7 @@ public class FighterController : MonoBehaviour {
 		}
 		return false;
 	}
-
-	float HorizontalInput() {
-		return Input.GetAxisRaw(identity.ToString() + "Horizontal");
-	}
-
-	float VerticalInput() {
-		return Input.GetAxisRaw(identity.ToString() + "Vertical");
-	}
-
-	bool HoldingBack() {
-		if(leftSide) return HorizontalInput() < 0;
-		else return HorizontalInput() > 0;
-	} 
-
-	public MovementState GetState() {
-		return state;
-	}
-
-	int GetButtonIndex(string button) {
-		AttackButton theButton = (AttackButton)System.Enum.Parse(typeof(AttackButton), button);
-		return (int)theButton;
-	}
-
+	
 	bool IsJumpAttack(string button) {
 		if(state != MovementState.Jumping) return false;
 		else if(button == "LP" || button == "MP" || button == "HP") {
@@ -218,5 +200,34 @@ public class FighterController : MonoBehaviour {
 		}
 		return false;
 	}
+
+	void AdjustFacing() {
+		leftSide =  transform.position.x < opponent.transform.position.x; 
+		renderer.flipX = !leftSide;
+	}
+
+	float HorizontalInput() {
+		return Input.GetAxisRaw(identity.ToString() + "Horizontal");
+	}
+
+	float VerticalInput() {
+		return Input.GetAxisRaw(identity.ToString() + "Vertical");
+	}
+
+	bool HoldingBack() {
+		if(leftSide) return HorizontalInput() < 0;
+		else return HorizontalInput() > 0;
+	} 
+
+	public MovementState GetState() {
+		return state;
+	}
+
+	int GetButtonIndex(string button) {
+		AttackButton theButton = (AttackButton)System.Enum.Parse(typeof(AttackButton), button);
+		return (int)theButton;
+	}
+
+	
 	
 }

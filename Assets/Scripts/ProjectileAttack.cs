@@ -5,6 +5,7 @@ using UnityEngine;
 public class ProjectileAttack : Attack {
 
 	public int activeFrame;
+	public float speed;
 	public GameObject projectile;
 
 	public Sprite[] projectileFrames;
@@ -23,7 +24,7 @@ public class ProjectileAttack : Attack {
 			}
 			else if(curFrame == activeFrame) {
 				GameObject tempProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
-				tempProjectile.GetComponent<ProjectileController>().SetValues(projectileFrames, attackData);
+				tempProjectile.GetComponent<ProjectileController>().SetValues(projectileFrames, speed, attackData);
 				tempProjectile.layer = transform.parent.parent.GetChild(0).gameObject.layer;
 				frameCounter = 0;
 			}
