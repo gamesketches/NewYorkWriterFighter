@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum playerNumber {P1, P2};
-public enum MovementState {Standing, Crouching, Jumping, Attacking, KnockedDown, Recoiling, Blocking};
+public enum MovementState {Standing, Crouching, Jumping, Attacking, KnockedDown, Recoiling, Blocking, CrouchBlocking};
 public class FighterController : MonoBehaviour {
 
 	static float jumpHeight = 2.37f;
@@ -55,8 +55,7 @@ public class FighterController : MonoBehaviour {
 			Debug.Log("taking damage");
 		}
 		else if(opponent.GetState() == MovementState.Attacking && HoldingBack()) {
-			state = MovementState.Blocking;
-			animator.SwitchAnimation("Block");
+			Block();
 		}
 		else if(VerticalInput() < 0) {
 			animator.SwitchAnimation("Crouch");
@@ -142,6 +141,17 @@ public class FighterController : MonoBehaviour {
 		state = MovementState.Standing;
 	} 
 
+	void Block() {
+		if(VerticalInput() < 0) {
+			state = MovementState.CrouchBlocking;
+			animator.SwitchAnimation("CrouchBlock");
+		}
+		else {
+			state = MovementState.Blocking;
+			animator.SwitchAnimation("Block");
+		}
+	}
+
 	public IEnumerator GetHit(AttackData attackData) {
 		Debug.Log("Hit");
 		if(SuccessfulBlock(attackData.blockType)) {
@@ -167,11 +177,13 @@ public class FighterController : MonoBehaviour {
 		if(state != MovementState.Blocking) return false;
 	
 		switch(blockType) {
-			case BlockType.Overhead:
 			case BlockType.Mid:
-			case BlockType.Low:
 				return true;
 			break;
+			case BlockType.Overhead:
+				return false;
+			case BlockType.Low:
+				return false;
 		}
 		return false;
 	}

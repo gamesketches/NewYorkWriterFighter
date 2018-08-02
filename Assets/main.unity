@@ -886,7 +886,18 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4c3c2d77883074d2b9d9a71fe6029714, type: 3}
   - {fileID: 21300000, guid: fb7dd9f0b33a64d44acfd1725d19578b, type: 3}
   idleAnimation:
-  - {fileID: 21300000, guid: 3e71e0e577be24bc1b0a78a4b75e5116, type: 3}
+  - {fileID: 21300000, guid: 347776447c4c1443f95fbed15bbec553, type: 3}
+  - {fileID: 21300000, guid: d37adaf2645f84c8d9031dc4fd028b02, type: 3}
+  - {fileID: 21300000, guid: 25bf64015468e4f5d9c43c910a05aa24, type: 3}
+  - {fileID: 21300000, guid: 7517c085a4f7e4ce8ab27507c98ab290, type: 3}
+  - {fileID: 21300000, guid: 5d107931e1efa4d44b6114eaea7715a8, type: 3}
+  - {fileID: 21300000, guid: d3acfe83916f947f99832cada8e59dee, type: 3}
+  - {fileID: 21300000, guid: bd486732789fb426c95cac284d771b16, type: 3}
+  - {fileID: 21300000, guid: 0ce529ff10e0b494c8ccd819e509280b, type: 3}
+  - {fileID: 21300000, guid: 670fdf16b44434c379c39eecbf954a05, type: 3}
+  - {fileID: 21300000, guid: 585fcc06ffc8449c986398e7a471c108, type: 3}
+  - {fileID: 21300000, guid: 482caea2eef344f6b84e70a84877ddb6, type: 3}
+  - {fileID: 21300000, guid: a4600599785b64e0386df7686518cf14, type: 3}
   crouchAnimation:
   - {fileID: 21300000, guid: 21841ac30abe146afbedbdab524edf09, type: 3}
   jumpAnimation:
@@ -1359,6 +1370,7 @@ MonoBehaviour:
   hitStun: 2
   blockStun: 1
   activeFrame: 5
+  speed: 5
   projectile: {fileID: 1021068755710614, guid: ba40b72a841ce425fbd7b97a120181ee, type: 2}
   projectileFrames:
   - {fileID: 21300000, guid: 0c4fdee5bf4884c0db9a77655db894e0, type: 3}
