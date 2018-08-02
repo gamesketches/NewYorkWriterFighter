@@ -79,21 +79,25 @@ public class FighterController : MonoBehaviour {
 
 	void CheckButtonInput() {
 		string playerID = identity.ToString();
+		string attackButton = "none";
 		if(Input.GetButtonDown(playerID + "LP") && Input.GetButtonDown(playerID + "MP")) {
 			if(state != MovementState.Jumping) {
 				attacks.GetChild(attacks.childCount - 1).gameObject.SetActive(true);
 			}
 		}
 		else if(Input.GetButtonDown(playerID + "LP")) {
-			if(!IsJumpAttack("LP")) {
-				attacks.GetChild(GetButtonIndex("LP")).gameObject.SetActive(true);
+			attackButton = "LP";
+		}
+		if(Input.GetButtonDown(playerID + "HK")) {
+			attackButton = "HK";
+		}
+		if(attackButton != "none") {
+			if(!IsJumpAttack(attackButton)) {
+				attacks.GetChild(GetButtonIndex(attackButton)).gameObject.SetActive(true);
 			}
 			state = MovementState.Attacking;
 		}
-		if(Input.GetButtonDown(playerID + "HK")) {
-			state = MovementState.Attacking;
-			attacks.GetChild(GetButtonIndex("HK")).gameObject.SetActive(true);
-		}
+
 	}
 
 	public void MoveRight(float distance) {
@@ -190,10 +194,10 @@ public class FighterController : MonoBehaviour {
 	bool IsJumpAttack(string button) {
 		if(state != MovementState.Jumping) return false;
 		else if(button == "LP" || button == "MP" || button == "HP") {
-			transform.GetChild(GetButtonIndex("JP")).gameObject.SetActive(true);
+			attacks.GetChild(GetButtonIndex("JP")).gameObject.SetActive(true);
 		}
 		else if(button == "LK" || button == "MK" || button == "HK") {
-			transform.GetChild(GetButtonIndex("JK")).gameObject.SetActive(true);
+			attacks.GetChild(GetButtonIndex("JK")).gameObject.SetActive(true);
 		}
 
 		return true;
