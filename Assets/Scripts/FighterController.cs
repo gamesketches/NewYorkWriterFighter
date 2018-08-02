@@ -12,6 +12,7 @@ public class FighterController : MonoBehaviour {
 	public bool leftSide;
 	CharacterAnimator animator;
 	public float walkSpeed = 1;
+	public float throwDistance = 2;
 	public playerNumber identity;
 	MovementState state;
 	public AnimationCurve jumpY;
@@ -84,6 +85,9 @@ public class FighterController : MonoBehaviour {
 			if(state != MovementState.Jumping) {
 				attacks.GetChild(attacks.childCount - 1).gameObject.SetActive(true);
 			}
+		}
+		else if(CheckThrow()) {
+			Debug.Log("Throwin time");
 		}
 		else if(Input.GetButtonDown(playerID + "LP")) {
 			attackButton = "LP";
@@ -202,5 +206,18 @@ public class FighterController : MonoBehaviour {
 
 		return true;
 	}
-		
+
+	bool CheckThrow() {
+		string playerID = identity.ToString();
+		if(opponent.state == MovementState.Jumping || opponent.state == MovementState.KnockedDown ||
+			opponent.state == MovementState.Recoiling || !Input.GetButtonDown(playerID + "HP")) return false;
+		float distance = Vector3.Distance(transform.position, opponent.transform.position);
+		if(distance < throwDistance) {
+			AttackData throwData = new AttackData(100, BlockType.Mid, true, 0, 0, 0, 0);
+			StartCoroutine(opponent.GetHit(throwData));
+			return true;
+		}
+		return false;
+	}
+	
 }

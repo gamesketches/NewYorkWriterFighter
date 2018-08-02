@@ -914,6 +914,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftSide: 0
   walkSpeed: 2
+  throwDistance: 2
   identity: 0
   jumpY:
     serializedVersion: 2
@@ -1433,6 +1434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftSide: 0
   walkSpeed: 2
+  throwDistance: 1
   identity: 1
   jumpY:
     serializedVersion: 2

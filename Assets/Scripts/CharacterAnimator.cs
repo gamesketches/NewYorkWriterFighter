@@ -35,7 +35,6 @@ public class CharacterAnimator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		//if(gameObject.name == "Character2") Debug.Log(state);
 		// Leaving this for lots of animation specific timing code/frame manipulations
 		switch(state) {
 			case AnimationType.Idle:
