@@ -24,7 +24,7 @@ public class ProjectileController : MonoBehaviour {
 		frameCounter++;
 		if(frameCounter >= CharacterAnimator.frameSpeed) {
 			curFrame++;
-			if(curFrame >= frames.Length) {
+			if(curFrame >= frames.Length - 1) {
 				curFrame = 0;
 			}
 			frameCounter = 0;
@@ -35,5 +35,9 @@ public class ProjectileController : MonoBehaviour {
 
 	public void SetValues(Sprite[] fireballFrames) {
 		frames = fireballFrames;
+	}
+
+	public AttackData GetAttackData() {
+		return attackData;
 	}
 }

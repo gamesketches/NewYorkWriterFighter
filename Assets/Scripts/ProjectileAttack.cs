@@ -21,12 +21,14 @@ public class ProjectileAttack : Attack {
 			if(curFrame >= frames.Count) {
 				gameObject.SetActive(false);
 			}
+			else if(curFrame == activeFrame) {
+				GameObject tempProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
+				tempProjectile.GetComponent<ProjectileController>().SetValues(projectileFrames);
+				tempProjectile.layer = transform.parent.parent.GetChild(0).gameObject.layer;
+				frameCounter = 0;
+			}
 			frameCounter = 0;
 		}
-		else if(frameCounter == activeFrame) {
-			GameObject tempProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
-			tempProjectile.GetComponent<ProjectileController>().SetValues(projectileFrames);
-			frameCounter = 0;
-		}
+		
 	}
 }

@@ -30,8 +30,8 @@ public class Attack : MonoBehaviour {
 
 	// Use this for initialization
 	virtual public void Awake () {
-		hitBoxController = transform.parent.GetChild(0).gameObject.GetComponent<HitBoxController>();
-		hurtBoxController = transform.parent.GetChild(1).gameObject.GetComponent<HurtBoxController>();	
+		hitBoxController = transform.parent.parent.GetChild(0).gameObject.GetComponent<HitBoxController>();
+		hurtBoxController = transform.parent.parent.GetChild(1).gameObject.GetComponent<HurtBoxController>();	
 	
 		attackData = new AttackData(damage, blockType, knockdown, knockBack, hitStop, hitStun, blockStun);
 	}
@@ -55,7 +55,7 @@ public class Attack : MonoBehaviour {
 
 	virtual public void OnEnable() {
 		curFrame = 0;
-		transform.parent.GetComponent<CharacterAnimator>().AttackAnimation(GetSprites());
+		transform.parent.parent.GetComponent<CharacterAnimator>().AttackAnimation(GetSprites());
 		hitBoxController.UpdateAttackData(attackData);
 	}
 

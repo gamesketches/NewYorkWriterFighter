@@ -16,15 +16,17 @@ public class FighterController : MonoBehaviour {
 	MovementState state;
 	public AnimationCurve jumpY;
 	public FighterController opponent;
+	Transform attacks;
 
 	// Use this for initialization
 	void Start () {
 		animator = GetComponent<CharacterAnimator>();
 		state = MovementState.Standing;
-		//foreach(Transform child in transform) {
-			transform.GetChild(2).gameObject.SetActive(false);
-			transform.GetChild(3).gameObject.SetActive(false);
-		//}
+		attacks = transform.GetChild(2);
+		foreach(Transform child in attacks) {
+			attacks.GetChild(2).gameObject.SetActive(false);
+			attacks.GetChild(3).gameObject.SetActive(false);
+		}
 	}
 	
 	// Update is called once per frame
@@ -77,15 +79,20 @@ public class FighterController : MonoBehaviour {
 
 	void CheckButtonInput() {
 		string playerID = identity.ToString();
-		if(Input.GetButtonDown(playerID + "LP")) {
+		if(Input.GetButtonDown(playerID + "LP") && Input.GetButtonDown(playerID + "MP")) {
+			if(state != MovementState.Jumping) {
+				attacks.GetChild(attacks.childCount - 1).gameObject.SetActive(true);
+			}
+		}
+		else if(Input.GetButtonDown(playerID + "LP")) {
 			if(!IsJumpAttack("LP")) {
-				transform.GetChild(GetButtonIndex("LP")).gameObject.SetActive(true);
+				attacks.GetChild(GetButtonIndex("LP")).gameObject.SetActive(true);
 			}
 			state = MovementState.Attacking;
 		}
 		if(Input.GetButtonDown(playerID + "HK")) {
 			state = MovementState.Attacking;
-			transform.GetChild(3).gameObject.SetActive(true);
+			attacks.GetChild(GetButtonIndex("HK")).gameObject.SetActive(true);
 		}
 	}
 
@@ -177,7 +184,7 @@ public class FighterController : MonoBehaviour {
 
 	int GetButtonIndex(string button) {
 		AttackButton theButton = (AttackButton)System.Enum.Parse(typeof(AttackButton), button);
-		return (int)theButton + 2;
+		return (int)theButton;
 	}
 
 	bool IsJumpAttack(string button) {

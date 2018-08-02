@@ -36,7 +36,14 @@ public class HurtBoxController : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) {
 		if(!hitThisFrame){
 			hitThisFrame = true;
-			AttackData data = other.gameObject.GetComponent<HitBoxController>().GetAttackData();
+			AttackData data;
+			if(other.tag == "Projectile"){
+				data = other.gameObject.GetComponent<ProjectileController>().GetAttackData();
+				Destroy(other.gameObject);
+			}
+			else {
+				data = other.gameObject.GetComponent<HitBoxController>().GetAttackData();
+			}
 			StartCoroutine(player.GetHit(data));
 			StartCoroutine(HitStop(data.hitStop));
 		}
