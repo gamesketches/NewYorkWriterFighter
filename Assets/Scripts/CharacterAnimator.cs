@@ -168,7 +168,7 @@ public class CharacterAnimator : MonoBehaviour {
 	public void AttackAnimation(Sprite[] frames) {
 		state = AnimationType.Attacking;
 		curAnimation = frames;
-		frameCounter = frames.Length;
+		frameCounter = frameSpeed;
 		curFrame = 0;
 		animationFinished = false;
 	}

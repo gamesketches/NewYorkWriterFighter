@@ -26,7 +26,7 @@ public class Attack : MonoBehaviour {
 	HitBoxController hitBoxController;
 	HurtBoxController hurtBoxController;
 	protected int curFrame;
-	protected int frameCounter = 0;
+	protected int frameCounter = CharacterAnimator.frameSpeed;
 
 	// Use this for initialization
 	virtual public void Awake () {
@@ -38,8 +38,8 @@ public class Attack : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		frameCounter++;
-		if(frameCounter >= CharacterAnimator.frameSpeed) {
+		frameCounter--;
+		if(frameCounter < 0) {
 			curFrame++;
 			if(curFrame >= frames.Count) {
 				hitBoxController.EndAttack();
@@ -49,12 +49,13 @@ public class Attack : MonoBehaviour {
 				hitBoxController.UpdateHitBoxes(frames[curFrame].hitBoxes);
 				hurtBoxController.UpdateHurtBoxes(frames[curFrame].hurtBoxes);
 			}
-			frameCounter = 0;
+			frameCounter = CharacterAnimator.frameSpeed;
 		}
 	}
 
 	virtual public void OnEnable() {
 		curFrame = 0;
+		frameCounter = CharacterAnimator.frameSpeed;
 		transform.parent.parent.GetComponent<CharacterAnimator>().AttackAnimation(GetSprites());
 		hitBoxController.UpdateAttackData(attackData);
 	}
