@@ -169,6 +169,7 @@ public class CharacterAnimator : MonoBehaviour {
 		state = AnimationType.Attacking;
 		curAnimation = frames;
 		frameCounter = frames.Length;
+		curFrame = 0;
 		animationFinished = false;
 	}
 
