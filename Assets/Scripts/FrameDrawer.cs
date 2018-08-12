@@ -21,41 +21,20 @@ public class FrameDrawer : PropertyDrawer {
 
 		Sprite spriteTexture = (Sprite)spriteProp.objectReferenceValue;
 
+		Rect hitBoxLabelRect = new Rect(position.x + 30, position.y + 20, 60, 16);
+		Rect hurtBoxLabelRect = new Rect(position.x + 110, position.y + 20, 60, 16);
 
-		Rect hitBoxLabelRect = new Rect(position.x + 30, position.y, 60, 16);
-		Rect hurtBoxLabelRect = new Rect(position.x + 110, position.y, 60, 16);
-
-	/*	EditorGUI.BeginChangeCheck();
-		GUIStyle labelStyle = new GUIStyle(EditorStyles.numberField);
-		labelStyle.margin.left = 0;
-		EditorGUIUtility.labelWidth = 30;
-		int newSize = EditorGUI.IntField(hitBoxFieldRect, "Hit", hitBoxArraySize,labelStyle);
-
-		if(newSize < 0) newSize = 0;
-		if(EditorGUI.EndChangeCheck()){
-			hitBoxProp.arraySize = newSize;
-			hitBoxArraySize = newSize;
-		}
-		EditorGUIUtility.labelWidth = 120;
-		*/
-		Rect hitBoxInputRect = new Rect(position.x + 30, position.y + 20, 70, 16);
-		Rect hurtBoxInputRect = new Rect(position.x + 110, position.y + 20, 70, 16);
+		Rect hitBoxInputRect = new Rect(position.x + 30, position.y + 40, 70, 16);
+		Rect hurtBoxInputRect = new Rect(position.x + 110, position.y + 40, 70, 16);
 		Rect spriteRect = new Rect(position.x - 100, position.y, spriteSize, spriteSize);
+		Rect spriteObjRect = new Rect(position.x + 30, position.y, position.width - 30, 16);
 
+		EditorGUIUtility.labelWidth = 40;
+		EditorGUI.PropertyField(spriteObjRect, spriteProp);
+		EditorGUIUtility.labelWidth = 120;
 		EditorGUI.DrawTextureTransparent(spriteRect, spriteTexture.texture, ScaleMode.ScaleToFit);
 		DrawBoxInput("Hit", hitBoxLabelRect, hitBoxProp, hitBoxInputRect, spriteRect, new Color(1f, 0f, 0f, 0.3f));
 		DrawBoxInput("Hurt", hurtBoxLabelRect, hurtBoxProp, hurtBoxInputRect, spriteRect, new Color(0f, 1f, 0f, 0.3f));
-		/*for(int i = 0; i< hitBoxArraySize; i++) {
-			Rect hitBox = (Rect)hitBoxProp.GetArrayElementAtIndex(i).rectValue;
-			Rect temp = AdjustRectToSpriteDisplay(spriteRect, hitBox); 
-			EditorGUI.BeginChangeCheck();
-			Rect newRect = EditorGUI.RectField(hitBoxRect, hitBox);
-			if(EditorGUI.EndChangeCheck()) {
-				hitBoxProp.GetArrayElementAtIndex(i).rectValue = newRect;
-			}
-			EditorGUI.DrawRect(temp, new Color(1f, 0f, 0f, 0.3f));
-			hitBoxRect = new Rect(hitBoxRect.xMin, hitBoxRect.yMin + 35, 64, heightSize);
-		}*/
 
 		EditorGUI.indentLevel = indent;
 
@@ -95,7 +74,7 @@ public class FrameDrawer : PropertyDrawer {
 
 	Rect AdjustRectToSpriteDisplay(Rect spriteRect, Rect boxRect) {
 			float ppuScaling = ppu / 2;
-			return new Rect((boxRect.x * ppuScaling) + spriteRect.center.x, (boxRect.y * ppuScaling) + spriteRect.center.y,
+			return new Rect((boxRect.center.x  * ppuScaling) + spriteRect.center.x - (boxRect.width * ppuScaling), (-boxRect.center.y * ppuScaling) + spriteRect.center.y,
 									boxRect.width * ppuScaling, boxRect.height * ppuScaling);
 	}
 

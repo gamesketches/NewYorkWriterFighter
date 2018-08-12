@@ -330,7 +330,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frames:
   - sprite: {fileID: 21300000, guid: 014875de29b434ef6817bb53030b52b6, type: 3}
-    hitBoxes: []
+    hitBoxes:
+    - serializedVersion: 2
+      x: 0
+      y: 0
+      width: 1
+      height: 1
     hurtBoxes: []
   - sprite: {fileID: 21300000, guid: ef9228ff9d6d64ee391b9bebb3a11268, type: 3}
     hitBoxes: []
@@ -341,8 +346,8 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: 849b4a6c1672946f39a55e721d11530c, type: 3}
     hitBoxes:
     - serializedVersion: 2
-      x: 1.1
-      y: -1
+      x: 2.3
+      y: 1.48
       width: 1
       height: 1
     hurtBoxes:
