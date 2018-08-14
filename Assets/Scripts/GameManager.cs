@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour {
 	int player2Wins;
 	public Image player1Bar;
 	public Image player2Bar;
+	public Text roundTimer;
+	float roundTime;
 	
 	FighterController player1;
 	FighterController player2;
@@ -23,6 +25,7 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		roundTime = 99.99f;
 		player1Bar.fillAmount = 0;
 		player2Bar.fillAmount = 0;
 		player1Life = totalLife;
@@ -31,8 +34,9 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void FixedUpdate () {
+		roundTime -= Time.fixedDeltaTime;
+		roundTimer.text = Mathf.Floor(roundTime).ToString();
 	}
 
 	IEnumerator StartRound() {
