@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 		player1Bar.fillAmount = 0;
 		player2Bar.fillAmount = 0;
+		player1Life = totalLife;
+		player2Life = totalLife;
 		StartCoroutine(StartRound());
 	}
 	
@@ -50,5 +52,28 @@ public class GameManager : MonoBehaviour {
 			yield return null;
 		}
 		lifeBar.fillAmount = targetFill;
+	}
+
+	public bool UpdateLifeBarCheckDeath(PlayerNumber playerNum, float lifeChange) {
+		player1Life -= lifeChange;
+		if(playerNum == PlayerNumber.P1) {
+			if(player1Life < 0) {
+				Debug.Log("Round over");
+				return true;
+			}	
+			else {
+				StartCoroutine(ChangeLifeAmount(player1Bar, (player1Life - lifeChange) / totalLife, 0.1f));
+			}
+		}
+		else if(playerNum == PlayerNumber.P2) {
+			if(player2Life < 0){
+				Debug.Log("Round over");
+				return true;
+			}	
+			else {
+				StartCoroutine(ChangeLifeAmount(player2Bar, (player2Life - lifeChange) / totalLife, 0.1f));
+			}
+		}	
+		return false;
 	}
 }

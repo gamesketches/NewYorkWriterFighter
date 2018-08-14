@@ -2,18 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum playerNumber {P1, P2};
+public enum PlayerNumber {P1, P2};
 public enum MovementState {Standing, Crouching, Jumping, Attacking, KnockedDown, Recoiling, Blocking, CrouchBlocking};
 public class FighterController : MonoBehaviour {
 
 	static float jumpHeight = 2.37f;
 	static int inputLeniency = 3;
+	static GameManager gameManager;
 	//[HideInInspector]
 	public bool leftSide;
 	CharacterAnimator animator;
 	public float walkSpeed = 1;
 	public float throwDistance = 2;
-	public playerNumber identity;
+	public PlayerNumber identity;
 	MovementState state;
 	public AnimationCurve jumpY;
 	public FighterController opponent;
@@ -25,11 +26,12 @@ public class FighterController : MonoBehaviour {
 		animator = GetComponent<CharacterAnimator>();
 		state = MovementState.Standing;
 		attacks = transform.GetChild(2);
-		leftSide = identity == playerNumber.P1;
+		leftSide = identity == PlayerNumber.P1;
 		foreach(Transform child in attacks) {
 			child.gameObject.SetActive(false);
 		}
 		renderer = GetComponent<SpriteRenderer>();
+		if(gameManager == null) gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 	}
 	
 	// Update is called once per frame
@@ -162,7 +164,14 @@ public class FighterController : MonoBehaviour {
 			yield return new WaitForSeconds(attackData.blockStun);
 		}
 		else {
-			if(attackData.knockdown) {
+			if(gameManager.UpdateLifeBarCheckDeath(identity, attackData.damage)) {
+				animator.SwitchAnimation("Fall");
+				state = MovementState.KnockedDown;
+				while(!animator.animationFinished) yield return null;
+				yield return new WaitForSeconds(1);
+
+			}	
+			else if(attackData.knockdown) {
 				animator.SwitchAnimation("Fall");
 				state = MovementState.KnockedDown;
 				while(!animator.animationFinished) yield return null;

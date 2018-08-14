@@ -642,7 +642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e95901c159a4ccfaf2f7ce4f04e7e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalLife: 0
+  totalLife: 100
   player1Bar: {fileID: 2020547140}
   player2Bar: {fileID: 991324586}
   RoundText: {fileID: 1479406421}
