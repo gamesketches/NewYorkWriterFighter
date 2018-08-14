@@ -55,8 +55,8 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public bool UpdateLifeBarCheckDeath(PlayerNumber playerNum, float lifeChange) {
-		player1Life -= lifeChange;
 		if(playerNum == PlayerNumber.P1) {
+			player1Life -= lifeChange;
 			if(player1Life < 0) {
 				Debug.Log("Round over");
 				return true;
@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 		else if(playerNum == PlayerNumber.P2) {
+			player2Life -= lifeChange;
 			if(player2Life < 0){
 				Debug.Log("Round over");
 				return true;

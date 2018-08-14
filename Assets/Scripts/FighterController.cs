@@ -165,6 +165,7 @@ public class FighterController : MonoBehaviour {
 		}
 		else {
 			if(gameManager.UpdateLifeBarCheckDeath(identity, attackData.damage)) {
+				Debug.Log("Killed");
 				animator.SwitchAnimation("Fall");
 				state = MovementState.KnockedDown;
 				while(!animator.animationFinished) yield return null;
