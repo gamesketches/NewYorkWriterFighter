@@ -8,12 +8,12 @@ public class GameManager : MonoBehaviour {
 	float player1Life;
 	float player2Life;
 	public float totalLife;
-	int player1Rounds;
 	int player1Wins;
-	int player2Rounds;
 	int player2Wins;
 	public Image player1Bar;
 	public Image player2Bar;
+	public GameObject player1WinIcons;
+	public GameObject player2WinIcons;
 	public Text roundTimer;
 	float roundTime;
 	
@@ -24,12 +24,11 @@ public class GameManager : MonoBehaviour {
 	public Text RoundText;
 
 	// Use this for initialization
-	void Start () {
-		roundTime = 99.99f;
-		player1Bar.fillAmount = 0;
-		player2Bar.fillAmount = 0;
-		player1Life = totalLife;
-		player2Life = totalLife;
+	void Awake () {
+		player1WinIcons.transform.GetChild(0).gameObject.SetActive(false);
+		player1WinIcons.transform.GetChild(1).gameObject.SetActive(false);
+		player2WinIcons.transform.GetChild(0).gameObject.SetActive(false);
+		player2WinIcons.transform.GetChild(1).gameObject.SetActive(false);
 		StartCoroutine(StartRound());
 	}
 	
@@ -40,6 +39,11 @@ public class GameManager : MonoBehaviour {
 	}
 
 	IEnumerator StartRound() {
+		roundTime = 99.99f;
+		player1Bar.fillAmount = 0;
+		player2Bar.fillAmount = 0;
+		player1Life = totalLife;
+		player2Life = totalLife;
 		StartCoroutine(ChangeLifeAmount(player1Bar, 1, 0.6f));
 		StartCoroutine(ChangeLifeAmount(player2Bar, 1, 0.6f));
 		RoundText.text = "Round 1";
@@ -51,6 +55,7 @@ public class GameManager : MonoBehaviour {
 
 	IEnumerator ChangeLifeAmount(Image lifeBar, float targetFill, float duration) {
 		float startFill = lifeBar.fillAmount;
+		targetFill = Mathf.Clamp(targetFill, 0, 1);
 		for(float t = 0; t < duration; t += Time.fixedDeltaTime) {
 			lifeBar.fillAmount = Mathf.Lerp(startFill, targetFill, t / duration);
 			yield return null;
@@ -61,24 +66,43 @@ public class GameManager : MonoBehaviour {
 	public bool UpdateLifeBarCheckDeath(PlayerNumber playerNum, float lifeChange) {
 		if(playerNum == PlayerNumber.P1) {
 			player1Life -= lifeChange;
+			StartCoroutine(ChangeLifeAmount(player1Bar, (player1Life - lifeChange) / totalLife, 0.1f));
 			if(player1Life < 0) {
-				Debug.Log("Round over");
+				UpdateRoundCounters(PlayerNumber.P2);
 				return true;
-			}	
-			else {
-				StartCoroutine(ChangeLifeAmount(player1Bar, (player1Life - lifeChange) / totalLife, 0.1f));
 			}
 		}
 		else if(playerNum == PlayerNumber.P2) {
 			player2Life -= lifeChange;
+			StartCoroutine(ChangeLifeAmount(player2Bar, (player2Life - lifeChange) / totalLife, 0.1f));
 			if(player2Life < 0){
-				Debug.Log("Round over");
+				UpdateRoundCounters(PlayerNumber.P1);
 				return true;
 			}	
-			else {
-				StartCoroutine(ChangeLifeAmount(player2Bar, (player2Life - lifeChange) / totalLife, 0.1f));
-			}
 		}	
 		return false;
+	}
+
+	void UpdateRoundCounters(PlayerNumber playerNum){
+		if(playerNum == PlayerNumber.P1) {
+			if(player1WinIcons.transform.GetChild(0).gameObject.activeSelf) {
+				player1WinIcons.transform.GetChild(1).gameObject.SetActive(true);
+				Debug.Log("Player 1 Wins");
+			}
+			else{
+				StartCoroutine(StartRound());
+				player1WinIcons.transform.GetChild(0).gameObject.SetActive(true);
+			}
+		}
+		else if(playerNum == PlayerNumber.P2) {
+			if(player2WinIcons.transform.GetChild(0).gameObject.activeSelf) {
+				player2WinIcons.transform.GetChild(1).gameObject.SetActive(true);
+				Debug.Log("Player 2 Wins");
+			}
+			else{
+				StartCoroutine(StartRound());
+				player2WinIcons.transform.GetChild(0).gameObject.SetActive(true);
+			}
+		}
 	}
 }
