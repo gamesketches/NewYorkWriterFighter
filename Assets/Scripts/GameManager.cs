@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum Character {Alexandra, Amy, Arabelle, Chelsea, Jia, Saeed, Tony, Rembert};
+
 public class GameManager : MonoBehaviour {
 
 	float player1Life;
@@ -16,6 +18,10 @@ public class GameManager : MonoBehaviour {
 	public GameObject player2WinIcons;
 	public Text roundTimer;
 	float roundTime;
+	public Vector3 player1StartPos;
+	public Vector3 player2StartPos;
+	public static Character player1Character;
+	public static Character player2Character;
 	
 	FighterController player1;
 	FighterController player2;
@@ -25,6 +31,8 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
+		player1Character = Character.Alexandra;
+		player2Character = Character.Alexandra;
 		player1WinIcons.transform.GetChild(0).gameObject.SetActive(false);
 		player1WinIcons.transform.GetChild(1).gameObject.SetActive(false);
 		player2WinIcons.transform.GetChild(0).gameObject.SetActive(false);
@@ -39,6 +47,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	IEnumerator StartRound() {
+		LoadCharacters();
 		roundTime = 99.99f;
 		player1Bar.fillAmount = 0;
 		player2Bar.fillAmount = 0;
@@ -104,5 +113,18 @@ public class GameManager : MonoBehaviour {
 				player2WinIcons.transform.GetChild(0).gameObject.SetActive(true);
 			}
 		}
+	}
+
+	void LoadCharacters() {
+		GameObject player1Obj = Instantiate((GameObject)Resources.Load(player1Character.ToString()));
+		player1Obj.transform.position = player1StartPos;
+		player1 = player1Obj.GetComponent<FighterController>();
+		GameObject player2Obj = Instantiate((GameObject)Resources.Load(player2Character.ToString()));
+		player2Obj.transform.position = player2StartPos;
+		player2 = player2Obj.GetComponent<FighterController>();
+		player2.identity = PlayerNumber.P2;
+		player2.opponent = player1;
+		player1.opponent = player2;
+		
 	}
 }
