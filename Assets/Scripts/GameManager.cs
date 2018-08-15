@@ -93,12 +93,14 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void UpdateRoundCounters(PlayerNumber playerNum){
+		FadeInScene sceneFader = GetComponent<FadeInScene>();
 		if(playerNum == PlayerNumber.P1) {
 			if(player1WinIcons.transform.GetChild(0).gameObject.activeSelf) {
 				player1WinIcons.transform.GetChild(1).gameObject.SetActive(true);
 				Debug.Log("Player 1 Wins");
 			}
 			else{
+				StartCoroutine(sceneFader.FadeInOut(2f));
 				StartCoroutine(StartRound());
 				player1WinIcons.transform.GetChild(0).gameObject.SetActive(true);
 			}
@@ -116,6 +118,8 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void LoadCharacters() {
+		if(player1 != null) Destroy(player1.gameObject);
+		if(player2 != null) Destroy(player2.gameObject);
 		GameObject player1Obj = Instantiate((GameObject)Resources.Load(player1Character.ToString()));
 		player1Obj.transform.position = player1StartPos;
 		player1 = player1Obj.GetComponent<FighterController>();

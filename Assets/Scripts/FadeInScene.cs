@@ -37,7 +37,7 @@ public class FadeInScene : MonoBehaviour {
 		BeginFade(-1);
 	}
 
-	public IEnumerator FadeScene(float duration) {
+	public IEnumerator FadeInOut(float duration) {
 		BeginFade(1);
 		yield return new WaitForSeconds(duration);
 		BeginFade(-1);
