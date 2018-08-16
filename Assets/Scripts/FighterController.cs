@@ -268,6 +268,17 @@ public class FighterController : MonoBehaviour {
 		return (int)theButton;
 	}
 
-	
-	
+	public void SetPlayerIdentity(PlayerNumber num) {
+		identity = num;
+		GameObject hitBoxes = transform.GetChild(0).gameObject;
+		GameObject hurtBoxes = transform.GetChild(1).gameObject;
+		if(num == PlayerNumber.P1) {
+			hitBoxes.layer = 9;
+			hurtBoxes.layer = 10;
+		}
+		else {
+			hitBoxes.layer = 11;
+			hurtBoxes.layer = 12;
+		}
+	}	
 }

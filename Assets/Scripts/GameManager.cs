@@ -123,12 +123,15 @@ public class GameManager : MonoBehaviour {
 		GameObject player1Obj = Instantiate((GameObject)Resources.Load(player1Character.ToString()));
 		player1Obj.transform.position = player1StartPos;
 		player1 = player1Obj.GetComponent<FighterController>();
+		player1.SetPlayerIdentity(PlayerNumber.P1);
 		GameObject player2Obj = Instantiate((GameObject)Resources.Load(player2Character.ToString()));
 		player2Obj.transform.position = player2StartPos;
 		player2 = player2Obj.GetComponent<FighterController>();
-		player2.identity = PlayerNumber.P2;
+		player2.SetPlayerIdentity(PlayerNumber.P2);
 		player2.opponent = player1;
 		player1.opponent = player2;
+
+		Camera.main.GetComponent<CameraController>().SetPlayerTransforms(player1.transform, player2.transform);
 		
 	}
 }

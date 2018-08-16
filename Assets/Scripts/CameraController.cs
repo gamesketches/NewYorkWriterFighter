@@ -22,4 +22,9 @@ public class CameraController : MonoBehaviour {
 		transform.position = new Vector3(Mathf.Lerp(Player1.position.x, Player2.position.x, 0.5f), transform.position.y, transform.position.z);
 		camera.orthographicSize = Mathf.Clamp(Mathf.Abs(Player1.position.x - Player2.position.x) - sizeOffset, minSize, maxSize);
 	}
+
+	public void SetPlayerTransforms(Transform player1, Transform player2) {
+		Player1 = player1;
+		Player2 = player2;
+	}
 }
