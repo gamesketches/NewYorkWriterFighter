@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject player2WinIcons;
 	public Text roundTimer;
 	float roundTime;
+	int roundCounter;
 	public Vector3 player1StartPos;
 	public Vector3 player2StartPos;
 	public static Character player1Character;
@@ -31,6 +32,7 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
+		roundCounter = 0;
 		player1Character = Character.Alexandra;
 		player2Character = Character.Alexandra;
 		player1WinIcons.transform.GetChild(0).gameObject.SetActive(false);
@@ -47,7 +49,10 @@ public class GameManager : MonoBehaviour {
 	}
 
 	IEnumerator StartRound() {
-		LoadCharacters();
+		if(roundCounter == 0)
+			LoadCharacters();
+		else 
+			ResetPlayers();
 		roundTime = 99.99f;
 		player1Bar.fillAmount = 0;
 		player2Bar.fillAmount = 0;
@@ -56,9 +61,9 @@ public class GameManager : MonoBehaviour {
 		StartCoroutine(ChangeLifeAmount(player1Bar, 1, 0.6f));
 		StartCoroutine(ChangeLifeAmount(player2Bar, 1, 0.6f));
 		RoundText.text = "Round 1";
-		yield return new WaitForSeconds(0.4f);
+		yield return new WaitForSecondsRealtime(0.4f);
 		RoundText.text = "Fight!";
-		yield return new WaitForSeconds(0.2f);
+		yield return new WaitForSecondsRealtime(0.2f);
 		RoundText.text = "";
 	}
 
@@ -100,6 +105,7 @@ public class GameManager : MonoBehaviour {
 				Debug.Log("Player 1 Wins");
 			}
 			else{
+				roundCounter++;
 				StartCoroutine(sceneFader.FadeInOut(2f));
 				StartCoroutine(StartRound());
 				player1WinIcons.transform.GetChild(0).gameObject.SetActive(true);
@@ -111,6 +117,7 @@ public class GameManager : MonoBehaviour {
 				Debug.Log("Player 2 Wins");
 			}
 			else{
+				roundCounter++;
 				StartCoroutine(StartRound());
 				player2WinIcons.transform.GetChild(0).gameObject.SetActive(true);
 			}
@@ -118,8 +125,6 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void LoadCharacters() {
-		if(player1 != null) Destroy(player1.gameObject);
-		if(player2 != null) Destroy(player2.gameObject);
 		GameObject player1Obj = Instantiate((GameObject)Resources.Load(player1Character.ToString()));
 		player1Obj.transform.position = player1StartPos;
 		player1 = player1Obj.GetComponent<FighterController>();
@@ -132,6 +137,10 @@ public class GameManager : MonoBehaviour {
 		player1.opponent = player2;
 
 		Camera.main.GetComponent<CameraController>().SetPlayerTransforms(player1.transform, player2.transform);
-		
+	}
+
+	void ResetPlayers() {
+		player1.transform.position = player1StartPos;
+		player2.transform.position = player2StartPos;
 	}
 }
