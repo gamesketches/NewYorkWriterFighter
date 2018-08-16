@@ -14,8 +14,11 @@ public class CursorLogic : MonoBehaviour {
 	public static float dragMoveTime = 0.3f;
 	float dragMoveTimer = 0;
 
+	bool selected;
+
 	// Use this for initialization
 	void Start () {
+		selected = false;
 		audio = GetComponent<AudioSource>();
 		if(identity == PlayerNumber.P1) {
 			childIndex = 0;
@@ -29,7 +32,7 @@ public class CursorLogic : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if(dragMoveTimer > 0) {
+		if(dragMoveTimer > 0 || selected) {
 			dragMoveTimer -= Time.fixedDeltaTime;
 			return;
 		}
@@ -59,11 +62,32 @@ public class CursorLogic : MonoBehaviour {
 			MoveCursor();
 		}
 
+		if(AnyButtonHit()) {
+			selected = true;
+			string characterName = portraits.GetChild(childIndex).gameObject.name;
+			Character theCharacter = (Character)System.Enum.Parse(typeof(Character), characterName);
+			if(identity == PlayerNumber.P1) {
+				GameManager.player1Character = theCharacter;
+			}
+			else {
+				GameManager.player2Character = theCharacter;
+			}
+		}
+
 		transform.position = portraits.GetChild(childIndex).position;
 	}
 	
 	void MoveCursor() {
 		audio.Play();
 		dragMoveTimer = dragMoveTime;
+	}
+
+	bool AnyButtonHit() {
+		string id = identity.ToString();
+		if(Input.GetButtonDown(id + "LP") || Input.GetButtonDown(id + "MP")|| Input.GetButtonDown(id + "HP")
+			|| Input.GetButtonDown(id + "LK")|| Input.GetButtonDown(id + "MK")|| Input.GetButtonDown(id + "HK")){
+			return true;
+		}
+		return false;
 	}
 }
