@@ -97,12 +97,26 @@ public class FighterController : MonoBehaviour {
 		else if(CheckThrow()) {
 			Debug.Log("Throwin time");
 		}
+		else if(Input.GetButtonDown(playerID + "MP")) {
+			attackButton = "MP";
+		}
 		else if(Input.GetButtonDown(playerID + "LP")) {
 			attackButton = "LP";
+		}
+
+		if(Input.GetButtonDown(playerID + "HP")) {
+			attackButton = "HK";
 		}
 		if(Input.GetButtonDown(playerID + "HK")) {
 			attackButton = "HK";
 		}
+		if(Input.GetButtonDown(playerID + "MK")) {
+			attackButton = "MK";
+		}
+		if(Input.GetButtonDown(playerID + "LK")) {
+			attackButton = "LK";
+		}
+
 		if(attackButton != "none") {
 			if(!IsJumpAttack(attackButton) && !IsCrouchAttack(attackButton)) {
 				attacks.GetChild(GetButtonIndex(attackButton)).gameObject.SetActive(true);
