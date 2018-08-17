@@ -14,7 +14,8 @@ public class CursorLogic : MonoBehaviour {
 	public static float dragMoveTime = 0.3f;
 	float dragMoveTimer = 0;
 
-	bool selected;
+	[HideInInspector]
+	public bool selected;
 
 	// Use this for initialization
 	void Start () {

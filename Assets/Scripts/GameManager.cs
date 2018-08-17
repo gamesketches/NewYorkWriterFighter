@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum Character {Alexandra, Amy, Arabelle, Chelsea, Jia, Saeed, Tony, Rembert};
+public enum Character {Alexandra, Amy, Arabelle, Chelsea, Jia, Saeed, Tony, Rembert, None};
 
 public class GameManager : MonoBehaviour {
 
@@ -21,8 +21,8 @@ public class GameManager : MonoBehaviour {
 	int roundCounter;
 	public Vector3 player1StartPos;
 	public Vector3 player2StartPos;
-	public static Character player1Character;
-	public static Character player2Character;
+	public static Character player1Character = Character.None;
+	public static Character player2Character = Character.None;
 	
 	FighterController player1;
 	FighterController player2;
