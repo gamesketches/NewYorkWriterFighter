@@ -15,7 +15,6 @@ public class CharacterSelectManager : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		if(!player1Active && !player2Active) {
-			((MovieTexture)movie.GetComponent<Renderer>().material.mainTexture).Play();
 			theCanvas.SetActive(false);
 			selectingCharacters = false;
 		}
@@ -41,8 +40,6 @@ public class CharacterSelectManager : MonoBehaviour {
 	}
 
 	void OpenCharacterSelect(){
-		Debug.Log("Opening Character Select");
-		((MovieTexture)movie.GetComponent<Renderer>().material.mainTexture).Stop();
 		selectingCharacters = true;
 		theCanvas.SetActive(true);
 		movie.SetActive(false);
