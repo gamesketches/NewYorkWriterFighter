@@ -105,7 +105,7 @@ public class FighterController : MonoBehaviour {
 		}
 
 		if(Input.GetButtonDown(playerID + "HP")) {
-			attackButton = "HK";
+			attackButton = "HP";
 		}
 		if(Input.GetButtonDown(playerID + "HK")) {
 			attackButton = "HK";
