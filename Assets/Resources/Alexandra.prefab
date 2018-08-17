@@ -1894,7 +1894,7 @@ MonoBehaviour:
     - serializedVersion: 2
       x: 1
       y: -1.07
-      width: 0.8
+      width: 1
       height: 1
     hurtBoxes: []
   - sprite: {fileID: 21300000, guid: 64a05081cdddb4f1c898829bd7fd6b64, type: 3}
@@ -2016,7 +2016,7 @@ MonoBehaviour:
     - serializedVersion: 2
       x: 1.18
       y: 0
-      width: 1.7
+      width: 1.48
       height: 1.35
     hurtBoxes: []
   - sprite: {fileID: 21300000, guid: 405e0209a7a2b465fbde10f48407cae6, type: 3}
@@ -2024,7 +2024,7 @@ MonoBehaviour:
     - serializedVersion: 2
       x: 1.18
       y: 0
-      width: 1.8
+      width: 1.48
       height: 1.35
     hurtBoxes: []
   - sprite: {fileID: 21300000, guid: bc6744ca8784443a086901dae8d7101f, type: 3}
@@ -2032,7 +2032,7 @@ MonoBehaviour:
     - serializedVersion: 2
       x: 1.24
       y: 0
-      width: 1.8
+      width: 1.48
       height: 1.35
     hurtBoxes: []
   - sprite: {fileID: 21300000, guid: 2c2a1c8ff43cc468da400ff35adb1861, type: 3}
@@ -2184,8 +2184,8 @@ MonoBehaviour:
     - serializedVersion: 2
       x: 1.8
       y: 0.29
-      width: 0.6
-      height: 0.6
+      width: 1
+      height: 1
     hurtBoxes:
     - serializedVersion: 2
       x: 0
