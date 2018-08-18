@@ -14,7 +14,8 @@ public class CursorLogic : MonoBehaviour {
 	public static float dragMoveTime = 0.3f;
 	float dragMoveTimer = 0;
 
-	bool selected;
+	[HideInInspector]
+	public bool selected;
 
 	// Use this for initialization
 	void Start () {
@@ -66,6 +67,8 @@ public class CursorLogic : MonoBehaviour {
 			selected = true;
 			string characterName = portraits.GetChild(childIndex).gameObject.name;
 			Character theCharacter = (Character)System.Enum.Parse(typeof(Character), characterName);
+			audio.clip = Resources.Load<AudioClip>("charSelected");
+			audio.Play();
 			if(identity == PlayerNumber.P1) {
 				GameManager.player1Character = theCharacter;
 			}
