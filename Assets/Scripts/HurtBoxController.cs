@@ -18,6 +18,7 @@ public class HurtBoxController : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		hitThisFrame = false;
+		transform.localScale = new Vector3(player.leftSide ? 1 : -1, 1, 1);
 	}
 
 	public void UpdateHurtBoxes(Rect[] dimensions) {

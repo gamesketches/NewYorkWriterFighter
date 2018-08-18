@@ -6,14 +6,16 @@ public class HitBoxController : MonoBehaviour {
 
 	BoxCollider2D[] colliders;
 	AttackData attackData;
+	FighterController player;
 	// Use this for initialization
 	void Start () {
 		colliders = GetComponents<BoxCollider2D>();
+		player = transform.parent.gameObject.GetComponent<FighterController>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void FixedUpdate () {
+		transform.localScale = new Vector3(player.leftSide ? 1 : -1, 1, 1);
 	}
 
 	public void UpdateHitBoxes(Rect[] dimensions) {
