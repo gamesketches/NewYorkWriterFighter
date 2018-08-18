@@ -22,10 +22,10 @@ public class FrameDrawer : PropertyDrawer {
 		Sprite spriteTexture = (Sprite)spriteProp.objectReferenceValue;
 
 		Rect hitBoxLabelRect = new Rect(position.x + 30, position.y + 20, 60, 16);
-		Rect hurtBoxLabelRect = new Rect(position.x + 110, position.y + 20, 60, 16);
+		Rect hurtBoxLabelRect = new Rect(position.x + 150, position.y + 20, 60, 16);
 
-		Rect hitBoxInputRect = new Rect(position.x + 30, position.y + 40, 70, 16);
-		Rect hurtBoxInputRect = new Rect(position.x + 110, position.y + 40, 70, 16);
+		Rect hitBoxInputRect = new Rect(position.x + 30, position.y + 40, 110, 16);
+		Rect hurtBoxInputRect = new Rect(position.x + 150, position.y + 40, 110, 16);
 		Rect spriteRect = new Rect(position.x - 100, position.y, spriteSize, spriteSize);
 		Rect spriteObjRect = new Rect(position.x + 30, position.y, position.width - 30, 16);
 
