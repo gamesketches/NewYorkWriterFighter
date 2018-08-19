@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CursorLogic : MonoBehaviour {
 
@@ -13,6 +14,8 @@ public class CursorLogic : MonoBehaviour {
 	AudioSource audio;
 	public static float dragMoveTime = 0.3f;
 	float dragMoveTimer = 0;
+	public Image largePortrait;
+	public Text characterName;
 
 	[HideInInspector]
 	public bool selected;
@@ -83,6 +86,9 @@ public class CursorLogic : MonoBehaviour {
 	void MoveCursor() {
 		audio.Play();
 		dragMoveTimer = dragMoveTime;
+		Transform portrait = portraits.GetChild(childIndex);
+		largePortrait.sprite = portrait.GetComponent<Image>().sprite;
+		characterName.text = portrait.name;
 	}
 
 	bool AnyButtonHit() {

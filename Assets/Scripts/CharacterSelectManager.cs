@@ -11,6 +11,11 @@ public class CharacterSelectManager : MonoBehaviour {
 	FadeInScene sceneFader;
 	public GameObject movie;
 	public GameObject theCanvas; 
+	public GameObject background;
+	public GameObject portraits;
+	public GameObject p1Elements;
+	public GameObject p2Elements;
+	public GameObject vsText;
 
 	// Use this for initialization
 	void Awake () {
@@ -34,8 +39,9 @@ public class CharacterSelectManager : MonoBehaviour {
 			player2Active = true;
 			if(!selectingCharacters)OpenCharacterSelect();
 		}
-		if(GameManager.player1Character != Character.None && GameManager.player2Character != Character.None) {
-			SceneManager.LoadScene("main");
+		if(GameManager.player1Character != Character.None && GameManager.player2Character != Character.None && selectingCharacters) {	
+			StartCoroutine(VsScreen());
+			selectingCharacters = false;
 		}
 	}
 
@@ -43,5 +49,18 @@ public class CharacterSelectManager : MonoBehaviour {
 		selectingCharacters = true;
 		theCanvas.SetActive(true);
 		movie.SetActive(false);
+	}
+	
+	IEnumerator VsScreen() {
+		AudioSource audio = GetComponent<AudioSource>();
+		audio.clip = Resources.Load<AudioClip>("VsScreen");
+		vsText.SetActive(true);
+		portraits.SetActive(false);
+		background.SetActive(false);
+		p1Elements.transform.GetChild(0).gameObject.SetActive(false);	
+		p2Elements.transform.GetChild(0).gameObject.SetActive(false);
+		audio.Play();
+		yield return new WaitForSeconds(audio.clip.length);
+		SceneManager.LoadScene("main");
 	}
 }
