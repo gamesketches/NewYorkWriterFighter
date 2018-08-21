@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour {
 	public Vector3 player2StartPos;
 	public static Character player1Character = Character.None;
 	public static Character player2Character = Character.None;
+
+	public static float stageXEnds = 12.68f;
 	
 	FighterController player1;
 	FighterController player2;

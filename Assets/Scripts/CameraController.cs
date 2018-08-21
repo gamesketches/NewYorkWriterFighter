@@ -10,6 +10,7 @@ public class CameraController : MonoBehaviour {
 	public float maxSize;
 	public float minSize;
 	public float sizeOffset;
+	public float cornerOffset;
 	Camera camera;
 
 	// Use this for initialization
@@ -19,7 +20,14 @@ public class CameraController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.position = new Vector3(Mathf.Lerp(Player1.position.x, Player2.position.x, 0.5f), transform.position.y, transform.position.z);
+		float newXPosition = Mathf.Lerp(Player1.position.x, Player2.position.x, 0.5f);
+		if(newXPosition < -GameManager.stageXEnds + cornerOffset) {
+			newXPosition = -GameManager.stageXEnds + cornerOffset;
+		}
+		else if(newXPosition > GameManager.stageXEnds - cornerOffset) {
+			newXPosition = GameManager.stageXEnds - cornerOffset;
+		}
+		transform.position = new Vector3(newXPosition, transform.position.y, transform.position.z);
 		camera.orthographicSize = Mathf.Clamp(Mathf.Abs(Player1.position.x - Player2.position.x) - sizeOffset, minSize, maxSize);
 	}
 
