@@ -68,7 +68,7 @@ public class FrameDrawer : PropertyDrawer {
 				boxes.GetArrayElementAtIndex(i).rectValue = newRect;
 			}
 			EditorGUI.DrawRect(AdjustRectToSpriteDisplay(spriteRect, newRect), boxColor);
-			inputRect = new Rect(inputRect.x, inputRect.y + 35, 64, heightSize);
+			inputRect = new Rect(inputRect.x, inputRect.y + 35, inputRect.width, inputRect.height);
 		}
 	}
 
