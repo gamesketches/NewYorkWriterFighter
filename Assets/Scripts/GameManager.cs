@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
+		audio = GetComponent<AudioSource>();
 		roundCounter = 0;
 		player1Character = Character.Alexandra;
 		player2Character = Character.Alexandra;
@@ -61,9 +62,24 @@ public class GameManager : MonoBehaviour {
 		player2Life = totalLife;
 		StartCoroutine(ChangeLifeAmount(player1Bar, 1, 0.6f));
 		StartCoroutine(ChangeLifeAmount(player2Bar, 1, 0.6f));
-		RoundText.text = "Round 1";
+		AudioClip round = Resources.Load<AudioClip>("AnnouncerClips/round");
+		AudioClip fight = Resources.Load<AudioClip>("AnnouncerClips/fight");
+		if(roundCounter < 2) {
+			AudioClip roundNum = Resources.Load<AudioClip>("AnnouncerClips/" + (roundCounter+ 1).ToString());
+			RoundText.text = "Round " + roundCounter.ToString();
+			yield return StartCoroutine(PlayAudioAndYield(round));
+			yield return StartCoroutine(PlayAudioAndYield(roundNum));
+		}
+		else {
+			AudioClip final = Resources.Load<AudioClip>("AnnouncerClips/final");
+			RoundText.text = "Final Round";
+			yield return StartCoroutine(PlayAudioAndYield(final));
+			yield return StartCoroutine(PlayAudioAndYield(round));
+		}
 		yield return new WaitForSecondsRealtime(0.4f);
 		RoundText.text = "Fight!";
+		audio.clip = fight;
+		audio.Play();
 		yield return new WaitForSecondsRealtime(0.2f);
 		RoundText.text = "";
 	}
@@ -133,10 +149,14 @@ public class GameManager : MonoBehaviour {
 		FadeInScene sceneFader = GetComponent<FadeInScene>();
 		winningPlayer = playerNum == PlayerNumber.P1 ? player1 : player2;
 
-		StartCoroutine(player1.VictoryPose());
+		StartCoroutine(winningPlayer.VictoryPose());
 		Debug.Log(winningPlayer.gameObject.name);
+		AudioClip you = Resources.Load<AudioClip>("AnnouncerClips/roundEndYou");
+		AudioClip win = Resources.Load<AudioClip>("AnnouncerClips/win");
 		RoundText.text = playerNum.ToString() + " Wins";
-		yield return new WaitForSecondsRealtime(2.5f);
+		yield return StartCoroutine(PlayAudioAndYield(you));
+		yield return StartCoroutine(PlayAudioAndYield(win));
+		yield return new WaitForSecondsRealtime(1.5f);
 		if(UpdateRoundCounters(playerNum)){
 			SceneManager.LoadScene("CharacterSelect");
 		}
@@ -167,5 +187,11 @@ public class GameManager : MonoBehaviour {
 		player2.ResetPlayer();
 		player1.transform.position = player1StartPos;
 		player2.transform.position = player2StartPos;
+	}
+
+	IEnumerator PlayAudioAndYield(AudioClip clip) {
+		audio.clip = clip;
+		audio.Play();
+		while(audio.isPlaying) yield return null;
 	}
 }
