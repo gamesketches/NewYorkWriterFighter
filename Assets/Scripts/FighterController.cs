@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum PlayerNumber {P1, P2};
-public enum MovementState {Standing, Crouching, Jumping, Attacking, KnockedDown, Recoiling, Blocking, CrouchBlocking};
+public enum MovementState {Standing, Crouching, Jumping, Attacking, KnockedDown, Recoiling, Blocking, CrouchBlocking, Victory};
 public class FighterController : MonoBehaviour {
 
 	static float jumpHeight = 2.37f;
@@ -45,7 +45,7 @@ public class FighterController : MonoBehaviour {
 				else state = MovementState.Standing;
 			}
 		}
-		else if(state != MovementState.KnockedDown){
+		else if(state != MovementState.KnockedDown && state != MovementState.Victory){
 			CheckButtonInput();
 			CheckDirectionalInput();
 			if(state != MovementState.Jumping) AdjustFacing();
@@ -53,7 +53,7 @@ public class FighterController : MonoBehaviour {
 	}
 
 	void CheckDirectionalInput() {
-		if(state == MovementState.Attacking) return;
+		if(state == MovementState.Attacking || state == MovementState.Victory) return;
 		if(state == MovementState.Jumping) {
 			Debug.Log("Cancel into attacks here");
 		}
@@ -182,8 +182,7 @@ public class FighterController : MonoBehaviour {
 				Debug.Log("Killed");
 				animator.SwitchAnimation("Fall");
 				state = MovementState.KnockedDown;
-				while(!animator.animationFinished) yield return null;
-				yield return new WaitForSeconds(1);
+				while(state == MovementState.KnockedDown) yield return null;
 
 			}	
 			else if(attackData.knockdown) {
@@ -295,4 +294,18 @@ public class FighterController : MonoBehaviour {
 			hurtBoxes.layer = 12;
 		}
 	}	
+
+	public IEnumerator VictoryPose() {
+		state = MovementState.Victory;
+		Debug.Log("Victory pose");
+		animator.SwitchAnimation("Victory");
+		animator.nextState = AnimationType.Victory;
+		yield return new WaitForSeconds(1);
+		while(state == MovementState.Victory) yield return null;
+		Debug.Log("No longer in victory pose");
+	}
+
+	public void ResetPlayer() {
+		state = MovementState.Standing;
+	}
 }

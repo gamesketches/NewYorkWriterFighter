@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum AnimationType {Idle, Walk, Crouch, PreJump, Jump, Damage, Fall, Throw, Block, CrouchBlock, Attacking};
+public enum AnimationType {Idle, Walk, Crouch, PreJump, Jump, Damage, Fall, Throw, Block, CrouchBlock, Attacking, Victory};
 public class CharacterAnimator : MonoBehaviour {
 
 	public Sprite[] walkAnimation;
@@ -13,6 +13,7 @@ public class CharacterAnimator : MonoBehaviour {
 	public Sprite[] blockAnimation;
 	public Sprite[] crouchBlockAnimation;
 	public Sprite[] fallAnimation;
+	public Sprite[] victoryAnimation;
 
 	Sprite[] curAnimation;
 
@@ -90,6 +91,12 @@ public class CharacterAnimator : MonoBehaviour {
 					frameCounter = frameSpeed;
 				}
 				break;
+			case AnimationType.Victory:
+				if(TimesUp() && curFrame < curAnimation.Length - 1){
+					curFrame++;
+					frameCounter = frameSpeed;
+				}
+				break;
 			/*case AnimationState.PreJump:
 				if(TimesUp()) {
 					SwitchAnimation("Jump");
@@ -148,6 +155,10 @@ public class CharacterAnimator : MonoBehaviour {
 				break;
 			case AnimationType.Fall:
 				curAnimation = fallAnimation;
+				frameCounter = frameSpeed;
+				break;
+			case AnimationType.Victory:
+				curAnimation = victoryAnimation;
 				frameCounter = frameSpeed;
 				break;
 			/*case AnimationType.PreJump:

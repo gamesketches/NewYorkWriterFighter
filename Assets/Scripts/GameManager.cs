@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public enum Character {Alexandra, Amy, Arabelle, Chelsea, Jia, Saeed, Tony, Rembert, None};
 
@@ -82,7 +83,8 @@ public class GameManager : MonoBehaviour {
 			player1Life -= lifeChange;
 			StartCoroutine(ChangeLifeAmount(player1Bar, (player1Life - lifeChange) / totalLife, 0.1f));
 			if(player1Life < 0) {
-				UpdateRoundCounters(PlayerNumber.P2);
+				//UpdateRoundCounters(PlayerNumber.P2);
+				StartCoroutine(EndRound(PlayerNumber.P2));
 				return true;
 			}
 		}
@@ -90,39 +92,60 @@ public class GameManager : MonoBehaviour {
 			player2Life -= lifeChange;
 			StartCoroutine(ChangeLifeAmount(player2Bar, (player2Life - lifeChange) / totalLife, 0.1f));
 			if(player2Life < 0){
-				UpdateRoundCounters(PlayerNumber.P1);
+				StartCoroutine(EndRound(PlayerNumber.P1));
+			//	UpdateRoundCounters(PlayerNumber.P1);
 				return true;
 			}	
 		}	
 		return false;
 	}
 
-	void UpdateRoundCounters(PlayerNumber playerNum){
-		FadeInScene sceneFader = GetComponent<FadeInScene>();
+	bool UpdateRoundCounters(PlayerNumber playerNum){
 		if(playerNum == PlayerNumber.P1) {
 			if(player1WinIcons.transform.GetChild(0).gameObject.activeSelf) {
 				player1WinIcons.transform.GetChild(1).gameObject.SetActive(true);
+				return true;
 				Debug.Log("Player 1 Wins");
 			}
 			else{
 				roundCounter++;
-				StartCoroutine(sceneFader.FadeInOut(2f));
-				StartCoroutine(StartRound());
 				player1WinIcons.transform.GetChild(0).gameObject.SetActive(true);
+				return false;
 			}
 		}
 		else if(playerNum == PlayerNumber.P2) {
 			if(player2WinIcons.transform.GetChild(0).gameObject.activeSelf) {
 				player2WinIcons.transform.GetChild(1).gameObject.SetActive(true);
+				return true;
 				Debug.Log("Player 2 Wins");
 			}
 			else{
 				roundCounter++;
-				StartCoroutine(StartRound());
 				player2WinIcons.transform.GetChild(0).gameObject.SetActive(true);
+				return false;
 			}
 		}
+		return false;
 	}
+
+	IEnumerator EndRound(PlayerNumber playerNum) {
+		FighterController winningPlayer;
+		FadeInScene sceneFader = GetComponent<FadeInScene>();
+		winningPlayer = playerNum == PlayerNumber.P1 ? player1 : player2;
+
+		StartCoroutine(player1.VictoryPose());
+		Debug.Log(winningPlayer.gameObject.name);
+		RoundText.text = playerNum.ToString() + " Wins";
+		yield return new WaitForSecondsRealtime(2.5f);
+		if(UpdateRoundCounters(playerNum)){
+			SceneManager.LoadScene("CharacterSelect");
+		}
+		else {
+			yield return StartCoroutine(sceneFader.FadeInOut(2f));
+			StartCoroutine(StartRound());
+		}
+	}
+
 
 	void LoadCharacters() {
 		GameObject player1Obj = Instantiate((GameObject)Resources.Load(player1Character.ToString()));
@@ -140,6 +163,8 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void ResetPlayers() {
+		player1.ResetPlayer();
+		player2.ResetPlayer();
 		player1.transform.position = player1StartPos;
 		player2.transform.position = player2StartPos;
 	}
