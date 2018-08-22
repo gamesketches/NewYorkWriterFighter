@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum PlayerNumber {P1, P2};
-public enum MovementState {Standing, Crouching, Jumping, Attacking, KnockedDown, Recoiling, Blocking, CrouchBlocking, Victory};
+public enum MovementState {Standing, Crouching, Jumping, Attacking, KnockedDown, Recoiling, Blocking, CrouchBlocking, Victory, Thrown};
 public class FighterController : MonoBehaviour {
 
 	static float jumpHeight = 2.37f;
@@ -43,6 +43,14 @@ public class FighterController : MonoBehaviour {
 					state = MovementState.Crouching;
 				}
 				else state = MovementState.Standing;
+			}
+		}
+		else if(state == MovementState.Thrown && !animator.animationFinished) {
+			if(leftSide) {
+				MoveLeft(walkSpeed * Time.fixedDeltaTime * 2);
+			}
+			else {
+				MoveRight(walkSpeed * Time.fixedDeltaTime *2);
 			}
 		}
 		else if(state != MovementState.KnockedDown && state != MovementState.Victory){
@@ -104,16 +112,16 @@ public class FighterController : MonoBehaviour {
 			attackButton = "LP";
 		}
 
-		if(Input.GetButtonDown(playerID + "HP")) {
+		else if(Input.GetButtonDown(playerID + "HP")) {
 			attackButton = "HP";
 		}
-		if(Input.GetButtonDown(playerID + "HK")) {
+		else if(Input.GetButtonDown(playerID + "HK")) {
 			attackButton = "HK";
 		}
-		if(Input.GetButtonDown(playerID + "MK")) {
+		else if(Input.GetButtonDown(playerID + "MK")) {
 			attackButton = "MK";
 		}
-		if(Input.GetButtonDown(playerID + "LK")) {
+		else if(Input.GetButtonDown(playerID + "LK")) {
 			attackButton = "LK";
 		}
 
@@ -180,9 +188,7 @@ public class FighterController : MonoBehaviour {
 		else {
 			if(gameManager.UpdateLifeBarCheckDeath(identity, attackData.damage)) {
 				Debug.Log("Killed");
-				animator.SwitchAnimation("Fall");
-				state = MovementState.KnockedDown;
-				while(state == MovementState.KnockedDown) yield return null;
+				yield return StartCoroutine(DeathAnimation());
 
 			}	
 			else if(attackData.knockdown) {
@@ -199,6 +205,46 @@ public class FighterController : MonoBehaviour {
 		}
 		state = MovementState.Standing;
 	}
+
+	public IEnumerator GetThrown(AttackData throwData) {
+		Debug.Log("Throw");
+		animator.SwitchAnimation("Damage");
+		state = MovementState.Recoiling;
+		yield return new WaitForSeconds(throwData.hitStun * Time.fixedDeltaTime * CharacterAnimator.frameSpeed);
+		if(gameManager.UpdateLifeBarCheckDeath(identity, throwData.damage)) {
+			Debug.Log("Killed");
+			yield return StartCoroutine(DeathAnimation());
+		}
+		else{
+			animator.SwitchAnimation("Fall");
+			state = MovementState.Thrown;
+			while(!animator.animationFinished) {
+				if(leftSide) MoveLeft(walkSpeed * Time.deltaTime);
+				else MoveRight(walkSpeed *Time.deltaTime);
+				yield return null;
+			}
+			yield return new WaitForSeconds(1);
+		}
+
+		state = MovementState.Standing;
+	}
+
+	IEnumerator DeathAnimation() {
+		Debug.Log("Killed");
+		Debug.Log("In Death Animation");
+			animator.SwitchAnimation("Fall");
+			state = MovementState.KnockedDown;
+			Time.timeScale = 0.2f;
+			GetComponent<AudioSource>().Play();
+			while(!animator.animationFinished) {
+				if(leftSide) MoveLeft(walkSpeed * Time.deltaTime);
+				else MoveRight(walkSpeed *Time.deltaTime);
+				yield return null;
+			}
+			Time.timeScale = 1;
+			while(state == MovementState.KnockedDown) yield return null;
+	}
+
 
 	bool SuccessfulBlock(BlockType blockType) {
 		if(state != MovementState.Blocking) return false;
@@ -247,8 +293,11 @@ public class FighterController : MonoBehaviour {
 			opponent.state == MovementState.Recoiling || !Input.GetButtonDown(playerID + "HP")) return false;
 		float distance = Vector3.Distance(transform.position, opponent.transform.position);
 		if(distance < throwDistance) {
-			AttackData throwData = new AttackData(100, BlockType.Mid, true, 0, 0, 0, 0);
-			StartCoroutine(opponent.GetHit(throwData));
+			animator.SwitchAnimation("Throw");
+			AttackData throwData = new AttackData(100, BlockType.Mid, true, 0, 0, animator.GetAnimationLength(), 0);
+			StartCoroutine(opponent.GetThrown(throwData));
+			state = MovementState.Attacking;
+			//StartCoroutine(opponent.GetHit(throwData));
 			return true;
 		}
 		return false;
@@ -299,13 +348,12 @@ public class FighterController : MonoBehaviour {
 		state = MovementState.Victory;
 		Debug.Log("Victory pose");
 		animator.SwitchAnimation("Victory");
-		animator.nextState = AnimationType.Victory;
-		yield return new WaitForSeconds(1);
 		while(state == MovementState.Victory) yield return null;
 		Debug.Log("No longer in victory pose");
 	}
 
 	public void ResetPlayer() {
 		state = MovementState.Standing;
+		animator.SwitchAnimation("Idle");
 	}
 }

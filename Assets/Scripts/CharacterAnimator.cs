@@ -14,12 +14,14 @@ public class CharacterAnimator : MonoBehaviour {
 	public Sprite[] crouchBlockAnimation;
 	public Sprite[] fallAnimation;
 	public Sprite[] victoryAnimation;
+	public int[] throwAttacks;
 
 	Sprite[] curAnimation;
 
 	int curFrame;
 	int frameCounter;
 
+	[HideInInspector]
 	public bool animationFinished;
 
 	SpriteRenderer renderer;
@@ -156,10 +158,23 @@ public class CharacterAnimator : MonoBehaviour {
 			case AnimationType.Fall:
 				curAnimation = fallAnimation;
 				frameCounter = frameSpeed;
+				animationFinished = false;
 				break;
 			case AnimationType.Victory:
 				curAnimation = victoryAnimation;
 				frameCounter = frameSpeed;
+				animationFinished = false;
+				break;
+			case AnimationType.Throw:
+				List<Sprite> theFrames = new List<Sprite>();
+				foreach(int attack in throwAttacks) {
+					Sprite[] attackFrames = transform.GetChild(2).GetChild(attack).gameObject.GetComponent<Attack>().GetSprites();
+					theFrames.AddRange(attackFrames);
+				}
+				AttackAnimation(theFrames.ToArray());
+				//curAnimation = theFrames.ToArray();
+				//frameCounter = frameSpeed;
+				//animationFinished = false;
 				break;
 			/*case AnimationType.PreJump:
 				curAnimation = preJumpAnimation;
@@ -201,5 +216,8 @@ public class CharacterAnimator : MonoBehaviour {
 		if(curFrame >= curAnimation.Length) curFrame = 0;
 	}
 	
+	public int GetAnimationLength() {
+		return curAnimation.Length;
+	}
 	
 }

@@ -8,9 +8,6 @@ public enum AttackButton {LP, MP, HP, LK, MK, HK, JP, JK, CRP, CRK};
 [ExecuteInEditMode]
 public class Attack : MonoBehaviour {
 
-	//public Sprite[] frames;
-	//public Rect[][] hitBoxes = new Rect[4][];
-	//public Rect[][] hurtBoxes;
 	public List<Frame> frames;
 
 	public int damage;
@@ -60,13 +57,12 @@ public class Attack : MonoBehaviour {
 		hitBoxController.UpdateAttackData(attackData);
 	}
 
-	Sprite[] GetSprites() {
-		Sprite[] sprites = new Sprite[frames.Count];
+	public Sprite[] GetSprites() {
+		Sprite[] returnVal = new Sprite[frames.Count];
 		for(int i = 0; i < frames.Count; i++) {
-			sprites[i] = frames[i].sprite;
+			returnVal[i] = frames[i].sprite;
 		}
-		
-		return sprites;
+		return returnVal;
 	}
 }
 
