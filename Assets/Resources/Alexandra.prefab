@@ -232,10 +232,10 @@ GameObject:
   m_Layer: 8
   m_Name: Alexandra
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2800000, guid: 12a0aa9cecd6d4374b96c4da94e3386a, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1735968588380366
 GameObject:
   m_ObjectHideFlags: 0
