@@ -64,6 +64,7 @@ public class GameManager : MonoBehaviour {
 		player2Life = totalLife;
 		StartCoroutine(ChangeLifeAmount(player1Bar, 1, 0.6f));
 		StartCoroutine(ChangeLifeAmount(player2Bar, 1, 0.6f));
+		Attack.attackID = 0;
 		AudioClip round = Resources.Load<AudioClip>("AnnouncerClips/round");
 		AudioClip fight = Resources.Load<AudioClip>("AnnouncerClips/fight");
 		if(roundCounter < 2) {

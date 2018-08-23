@@ -297,7 +297,6 @@ public class FighterController : MonoBehaviour {
 			AttackData throwData = new AttackData(100, BlockType.Mid, true, 0, 0, animator.GetAnimationLength(), 0);
 			StartCoroutine(opponent.GetThrown(throwData));
 			state = MovementState.Attacking;
-			//StartCoroutine(opponent.GetHit(throwData));
 			return true;
 		}
 		return false;

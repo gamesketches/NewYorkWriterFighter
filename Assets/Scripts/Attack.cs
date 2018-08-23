@@ -8,6 +8,8 @@ public enum AttackButton {LP, MP, HP, LK, MK, HK, JP, JK, CRP, CRK};
 [ExecuteInEditMode]
 public class Attack : MonoBehaviour {
 
+	public static int attackID = 0;
+
 	public List<Frame> frames;
 	AudioSource sfx;
 
@@ -54,11 +56,13 @@ public class Attack : MonoBehaviour {
 	}
 
 	virtual public void OnEnable() {
+		attackData.id = Attack.attackID;
 		curFrame = 0;
 		frameCounter = CharacterAnimator.frameSpeed;
 		transform.parent.parent.GetComponent<CharacterAnimator>().AttackAnimation(GetSprites());
 		hitBoxController.UpdateAttackData(attackData);
 		sfx.Play();
+		Attack.attackID++;
 	}
 
 	public Sprite[] GetSprites() {
@@ -86,6 +90,7 @@ public struct AttackData {
 	public float hitStop;
 	public float hitStun;
 	public float blockStun;
+	public int id;
 
 	public AttackData(int attackDamage, BlockType attackBlockType, bool knocksDown, float knockBackDistance, float hitStopTime, float hitStunTime, float blockStunTime) {
 		damage = attackDamage;
@@ -95,6 +100,7 @@ public struct AttackData {
 		hitStop = hitStopTime;
 		hitStun = hitStunTime;
 		blockStun = blockStunTime;
+		id = 0;
 	}
 }
 

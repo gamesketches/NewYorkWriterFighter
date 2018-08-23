@@ -7,10 +7,12 @@ public class HurtBoxController : MonoBehaviour {
 	BoxCollider2D[] colliders;
 	FighterController player;
 	bool hitThisFrame;
+	int lastAttack;
 
 	// Use this for initialization
 	void Start () {
 		hitThisFrame = false;
+		lastAttack = -1;
 		colliders = GetComponents<BoxCollider2D>();
 		player = transform.parent.gameObject.GetComponent<FighterController>();
 	}
@@ -45,8 +47,11 @@ public class HurtBoxController : MonoBehaviour {
 			else {
 				data = other.gameObject.GetComponent<HitBoxController>().GetAttackData();
 			}
-			StartCoroutine(player.GetHit(data));
-			StartCoroutine(HitStop(data.hitStop));
+			if(data.id != lastAttack) {
+				StartCoroutine(player.GetHit(data));
+				StartCoroutine(HitStop(data.hitStop));
+				lastAttack = data.id;
+			}
 		}
 	}
 
