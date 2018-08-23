@@ -291,7 +291,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1637231967418520}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.61, y: -1.24, z: 0}
+  m_LocalPosition: {x: 0.61, y: -1.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4841722055174290}
@@ -1814,37 +1814,37 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: 5b861c0ed0fefd94aa13b5ec5ac6626f, type: 3}
     hitBoxes:
     - serializedVersion: 2
-      x: 1.8
-      y: 0.65
+      x: 1.3
+      y: 1.16
       width: 0.5
-      height: 0.5
+      height: 1.5
     hurtBoxes:
     - serializedVersion: 2
       x: 1
-      y: 0.65
-      width: 1.5
-      height: 0.5
+      y: 0.83
+      width: 1.1
+      height: 1.5
   - sprite: {fileID: 21300000, guid: 9ca9dff29f6463f448a67e658aff0c9a, type: 3}
     hitBoxes:
     - serializedVersion: 2
-      x: 1.8
-      y: 0.5
+      x: 1.3
+      y: 1.16
       width: 0.5
-      height: 0.5
+      height: 1.5
     hurtBoxes:
     - serializedVersion: 2
       x: 1
-      y: 0.5
-      width: 1.15
-      height: 0.5
+      y: 0.83
+      width: 1.1
+      height: 1.5
   - sprite: {fileID: 21300000, guid: f417db27ae695184a8de2e9343a160fe, type: 3}
     hitBoxes: []
     hurtBoxes:
     - serializedVersion: 2
-      x: 1
-      y: 0.5
-      width: 1.09
-      height: 0.5
+      x: 0.52
+      y: 0.83
+      width: 1.1
+      height: 1.5
   damage: 10
   blockType: 0
   knockdown: 0
@@ -1933,26 +1933,31 @@ MonoBehaviour:
     hurtBoxes: []
   - sprite: {fileID: 21300000, guid: d1e8f720a7e684fa483d8191c6a034b7, type: 3}
     hitBoxes: []
-    hurtBoxes: []
+    hurtBoxes:
+    - serializedVersion: 2
+      x: 0.68
+      y: -0.1
+      width: 0.4
+      height: 0.76
   - sprite: {fileID: 21300000, guid: 0016a6a08188c4450b2f3ff94fae969b, type: 3}
     hitBoxes:
     - serializedVersion: 2
       x: 2.08
-      y: -0.23
+      y: -0.01
       width: 0.54
       height: 0.57
     hurtBoxes:
     - serializedVersion: 2
       x: 1.43
-      y: -0.23
+      y: -0.1
       width: 1
       height: 0.76
   - sprite: {fileID: 21300000, guid: cd35a7e532c204d4e89f8c5aef70f5c6, type: 3}
     hitBoxes: []
     hurtBoxes:
     - serializedVersion: 2
-      x: 1.17
-      y: -0.59
+      x: 0.68
+      y: -0.1
       width: 0.4
       height: 0.76
   damage: 40
@@ -2010,11 +2015,11 @@ MonoBehaviour:
   knockdown: 0
   knockBack: 3
   hitStop: 0.2
-  hitStun: 2
+  hitStun: 4
   blockStun: 1
   hitSFX: {fileID: 0}
-  activeFrame: 7
-  speed: 10
+  activeFrame: 3
+  speed: 5
   projectile: {fileID: 1021068755710614, guid: ba40b72a841ce425fbd7b97a120181ee, type: 2}
   projectileFrames:
   - {fileID: 21300000, guid: cccf3bb03e45947979f012e34f08d766, type: 3}
@@ -2034,7 +2039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leftSide: 0
-  walkSpeed: 3.8
+  walkSpeed: 2.5
   throwDistance: 2
   identity: 0
   jumpY:
@@ -2091,7 +2096,7 @@ MonoBehaviour:
     - serializedVersion: 2
       x: 1
       y: 0.6
-      width: 1
+      width: 1.28
       height: 0.7
   - sprite: {fileID: 21300000, guid: d3bb39e43543aa34182aaeb043cf5d95, type: 3}
     hitBoxes:
@@ -2104,21 +2109,11 @@ MonoBehaviour:
     - serializedVersion: 2
       x: 1
       y: 0.6
-      width: 1
+      width: 1.28
       height: 0.7
   - sprite: {fileID: 21300000, guid: a4baa8660aaafb04ba68f4847b52204e, type: 3}
-    hitBoxes:
-    - serializedVersion: 2
-      x: 1.5
-      y: 0.6
-      width: 0.78
-      height: 0.7
-    hurtBoxes:
-    - serializedVersion: 2
-      x: 1
-      y: 0.6
-      width: 1
-      height: 0.7
+    hitBoxes: []
+    hurtBoxes: []
   damage: 10
   blockType: 0
   knockdown: 0
@@ -2144,49 +2139,54 @@ MonoBehaviour:
     hurtBoxes: []
   - sprite: {fileID: 21300000, guid: e27abf2adb62a554b89d22eeddc92367, type: 3}
     hitBoxes: []
-    hurtBoxes: []
-  - sprite: {fileID: 21300000, guid: c1309bdd88336514a9017ad8c95273f8, type: 3}
-    hitBoxes: []
     hurtBoxes:
     - serializedVersion: 2
       x: 0
       y: 0
       width: 0
       height: 0
+  - sprite: {fileID: 21300000, guid: c1309bdd88336514a9017ad8c95273f8, type: 3}
+    hitBoxes:
+    - serializedVersion: 2
+      x: 1.63
+      y: 0
+      width: 0.79
+      height: 0.8
+    hurtBoxes:
+    - serializedVersion: 2
+      x: 1
+      y: 0
+      width: 1
+      height: 0.81
   - sprite: {fileID: 21300000, guid: db4c268f56f29cd42afffa2e0abe51fa, type: 3}
     hitBoxes:
     - serializedVersion: 2
-      x: 0.94
-      y: -0.27
+      x: 1.63
+      y: 0
       width: 0.79
       height: 0.8
     hurtBoxes:
     - serializedVersion: 2
-      x: 0.46
-      y: -0.27
+      x: 1
+      y: 0
       width: 1
       height: 0.81
   - sprite: {fileID: 21300000, guid: 0c782c67e9ffabd43be41babb6b19390, type: 3}
-    hitBoxes:
-    - serializedVersion: 2
-      x: 0.94
-      y: -0.27
-      width: 0.79
-      height: 0.8
+    hitBoxes: []
     hurtBoxes:
     - serializedVersion: 2
-      x: 0.46
-      y: -0.27
+      x: 0.79
+      y: -0.58
       width: 1
-      height: 0.81
+      height: 1.3
   - sprite: {fileID: 21300000, guid: fed1e0c42ea4e37478cfe57bbe1e04b2, type: 3}
     hitBoxes: []
     hurtBoxes:
     - serializedVersion: 2
-      x: 0.06
-      y: -0.48
+      x: 0.79
+      y: -0.58
       width: 0.91
-      height: 1
+      height: 1.3
   damage: 10
   blockType: 0
   knockdown: 0
@@ -2216,36 +2216,36 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: 9441a67f9ff30a840a0dedcc8b3acdb2, type: 3}
     hitBoxes:
     - serializedVersion: 2
-      x: 1.26
-      y: -1.27
+      x: 0.84
+      y: 0.05
       width: 0.5
       height: 0.5
     hurtBoxes:
     - serializedVersion: 2
-      x: 0.68
-      y: -0.71
-      width: 1.27
+      x: 0.53
+      y: 0
+      width: 0.5
       height: 0.84
   - sprite: {fileID: 21300000, guid: 860a1c7e592f8544aac975d98d57263a, type: 3}
     hitBoxes:
     - serializedVersion: 2
-      x: 1.26
-      y: -1.27
+      x: 0.84
+      y: 0.05
       width: 0.5
       height: 0.5
     hurtBoxes:
     - serializedVersion: 2
-      x: 0.68
-      y: -0.71
-      width: 1.27
+      x: 0.53
+      y: 0
+      width: 0.5
       height: 0.84
   - sprite: {fileID: 21300000, guid: d17d311be15328a4ca998abc489b19b5, type: 3}
     hitBoxes: []
     hurtBoxes:
     - serializedVersion: 2
-      x: 0.96
-      y: -0.47
-      width: 1
+      x: 0.53
+      y: 0
+      width: 0.5
       height: 0.84
   damage: 10
   blockType: 0
@@ -2285,29 +2285,29 @@ MonoBehaviour:
     hitBoxes: []
     hurtBoxes:
     - serializedVersion: 2
-      x: 0
-      y: 0
-      width: 0
-      height: 0
+      x: 1
+      y: 0.69
+      width: 0.85
+      height: 1
   - sprite: {fileID: 21300000, guid: 39849e544877645a8ad608bc5dc428d6, type: 3}
     hitBoxes:
     - serializedVersion: 2
-      x: 1.15
-      y: -1.4
+      x: 1.03
+      y: -0.42
       width: 0.51
       height: 0.51
     hurtBoxes:
     - serializedVersion: 2
       x: 0.85
-      y: -0.81
+      y: 0.27
       width: 1
       height: 1
   - sprite: {fileID: 21300000, guid: 39849e544877645a8ad608bc5dc428d6, type: 3}
     hitBoxes: []
     hurtBoxes:
     - serializedVersion: 2
-      x: 1
-      y: 0.06
+      x: 0.85
+      y: 0.27
       width: 1
       height: 1
   damage: 40
@@ -2343,8 +2343,8 @@ MonoBehaviour:
     hitBoxes: []
     hurtBoxes:
     - serializedVersion: 2
-      x: 0
-      y: -0.45
+      x: 0.27
+      y: 0.16
       width: 1
       height: 1
   - sprite: {fileID: 21300000, guid: 76ab3593fd90a8f49aee4ca5015e0f13, type: 3}
@@ -2363,37 +2363,27 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: c73fd9ec0cb216143860219818c9a3dc, type: 3}
     hitBoxes:
     - serializedVersion: 2
-      x: 1.27
-      y: 0.46
-      width: 0.5
+      x: 1.56
+      y: 0.58
+      width: 1
       height: 1
     hurtBoxes:
     - serializedVersion: 2
       x: 0.27
-      y: 0.16
+      y: 0.25
       width: 1.51
       height: 1.59
   - sprite: {fileID: 21300000, guid: 0dc72aaf1977e0e47a239133655c3c1f, type: 3}
-    hitBoxes:
-    - serializedVersion: 2
-      x: 1.27
-      y: 0.46
-      width: 0.5
-      height: 1
+    hitBoxes: []
     hurtBoxes:
     - serializedVersion: 2
       x: 0.27
-      y: 0.16
+      y: 0.25
       width: 1.51
       height: 1.59
   - sprite: {fileID: 21300000, guid: 58d7b8be4d43e6046932301c0a6fd0b1, type: 3}
     hitBoxes: []
-    hurtBoxes:
-    - serializedVersion: 2
-      x: 0
-      y: -0.45
-      width: 1
-      height: 1
+    hurtBoxes: []
   damage: 100
   blockType: 0
   knockdown: 1
@@ -2473,24 +2463,24 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: cafc55481c96940e59ba726bffd2661f, type: 3}
     hitBoxes:
     - serializedVersion: 2
-      x: 1.55
-      y: -1.31
-      width: 1
+      x: 0.95
+      y: -1.19
+      width: 0.77
       height: 0.75
     hurtBoxes:
     - serializedVersion: 2
-      x: 1.19
-      y: -0.88
+      x: 0.19
+      y: -0.34
       width: 1.53
-      height: 0.82
+      height: 1.31
   - sprite: {fileID: 21300000, guid: 238138ccc16784a358669a8664703b01, type: 3}
     hitBoxes: []
     hurtBoxes:
     - serializedVersion: 2
-      x: 1.19
-      y: -0.887
+      x: 0.19
+      y: 0.1
       width: 1.53
-      height: 0.82
+      height: 1.31
   damage: 40
   blockType: 2
   knockdown: 0
@@ -2530,15 +2520,25 @@ MonoBehaviour:
     hurtBoxes: []
   - sprite: {fileID: 21300000, guid: 900fe5d04ff70af448a6c2471ad844b1, type: 3}
     hitBoxes: []
-    hurtBoxes: []
-  - sprite: {fileID: 21300000, guid: da77f18ce301cb44f9304b1b031c7e2e, type: 3}
-    hitBoxes: []
     hurtBoxes:
     - serializedVersion: 2
-      x: 1.2
-      y: 0.19
-      width: 0.62
-      height: 1.17
+      x: 1
+      y: 0.42
+      width: 1
+      height: 0.74
+  - sprite: {fileID: 21300000, guid: da77f18ce301cb44f9304b1b031c7e2e, type: 3}
+    hitBoxes:
+    - serializedVersion: 2
+      x: 1.86
+      y: 0.42
+      width: 1
+      height: 0.74
+    hurtBoxes:
+    - serializedVersion: 2
+      x: 1.14
+      y: 0.42
+      width: 1.36
+      height: 0.75
   - sprite: {fileID: 21300000, guid: 1bb58d1a428534e4b91f636be03d7807, type: 3}
     hitBoxes:
     - serializedVersion: 2
@@ -2550,7 +2550,7 @@ MonoBehaviour:
     - serializedVersion: 2
       x: 1.14
       y: 0.42
-      width: 1
+      width: 1.36
       height: 0.75
   - sprite: {fileID: 21300000, guid: 065531597c5471e429e911231dc7a9fa, type: 3}
     hitBoxes:
@@ -2563,18 +2563,13 @@ MonoBehaviour:
     - serializedVersion: 2
       x: 1.14
       y: 0.42
-      width: 1
+      width: 1.36
       height: 0.75
   - sprite: {fileID: 21300000, guid: ce67c9ad9ddf9004c893a70a4a85a754, type: 3}
-    hitBoxes:
-    - serializedVersion: 2
-      x: 1.86
-      y: 0.42
-      width: 1
-      height: 0.74
+    hitBoxes: []
     hurtBoxes:
     - serializedVersion: 2
-      x: 1.14
+      x: 0.82
       y: 0.42
       width: 1
       height: 0.75
@@ -2582,10 +2577,10 @@ MonoBehaviour:
     hitBoxes: []
     hurtBoxes:
     - serializedVersion: 2
-      x: 0.99
-      y: 0.2
-      width: 0.79
-      height: 1
+      x: 0.33
+      y: 0.42
+      width: 1
+      height: 0.75
   damage: 10
   blockType: 0
   knockdown: 1
