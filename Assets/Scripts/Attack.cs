@@ -9,6 +9,7 @@ public enum AttackButton {LP, MP, HP, LK, MK, HK, JP, JK, CRP, CRK};
 public class Attack : MonoBehaviour {
 
 	public List<Frame> frames;
+	AudioSource sfx;
 
 	public int damage;
 	public BlockType blockType;
@@ -31,6 +32,8 @@ public class Attack : MonoBehaviour {
 		hurtBoxController = transform.parent.parent.GetChild(1).gameObject.GetComponent<HurtBoxController>();	
 	
 		attackData = new AttackData(damage, blockType, knockdown, knockBack, hitStop, hitStun, blockStun);
+	
+		sfx = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -55,6 +58,7 @@ public class Attack : MonoBehaviour {
 		frameCounter = CharacterAnimator.frameSpeed;
 		transform.parent.parent.GetComponent<CharacterAnimator>().AttackAnimation(GetSprites());
 		hitBoxController.UpdateAttackData(attackData);
+		sfx.Play();
 	}
 
 	public Sprite[] GetSprites() {
