@@ -20,10 +20,12 @@ public class FighterController : MonoBehaviour {
 	public FighterController opponent;
 	Transform attacks;
 	SpriteRenderer renderer;
+	AudioSource audio;
 
 	// Use this for initialization
 	void Awake () {
 		animator = GetComponent<CharacterAnimator>();
+		audio = GetComponents<AudioSource>()[1];
 		state = MovementState.Standing;
 		attacks = transform.GetChild(2);
 		leftSide = identity == PlayerNumber.P1;
@@ -200,6 +202,10 @@ public class FighterController : MonoBehaviour {
 			else {
 				animator.SwitchAnimation("Damage");
 				state = MovementState.Recoiling;
+				if(attackData.hitSFX != null) {
+					audio.clip = attackData.hitSFX;
+					audio.Play();
+				}
 				yield return new WaitForSeconds(attackData.hitStun);
 			}
 		}
@@ -294,7 +300,7 @@ public class FighterController : MonoBehaviour {
 		float distance = Vector3.Distance(transform.position, opponent.transform.position);
 		if(distance < throwDistance) {
 			animator.SwitchAnimation("Throw");
-			AttackData throwData = new AttackData(100, BlockType.Mid, true, 0, 0, animator.GetAnimationLength(), 0);
+			AttackData throwData = new AttackData(100, BlockType.Mid, true, 0, 0, animator.GetAnimationLength(), 0, null);
 			StartCoroutine(opponent.GetThrown(throwData));
 			state = MovementState.Attacking;
 			return true;

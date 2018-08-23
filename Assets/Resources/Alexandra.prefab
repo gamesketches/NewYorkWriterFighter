@@ -229,6 +229,7 @@ GameObject:
   - component: {fileID: 61230675748791680}
   - component: {fileID: 50475216948285222}
   - component: {fileID: 82631087277146998}
+  - component: {fileID: 82610119491379160}
   m_Layer: 8
   m_Name: Alexandra
   m_TagString: Untagged
@@ -1220,6 +1221,101 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!82 &82610119491379160
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1698289157710126}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!82 &82631087277146998
 AudioSource:
   m_ObjectHideFlags: 1
@@ -1862,6 +1958,7 @@ MonoBehaviour:
   hitStop: 0.2
   hitStun: 1
   blockStun: 2
+  hitSFX: {fileID: 0}
 --- !u!114 &114035841468615714
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1937,6 +2034,7 @@ MonoBehaviour:
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
+  hitSFX: {fileID: 8300000, guid: cec294ec72e97451281866cd726e5221, type: 3}
 --- !u!114 &114082118096897914
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1983,6 +2081,7 @@ MonoBehaviour:
   hitStop: 0.2
   hitStun: 1
   blockStun: 2
+  hitSFX: {fileID: 0}
 --- !u!114 &114110493894235968
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2029,6 +2128,7 @@ MonoBehaviour:
   hitStop: 0.2
   hitStun: 1
   blockStun: 2
+  hitSFX: {fileID: 0}
 --- !u!114 &114112249566713676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2088,6 +2188,7 @@ MonoBehaviour:
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
+  hitSFX: {fileID: 8300000, guid: cb25bc340cbdc40718e152f919a3eec0, type: 3}
 --- !u!114 &114189635541280140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2157,6 +2258,7 @@ MonoBehaviour:
   hitStop: 0.2
   hitStun: 2
   blockStun: 1
+  hitSFX: {fileID: 0}
   activeFrame: 5
   speed: 5
   projectile: {fileID: 1021068755710614, guid: ba40b72a841ce425fbd7b97a120181ee, type: 2}
@@ -2257,6 +2359,7 @@ MonoBehaviour:
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
+  hitSFX: {fileID: 8300000, guid: b3799609876724054949a69fa2bdc9ab, type: 3}
 --- !u!114 &114338718866531956
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2298,6 +2401,7 @@ MonoBehaviour:
   hitStop: 0.2
   hitStun: 1
   blockStun: 2
+  hitSFX: {fileID: 0}
 --- !u!114 &114369119949010920
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2379,6 +2483,7 @@ MonoBehaviour:
   hitStop: 0.2
   hitStun: 3
   blockStun: 1
+  hitSFX: {fileID: 8300000, guid: b3799609876724054949a69fa2bdc9ab, type: 3}
 --- !u!114 &114414848624007966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2438,6 +2543,7 @@ MonoBehaviour:
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
+  hitSFX: {fileID: 8300000, guid: cb25bc340cbdc40718e152f919a3eec0, type: 3}
 --- !u!114 &114424810636361732
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2506,6 +2612,7 @@ MonoBehaviour:
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
+  hitSFX: {fileID: 8300000, guid: cec294ec72e97451281866cd726e5221, type: 3}
 --- !u!114 &114728910153217510
 MonoBehaviour:
   m_ObjectHideFlags: 1

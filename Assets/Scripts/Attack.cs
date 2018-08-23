@@ -20,6 +20,7 @@ public class Attack : MonoBehaviour {
 	public float hitStop;
 	public float hitStun;
 	public float blockStun;
+	public AudioClip hitSFX;
 
 	public AttackData attackData;
 
@@ -33,7 +34,7 @@ public class Attack : MonoBehaviour {
 		hitBoxController = transform.parent.parent.GetChild(0).gameObject.GetComponent<HitBoxController>();
 		hurtBoxController = transform.parent.parent.GetChild(1).gameObject.GetComponent<HurtBoxController>();	
 	
-		attackData = new AttackData(damage, blockType, knockdown, knockBack, hitStop, hitStun, blockStun);
+		attackData = new AttackData(damage, blockType, knockdown, knockBack, hitStop, hitStun, blockStun, hitSFX);
 	
 		sfx = GetComponent<AudioSource>();
 	}
@@ -90,9 +91,10 @@ public struct AttackData {
 	public float hitStop;
 	public float hitStun;
 	public float blockStun;
+	public AudioClip hitSFX;
 	public int id;
 
-	public AttackData(int attackDamage, BlockType attackBlockType, bool knocksDown, float knockBackDistance, float hitStopTime, float hitStunTime, float blockStunTime) {
+	public AttackData(int attackDamage, BlockType attackBlockType, bool knocksDown, float knockBackDistance, float hitStopTime, float hitStunTime, float blockStunTime, AudioClip clip) {
 		damage = attackDamage;
 		blockType = attackBlockType;
 		knockdown = knocksDown;
@@ -100,6 +102,7 @@ public struct AttackData {
 		hitStop = hitStopTime;
 		hitStun = hitStunTime;
 		blockStun = blockStunTime;
+		hitSFX = clip;
 		id = 0;
 	}
 }
