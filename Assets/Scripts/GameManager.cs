@@ -85,6 +85,8 @@ public class GameManager : MonoBehaviour {
 		audio.Play();
 		yield return new WaitForSecondsRealtime(0.2f);
 		RoundText.text = "";
+		player1.locked = false;
+		player2.locked = false;
 	}
 
 	IEnumerator ChangeLifeAmount(Image lifeBar, float targetFill, float duration) {
