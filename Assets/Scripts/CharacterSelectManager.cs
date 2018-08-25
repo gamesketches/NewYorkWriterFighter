@@ -67,7 +67,9 @@ public class CharacterSelectManager : MonoBehaviour {
 		p1Elements.SetActive(false);	
 		p2Elements.SetActive(false);
 		audio.Play();
-		yield return new WaitForSeconds(audio.clip.length);
+		yield return new WaitForSeconds(audio.clip.length - 0.3f);
+		sceneFader.BeginFade(1);
+		yield return new WaitForSeconds(0.3f);
 		SceneManager.LoadScene("main");
 	}
 }

@@ -34,6 +34,7 @@ public class CursorLogic : MonoBehaviour {
 		}
 		verticalAxis = identity.ToString() + "Vertical";
 		horizontalAxis = identity.ToString() + "Horizontal";
+		UpdateCharacterInfo();
 	}
 	
 	// Update is called once per frame
@@ -90,9 +91,7 @@ public class CursorLogic : MonoBehaviour {
 	void MoveCursor() {
 		audio.Play();
 		dragMoveTimer = dragMoveTime;
-		Transform portrait = portraits.GetChild(childIndex);
-		largePortrait.sprite = portrait.GetComponent<Image>().sprite;
-		characterName.text = portrait.name;
+		UpdateCharacterInfo();
 	}
 
 	bool AnyButtonHit() {
@@ -102,5 +101,11 @@ public class CursorLogic : MonoBehaviour {
 			return true;
 		}
 		return false;
+	}
+
+	void UpdateCharacterInfo() {
+		Transform portrait = portraits.GetChild(childIndex);
+		largePortrait.sprite = portrait.GetComponent<Image>().sprite;
+		characterName.text = portrait.name;
 	}
 }
