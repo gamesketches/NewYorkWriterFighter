@@ -11,6 +11,7 @@ public class ProjectileController : MonoBehaviour {
 	public Sprite[] frames;
 	int frameCounter = 0;
 	int curFrame = 0;
+	public int sourceLayer = 0;
 
 	SpriteRenderer renderer;
 
@@ -32,13 +33,24 @@ public class ProjectileController : MonoBehaviour {
 		transform.Translate(direction * speed * Time.fixedDeltaTime, 0, 0);
 	}
 
-	public void SetValues(Sprite[] fireballFrames, float newSpeed, AttackData fireballAttackData) {
+	public void SetValues(Sprite[] fireballFrames, float newSpeed, int newDirection, AttackData fireballAttackData, int parentLayer) {
 		frames = fireballFrames;
 		speed = newSpeed;
+		direction = newDirection;
+		if(direction == 1) renderer.flipX = false;
+		else renderer.flipX = true;
 		attackData = fireballAttackData;
+		sourceLayer = parentLayer;
 	}
 
 	public AttackData GetAttackData() {
 		return attackData;
+	}
+
+	void OnCollisionEnter2D(Collision2D col) {
+		if(gameObject.layer == col.gameObject.layer) {
+			Destroy(col.gameObject);
+			Destroy(gameObject);
+		}
 	}
 }

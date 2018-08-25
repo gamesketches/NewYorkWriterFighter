@@ -10,9 +10,12 @@ public class ProjectileAttack : Attack {
 
 	public Sprite[] projectileFrames;
 
+	FighterController player;
+
 	// Use this for initialization
 	void Awake () {
 		base.Awake();
+		player = transform.parent.parent.GetComponent<FighterController>();
 	}
 	
 	void FixedUpdate () {
@@ -20,12 +23,14 @@ public class ProjectileAttack : Attack {
 		if(frameCounter >= CharacterAnimator.frameSpeed) {
 			curFrame++;
 			if(curFrame >= frames.Count) {
+				hurtBoxController.EndAttack();
 				gameObject.SetActive(false);
 			}
 			else if(curFrame == activeFrame) {
 				GameObject tempProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
-				tempProjectile.GetComponent<ProjectileController>().SetValues(projectileFrames, speed, attackData);
-				tempProjectile.layer = transform.parent.parent.GetChild(0).gameObject.layer;
+				int sourceLayer = player.transform.GetChild(1).gameObject.layer;
+				int direction = player.leftSide ? 1 : -1;
+				tempProjectile.GetComponent<ProjectileController>().SetValues(projectileFrames, speed, direction, attackData, sourceLayer);
 				frameCounter = 0;
 			}
 			frameCounter = 0;

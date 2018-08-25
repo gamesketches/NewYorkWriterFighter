@@ -9,17 +9,21 @@ public class FighterController : MonoBehaviour {
 	static float jumpHeight = 2.37f;
 	static int inputLeniency = 3;
 	static GameManager gameManager;
-	//[HideInInspector]
+	[HideInInspector]
 	public bool leftSide;
 	CharacterAnimator animator;
 	public float walkSpeed = 1;
 	public float throwDistance = 2;
+	[HideInInspector]
 	public PlayerNumber identity;
 	MovementState state;
 	public AnimationCurve jumpY;
+	[HideInInspector]
 	public FighterController opponent;
 	Transform attacks;
 	SpriteRenderer renderer;
+	[HideInInspector]
+	public bool locked = true;
 	AudioSource audio;
 
 	// Use this for initialization
@@ -38,6 +42,7 @@ public class FighterController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		if(locked) return;
 		if(state == MovementState.Attacking ) { 
 			if(animator.animationFinished) {
 				if(VerticalInput() < 0) {
@@ -102,6 +107,7 @@ public class FighterController : MonoBehaviour {
 		if(Input.GetButtonDown(playerID + "LP") && Input.GetButtonDown(playerID + "MP")) {
 			if(state != MovementState.Jumping) {
 				attacks.GetChild(attacks.childCount - 1).gameObject.SetActive(true);
+				state = MovementState.Attacking;
 			}
 		}
 		else if(CheckThrow()) {
@@ -236,19 +242,20 @@ public class FighterController : MonoBehaviour {
 	}
 
 	IEnumerator DeathAnimation() {
+		locked = true;
 		Debug.Log("Killed");
 		Debug.Log("In Death Animation");
-			animator.SwitchAnimation("Fall");
-			state = MovementState.KnockedDown;
-			Time.timeScale = 0.2f;
-			GetComponent<AudioSource>().Play();
-			while(!animator.animationFinished) {
-				if(leftSide) MoveLeft(walkSpeed * Time.deltaTime);
-				else MoveRight(walkSpeed *Time.deltaTime);
-				yield return null;
-			}
-			Time.timeScale = 1;
-			while(state == MovementState.KnockedDown) yield return null;
+		animator.SwitchAnimation("Fall");
+		state = MovementState.KnockedDown;
+		Time.timeScale = 0.2f;
+		GetComponent<AudioSource>().Play();
+		while(!animator.animationFinished) {
+			if(leftSide) MoveLeft(walkSpeed * Time.deltaTime);
+			else MoveRight(walkSpeed *Time.deltaTime);
+			yield return null;
+		}
+		Time.timeScale = 1;
+		while(state == MovementState.KnockedDown) yield return null;
 	}
 
 
@@ -350,6 +357,7 @@ public class FighterController : MonoBehaviour {
 	}	
 
 	public IEnumerator VictoryPose() {
+		locked = true;
 		state = MovementState.Victory;
 		Debug.Log("Victory pose");
 		animator.SwitchAnimation("Victory");

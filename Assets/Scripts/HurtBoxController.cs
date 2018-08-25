@@ -8,12 +8,17 @@ public class HurtBoxController : MonoBehaviour {
 	FighterController player;
 	bool hitThisFrame;
 	int lastAttack;
+	Rect[] neutralColliderBounds;
 
 	// Use this for initialization
 	void Start () {
 		hitThisFrame = false;
 		lastAttack = -1;
 		colliders = GetComponents<BoxCollider2D>();
+		neutralColliderBounds = new Rect[colliders.Length];
+		for(int i = 0; i < colliders.Length; i++) {
+			neutralColliderBounds[i] = new Rect(colliders[i].offset,colliders[i].size);
+		}
 		player = transform.parent.gameObject.GetComponent<FighterController>();
 	}
 	
@@ -41,8 +46,12 @@ public class HurtBoxController : MonoBehaviour {
 			hitThisFrame = true;
 			AttackData data;
 			if(other.tag == "Projectile"){
-				data = other.gameObject.GetComponent<ProjectileController>().GetAttackData();
-				Destroy(other.gameObject);
+				ProjectileController projectileController = other.gameObject.GetComponent<ProjectileController>();
+				if(projectileController.sourceLayer != gameObject.layer) {
+					data = other.gameObject.GetComponent<ProjectileController>().GetAttackData();
+					Destroy(other.gameObject);
+				}
+				else return;
 			}
 			else {
 				data = other.gameObject.GetComponent<HitBoxController>().GetAttackData();
@@ -52,6 +61,14 @@ public class HurtBoxController : MonoBehaviour {
 				StartCoroutine(HitStop(data.hitStop));
 				lastAttack = data.id;
 			}
+		}
+	}
+
+	public void EndAttack() {
+		for(int i = 0; i < colliders.Length; i++) {
+			colliders[i].enabled = true;
+			colliders[i].offset = neutralColliderBounds[i].position;
+			colliders[i].size = neutralColliderBounds[i].size;
 		}
 	}
 
