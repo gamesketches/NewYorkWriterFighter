@@ -23,6 +23,7 @@ public class ProjectileAttack : Attack {
 		if(frameCounter >= CharacterAnimator.frameSpeed) {
 			curFrame++;
 			if(curFrame >= frames.Count) {
+				hurtBoxController.EndAttack();
 				gameObject.SetActive(false);
 			}
 			else if(curFrame == activeFrame) {

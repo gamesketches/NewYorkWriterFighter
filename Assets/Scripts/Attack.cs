@@ -25,7 +25,7 @@ public class Attack : MonoBehaviour {
 	public AttackData attackData;
 
 	HitBoxController hitBoxController;
-	HurtBoxController hurtBoxController;
+	protected HurtBoxController hurtBoxController;
 	protected int curFrame;
 	protected int frameCounter = CharacterAnimator.frameSpeed;
 
@@ -46,6 +46,7 @@ public class Attack : MonoBehaviour {
 			curFrame++;
 			if(curFrame >= frames.Count) {
 				hitBoxController.EndAttack();
+				hurtBoxController.EndAttack();
 				gameObject.SetActive(false);
 			}
 			else {
