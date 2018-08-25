@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour {
 	void Awake () {
 		audio = GetComponent<AudioSource>();
 		roundCounter = 0;
+		SpriteRenderer background = GameObject.Find("Battlezone").GetComponent<SpriteRenderer>();
+		background.sprite = Resources.LoadAll<Sprite>("stages")[Random.Range(0,3)];
 		player1Character = Character.Alexandra;
 		player2Character = Character.Alexandra;
 		player1WinIcons.transform.GetChild(0).gameObject.SetActive(false);
