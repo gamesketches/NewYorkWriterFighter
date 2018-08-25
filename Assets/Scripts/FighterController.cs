@@ -362,8 +362,8 @@ public class FighterController : MonoBehaviour {
 		state = MovementState.Victory;
 		Debug.Log("Victory pose");
 		animator.SwitchAnimation("Victory");
+		animator.nextState = AnimationType.Victory;
 		while(state == MovementState.Victory) yield return null;
-		Debug.Log("No longer in victory pose");
 	}
 
 	public void ResetPlayer() {

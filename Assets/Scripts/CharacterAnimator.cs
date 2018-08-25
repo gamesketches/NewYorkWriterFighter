@@ -71,14 +71,24 @@ public class CharacterAnimator : MonoBehaviour {
 				}
 				break;
 			case AnimationType.Attacking:
-			case AnimationType.Damage:
 				if(TimesUp()) {
 					curFrame++;
 					if(curFrame >= curAnimation.Length) {
 						curFrame = 0;
 						animationFinished = true;
 						SwitchAnimation(nextState.ToString());
-						//SwitchAnimation("Idle");
+					}
+					frameCounter = frameSpeed;
+				}
+				break;
+			case AnimationType.Damage:
+			case AnimationType.Victory:
+				if(TimesUp()) {
+					if(curFrame < curAnimation.Length -1) {
+						curFrame++;
+					}
+					else {
+						animationFinished = true;
 					}
 					frameCounter = frameSpeed;
 				}
@@ -90,12 +100,6 @@ public class CharacterAnimator : MonoBehaviour {
 						curFrame--;
 						animationFinished = true;
 					}
-					frameCounter = frameSpeed;
-				}
-				break;
-			case AnimationType.Victory:
-				if(TimesUp() && curFrame < curAnimation.Length - 1){
-					curFrame++;
 					frameCounter = frameSpeed;
 				}
 				break;
