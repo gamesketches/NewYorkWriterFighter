@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -912,6 +912,7 @@ MonoBehaviour:
   player1StartPos: {x: -4.12, y: -1.05, z: 0}
   player2StartPos: {x: 4.96, y: -1.05, z: 0}
   RoundText: {fileID: 1479406421}
+  debugP1: 1
 --- !u!4 &948551938
 Transform:
   m_ObjectHideFlags: 0
@@ -1626,6 +1627,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114588510585483368, guid: 947dec4e82502434baf14ebbc836d827,
+        type: 2}
+      propertyPath: crouchAnimation.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4877856002536024, guid: 947dec4e82502434baf14ebbc836d827, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0.61
@@ -1667,6 +1673,30 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114588510585483368, guid: 947dec4e82502434baf14ebbc836d827,
+        type: 2}
+      propertyPath: crouchAnimation.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 75b6d261ee85c43fabdc6eae7c774779,
+        type: 3}
+    - target: {fileID: 114588510585483368, guid: 947dec4e82502434baf14ebbc836d827,
+        type: 2}
+      propertyPath: crouchAnimation.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 42971c0489a844c538918a11fbc9919a,
+        type: 3}
+    - target: {fileID: 114588510585483368, guid: 947dec4e82502434baf14ebbc836d827,
+        type: 2}
+      propertyPath: crouchAnimation.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: baa124bc67b5e4905b524ae650c39ccb,
+        type: 3}
+    - target: {fileID: 114588510585483368, guid: 947dec4e82502434baf14ebbc836d827,
+        type: 2}
+      propertyPath: crouchBlockAnimation.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 2ea9a5aaa9b5df74fb937849c5955d63,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 947dec4e82502434baf14ebbc836d827, type: 2}
   m_IsPrefabAsset: 0
@@ -2158,6 +2188,52 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1891391570}
   m_CullTransparentMesh: 0
+--- !u!1001 &1904222831
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4036748208381582, guid: 5a04f4a2bc860cb4787c8228f21a301e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -2.881023
+      objectReference: {fileID: 0}
+    - target: {fileID: 4036748208381582, guid: 5a04f4a2bc860cb4787c8228f21a301e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.4592708
+      objectReference: {fileID: 0}
+    - target: {fileID: 4036748208381582, guid: 5a04f4a2bc860cb4787c8228f21a301e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4036748208381582, guid: 5a04f4a2bc860cb4787c8228f21a301e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4036748208381582, guid: 5a04f4a2bc860cb4787c8228f21a301e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4036748208381582, guid: 5a04f4a2bc860cb4787c8228f21a301e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4036748208381582, guid: 5a04f4a2bc860cb4787c8228f21a301e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4036748208381582, guid: 5a04f4a2bc860cb4787c8228f21a301e, type: 2}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1828773952248856, guid: 5a04f4a2bc860cb4787c8228f21a301e, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5a04f4a2bc860cb4787c8228f21a301e, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &2020547138
 GameObject:
   m_ObjectHideFlags: 0

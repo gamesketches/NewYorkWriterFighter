@@ -1932,7 +1932,7 @@ MonoBehaviour:
   blockAnimation:
   - {fileID: 21300000, guid: 22774a15bc61b421faa6f0cdad14e901, type: 3}
   crouchBlockAnimation:
-  - {fileID: 21300000, guid: 4f7570025ae1e441cbe4a5c114c6e2d3, type: 3}
+  - {fileID: 21300000, guid: 53a1a4caea8054aeaba478671d989ecd, type: 3}
   fallAnimation:
   - {fileID: 21300000, guid: 248cde5ffd3b84172aaed4e087b01d41, type: 3}
   - {fileID: 21300000, guid: dafea2dfb41c24c20b5820ddddc3ef93, type: 3}
@@ -2218,6 +2218,7 @@ MonoBehaviour:
     m_PostInfinity: 0
     m_RotationOrder: 4
   opponent: {fileID: 0}
+  locked: 1
 --- !u!114 &114184651819928748
 MonoBehaviour:
   m_ObjectHideFlags: 1
