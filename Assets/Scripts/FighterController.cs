@@ -353,6 +353,7 @@ public class FighterController : MonoBehaviour {
 		else {
 			hitBoxes.layer = 11;
 			hurtBoxes.layer = 12;
+			renderer.flipX = true;
 		}
 	}	
 
