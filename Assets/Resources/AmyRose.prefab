@@ -65,7 +65,7 @@ GameObject:
   m_Icon: {fileID: 2800000, guid: 4523de6e41d9c794e9a2162ae7c25db4, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1386066253835042
 GameObject:
   m_ObjectHideFlags: 0
@@ -1847,6 +1847,7 @@ MonoBehaviour:
   hitStop: 0.2
   hitStun: 1
   blockStun: 2
+  hitSFX: {fileID: 0}
 --- !u!114 &114152536026060756
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1928,6 +1929,7 @@ MonoBehaviour:
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
+  hitSFX: {fileID: 0}
 --- !u!114 &114177150852769424
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1982,6 +1984,7 @@ MonoBehaviour:
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
+  hitSFX: {fileID: 0}
 --- !u!114 &114348909021009848
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2031,6 +2034,7 @@ MonoBehaviour:
   hitStop: 0.2
   hitStun: 1
   blockStun: 2
+  hitSFX: {fileID: 0}
 --- !u!114 &114379694405776126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2100,6 +2104,7 @@ MonoBehaviour:
   hitStop: 0.2
   hitStun: 2
   blockStun: 1
+  hitSFX: {fileID: 0}
   activeFrame: 5
   speed: 5
   projectile: {fileID: 1021068755710614, guid: ba40b72a841ce425fbd7b97a120181ee, type: 2}
@@ -2179,6 +2184,7 @@ MonoBehaviour:
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
+  hitSFX: {fileID: 0}
 --- !u!114 &114708808942453700
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2273,6 +2279,7 @@ MonoBehaviour:
   hitStop: 0.2
   hitStun: 1
   blockStun: 2
+  hitSFX: {fileID: 0}
 --- !u!114 &114813124255545712
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2373,6 +2380,7 @@ MonoBehaviour:
   hitStop: 0.2
   hitStun: 3
   blockStun: 1
+  hitSFX: {fileID: 0}
 --- !u!114 &114857537875723716
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2414,6 +2422,7 @@ MonoBehaviour:
   hitStop: 0.2
   hitStun: 1
   blockStun: 2
+  hitSFX: {fileID: 0}
 --- !u!114 &114873729548742644
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2551,6 +2560,7 @@ MonoBehaviour:
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
+  hitSFX: {fileID: 0}
 --- !u!114 &114962552271968620
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2594,6 +2604,7 @@ MonoBehaviour:
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
+  hitSFX: {fileID: 0}
 --- !u!212 &212981493729413488
 SpriteRenderer:
   m_ObjectHideFlags: 1
