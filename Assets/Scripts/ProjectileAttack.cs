@@ -24,8 +24,8 @@ public class ProjectileAttack : Attack {
 			}
 			else if(curFrame == activeFrame) {
 				GameObject tempProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
-				tempProjectile.GetComponent<ProjectileController>().SetValues(projectileFrames, speed, attackData);
-				tempProjectile.layer = transform.parent.parent.GetChild(0).gameObject.layer;
+				int sourceLayer = transform.parent.parent.GetChild(1).gameObject.layer;
+				tempProjectile.GetComponent<ProjectileController>().SetValues(projectileFrames, speed, attackData, sourceLayer);
 				frameCounter = 0;
 			}
 			frameCounter = 0;

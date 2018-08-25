@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114637490430435202}
   - component: {fileID: 212670843877813782}
   - component: {fileID: 61178652539180938}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: Projectile
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -79,6 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frames: []
+  sourceLayer: 0
 --- !u!212 &212670843877813782
 SpriteRenderer:
   m_ObjectHideFlags: 1
