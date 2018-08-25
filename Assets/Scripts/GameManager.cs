@@ -52,7 +52,17 @@ public class GameManager : MonoBehaviour {
 	void FixedUpdate () {
 		if(RoundText.text == "") {
 			roundTime -= Time.fixedDeltaTime; 
-			roundTimer.text = Mathf.Floor(roundTime).ToString();
+			if(roundTime > 0) {
+				roundTimer.text = Mathf.Floor(roundTime).ToString();
+			}
+			else if(!player1.locked) {
+				if(player2Life > player1Life) {
+					StartCoroutine(EndRound(PlayerNumber.P2));
+				}
+				else {
+					StartCoroutine(EndRound(PlayerNumber.P1));
+				}
+			}
 		}
 	}
 
@@ -154,6 +164,8 @@ public class GameManager : MonoBehaviour {
 	}
 
 	IEnumerator EndRound(PlayerNumber playerNum) {
+		player1.locked = true;
+		player2.locked = true;
 		FighterController winningPlayer;
 		FadeInScene sceneFader = GetComponent<FadeInScene>();
 		winningPlayer = playerNum == PlayerNumber.P1 ? player1 : player2;
