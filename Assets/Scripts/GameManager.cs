@@ -50,8 +50,10 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		roundTime -= Time.fixedDeltaTime;
-		roundTimer.text = Mathf.Floor(roundTime).ToString();
+		if(RoundText.text == "") {
+			roundTime -= Time.fixedDeltaTime; 
+			roundTimer.text = Mathf.Floor(roundTime).ToString();
+		}
 	}
 
 	IEnumerator StartRound() {
