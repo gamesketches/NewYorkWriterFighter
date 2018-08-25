@@ -33,13 +33,11 @@ public class GameManager : MonoBehaviour {
 	AudioSource audio;
 	public Text RoundText;
 
-	public Character debugP1;
-
 	// Use this for initialization
 	void Awake () {
 		audio = GetComponent<AudioSource>();
 		roundCounter = 0;
-		player1Character = debugP1;
+		player1Character = Character.Alexandra;
 		player2Character = Character.Alexandra;
 		player1WinIcons.transform.GetChild(0).gameObject.SetActive(false);
 		player1WinIcons.transform.GetChild(1).gameObject.SetActive(false);
