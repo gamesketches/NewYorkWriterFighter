@@ -16,6 +16,8 @@ public class CursorLogic : MonoBehaviour {
 	float dragMoveTimer = 0;
 	public Image largePortrait;
 	public Text characterName;
+	public Image vsScreenPortrait;
+	public Text vsScreenName;
 
 	[HideInInspector]
 	public bool selected;
@@ -72,6 +74,8 @@ public class CursorLogic : MonoBehaviour {
 			Character theCharacter = (Character)System.Enum.Parse(typeof(Character), characterName);
 			audio.clip = Resources.Load<AudioClip>("charSelected");
 			audio.Play();
+			vsScreenPortrait.sprite = largePortrait.sprite;
+			vsScreenName.text = characterName;
 			if(identity == PlayerNumber.P1) {
 				GameManager.player1Character = theCharacter;
 			}
