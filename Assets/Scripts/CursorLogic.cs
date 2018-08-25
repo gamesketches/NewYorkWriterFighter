@@ -16,6 +16,8 @@ public class CursorLogic : MonoBehaviour {
 	float dragMoveTimer = 0;
 	public Image largePortrait;
 	public Text characterName;
+	public Image vsScreenPortrait;
+	public Text vsScreenName;
 
 	[HideInInspector]
 	public bool selected;
@@ -28,10 +30,11 @@ public class CursorLogic : MonoBehaviour {
 			childIndex = 0;
 		}
 		else {
-			childIndex = 7;
+			childIndex = portraits.childCount - 1;
 		}
 		verticalAxis = identity.ToString() + "Vertical";
 		horizontalAxis = identity.ToString() + "Horizontal";
+		UpdateCharacterInfo();
 	}
 	
 	// Update is called once per frame
@@ -61,7 +64,7 @@ public class CursorLogic : MonoBehaviour {
 		else if(Input.GetAxisRaw(horizontalAxis) == -1) {
 			childIndex -= 1;
 			if(childIndex < 0) {
-				childIndex = portraits.childCount;
+				childIndex = portraits.childCount - 1;
 			}
 			MoveCursor();
 		}
@@ -72,6 +75,8 @@ public class CursorLogic : MonoBehaviour {
 			Character theCharacter = (Character)System.Enum.Parse(typeof(Character), characterName);
 			audio.clip = Resources.Load<AudioClip>("charSelected");
 			audio.Play();
+			vsScreenPortrait.sprite = largePortrait.sprite;
+			vsScreenName.text = characterName;
 			if(identity == PlayerNumber.P1) {
 				GameManager.player1Character = theCharacter;
 			}
@@ -86,9 +91,7 @@ public class CursorLogic : MonoBehaviour {
 	void MoveCursor() {
 		audio.Play();
 		dragMoveTimer = dragMoveTime;
-		Transform portrait = portraits.GetChild(childIndex);
-		largePortrait.sprite = portrait.GetComponent<Image>().sprite;
-		characterName.text = portrait.name;
+		UpdateCharacterInfo();
 	}
 
 	bool AnyButtonHit() {
@@ -98,5 +101,11 @@ public class CursorLogic : MonoBehaviour {
 			return true;
 		}
 		return false;
+	}
+
+	void UpdateCharacterInfo() {
+		Transform portrait = portraits.GetChild(childIndex);
+		largePortrait.sprite = portrait.GetComponent<Image>().sprite;
+		characterName.text = portrait.name;
 	}
 }
