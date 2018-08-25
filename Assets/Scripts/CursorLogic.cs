@@ -30,7 +30,7 @@ public class CursorLogic : MonoBehaviour {
 			childIndex = 0;
 		}
 		else {
-			childIndex = 7;
+			childIndex = portraits.childCount - 1;
 		}
 		verticalAxis = identity.ToString() + "Vertical";
 		horizontalAxis = identity.ToString() + "Horizontal";
@@ -63,7 +63,7 @@ public class CursorLogic : MonoBehaviour {
 		else if(Input.GetAxisRaw(horizontalAxis) == -1) {
 			childIndex -= 1;
 			if(childIndex < 0) {
-				childIndex = portraits.childCount;
+				childIndex = portraits.childCount - 1;
 			}
 			MoveCursor();
 		}
