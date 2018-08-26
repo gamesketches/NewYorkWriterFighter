@@ -191,6 +191,7 @@ public class FighterController : MonoBehaviour {
 	public IEnumerator GetHit(AttackData attackData) {
 		Debug.Log("Hit");
 		if(SuccessfulBlock(attackData.blockType)) {
+			StartCoroutine(GetPushed(attackData.knockBack, attackData.blockStun));
 			yield return new WaitForSeconds(attackData.blockStun);
 		}
 		else {
@@ -212,6 +213,7 @@ public class FighterController : MonoBehaviour {
 					audio.clip = attackData.hitSFX;
 					audio.Play();
 				}
+				StartCoroutine(GetPushed(attackData.knockBack, attackData.hitStun));
 				yield return new WaitForSeconds(attackData.hitStun);
 			}
 		}
@@ -273,6 +275,14 @@ public class FighterController : MonoBehaviour {
 				break;
 		}
 		return false;
+	}
+
+	IEnumerator GetPushed(float distance, float stunTime) {
+		for(float i = 0; i < stunTime; i += Time.fixedDeltaTime){
+			if(leftSide) MoveLeft(distance * Time.fixedDeltaTime);
+			else MoveRight(distance * Time.fixedDeltaTime);
+			yield return null;
+		}
 	}
 	
 	bool IsJumpAttack(string button) {
