@@ -262,7 +262,7 @@ public class FighterController : MonoBehaviour {
 
 
 	bool SuccessfulBlock(BlockType blockType) {
-		if(state != MovementState.Blocking) return false;
+		if(state != MovementState.Blocking && state != MovementState.CrouchBlocking) return false;
 	
 		switch(blockType) {
 			case BlockType.Mid:
