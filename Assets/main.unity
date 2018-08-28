@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -395,14 +395,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 114708808942453700, guid: 20b2b742c5e7a5c4cb05259478df8115,
-        type: 2}
-      propertyPath: opponent
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1124005196569280, guid: 20b2b742c5e7a5c4cb05259478df8115, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114873729548742644, guid: 20b2b742c5e7a5c4cb05259478df8115,
+        type: 2}
+      propertyPath: throwAttacks.Array.data[2]
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20b2b742c5e7a5c4cb05259478df8115, type: 2}
@@ -913,6 +913,8 @@ MonoBehaviour:
   player1StartPos: {x: -4.12, y: -1.05, z: 0}
   player2StartPos: {x: 4.96, y: -1.05, z: 0}
   RoundText: {fileID: 1479406421}
+  debugP1: 5
+  debugP2: 3
 --- !u!4 &948551938
 Transform:
   m_ObjectHideFlags: 0

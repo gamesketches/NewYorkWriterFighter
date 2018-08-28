@@ -2009,7 +2009,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: cc9d645fb94ce4d5d864ad482f202e3d, type: 3}
   - {fileID: 21300000, guid: 2ffd5922b792b4a0b8b2879305be7813, type: 3}
   - {fileID: 21300000, guid: 60c10f00722ff4bf88f7635674297c89, type: 3}
-  throwAttacks: 
+  throwAttacks: 040000000300000001000000
   animationFinished: 0
   nextState: 0
 --- !u!114 &114100749723301744
