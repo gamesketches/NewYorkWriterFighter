@@ -184,6 +184,7 @@ public class GameManager : MonoBehaviour {
 		yield return StartCoroutine(PlayAudioAndYield(win));
 		yield return new WaitForSecondsRealtime(1.5f);
 		if(UpdateRoundCounters(playerNum)){
+			CharacterSelectManager.winner = (int)playerNum;
 			SceneManager.LoadScene("CharacterSelect");
 		}
 		else {
