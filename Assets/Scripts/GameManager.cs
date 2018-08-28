@@ -31,14 +31,19 @@ public class GameManager : MonoBehaviour {
 	FighterController player2;
 
 	AudioSource audio;
+	AudioSource bgm;
 	public Text RoundText;
 
 	// Use this for initialization
 	void Awake () {
 		audio = GetComponent<AudioSource>();
+		bgm = GetComponents<AudioSource>()[1];
 		roundCounter = 0;
 		SpriteRenderer background = GameObject.Find("Battlezone").GetComponent<SpriteRenderer>();
+		
 		background.sprite = Resources.LoadAll<Sprite>("stages")[Random.Range(0,3)];
+		bgm.clip = Resources.Load<AudioClip>("music/" + background.sprite.name);
+		bgm.Play();
 		player1Character = Character.Alexandra;
 		player2Character = Character.Alexandra;
 		player1WinIcons.transform.GetChild(0).gameObject.SetActive(false);
