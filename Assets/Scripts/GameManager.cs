@@ -211,6 +211,9 @@ public class GameManager : MonoBehaviour {
 		player1.opponent = player2;
 
 		Camera.main.GetComponent<CameraController>().SetPlayerTransforms(player1.transform, player2.transform);
+
+		player1Obj.SetActive (true);
+		player2Obj.SetActive (true);
 	}
 
 	void ResetPlayers() {
