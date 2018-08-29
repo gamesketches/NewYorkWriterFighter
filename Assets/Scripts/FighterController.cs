@@ -190,35 +190,38 @@ public class FighterController : MonoBehaviour {
 
 	public IEnumerator GetHit(AttackData attackData) {
 		Debug.Log("Hit");
-		if(SuccessfulBlock(attackData.blockType)) {
-			StartCoroutine(GetPushed(attackData.knockBack, attackData.blockStun));
-			state = MovementState.Recoiling;
-			yield return new WaitForSeconds(attackData.blockStun);
-		}
-		else {
-			if(gameManager.UpdateLifeBarCheckDeath(identity, attackData.damage)) {
-				Debug.Log("Killed");
-				yield return StartCoroutine(DeathAnimation());
-
-			}	
-			else if(attackData.knockdown) {
-				animator.SwitchAnimation("Fall");
-				state = MovementState.KnockedDown;
-				while(!animator.animationFinished) yield return null;
-				yield return new WaitForSeconds(1);
+		if(state != MovementState.KnockedDown) {
+		
+			if(SuccessfulBlock(attackData.blockType)) {
+				StartCoroutine(GetPushed(attackData.knockBack, attackData.blockStun));
+				state = MovementState.Recoiling;
+				yield return new WaitForSeconds(attackData.blockStun);
 			}
 			else {
-				animator.SwitchAnimation("Damage");
-				state = MovementState.Recoiling;
-				if(attackData.hitSFX != null) {
-					audio.clip = attackData.hitSFX;
-					audio.Play();
+				if(gameManager.UpdateLifeBarCheckDeath(identity, attackData.damage)) {
+					Debug.Log("Killed");
+					yield return StartCoroutine(DeathAnimation());
+	
+				}	
+				else if(attackData.knockdown) {
+					animator.SwitchAnimation("Fall");
+					state = MovementState.KnockedDown;
+					while(!animator.animationFinished) yield return null;
+					yield return new WaitForSeconds(1);
 				}
-				StartCoroutine(GetPushed(attackData.knockBack, attackData.hitStun));
-				yield return new WaitForSeconds(attackData.hitStun);
+				else {
+					animator.SwitchAnimation("Damage");
+					state = MovementState.Recoiling;
+					if(attackData.hitSFX != null) {
+						audio.clip = attackData.hitSFX;
+						audio.Play();
+					}
+					StartCoroutine(GetPushed(attackData.knockBack, attackData.hitStun));
+					yield return new WaitForSeconds(attackData.hitStun);
+				}
 			}
-		}
 		state = MovementState.Standing;
+		}
 	}
 
 	public IEnumerator GetThrown(AttackData throwData) {
