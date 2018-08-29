@@ -70,10 +70,10 @@ public class FighterController : MonoBehaviour {
 	void CheckDirectionalInput() {
 		if(state == MovementState.Attacking || state == MovementState.Victory) return;
 		if(state == MovementState.Jumping) {
-			Debug.Log("Cancel into attacks here");
+		//	Debug.Log("Cancel into attacks here");
 		}
 		else if(state == MovementState.Recoiling) {
-			Debug.Log("taking damage");
+		//	Debug.Log("taking damage");
 		}
 		else if(opponent.GetState() == MovementState.Attacking && HoldingBack()) {
 			Block();
@@ -190,34 +190,38 @@ public class FighterController : MonoBehaviour {
 
 	public IEnumerator GetHit(AttackData attackData) {
 		Debug.Log("Hit");
-		if(SuccessfulBlock(attackData.blockType)) {
-			StartCoroutine(GetPushed(attackData.knockBack, attackData.blockStun));
-			yield return new WaitForSeconds(attackData.blockStun);
-		}
-		else {
-			if(gameManager.UpdateLifeBarCheckDeath(identity, attackData.damage)) {
-				Debug.Log("Killed");
-				yield return StartCoroutine(DeathAnimation());
-
-			}	
-			else if(attackData.knockdown) {
-				animator.SwitchAnimation("Fall");
-				state = MovementState.KnockedDown;
-				while(!animator.animationFinished) yield return null;
-				yield return new WaitForSeconds(1);
+		if(state != MovementState.KnockedDown) {
+		
+			if(SuccessfulBlock(attackData.blockType)) {
+				StartCoroutine(GetPushed(attackData.knockBack, attackData.blockStun));
+				state = MovementState.Recoiling;
+				yield return new WaitForSeconds(attackData.blockStun);
 			}
 			else {
-				animator.SwitchAnimation("Damage");
-				state = MovementState.Recoiling;
-				if(attackData.hitSFX != null) {
-					audio.clip = attackData.hitSFX;
-					audio.Play();
+				if(gameManager.UpdateLifeBarCheckDeath(identity, attackData.damage)) {
+					Debug.Log("Killed");
+					yield return StartCoroutine(DeathAnimation());
+	
+				}	
+				else if(attackData.knockdown) {
+					animator.SwitchAnimation("Fall");
+					state = MovementState.KnockedDown;
+					while(!animator.animationFinished) yield return null;
+					yield return new WaitForSeconds(1);
 				}
-				StartCoroutine(GetPushed(attackData.knockBack, attackData.hitStun));
-				yield return new WaitForSeconds(attackData.hitStun);
+				else {
+					animator.SwitchAnimation("Damage");
+					state = MovementState.Recoiling;
+					if(attackData.hitSFX != null) {
+						audio.clip = attackData.hitSFX;
+						audio.Play();
+					}
+					StartCoroutine(GetPushed(attackData.knockBack, attackData.hitStun));
+					yield return new WaitForSeconds(attackData.hitStun);
+				}
 			}
-		}
 		state = MovementState.Standing;
+		}
 	}
 
 	public IEnumerator GetThrown(AttackData throwData) {
@@ -278,6 +282,8 @@ public class FighterController : MonoBehaviour {
 	}
 
 	IEnumerator GetPushed(float distance, float stunTime) {
+		Debug.Log(distance);
+		Debug.Log(stunTime);
 		for(float i = 0; i < stunTime; i += Time.fixedDeltaTime){
 			if(leftSide) MoveLeft(distance * Time.fixedDeltaTime);
 			else MoveRight(distance * Time.fixedDeltaTime);
