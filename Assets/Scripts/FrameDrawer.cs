@@ -26,7 +26,7 @@ public class FrameDrawer : PropertyDrawer {
 
 		Rect hitBoxInputRect = new Rect(position.x + 30, position.y + 40, 110, 16);
 		Rect hurtBoxInputRect = new Rect(position.x + 150, position.y + 40, 110, 16);
-		Rect spriteRect = new Rect(position.x - 100, position.y, spriteSize, spriteSize);
+		Rect spriteRect = new Rect(position.x - 100, position.y, spriteTexture.texture.width / 2, spriteTexture.texture.height / 2);//spriteSize, spriteSize);
 		Rect spriteObjRect = new Rect(position.x + 30, position.y, position.width - 30, 16);
 
 		EditorGUIUtility.labelWidth = 40;
