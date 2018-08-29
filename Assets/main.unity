@@ -399,6 +399,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114580958140829422, guid: 20b2b742c5e7a5c4cb05259478df8115,
+        type: 2}
+      propertyPath: hitStun
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20b2b742c5e7a5c4cb05259478df8115, type: 2}
   m_IsPrefabAsset: 0
@@ -1371,10 +1376,6 @@ Prefab:
       propertyPath: opponent
       value: 
       objectReference: {fileID: 1243797385}
-    - target: {fileID: 1698289157710126, guid: 4b138bdf44cae437abdfaa36e866dc63, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b138bdf44cae437abdfaa36e866dc63, type: 2}
   m_IsPrefabAsset: 0
