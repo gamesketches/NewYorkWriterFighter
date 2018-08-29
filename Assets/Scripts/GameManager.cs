@@ -114,6 +114,8 @@ public class GameManager : MonoBehaviour {
 
 	IEnumerator ChangeLifeAmount(Image lifeBar, float targetFill, float duration) {
 		float startFill = lifeBar.fillAmount;
+		Debug.Log("startFill: " +startFill.ToString());
+		Debug.Log("targetFill: " +targetFill.ToString());
 		targetFill = Mathf.Clamp(targetFill, 0, 1);
 		for(float t = 0; t < duration; t += Time.fixedDeltaTime) {
 			lifeBar.fillAmount = Mathf.Lerp(startFill, targetFill, t / duration);
@@ -124,8 +126,8 @@ public class GameManager : MonoBehaviour {
 
 	public bool UpdateLifeBarCheckDeath(PlayerNumber playerNum, float lifeChange) {
 		if(playerNum == PlayerNumber.P1) {
-			player1Life -= lifeChange;
 			StartCoroutine(ChangeLifeAmount(player1Bar, (player1Life - lifeChange) / totalLife, 0.1f));
+			player1Life -= lifeChange;
 			if(player1Life < 0) {
 				//UpdateRoundCounters(PlayerNumber.P2);
 				StartCoroutine(EndRound(PlayerNumber.P2));
@@ -133,8 +135,8 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 		else if(playerNum == PlayerNumber.P2) {
-			player2Life -= lifeChange;
 			StartCoroutine(ChangeLifeAmount(player2Bar, (player2Life - lifeChange) / totalLife, 0.1f));
+			player2Life -= lifeChange;
 			if(player2Life < 0){
 				StartCoroutine(EndRound(PlayerNumber.P1));
 			//	UpdateRoundCounters(PlayerNumber.P1);
