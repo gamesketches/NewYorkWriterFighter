@@ -399,11 +399,6 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114873729548742644, guid: 20b2b742c5e7a5c4cb05259478df8115,
-        type: 2}
-      propertyPath: throwAttacks.Array.data[2]
-      value: 4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20b2b742c5e7a5c4cb05259478df8115, type: 2}
   m_IsPrefabAsset: 0
@@ -913,8 +908,8 @@ MonoBehaviour:
   player1StartPos: {x: -4.12, y: -1.05, z: 0}
   player2StartPos: {x: 4.96, y: -1.05, z: 0}
   RoundText: {fileID: 1479406421}
-  debugP1: 5
-  debugP2: 3
+  debugP1: 0
+  debugP2: 2
 --- !u!4 &948551938
 Transform:
   m_ObjectHideFlags: 0
@@ -1724,11 +1719,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114588510585483368, guid: 947dec4e82502434baf14ebbc836d827,
-        type: 2}
-      propertyPath: crouchAnimation.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4877856002536024, guid: 947dec4e82502434baf14ebbc836d827, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0.61
@@ -1770,30 +1760,6 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114588510585483368, guid: 947dec4e82502434baf14ebbc836d827,
-        type: 2}
-      propertyPath: crouchAnimation.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300000, guid: 75b6d261ee85c43fabdc6eae7c774779,
-        type: 3}
-    - target: {fileID: 114588510585483368, guid: 947dec4e82502434baf14ebbc836d827,
-        type: 2}
-      propertyPath: crouchAnimation.Array.data[2]
-      value: 
-      objectReference: {fileID: 21300000, guid: 42971c0489a844c538918a11fbc9919a,
-        type: 3}
-    - target: {fileID: 114588510585483368, guid: 947dec4e82502434baf14ebbc836d827,
-        type: 2}
-      propertyPath: crouchAnimation.Array.data[3]
-      value: 
-      objectReference: {fileID: 21300000, guid: baa124bc67b5e4905b524ae650c39ccb,
-        type: 3}
-    - target: {fileID: 114588510585483368, guid: 947dec4e82502434baf14ebbc836d827,
-        type: 2}
-      propertyPath: crouchBlockAnimation.Array.data[0]
-      value: 
-      objectReference: {fileID: 21300000, guid: 2ea9a5aaa9b5df74fb937849c5955d63,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 947dec4e82502434baf14ebbc836d827, type: 2}
   m_IsPrefabAsset: 0

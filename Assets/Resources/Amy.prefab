@@ -2018,14 +2018,14 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: 6b436a2b61ade634b91cca80fc5fa67c, type: 3}
     hitBoxes: []
     hurtBoxes: []
-  damage: 10
+  damage: 90
   blockType: 0
   knockdown: 1
   knockBack: 1
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: b3799609876724054949a69fa2bdc9ab, type: 3}
 --- !u!114 &114177150852769424
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2080,7 +2080,7 @@ MonoBehaviour:
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: cb25bc340cbdc40718e152f919a3eec0, type: 3}
 --- !u!114 &114348909021009848
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2273,14 +2273,14 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: 46aa77e6786aad74688aca25c59a49f8, type: 3}
     hitBoxes: []
     hurtBoxes: []
-  damage: 10
+  damage: 40
   blockType: 0
   knockdown: 0
   knockBack: 1
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: cec294ec72e97451281866cd726e5221, type: 3}
 --- !u!114 &114708808942453700
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2477,7 +2477,7 @@ MonoBehaviour:
   hitStop: 0.2
   hitStun: 3
   blockStun: 1
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: b3799609876724054949a69fa2bdc9ab, type: 3}
 --- !u!114 &114857537875723716
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2654,7 +2654,7 @@ MonoBehaviour:
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: cb25bc340cbdc40718e152f919a3eec0, type: 3}
 --- !u!114 &114962552271968620
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2691,14 +2691,14 @@ MonoBehaviour:
       y: 1
       width: 1.15
       height: 1
-  damage: 10
+  damage: 50
   blockType: 0
   knockdown: 0
   knockBack: 1
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: cec294ec72e97451281866cd726e5221, type: 3}
 --- !u!212 &212981493729413488
 SpriteRenderer:
   m_ObjectHideFlags: 1

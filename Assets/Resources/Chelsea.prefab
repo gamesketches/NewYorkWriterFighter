@@ -2288,14 +2288,14 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: de02b03d884c6be4a9ec0a2b112112a2, type: 3}
     hitBoxes: []
     hurtBoxes: []
-  damage: 10
+  damage: 50
   blockType: 0
   knockdown: 0
   knockBack: 1
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: cec294ec72e97451281866cd726e5221, type: 3}
 --- !u!114 &114362636616798488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2375,14 +2375,14 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: 94aa8926efaf4f34ea76456b85bb09df, type: 3}
     hitBoxes: []
     hurtBoxes: []
-  damage: 10
+  damage: 90
   blockType: 0
   knockdown: 1
   knockBack: 1
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: b3799609876724054949a69fa2bdc9ab, type: 3}
 --- !u!114 &114373614217688862
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2469,7 +2469,7 @@ MonoBehaviour:
   hitStop: 0.2
   hitStun: 3
   blockStun: 1
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: b3799609876724054949a69fa2bdc9ab, type: 3}
 --- !u!114 &114428719275691076
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2581,7 +2581,7 @@ MonoBehaviour:
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: cb25bc340cbdc40718e152f919a3eec0, type: 3}
 --- !u!114 &114737569116534566
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2692,14 +2692,14 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: 3db2d8d3fd8d80342bd3d41d0c1b4046, type: 3}
     hitBoxes: []
     hurtBoxes: []
-  damage: 10
+  damage: 40
   blockType: 0
   knockdown: 0
   knockBack: 1
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: cec294ec72e97451281866cd726e5221, type: 3}
 --- !u!114 &114926985966555426
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2772,7 +2772,7 @@ MonoBehaviour:
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: cb25bc340cbdc40718e152f919a3eec0, type: 3}
 --- !u!212 &212796290199840544
 SpriteRenderer:
   m_ObjectHideFlags: 1

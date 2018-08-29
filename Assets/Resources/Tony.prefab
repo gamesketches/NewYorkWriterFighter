@@ -1955,14 +1955,14 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: ca3db0ec603b9b9458f35fcfdefb6c15, type: 3}
     hitBoxes: []
     hurtBoxes: []
-  damage: 10
+  damage: 50
   blockType: 0
   knockdown: 0
   knockBack: 1
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: cec294ec72e97451281866cd726e5221, type: 3}
 --- !u!114 &114232820012055996
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2077,7 +2077,7 @@ MonoBehaviour:
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: cb25bc340cbdc40718e152f919a3eec0, type: 3}
 --- !u!114 &114295618877779354
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2256,14 +2256,14 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: c765bda72d7aa1c43a43c8ab19cc89e2, type: 3}
     hitBoxes: []
     hurtBoxes: []
-  damage: 10
+  damage: 90
   blockType: 0
   knockdown: 1
   knockBack: 1
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: b3799609876724054949a69fa2bdc9ab, type: 3}
 --- !u!114 &114461769345253536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2342,14 +2342,14 @@ MonoBehaviour:
       y: -1.07
       width: 0.91
       height: 1.64
-  damage: 10
+  damage: 40
   blockType: 0
   knockdown: 0
   knockBack: 1
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: cec294ec72e97451281866cd726e5221, type: 3}
 --- !u!114 &114503563295221006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2499,7 +2499,7 @@ MonoBehaviour:
   hitStop: 0.2
   hitStun: 3
   blockStun: 1
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: b3799609876724054949a69fa2bdc9ab, type: 3}
 --- !u!114 &114797487834472388
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2685,7 +2685,7 @@ MonoBehaviour:
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: cb25bc340cbdc40718e152f919a3eec0, type: 3}
 --- !u!114 &114997456453283706
 MonoBehaviour:
   m_ObjectHideFlags: 1
