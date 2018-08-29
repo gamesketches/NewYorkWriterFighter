@@ -1988,14 +1988,14 @@ MonoBehaviour:
       y: 0.2
       width: 1.12
       height: 0.5
-  damage: 10
+  damage: 50
   blockType: 0
   knockdown: 0
   knockBack: 1
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: cec294ec72e97451281866cd726e5221, type: 3}
 --- !u!114 &114205963932973912
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2111,14 +2111,14 @@ MonoBehaviour:
       y: 0
       width: 1
       height: 1
-  damage: 10
+  damage: 40
   blockType: 0
   knockdown: 0
   knockBack: 1
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: cec294ec72e97451281866cd726e5221, type: 3}
 --- !u!114 &114302019912850462
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2198,14 +2198,14 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: 5060e4fb932facf4dbcadb6adcbfb80e, type: 3}
     hitBoxes: []
     hurtBoxes: []
-  damage: 10
+  damage: 90
   blockType: 0
   knockdown: 1
   knockBack: 1
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: b3799609876724054949a69fa2bdc9ab, type: 3}
 --- !u!114 &114347361754144864
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2503,7 +2503,7 @@ MonoBehaviour:
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: cb25bc340cbdc40718e152f919a3eec0, type: 3}
 --- !u!114 &114479886431122924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2609,7 +2609,7 @@ MonoBehaviour:
   hitStop: 0.2
   hitStun: 3
   blockStun: 1
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: b3799609876724054949a69fa2bdc9ab, type: 3}
 --- !u!114 &114588510585483368
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2650,9 +2650,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 197771d43152a7a4cbbd4526c5f5c090, type: 3}
   crouchAnimation:
   - {fileID: 21300000, guid: 308dca273de284b0c95451f7feebc18c, type: 3}
-  - {fileID: 21300000, guid: 75b6d261ee85c43fabdc6eae7c774779, type: 3}
-  - {fileID: 21300000, guid: 42971c0489a844c538918a11fbc9919a, type: 3}
-  - {fileID: 21300000, guid: baa124bc67b5e4905b524ae650c39ccb, type: 3}
   jumpAnimation:
   - {fileID: 21300000, guid: a65d55bbfee64494aa00863b3dd6ada4, type: 3}
   damageAnimation:
@@ -2661,9 +2658,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a6305d7e8fa984e80bd030c774be0f18, type: 3}
   - {fileID: 21300000, guid: 3f6c9d37addfa4a1aaef41ce4a39d035, type: 3}
   blockAnimation:
-  - {fileID: 21300000, guid: 0e7bc8e07b791458ebfa6c4e649c5bd4, type: 3}
+  - {fileID: 21300000, guid: 899e491f940fa424b99c80c253349c51, type: 3}
   crouchBlockAnimation:
-  - {fileID: 21300000, guid: baa124bc67b5e4905b524ae650c39ccb, type: 3}
+  - {fileID: 21300000, guid: 872078f5e76734de88afc44955cf5cdc, type: 3}
   fallAnimation:
   - {fileID: 21300000, guid: ea6afea6714c54ae3879bf13f9e75cf9, type: 3}
   - {fileID: 21300000, guid: 8348b6d532ada499fbcc5fa517ea9370, type: 3}
@@ -2691,7 +2688,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ac1aa32278ec34e50a388f6e79b8a026, type: 3}
   - {fileID: 21300000, guid: b7ac5d64844364d2bafc6074527dc762, type: 3}
   - {fileID: 21300000, guid: 00a40344057db4a4c9b91326f3c945c8, type: 3}
-  throwAttacks: 
+  throwAttacks: 030000000300000004000000
   animationFinished: 0
   nextState: 0
 --- !u!114 &114615319994166490
@@ -2740,7 +2737,7 @@ MonoBehaviour:
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: cb25bc340cbdc40718e152f919a3eec0, type: 3}
 --- !u!114 &114772372787743748
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2781,6 +2778,7 @@ MonoBehaviour:
     m_PostInfinity: 0
     m_RotationOrder: 4
   opponent: {fileID: 0}
+  locked: 1
 --- !u!114 &114916888622701702
 MonoBehaviour:
   m_ObjectHideFlags: 1

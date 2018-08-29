@@ -1941,14 +1941,14 @@ MonoBehaviour:
       y: 0.83
       width: 1.1
       height: 1.5
-  damage: 10
+  damage: 50
   blockType: 0
   knockdown: 0
   knockBack: 1
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: cec294ec72e97451281866cd726e5221, type: 3}
 --- !u!114 &114072864860948336
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2009,7 +2009,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: cc9d645fb94ce4d5d864ad482f202e3d, type: 3}
   - {fileID: 21300000, guid: 2ffd5922b792b4a0b8b2879305be7813, type: 3}
   - {fileID: 21300000, guid: 60c10f00722ff4bf88f7635674297c89, type: 3}
-  throwAttacks: 
+  throwAttacks: 040000000300000001000000
   animationFinished: 0
   nextState: 0
 --- !u!114 &114100749723301744
@@ -2218,7 +2218,7 @@ MonoBehaviour:
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: cb25bc340cbdc40718e152f919a3eec0, type: 3}
 --- !u!114 &114354526603718588
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2284,14 +2284,14 @@ MonoBehaviour:
       y: -0.58
       width: 0.91
       height: 1.3
-  damage: 10
+  damage: 40
   blockType: 0
   knockdown: 0
   knockBack: 1
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: cec294ec72e97451281866cd726e5221, type: 3}
 --- !u!114 &114423373142044316
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2351,7 +2351,7 @@ MonoBehaviour:
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: cb25bc340cbdc40718e152f919a3eec0, type: 3}
 --- !u!114 &114461101088002278
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2488,7 +2488,7 @@ MonoBehaviour:
   hitStop: 0.2
   hitStun: 3
   blockStun: 1
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: b3799609876724054949a69fa2bdc9ab, type: 3}
 --- !u!114 &114592598816015370
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2678,14 +2678,14 @@ MonoBehaviour:
       y: 0.42
       width: 1
       height: 0.75
-  damage: 10
+  damage: 90
   blockType: 0
   knockdown: 1
   knockBack: 1
   hitStop: 0.1
   hitStun: 1
   blockStun: 0
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: b3799609876724054949a69fa2bdc9ab, type: 3}
 --- !u!212 &212924191676095330
 SpriteRenderer:
   m_ObjectHideFlags: 1

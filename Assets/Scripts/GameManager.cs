@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour {
 	AudioSource bgm;
 	public Text RoundText;
 
+	public Character debugP1, debugP2;
+
 	// Use this for initialization
 	void Awake () {
 		audio = GetComponent<AudioSource>();
@@ -44,8 +46,10 @@ public class GameManager : MonoBehaviour {
 		background.sprite = Resources.LoadAll<Sprite>("stages")[Random.Range(0,3)];
 		bgm.clip = Resources.Load<AudioClip>("music/" + background.sprite.name);
 		bgm.Play();
-		player1Character = Character.Alexandra;
-		player2Character = Character.Alexandra;
+		player1Character = debugP1;
+		player2Character = debugP2;
+		//player1Character = Character.Alexandra;
+		//player2Character = Character.Alexandra;
 		player1WinIcons.transform.GetChild(0).gameObject.SetActive(false);
 		player1WinIcons.transform.GetChild(1).gameObject.SetActive(false);
 		player2WinIcons.transform.GetChild(0).gameObject.SetActive(false);
