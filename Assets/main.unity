@@ -913,8 +913,8 @@ MonoBehaviour:
   player1StartPos: {x: -4.12, y: -1.05, z: 0}
   player2StartPos: {x: 4.96, y: -1.05, z: 0}
   RoundText: {fileID: 1479406421}
-  debugP1: 5
-  debugP2: 2
+  debugP1: 4
+  debugP2: 6
 --- !u!4 &948551938
 Transform:
   m_ObjectHideFlags: 0
@@ -2259,6 +2259,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114232820012055996, guid: 5a04f4a2bc860cb4787c8228f21a301e,
+        type: 2}
+      propertyPath: fallAnimation.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4036748208381582, guid: 5a04f4a2bc860cb4787c8228f21a301e, type: 2}
       propertyPath: m_LocalPosition.x
       value: -2.881023
@@ -2295,6 +2300,12 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114232820012055996, guid: 5a04f4a2bc860cb4787c8228f21a301e,
+        type: 2}
+      propertyPath: fallAnimation.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: a204ebd3200d94f30a0c088751e2008a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a04f4a2bc860cb4787c8228f21a301e, type: 2}
   m_IsPrefabAsset: 0
