@@ -83,7 +83,7 @@ GameObject:
   m_Icon: {fileID: 2800000, guid: c750d05c50f7b294cb3c7da466cbc979, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1488881440543698
 GameObject:
   m_ObjectHideFlags: 1

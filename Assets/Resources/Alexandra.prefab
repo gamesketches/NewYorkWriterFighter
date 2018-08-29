@@ -1954,9 +1954,9 @@ MonoBehaviour:
   damage: 40
   blockType: 2
   knockdown: 0
-  knockBack: 4
+  knockBack: 1.5
   hitStop: 0.2
-  hitStun: 1
+  hitStun: 2
   blockStun: 2
   hitSFX: {fileID: 0}
 --- !u!114 &114035841468615714
@@ -2397,7 +2397,7 @@ MonoBehaviour:
   damage: 40
   blockType: 2
   knockdown: 0
-  knockBack: 4
+  knockBack: 1.25
   hitStop: 0.2
   hitStun: 1
   blockStun: 2

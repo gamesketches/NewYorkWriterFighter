@@ -118,7 +118,7 @@ GameObject:
   m_Icon: {fileID: 2800000, guid: 50795b660946448fbabb53a0c9e7ba75, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1339262701228418
 GameObject:
   m_ObjectHideFlags: 1
@@ -2517,9 +2517,9 @@ MonoBehaviour:
   damage: 40
   blockType: 2
   knockdown: 0
-  knockBack: 4
+  knockBack: 1.5
   hitStop: 0.2
-  hitStun: 1
+  hitStun: 2
   blockStun: 2
   hitSFX: {fileID: 0}
 --- !u!114 &114500030430732384
@@ -2624,7 +2624,7 @@ MonoBehaviour:
   damage: 40
   blockType: 2
   knockdown: 0
-  knockBack: 4
+  knockBack: 1.25
   hitStop: 0.2
   hitStun: 1
   blockStun: 2

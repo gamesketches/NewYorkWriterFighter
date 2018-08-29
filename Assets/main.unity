@@ -904,7 +904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e95901c159a4ccfaf2f7ce4f04e7e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalLife: 100
+  totalLife: 1000
   player1Bar: {fileID: 2020547140}
   player2Bar: {fileID: 991324586}
   player1WinIcons: {fileID: 672248921}
@@ -913,7 +913,7 @@ MonoBehaviour:
   player1StartPos: {x: -4.12, y: -1.05, z: 0}
   player2StartPos: {x: 4.96, y: -1.05, z: 0}
   RoundText: {fileID: 1479406421}
-  debugP1: 0
+  debugP1: 5
   debugP2: 2
 --- !u!4 &948551938
 Transform:
