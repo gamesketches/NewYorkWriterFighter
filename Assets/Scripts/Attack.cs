@@ -101,8 +101,8 @@ public struct AttackData {
 		knockdown = knocksDown;
 		knockBack = knockBackDistance;
 		hitStop = hitStopTime;
-		hitStun = hitStunTime;
-		blockStun = blockStunTime;
+		hitStun = hitStunTime * Time.fixedDeltaTime * 4;
+		blockStun = blockStunTime * Time.fixedDeltaTime * 4;
 		hitSFX = clip;
 		id = 0;
 	}

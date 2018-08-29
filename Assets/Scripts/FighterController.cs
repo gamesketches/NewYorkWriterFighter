@@ -70,10 +70,10 @@ public class FighterController : MonoBehaviour {
 	void CheckDirectionalInput() {
 		if(state == MovementState.Attacking || state == MovementState.Victory) return;
 		if(state == MovementState.Jumping) {
-			Debug.Log("Cancel into attacks here");
+		//	Debug.Log("Cancel into attacks here");
 		}
 		else if(state == MovementState.Recoiling) {
-			Debug.Log("taking damage");
+		//	Debug.Log("taking damage");
 		}
 		else if(opponent.GetState() == MovementState.Attacking && HoldingBack()) {
 			Block();
@@ -278,6 +278,8 @@ public class FighterController : MonoBehaviour {
 	}
 
 	IEnumerator GetPushed(float distance, float stunTime) {
+		Debug.Log(distance);
+		Debug.Log(stunTime);
 		for(float i = 0; i < stunTime; i += Time.fixedDeltaTime){
 			if(leftSide) MoveLeft(distance * Time.fixedDeltaTime);
 			else MoveRight(distance * Time.fixedDeltaTime);

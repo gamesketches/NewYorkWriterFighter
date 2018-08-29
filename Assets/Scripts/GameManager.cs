@@ -114,8 +114,6 @@ public class GameManager : MonoBehaviour {
 
 	IEnumerator ChangeLifeAmount(Image lifeBar, float targetFill, float duration) {
 		float startFill = lifeBar.fillAmount;
-		Debug.Log("startFill: " +startFill.ToString());
-		Debug.Log("targetFill: " +targetFill.ToString());
 		targetFill = Mathf.Clamp(targetFill, 0, 1);
 		for(float t = 0; t < duration; t += Time.fixedDeltaTime) {
 			lifeBar.fillAmount = Mathf.Lerp(startFill, targetFill, t / duration);
