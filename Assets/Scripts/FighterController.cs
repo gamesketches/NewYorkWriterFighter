@@ -192,6 +192,7 @@ public class FighterController : MonoBehaviour {
 		Debug.Log("Hit");
 		if(SuccessfulBlock(attackData.blockType)) {
 			StartCoroutine(GetPushed(attackData.knockBack, attackData.blockStun));
+			state = MovementState.Recoiling;
 			yield return new WaitForSeconds(attackData.blockStun);
 		}
 		else {
