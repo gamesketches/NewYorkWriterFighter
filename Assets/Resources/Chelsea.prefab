@@ -2007,7 +2007,7 @@ MonoBehaviour:
   hitStop: 0.2
   hitStun: 1
   blockStun: 2
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: 89dbbc68d23f3437fab61b740a52c258, type: 3}
 --- !u!114 &114079032698644280
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2054,7 +2054,7 @@ MonoBehaviour:
   hitStop: 0.2
   hitStun: 1
   blockStun: 2
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: 89dbbc68d23f3437fab61b740a52c258, type: 3}
 --- !u!114 &114088129163290104
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2190,7 +2190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leftSide: 0
-  walkSpeed: 3.8
+  walkSpeed: 3.2
   throwDistance: 2
   identity: 0
   jumpY:
@@ -2514,14 +2514,14 @@ MonoBehaviour:
       y: 0.06
       width: 1
       height: 1
-  damage: 40
+  damage: 100
   blockType: 2
   knockdown: 0
-  knockBack: 1.5
-  hitStop: 0.2
-  hitStun: 2
-  blockStun: 2
-  hitSFX: {fileID: 0}
+  knockBack: 0.3
+  hitStop: 14
+  hitStun: 26
+  blockStun: 20
+  hitSFX: {fileID: 8300000, guid: b3799609876724054949a69fa2bdc9ab, type: 3}
 --- !u!114 &114500030430732384
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2621,14 +2621,14 @@ MonoBehaviour:
       y: -0.887
       width: 1.53
       height: 0.82
-  damage: 40
+  damage: 90
   blockType: 2
   knockdown: 0
-  knockBack: 1.25
-  hitStop: 0.2
-  hitStun: 1
-  blockStun: 2
-  hitSFX: {fileID: 0}
+  knockBack: 0.2
+  hitStop: 14
+  hitStun: 26
+  blockStun: 20
+  hitSFX: {fileID: 8300000, guid: 89dbbc68d23f3437fab61b740a52c258, type: 3}
 --- !u!114 &114892336170054794
 MonoBehaviour:
   m_ObjectHideFlags: 1
