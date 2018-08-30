@@ -2193,16 +2193,16 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: e6f7c41de298f4a53bab718711fcf165, type: 3}
     hitBoxes: []
     hurtBoxes: []
-  damage: 10
+  damage: 80
   blockType: 0
   knockdown: 0
-  knockBack: 1
-  hitStop: 0.2
-  hitStun: 2
-  blockStun: 1
-  hitSFX: {fileID: 0}
+  knockBack: 0.3
+  hitStop: 14
+  hitStun: 16
+  blockStun: 16
+  hitSFX: {fileID: 8300000, guid: 89dbbc68d23f3437fab61b740a52c258, type: 3}
   activeFrame: 5
-  speed: 5
+  speed: 6
   projectile: {fileID: 1021068755710614, guid: ba40b72a841ce425fbd7b97a120181ee, type: 2}
   projectileFrames:
   - {fileID: 21300000, guid: 0c4fdee5bf4884c0db9a77655db894e0, type: 3}

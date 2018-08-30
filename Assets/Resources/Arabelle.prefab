@@ -2443,7 +2443,7 @@ MonoBehaviour:
   hitStop: 0.2
   hitStun: 1
   blockStun: 2
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: 89dbbc68d23f3437fab61b740a52c258, type: 3}
 --- !u!114 &114427867934329190
 MonoBehaviour:
   m_ObjectHideFlags: 1
