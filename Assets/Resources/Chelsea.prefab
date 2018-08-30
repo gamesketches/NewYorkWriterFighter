@@ -1930,7 +1930,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 10f803bcdf65e465794e94acf839878a, type: 3}
   - {fileID: 21300000, guid: dbce859d60df84e69a972bca7a4c697f, type: 3}
   blockAnimation:
-  - {fileID: 21300000, guid: 22774a15bc61b421faa6f0cdad14e901, type: 3}
+  - {fileID: 21300000, guid: 5e00db6740857eb4f8c4bd8ba745d8b5, type: 3}
   crouchBlockAnimation:
   - {fileID: 21300000, guid: 53a1a4caea8054aeaba478671d989ecd, type: 3}
   fallAnimation:
@@ -2047,7 +2047,7 @@ MonoBehaviour:
       y: -0.59
       width: 0.4
       height: 0.76
-  damage: 40
+  damage: 50
   blockType: 0
   knockdown: 0
   knockBack: 4
@@ -2574,7 +2574,7 @@ MonoBehaviour:
       y: -0.47
       width: 1
       height: 0.84
-  damage: 10
+  damage: 30
   blockType: 0
   knockdown: 0
   knockBack: 1
@@ -2765,7 +2765,7 @@ MonoBehaviour:
       y: 0.38
       width: 1
       height: 0.7
-  damage: 10
+  damage: 30
   blockType: 0
   knockdown: 0
   knockBack: 1

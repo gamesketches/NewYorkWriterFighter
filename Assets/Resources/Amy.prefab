@@ -2073,7 +2073,7 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: 317142bd846c6ee4e8480b7a03df238d, type: 3}
     hitBoxes: []
     hurtBoxes: []
-  damage: 10
+  damage: 30
   blockType: 0
   knockdown: 0
   knockBack: 1
@@ -2512,7 +2512,7 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: 8c91ac7e84319e6439d29bfe139436eb, type: 3}
     hitBoxes: []
     hurtBoxes: []
-  damage: 40
+  damage: 50
   blockType: 0
   knockdown: 0
   knockBack: 4
@@ -2647,7 +2647,7 @@ MonoBehaviour:
       width: 0
       height: 0
     hurtBoxes: []
-  damage: 10
+  damage: 30
   blockType: 0
   knockdown: 0
   knockBack: 1

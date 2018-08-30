@@ -100,7 +100,7 @@ public struct AttackData {
 		blockType = attackBlockType;
 		knockdown = knocksDown;
 		knockBack = knockBackDistance;
-		hitStop = hitStopTime;
+		hitStop = hitStopTime * Time.fixedDeltaTime;
 		hitStun = hitStunTime * Time.fixedDeltaTime * 4;
 		blockStun = blockStunTime * Time.fixedDeltaTime * 4;
 		hitSFX = clip;

@@ -237,7 +237,7 @@ GameObject:
   m_Icon: {fileID: 2800000, guid: 0578815e3c04f42bf8f8094391eb7166, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1879283053992242
 GameObject:
   m_ObjectHideFlags: 1
@@ -2010,7 +2010,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 07d104e3af43640998a8eb9f513bdf50, type: 3}
   - {fileID: 21300000, guid: 126485ce08f9f450d9a0b52043835ca1, type: 3}
   - {fileID: 21300000, guid: f18a9488e109a4226be289039a6f7c0f, type: 3}
-  - {fileID: 21300000, guid: a204ebd3200d94f30a0c088751e2008a, type: 3}
   victoryAnimation:
   - {fileID: 21300000, guid: aae44a0895867460bb06e0cf22b32cf8, type: 3}
   - {fileID: 21300000, guid: 0611518db26244b209e4c0d3319d8c6d, type: 3}
@@ -2070,7 +2069,7 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: 8476ba2f8bf598c4c98f686370354279, type: 3}
     hitBoxes: []
     hurtBoxes: []
-  damage: 10
+  damage: 30
   blockType: 0
   knockdown: 0
   knockBack: 1
@@ -2678,7 +2677,7 @@ MonoBehaviour:
       y: -0.88
       width: 1.51
       height: 1.09
-  damage: 10
+  damage: 30
   blockType: 0
   knockdown: 0
   knockBack: 1
@@ -2730,7 +2729,7 @@ MonoBehaviour:
       y: -0.1
       width: 0.64
       height: 0.76
-  damage: 40
+  damage: 50
   blockType: 0
   knockdown: 0
   knockBack: 4
