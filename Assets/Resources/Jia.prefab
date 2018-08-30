@@ -2063,7 +2063,7 @@ MonoBehaviour:
   hitStop: 0.2
   hitStun: 1
   blockStun: 2
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: 89dbbc68d23f3437fab61b740a52c258, type: 3}
 --- !u!114 &114180069072495392
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2108,14 +2108,14 @@ MonoBehaviour:
     hurtBoxes: []
   damage: 10
   blockType: 1
-  knockdown: 0
+  knockdown: 1
   knockBack: 3
   hitStop: 0.2
   hitStun: 4
   blockStun: 1
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: 89dbbc68d23f3437fab61b740a52c258, type: 3}
   activeFrame: 3
-  speed: 5
+  speed: 4
   projectile: {fileID: 1021068755710614, guid: ba40b72a841ce425fbd7b97a120181ee, type: 2}
   projectileFrames:
   - {fileID: 21300000, guid: cccf3bb03e45947979f012e34f08d766, type: 3}
@@ -2407,14 +2407,14 @@ MonoBehaviour:
       y: 0.27
       width: 1
       height: 1
-  damage: 40
+  damage: 100
   blockType: 2
   knockdown: 0
-  knockBack: 1.5
-  hitStop: 0.2
-  hitStun: 2
-  blockStun: 2
-  hitSFX: {fileID: 0}
+  knockBack: 0.3
+  hitStop: 14
+  hitStun: 26
+  blockStun: 20
+  hitSFX: {fileID: 8300000, guid: b3799609876724054949a69fa2bdc9ab, type: 3}
 --- !u!114 &114552761520208608
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2538,7 +2538,7 @@ MonoBehaviour:
   hitStop: 0.2
   hitStun: 1
   blockStun: 2
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: 89dbbc68d23f3437fab61b740a52c258, type: 3}
 --- !u!114 &114725066182561976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2578,14 +2578,14 @@ MonoBehaviour:
       y: 0.1
       width: 1.53
       height: 1.31
-  damage: 40
+  damage: 90
   blockType: 2
   knockdown: 0
-  knockBack: 1.25
-  hitStop: 0.2
-  hitStun: 1
-  blockStun: 2
-  hitSFX: {fileID: 0}
+  knockBack: 0.2
+  hitStop: 14
+  hitStun: 26
+  blockStun: 20
+  hitSFX: {fileID: 8300000, guid: 89dbbc68d23f3437fab61b740a52c258, type: 3}
 --- !u!114 &114728909135560426
 MonoBehaviour:
   m_ObjectHideFlags: 1
