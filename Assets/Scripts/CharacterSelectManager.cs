@@ -18,10 +18,12 @@ public class CharacterSelectManager : MonoBehaviour {
 	public GameObject p1Elements;
 	public GameObject p2Elements;
 	public GameObject vsScreenElements;
+	Dictionary<Character, string> winQuotes;
 
 	// Use this for initialization
 	void Awake () {
 		sceneFader = GetComponent<FadeInScene>();
+		MakeWinQuotes();
 		if(winner != -1) {
 			movie.SetActive(false);
 			selectingCharacters = false;
@@ -38,6 +40,7 @@ public class CharacterSelectManager : MonoBehaviour {
 		}
 		
 		vsScreenElements.SetActive(false);
+		
 	}
 	
 	// Update is called once per frame
@@ -89,12 +92,18 @@ public class CharacterSelectManager : MonoBehaviour {
 		string p2Name = GameManager.player2Character.ToString();
 		Image p1Portrait = vsScreenElements.transform.GetChild(1).GetComponent<Image>();
 		p1Portrait.sprite = Resources.Load<Sprite>("headshots/" + p1Name);
-		if(winner == 1) p1Portrait.color = new Color(0.5f, 0.5f, 0.5f);
-		vsScreenElements.transform.GetChild(2).GetComponent<Text>().text = p1Name;
+		if(winner == 1) {
+			p1Portrait.color = new Color(0.5f, 0.5f, 0.5f);
+			vsScreenElements.transform.GetChild(5).GetComponent<Text>().text = winQuotes[GameManager.player2Character];
+		}
+		//vsScreenElements.transform.GetChild(2).GetComponent<Text>().text = p1Name;
 		Image p2Portrait = vsScreenElements.transform.GetChild(3).GetComponent<Image>();
 		p2Portrait.sprite = Resources.Load<Sprite>("headshots/" +p2Name);
-		if(winner == 0) p2Portrait.color = new Color(0.5f, 0.5f, 0.5f);
-		vsScreenElements.transform.GetChild(4).GetComponent<Text>().text = p2Name;
+		if(winner == 0){
+			 p2Portrait.color = new Color(0.5f, 0.5f, 0.5f);
+			vsScreenElements.transform.GetChild(5).GetComponent<Text>().text = winQuotes[GameManager.player1Character];
+		}
+		//vsScreenElements.transform.GetChild(4).GetComponent<Text>().text = p2Name;
 		portraits.SetActive(false);
 		background.SetActive(false);
 		p1Elements.SetActive(false);	
@@ -107,5 +116,16 @@ public class CharacterSelectManager : MonoBehaviour {
 		sceneFader.BeginFade(1);
 		yield return new WaitForSeconds(0.3f);
 		SceneManager.LoadScene("CharacterSelect");
+	}
+		
+	void MakeWinQuotes() {
+		winQuotes = new Dictionary<Character, string>();
+		winQuotes.Add(Character.Alexandra, "Once a month I stumble onto snake Instagram late at night & I see dozens of baby snakes & snakes being fed snakes & black snakes & snakes sliding around like magic & I start to look up how I can get a snake for a pet but by then it's late & I fall asleep & forget everything");
+		winQuotes.Add(Character.Amy, "Does anyone at the James Beard Awards have a cigarette? I'm the one in lipstick");
+		winQuotes.Add(Character.Arabelle, "Every time i get a fashion invite now i just get confused. like, we really do this every season? astounding");
+		winQuotes.Add(Character.Chelsea, "Trying to smuggle snacks into the metal show");
+		winQuotes.Add(Character.Jia, "I will admit that I once talked to strangers in a stupid baby voice for a full day at SXSW bc I thought it would be funny but it ended up as a brutal self-own bc no one treated me any different than normal");
+		winQuotes.Add(Character.Saeed, "It's hella awkward sitting next to a white dude on a flight while he's watching 12 Years A Slave. Like, don't look over here, sir");
+		winQuotes.Add(Character.Tony, "I think I officially gave up on NYC glamour the moment I had to explain hentai to my agent");
 	}
 }
