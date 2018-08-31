@@ -2074,7 +2074,7 @@ MonoBehaviour:
       y: 0
       width: 0
       height: 0
-  damage: 50
+  damage: 60
   blockType: 0
   knockdown: 0
   knockBack: 0.6
@@ -2121,7 +2121,7 @@ MonoBehaviour:
       y: -1.8
       width: 1.3
       height: 1
-  damage: 40
+  damage: 50
   blockType: 1
   knockdown: 0
   knockBack: 0.4
