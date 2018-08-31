@@ -2003,10 +2003,10 @@ MonoBehaviour:
   damage: 50
   blockType: 1
   knockdown: 0
-  knockBack: 4
-  hitStop: 0.2
-  hitStun: 1
-  blockStun: 2
+  knockBack: 0.4
+  hitStop: 14
+  hitStun: 9
+  blockStun: 9
   hitSFX: {fileID: 8300000, guid: 89dbbc68d23f3437fab61b740a52c258, type: 3}
 --- !u!114 &114079032698644280
 MonoBehaviour:
@@ -2050,10 +2050,10 @@ MonoBehaviour:
   damage: 60
   blockType: 0
   knockdown: 0
-  knockBack: 4
-  hitStop: 0.2
-  hitStun: 1
-  blockStun: 2
+  knockBack: 0.6
+  hitStop: 14
+  hitStun: 10
+  blockStun: 10
   hitSFX: {fileID: 8300000, guid: 89dbbc68d23f3437fab61b740a52c258, type: 3}
 --- !u!114 &114088129163290104
 MonoBehaviour:
@@ -2164,13 +2164,13 @@ MonoBehaviour:
       y: -0.56
       width: 1
       height: 2.7
-  damage: 40
+  damage: 150
   blockType: 0
   knockdown: 0
-  knockBack: 4
-  hitStop: 0.2
-  hitStun: 1
-  blockStun: 2
+  knockBack: 0.8
+  hitStop: 14
+  hitStun: 15
+  blockStun: 15
   hitSFX: {fileID: 8300000, guid: b3799609876724054949a69fa2bdc9ab, type: 3}
 --- !u!114 &114111474734775628
 MonoBehaviour:
@@ -2272,8 +2272,8 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: c51a5418f90c533448f1bd9a1ed5af4b, type: 3}
     hitBoxes:
     - serializedVersion: 2
-      x: 1.8
-      y: 0.5
+      x: 1.6
+      y: 0.57
       width: 0.5
       height: 0.5
     hurtBoxes:
@@ -2286,20 +2286,20 @@ MonoBehaviour:
     hitBoxes: []
     hurtBoxes:
     - serializedVersion: 2
-      x: 1
+      x: 1.18
       y: 0.5
       width: 1.09
       height: 0.5
   - sprite: {fileID: 21300000, guid: de02b03d884c6be4a9ec0a2b112112a2, type: 3}
     hitBoxes: []
     hurtBoxes: []
-  damage: 50
+  damage: 60
   blockType: 0
   knockdown: 0
   knockBack: 1
-  hitStop: 0.1
-  hitStun: 1
-  blockStun: 0
+  hitStop: 14
+  hitStun: 10
+  blockStun: 10
   hitSFX: {fileID: 8300000, guid: cec294ec72e97451281866cd726e5221, type: 3}
 --- !u!114 &114362636616798488
 MonoBehaviour:
@@ -2382,12 +2382,12 @@ MonoBehaviour:
     hurtBoxes: []
   damage: 90
   blockType: 0
-  knockdown: 1
+  knockdown: 0
   knockBack: 1
-  hitStop: 0.1
-  hitStun: 1
-  blockStun: 0
-  hitSFX: {fileID: 8300000, guid: b3799609876724054949a69fa2bdc9ab, type: 3}
+  hitStop: 14
+  hitStun: 10
+  blockStun: 10
+  hitSFX: {fileID: 8300000, guid: 89dbbc68d23f3437fab61b740a52c258, type: 3}
 --- !u!114 &114373614217688862
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2470,10 +2470,10 @@ MonoBehaviour:
   damage: 100
   blockType: 0
   knockdown: 1
-  knockBack: 4
-  hitStop: 0.2
-  hitStun: 3
-  blockStun: 1
+  knockBack: 2
+  hitStop: 14
+  hitStun: 12
+  blockStun: 12
   hitSFX: {fileID: 8300000, guid: b3799609876724054949a69fa2bdc9ab, type: 3}
 --- !u!114 &114428719275691076
 MonoBehaviour:
@@ -2582,10 +2582,10 @@ MonoBehaviour:
   damage: 30
   blockType: 0
   knockdown: 0
-  knockBack: 1
-  hitStop: 0.1
-  hitStun: 1
-  blockStun: 0
+  knockBack: 0.5
+  hitStop: 14
+  hitStun: 9
+  blockStun: 9
   hitSFX: {fileID: 8300000, guid: cb25bc340cbdc40718e152f919a3eec0, type: 3}
 --- !u!114 &114737569116534566
 MonoBehaviour:
@@ -2697,13 +2697,13 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: 3db2d8d3fd8d80342bd3d41d0c1b4046, type: 3}
     hitBoxes: []
     hurtBoxes: []
-  damage: 40
+  damage: 50
   blockType: 0
   knockdown: 0
-  knockBack: 1
-  hitStop: 0.1
-  hitStun: 1
-  blockStun: 0
+  knockBack: 0.8
+  hitStop: 14
+  hitStun: 10
+  blockStun: 10
   hitSFX: {fileID: 8300000, guid: cec294ec72e97451281866cd726e5221, type: 3}
 --- !u!114 &114926985966555426
 MonoBehaviour:
@@ -2773,10 +2773,10 @@ MonoBehaviour:
   damage: 30
   blockType: 0
   knockdown: 0
-  knockBack: 1
-  hitStop: 0.1
-  hitStun: 1
-  blockStun: 0
+  knockBack: 0.05
+  hitStop: 14
+  hitStun: 9
+  blockStun: 9
   hitSFX: {fileID: 8300000, guid: cb25bc340cbdc40718e152f919a3eec0, type: 3}
 --- !u!212 &212796290199840544
 SpriteRenderer:
