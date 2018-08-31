@@ -2027,7 +2027,7 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: d68326891f2574e8287adb85b972bbac, type: 3}
     hitBoxes: []
     hurtBoxes: []
-  damage: 50
+  damage: 60
   blockType: 0
   knockdown: 0
   knockBack: 1.25
@@ -2513,7 +2513,7 @@ MonoBehaviour:
   hitStop: 14
   hitStun: 18
   blockStun: 18
-  hitSFX: {fileID: 8300000, guid: b3799609876724054949a69fa2bdc9ab, type: 3}
+  hitSFX: {fileID: 8300000, guid: 89dbbc68d23f3437fab61b740a52c258, type: 3}
 --- !u!114 &114414848624007966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2635,7 +2635,7 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: fe56370046b34466d8939ae2f1e901ea, type: 3}
     hitBoxes: []
     hurtBoxes: []
-  damage: 40
+  damage: 50
   blockType: 0
   knockdown: 0
   knockBack: 1
