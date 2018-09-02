@@ -9,18 +9,27 @@ public class CameraController : MonoBehaviour {
 
 	public float maxSize;
 	public float minSize;
+	public float throwSize;
 	public float sizeOffset;
 	public float cornerOffset;
+	public float throwYVal;
+	public bool throwMode;
 	Camera camera;
 
 	// Use this for initialization
 	void Start () {
+		throwMode = false;
 		camera = GetComponent<Camera>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		float newXPosition = Mathf.Lerp(Player1.position.x, Player2.position.x, 0.5f);
+		if(throwMode) {
+			//transform.position = new Vector3(newXPosition, transform.position.y, transform.position.z);
+			camera.orthographicSize = Mathf.Clamp(Mathf.Abs(Player1.position.x - Player2.position.x) - sizeOffset, throwSize, maxSize);
+			return;
+		}
 		if(newXPosition < -GameManager.stageXEnds + cornerOffset) {
 			newXPosition = -GameManager.stageXEnds + cornerOffset;
 		}
@@ -35,4 +44,19 @@ public class CameraController : MonoBehaviour {
 		Player1 = player1;
 		Player2 = player2;
 	}
+
+	public void ToggleThrowMode(){
+		if(!throwMode) {
+			transform.position = new Vector3(transform.position.x, throwYVal, transform.position.z);
+		//	transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+		}
+		else {
+			transform.position = new Vector3(transform.position.x, throwYVal, transform.position.z);
+		}
+		throwMode = !throwMode;
+	}
+
+	//IEnumerator ToggleThrowCamera(float yVal) {
+	//	float startY = transform.position.yVal;
+		
 }

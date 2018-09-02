@@ -228,7 +228,9 @@ public class FighterController : MonoBehaviour {
 		Debug.Log("Throw");
 		animator.SwitchAnimation("Damage");
 		state = MovementState.Recoiling;
-		yield return new WaitForSeconds(throwData.hitStun * Time.fixedDeltaTime * CharacterAnimator.frameSpeed);
+		//Camera.main.GetComponent<CameraController>().ToggleThrowMode();
+		yield return new WaitForSeconds(throwData.hitStun);
+		//Camera.main.GetComponent<CameraController>().ToggleThrowMode();
 		if(gameManager.UpdateLifeBarCheckDeath(identity, throwData.damage)) {
 			Debug.Log("Killed");
 			yield return StartCoroutine(DeathAnimation());
