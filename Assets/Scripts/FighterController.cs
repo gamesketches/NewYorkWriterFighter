@@ -323,7 +323,8 @@ public class FighterController : MonoBehaviour {
 		if(opponent.state == MovementState.Jumping || opponent.state == MovementState.KnockedDown ||
 			opponent.state == MovementState.Recoiling || !Input.GetButtonDown(playerID + "HP")) return false;
 		float distance = Vector3.Distance(transform.position, opponent.transform.position);
-		if(distance < throwDistance) {
+		if(distance < throwDistance && (
+			(leftSide && HorizontalInput() >0) || (!leftSide && HorizontalInput() < 0))) {
 			animator.SwitchAnimation("Throw");
 			AttackData throwData = new AttackData(100, BlockType.Mid, true, 0, 0, animator.GetAnimationLength(), 0, null);
 			StartCoroutine(opponent.GetThrown(throwData));
