@@ -43,7 +43,7 @@ public class FrameDrawer : PropertyDrawer {
 
 	public override float GetPropertyHeight (SerializedProperty property, GUIContent label) {
 		
-		return base.GetPropertyHeight (property, label) * 8;
+		return base.GetPropertyHeight (property, label) * 12;
 	}
 
 	void DrawBoxInput(string label, Rect labelRect, SerializedProperty boxes, Rect inputRect, Rect spriteRect, Color boxColor) {
