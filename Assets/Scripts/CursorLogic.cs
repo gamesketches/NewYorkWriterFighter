@@ -18,6 +18,8 @@ public class CursorLogic : MonoBehaviour {
 	public Text characterName;
 	public Image vsScreenPortrait;
 	public Text vsScreenName;
+	
+	Dictionary<string, string> fullNames;
 
 	[HideInInspector]
 	public bool selected;
@@ -25,6 +27,7 @@ public class CursorLogic : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		selected = false;
+		MakeFullNameDict();
 		audio = GetComponent<AudioSource>();
 		if(identity == PlayerNumber.P1) {
 			childIndex = 0;
@@ -76,7 +79,7 @@ public class CursorLogic : MonoBehaviour {
 			audio.clip = Resources.Load<AudioClip>("charSelected");
 			audio.Play();
 			vsScreenPortrait.sprite = largePortrait.sprite;
-			vsScreenName.text = characterName;
+			vsScreenName.text = fullNames[characterName];
 			if(identity == PlayerNumber.P1) {
 				GameManager.player1Character = theCharacter;
 			}
@@ -106,6 +109,17 @@ public class CursorLogic : MonoBehaviour {
 	void UpdateCharacterInfo() {
 		Transform portrait = portraits.GetChild(childIndex);
 		largePortrait.sprite = portrait.GetComponent<Image>().sprite;
-		characterName.text = portrait.name;
+		characterName.text = fullNames[portrait.name];
+	}
+
+	void MakeFullNameDict() {
+		fullNames = new Dictionary<string, string>();
+		fullNames.Add("Alexandra", "Alexandra Kleeman");
+		fullNames.Add("Amy", "Amy Rose Speigel");
+		fullNames.Add("Tony", "Tony Tuliathimutte");
+		fullNames.Add("Arabelle", "Arabelle Sicardi");
+		fullNames.Add("Chelsea", "Chelsea Hodson");
+		fullNames.Add("Jia", "Jia Tolentino");
+		fullNames.Add("Saeed", "Saeed Jones");
 	}
 }
