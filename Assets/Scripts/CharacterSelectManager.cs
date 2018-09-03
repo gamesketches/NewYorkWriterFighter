@@ -17,6 +17,7 @@ public class CharacterSelectManager : MonoBehaviour {
 	public GameObject portraits;
 	public GameObject p1Elements;
 	public GameObject p2Elements;
+	public GameObject stageSelect;
 	public GameObject vsScreenElements;
 	Dictionary<Character, string> winQuotes;
 
@@ -125,6 +126,7 @@ public class CharacterSelectManager : MonoBehaviour {
 		portraits.SetActive(state);
 		p1Elements.SetActive(state);
 		p2Elements.SetActive(state);
+		stageSelect.SetActive(state);
 	}
 		
 	void MakeWinQuotes() {
