@@ -261,8 +261,11 @@ MonoBehaviour:
   Player2: {fileID: 0}
   maxSize: 5
   minSize: 3.5
+  throwSize: 0
   sizeOffset: 6
   cornerOffset: 7.33
+  throwYVal: 0
+  throwMode: 0
 --- !u!1 &356833245
 GameObject:
   m_ObjectHideFlags: 0
@@ -850,7 +853,7 @@ MonoBehaviour:
   player1StartPos: {x: -4.12, y: -1.05, z: 0}
   player2StartPos: {x: 4.96, y: -1.05, z: 0}
   RoundText: {fileID: 1479406421}
-  debugP1: 0
+  debugP1: 6
   debugP2: 0
 --- !u!4 &948551938
 Transform:
