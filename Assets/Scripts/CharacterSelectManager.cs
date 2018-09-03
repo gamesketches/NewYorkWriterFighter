@@ -11,7 +11,7 @@ public class CharacterSelectManager : MonoBehaviour {
 	public static int winner = -1;
 	bool selectingCharacters;
 	FadeInScene sceneFader;
-	public GameObject movie;
+	public GameObject titleScreen;
 	public GameObject theCanvas; 
 	public GameObject background;
 	public GameObject portraits;
@@ -25,18 +25,19 @@ public class CharacterSelectManager : MonoBehaviour {
 		sceneFader = GetComponent<FadeInScene>();
 		MakeWinQuotes();
 		if(winner != -1) {
-			movie.SetActive(false);
+			titleScreen.SetActive(false);
 			selectingCharacters = false;
 			StartCoroutine(VictoryScreen());
 			return;
 		}
 		if(!player1Active && !player2Active) {
-			theCanvas.SetActive(false);
+			ToggleCharacterSelectElements(false);
+		//	theCanvas.SetActive(false);
 			selectingCharacters = false;
 		}
 		else {
 			selectingCharacters = true;
-			movie.SetActive(false);
+			titleScreen.SetActive(false);
 		}
 		
 		vsScreenElements.SetActive(false);
@@ -62,9 +63,9 @@ public class CharacterSelectManager : MonoBehaviour {
 	IEnumerator OpenCharacterSelect(){
 		StartCoroutine(sceneFader.FadeInOut(0.3f));
 		selectingCharacters = true;
+		ToggleCharacterSelectElements(true);
 		yield return new WaitForSeconds(0.3f);
-		movie.SetActive(false);
-		theCanvas.SetActive(true);
+		titleScreen.SetActive(false);
 	}
 	
 	IEnumerator VsScreen() {
@@ -116,6 +117,14 @@ public class CharacterSelectManager : MonoBehaviour {
 		sceneFader.BeginFade(1);
 		yield return new WaitForSeconds(0.3f);
 		SceneManager.LoadScene("CharacterSelect");
+	}
+
+	void ToggleCharacterSelectElements(bool state){
+
+		background.SetActive(state);
+		portraits.SetActive(state);
+		p1Elements.SetActive(state);
+		p2Elements.SetActive(state);
 	}
 		
 	void MakeWinQuotes() {
