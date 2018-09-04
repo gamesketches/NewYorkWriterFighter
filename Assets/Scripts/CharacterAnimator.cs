@@ -156,7 +156,7 @@ public class CharacterAnimator : MonoBehaviour {
 				break;
 			case AnimationType.Damage:
 				curAnimation = damageAnimation;
-				Debug.Log("Changed to damage state");
+				renderer.sprite = curAnimation[0];
 				animationFinished = true;
 				break;
 			case AnimationType.Fall:

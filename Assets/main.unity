@@ -1320,6 +1320,10 @@ Prefab:
       propertyPath: opponent
       value: 
       objectReference: {fileID: 1243797385}
+    - target: {fileID: 1698289157710126, guid: 4b138bdf44cae437abdfaa36e866dc63, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b138bdf44cae437abdfaa36e866dc63, type: 2}
   m_IsPrefabAsset: 0
