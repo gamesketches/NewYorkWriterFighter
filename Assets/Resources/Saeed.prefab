@@ -133,7 +133,7 @@ GameObject:
   m_Icon: {fileID: 2800000, guid: f1e8f43d65e831447a35057d83f62dbc, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1609590084498512
 GameObject:
   m_ObjectHideFlags: 1
@@ -2066,7 +2066,6 @@ MonoBehaviour:
   jumpAnimation:
   - {fileID: 21300000, guid: e37a8317574c14155a8156f65202d419, type: 3}
   damageAnimation:
-  - {fileID: 21300000, guid: 2d6512495e89d42a9a7b9dfee9bc4aac, type: 3}
   - {fileID: 21300000, guid: 5f8162b69d6644b94a13f08d2bedf9e1, type: 3}
   - {fileID: 21300000, guid: 3cba8f97cd284446ca55e91832b632de, type: 3}
   - {fileID: 21300000, guid: 85b65c9b06d2f47308d6fb2e627cc26d, type: 3}

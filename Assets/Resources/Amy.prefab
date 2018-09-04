@@ -3694,7 +3694,6 @@ MonoBehaviour:
   jumpAnimation:
   - {fileID: 21300000, guid: 1d56c9ff20911426aa99bc34d459fc53, type: 3}
   damageAnimation:
-  - {fileID: 21300000, guid: 86d5450edc26347a28106abc621b9adf, type: 3}
   - {fileID: 21300000, guid: fb0a7dd646e8647b7bf723fd8d4d7ef5, type: 3}
   - {fileID: 21300000, guid: 98063e99e965a45ef8a742c79bd46ebe, type: 3}
   - {fileID: 21300000, guid: 90a60c6e8049d45e2a7d3e3c70485daa, type: 3}

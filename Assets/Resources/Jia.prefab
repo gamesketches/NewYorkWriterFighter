@@ -1988,7 +1988,6 @@ MonoBehaviour:
   jumpAnimation:
   - {fileID: 21300000, guid: cd1343eefe77c4d90b0ccca6f0ce3c6e, type: 3}
   damageAnimation:
-  - {fileID: 21300000, guid: 586b0d00ddb394d42800024b144b4f83, type: 3}
   - {fileID: 21300000, guid: 36a99876f37c345efbfefa497c4b279d, type: 3}
   - {fileID: 21300000, guid: 6c6d2402ae6ba4537bda71b6da2a4167, type: 3}
   - {fileID: 21300000, guid: 68b9f117c67104109b793e25ac67dba3, type: 3}
