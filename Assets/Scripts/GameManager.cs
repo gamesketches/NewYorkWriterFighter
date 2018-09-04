@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour {
 	public Vector3 player2StartPos;
 	public static Character player1Character = Character.None;
 	public static Character player2Character = Character.None;
-	public static int stageID = -1;
+	public static int stageID = 0;
 
 	public static float stageXEnds = 12.68f;
 	
@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour {
 			LoadCharacters();
 		else 
 			ResetPlayers();
-		roundTime = 99.99f;
+		roundTime = 9.99f;
 		player1Bar.fillAmount = 0;
 		player2Bar.fillAmount = 0;
 		player1Life = totalLife;
@@ -184,7 +184,12 @@ public class GameManager : MonoBehaviour {
 		Debug.Log(winningPlayer.gameObject.name);
 		AudioClip you = Resources.Load<AudioClip>("AnnouncerClips/roundEndYou");
 		AudioClip win = Resources.Load<AudioClip>("AnnouncerClips/win");
-		RoundText.text = playerNum.ToString() + " Wins";
+		if(roundTime < 0) {
+			RoundText.text = "TIME OVER";
+		}
+		else {
+			RoundText.text = playerNum.ToString() + " Wins";
+		}
 		yield return StartCoroutine(PlayAudioAndYield(you));
 		yield return StartCoroutine(PlayAudioAndYield(win));
 		yield return new WaitForSecondsRealtime(1.5f);

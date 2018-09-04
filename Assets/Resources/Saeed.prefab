@@ -133,7 +133,7 @@ GameObject:
   m_Icon: {fileID: 2800000, guid: f1e8f43d65e831447a35057d83f62dbc, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1609590084498512
 GameObject:
   m_ObjectHideFlags: 1
@@ -180,6 +180,7 @@ GameObject:
   - component: {fileID: 4171725548522686}
   - component: {fileID: 114271339858718224}
   - component: {fileID: 82436725947877464}
+  - component: {fileID: 114287272927099808}
   m_Layer: 8
   m_Name: SpecialAttack
   m_TagString: Untagged
@@ -2279,6 +2280,50 @@ MonoBehaviour:
   hitStun: 12
   blockStun: 12
   hitSFX: {fileID: 8300000, guid: b3799609876724054949a69fa2bdc9ab, type: 3}
+--- !u!114 &114287272927099808
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1759625349542478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a1b5d255e544102ba70ce7b8c8c0e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xTravel:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.28221512
+      value: 0.18899567
+      inSlope: 2.3122895
+      outSlope: 2.3122895
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.15982361
+    - serializedVersion: 3
+      time: 0.38305435
+      value: -0.03707654
+      inSlope: -4.8035808
+      outSlope: -4.8035808
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.103817865
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &114460161143826334
 MonoBehaviour:
   m_ObjectHideFlags: 1
