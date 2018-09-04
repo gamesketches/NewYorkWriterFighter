@@ -198,6 +198,7 @@ public class FighterController : MonoBehaviour {
 				yield return new WaitForSeconds(attackData.blockStun);
 			}
 			else {
+				StartCoroutine(HitStop(attackData.hitStop));
 				if(gameManager.UpdateLifeBarCheckDeath(identity, attackData.damage)) {
 					Debug.Log("Killed");
 					yield return StartCoroutine(DeathAnimation());
@@ -388,5 +389,11 @@ public class FighterController : MonoBehaviour {
 	public void ResetPlayer() {
 		state = MovementState.Standing;
 		animator.SwitchAnimation("Idle");
+	}
+	
+	IEnumerator HitStop(float hitStopTime) {
+		Time.timeScale = 0;
+		yield return new WaitForSecondsRealtime(hitStopTime);
+		Time.timeScale = 1;
 	}
 }

@@ -58,7 +58,6 @@ public class HurtBoxController : MonoBehaviour {
 			}
 			if(data.id != lastAttack) {
 				StartCoroutine(player.GetHit(data));
-				StartCoroutine(HitStop(data.hitStop));
 				lastAttack = data.id;
 			}
 		}
@@ -76,9 +75,4 @@ public class HurtBoxController : MonoBehaviour {
 		Debug.Log("Trigger exited");
 	}
 
-	IEnumerator HitStop(float hitStopTime) {
-		Time.timeScale = 0;
-		yield return new WaitForSecondsRealtime(hitStopTime);
-		Time.timeScale = 1;
-	}
 }
