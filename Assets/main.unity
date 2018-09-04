@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -644,10 +644,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
-    - target: {fileID: 1607149843644300, guid: 79358572dadc1744a832f6fee7054984, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79358572dadc1744a832f6fee7054984, type: 2}
   m_IsPrefabAsset: 0
@@ -857,7 +853,7 @@ MonoBehaviour:
   player1StartPos: {x: -2.12, y: -1.05, z: 0}
   player2StartPos: {x: 2.96, y: -1.05, z: 0}
   RoundText: {fileID: 1479406421}
-  debugP1: 5
+  debugP1: 1
   debugP2: 0
 --- !u!4 &948551938
 Transform:
@@ -1320,10 +1316,6 @@ Prefab:
       propertyPath: opponent
       value: 
       objectReference: {fileID: 1243797385}
-    - target: {fileID: 1698289157710126, guid: 4b138bdf44cae437abdfaa36e866dc63, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b138bdf44cae437abdfaa36e866dc63, type: 2}
   m_IsPrefabAsset: 0
