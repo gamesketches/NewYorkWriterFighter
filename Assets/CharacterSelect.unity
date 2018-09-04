@@ -1043,6 +1043,7 @@ MonoBehaviour:
   portraits: {fileID: 1222747957}
   p1Elements: {fileID: 744086568}
   p2Elements: {fileID: 36622404}
+  stageSelect: {fileID: 2009576849}
   vsScreenElements: {fileID: 790633067}
 --- !u!114 &1029966855
 MonoBehaviour:
@@ -2203,6 +2204,7 @@ GameObject:
   - component: {fileID: 2009576850}
   - component: {fileID: 2009576852}
   - component: {fileID: 2009576851}
+  - component: {fileID: 2009576853}
   m_Layer: 5
   m_Name: Stage Select
   m_TagString: Untagged
@@ -2263,6 +2265,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2009576849}
   m_CullTransparentMesh: 0
+--- !u!114 &2009576853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2009576849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac99e675e42a247a287e9dad5a36949b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2022735080
 GameObject:
   m_ObjectHideFlags: 0

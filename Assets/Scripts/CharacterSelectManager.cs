@@ -55,7 +55,10 @@ public class CharacterSelectManager : MonoBehaviour {
 			player2Active = true;
 			if(!selectingCharacters) StartCoroutine(OpenCharacterSelect());
 		}
-		if(GameManager.player1Character != Character.None && GameManager.player2Character != Character.None && selectingCharacters && winner == -1) {	
+		if(GameManager.player1Character != Character.None && 
+			GameManager.player2Character != Character.None && 
+				selectingCharacters && winner == -1 && GameManager.stageID > -1) {	
+			ToggleCharacterSelectElements(false);
 			StartCoroutine(VsScreen());
 			selectingCharacters = false;
 		}

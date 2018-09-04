@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour {
 	public Vector3 player2StartPos;
 	public static Character player1Character = Character.None;
 	public static Character player2Character = Character.None;
+	public static int stageID = -1;
 
 	public static float stageXEnds = 12.68f;
 	
@@ -43,7 +44,7 @@ public class GameManager : MonoBehaviour {
 		roundCounter = 0;
 		SpriteRenderer background = GameObject.Find("Battlezone").GetComponent<SpriteRenderer>();
 		
-		background.sprite = Resources.LoadAll<Sprite>("stages")[Random.Range(0,3)];
+		background.sprite = Resources.LoadAll<Sprite>("stages")[stageID];
 		bgm.clip = Resources.Load<AudioClip>("music/" + background.sprite.name);
 		bgm.Play();
 		player1Character = debugP1;
