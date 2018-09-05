@@ -83,7 +83,7 @@ GameObject:
   m_Icon: {fileID: 2800000, guid: c750d05c50f7b294cb3c7da466cbc979, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1488881440543698
 GameObject:
   m_ObjectHideFlags: 1
@@ -538,7 +538,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.61}
+  m_Offset: {x: 0.03, y: -1.16}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -549,7 +549,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9, y: 2.47}
+  m_Size: {x: 0.9, y: 1.6}
   m_EdgeRadius: 0
 --- !u!61 &61378296292067282
 BoxCollider2D:
@@ -638,7 +638,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.14}
+  m_Offset: {x: -0.13, y: 0.14}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2461,7 +2461,27 @@ MonoBehaviour:
     hurtBoxes: []
   - sprite: {fileID: 21300000, guid: 899e491f940fa424b99c80c253349c51, type: 3}
     hitBoxes: []
-    hurtBoxes: []
+    hurtBoxes:
+    - serializedVersion: 2
+      x: 0.09
+      y: 0.91
+      width: 0.55
+      height: 0.55
+    - serializedVersion: 2
+      x: 0.02
+      y: 0.14
+      width: 0.9
+      height: 1
+    - serializedVersion: 2
+      x: 0.03
+      y: -1.16
+      width: 0.9
+      height: 1.6
+    - serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
   - sprite: {fileID: 21300000, guid: db3a246bb5accc346a86678f6f2383b8, type: 3}
     hitBoxes:
     - serializedVersion: 2
@@ -2470,6 +2490,21 @@ MonoBehaviour:
       width: 0.73
       height: 0.7
     hurtBoxes:
+    - serializedVersion: 2
+      x: 0.24
+      y: 0.91
+      width: 0.55
+      height: 0.55
+    - serializedVersion: 2
+      x: 0.08
+      y: 0.14
+      width: 0.9
+      height: 1
+    - serializedVersion: 2
+      x: 0.03
+      y: -1.16
+      width: 0.9
+      height: 1.6
     - serializedVersion: 2
       x: 1
       y: 0.38
@@ -2480,9 +2515,24 @@ MonoBehaviour:
     - serializedVersion: 2
       x: 1.5
       y: 0.36
-      width: 0.78
+      width: 0.73
       height: 0.7
     hurtBoxes:
+    - serializedVersion: 2
+      x: 0.24
+      y: 0.91
+      width: 0.55
+      height: 0.55
+    - serializedVersion: 2
+      x: 0.08
+      y: 0.14
+      width: 0.9
+      height: 1
+    - serializedVersion: 2
+      x: 0.03
+      y: -1.16
+      width: 0.9
+      height: 1.6
     - serializedVersion: 2
       x: 1
       y: 0.38
@@ -2492,10 +2542,25 @@ MonoBehaviour:
     hitBoxes: []
     hurtBoxes:
     - serializedVersion: 2
-      x: 1
-      y: 0.38
+      x: 0.24
+      y: 0.91
+      width: 0.55
+      height: 0.55
+    - serializedVersion: 2
+      x: 0.08
+      y: 0.14
+      width: 0.9
+      height: 1
+    - serializedVersion: 2
+      x: 0.03
+      y: -1.16
+      width: 0.9
+      height: 1.6
+    - serializedVersion: 2
+      x: 0.77
+      y: 0.13
       width: 1
-      height: 0.7
+      height: 1
   damage: 30
   blockType: 0
   knockdown: 0
