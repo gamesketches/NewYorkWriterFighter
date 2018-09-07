@@ -861,7 +861,7 @@ MonoBehaviour:
   player1StartPos: {x: -2.12, y: -1.05, z: 0}
   player2StartPos: {x: 2.96, y: -1.05, z: 0}
   RoundText: {fileID: 1479406421}
-  debugP1: 2
+  debugP1: 4
   debugP2: 0
 --- !u!4 &948551938
 Transform:
@@ -1705,6 +1705,10 @@ Prefab:
       propertyPath: opponent
       value: 
       objectReference: {fileID: 1243797385}
+    - target: {fileID: 1285786278753462, guid: 947dec4e82502434baf14ebbc836d827, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 947dec4e82502434baf14ebbc836d827, type: 2}
   m_IsPrefabAsset: 0
