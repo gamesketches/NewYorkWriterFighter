@@ -9,6 +9,7 @@ public class HurtBoxController : MonoBehaviour {
 	bool hitThisFrame;
 	int lastAttack;
 	Rect[] neutralColliderBounds;
+	public float crouchingOffset;
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +27,13 @@ public class HurtBoxController : MonoBehaviour {
 	void FixedUpdate () {
 		hitThisFrame = false;
 		transform.localScale = new Vector3(player.leftSide ? 1 : -1, 1, 1);
+		if(player.GetState() == MovementState.Crouching) {
+			for(int i = 0; i < colliders.Length; i++) {
+				Vector2 offset = neutralColliderBounds[i].position;
+				offset.y -= crouchingOffset;
+				colliders[i].offset = offset;
+			}
+		}
 	}
 
 	public void UpdateHurtBoxes(Rect[] dimensions) {

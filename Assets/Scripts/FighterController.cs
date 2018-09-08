@@ -390,7 +390,7 @@ public class FighterController : MonoBehaviour {
 		state = MovementState.Standing;
 		animator.SwitchAnimation("Idle");
 	}
-	
+
 	IEnumerator HitStop(float hitStopTime) {
 		Time.timeScale = 0;
 		yield return new WaitForSecondsRealtime(hitStopTime);
