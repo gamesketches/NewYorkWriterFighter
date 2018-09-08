@@ -152,6 +152,7 @@ public class CharacterAnimator : MonoBehaviour {
 				break;
 			case AnimationType.Jump:
 				curAnimation = jumpAnimation;
+				renderer.sprite = curAnimation[0];
 				animationFinished = true;
 				break;
 			case AnimationType.Damage:

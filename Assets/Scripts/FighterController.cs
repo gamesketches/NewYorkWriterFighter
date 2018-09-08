@@ -136,6 +136,7 @@ public class FighterController : MonoBehaviour {
 		if(attackButton != "none") {
 			if(!IsJumpAttack(attackButton) && !IsCrouchAttack(attackButton)) {
 				attacks.GetChild(GetButtonIndex(attackButton)).gameObject.SetActive(true);
+				animator.nextState = AnimationType.Jump;
 			}
 			state = MovementState.Attacking;
 		}
