@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour {
 	public Text roundTimer;
 	float roundTime;
 	int roundCounter;
+	bool player1LifeBarFlashing;
+	bool player2LifeBarFlashing;
 	public Vector3 player1StartPos;
 	public Vector3 player2StartPos;
 	public static Character player1Character = Character.None;
@@ -88,6 +90,8 @@ public class GameManager : MonoBehaviour {
 		player2Life = totalLife;
 		StartCoroutine(ChangeLifeAmount(player1Bar, 1, 0.6f));
 		StartCoroutine(ChangeLifeAmount(player2Bar, 1, 0.6f));
+		player1LifeBarFlashing = false;
+		player2LifeBarFlashing = false;
 		Attack.attackID = 0;
 		AudioClip round = Resources.Load<AudioClip>("AnnouncerClips/round");
 		AudioClip fight = Resources.Load<AudioClip>("AnnouncerClips/fight");
@@ -132,6 +136,10 @@ public class GameManager : MonoBehaviour {
 				StartCoroutine(EndRound(PlayerNumber.P2));
 				return true;
 			}
+			else if(!player1LifeBarFlashing && player1Life < (totalLife / 3)) {
+				player1LifeBarFlashing = true;
+				StartCoroutine(FlashLifeBar(player1Bar, PlayerNumber.P1));
+			}
 		}
 		else if(playerNum == PlayerNumber.P2) {
 			StartCoroutine(ChangeLifeAmount(player2Bar, (player2Life - lifeChange) / totalLife, 0.1f));
@@ -140,6 +148,10 @@ public class GameManager : MonoBehaviour {
 				StartCoroutine(EndRound(PlayerNumber.P1));
 			//	UpdateRoundCounters(PlayerNumber.P1);
 				return true;
+			}
+			else if(!player2LifeBarFlashing && player2Life < (totalLife / 3)) {
+				player2LifeBarFlashing = true;
+				StartCoroutine(FlashLifeBar(player2Bar, PlayerNumber.P2));
 			}	
 		}	
 		return false;
@@ -233,5 +245,14 @@ public class GameManager : MonoBehaviour {
 		audio.clip = clip;
 		audio.Play();
 		while(audio.isPlaying) yield return null;
+	}
+
+	IEnumerator FlashLifeBar(Image lifeBar, PlayerNumber num) {
+		while(num == PlayerNumber.P1 ? player1LifeBarFlashing : player2LifeBarFlashing){
+			lifeBar.color = Color.red;
+			yield return new WaitForSecondsRealtime(0.2f);
+			lifeBar.color = Color.white;
+			yield return new WaitForSecondsRealtime(0.2f);
+		}
 	}
 }

@@ -28,7 +28,7 @@ public class CharacterAnimator : MonoBehaviour {
 	AnimationType state;
 	public AnimationType nextState;
 
-	public static int frameSpeed = 4;
+	public static int frameSpeed = 3;
 
 	// Use this for initialization
 	void Awake () {
