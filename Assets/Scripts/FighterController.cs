@@ -75,7 +75,7 @@ public class FighterController : MonoBehaviour {
 		else if(state == MovementState.Recoiling) {
 		//	Debug.Log("taking damage");
 		}
-		else if(opponent.GetState() == MovementState.Attacking && HoldingBack()) {
+		else if((opponent.GetState() == MovementState.Attacking || OpponentProjectileExists()) && HoldingBack()) {
 			Block();
 		}
 		else if(VerticalInput() < 0) {
@@ -187,6 +187,20 @@ public class FighterController : MonoBehaviour {
 			animator.SwitchAnimation("Block");
 		}
 	}
+
+	bool OpponentProjectileExists() {
+		GameObject[] projectiles = GameObject.FindGameObjectsWithTag("Projectile");
+		for(int i = 0; i < projectiles.Length; i++) {
+			if(identity == PlayerNumber.P1 && projectiles[i].GetComponent<ProjectileController>().sourceLayer != 10) {
+					return true;
+			}
+			else if(identity == PlayerNumber.P2 && projectiles[i].GetComponent<ProjectileController>().sourceLayer != 12) {
+					return true;
+			}
+		}	
+		return false;
+	}
+
 
 	public IEnumerator GetHit(AttackData attackData) {
 		Debug.Log("Hit");
