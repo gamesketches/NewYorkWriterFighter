@@ -139,6 +139,7 @@ public class GameManager : MonoBehaviour {
 			else if(!player1LifeBarFlashing && player1Life < (totalLife / 3)) {
 				player1LifeBarFlashing = true;
 				StartCoroutine(FlashLifeBar(player1Bar, PlayerNumber.P1));
+				player1.MakeSuperAvailable();
 			}
 		}
 		else if(playerNum == PlayerNumber.P2) {
@@ -152,6 +153,7 @@ public class GameManager : MonoBehaviour {
 			else if(!player2LifeBarFlashing && player2Life < (totalLife / 3)) {
 				player2LifeBarFlashing = true;
 				StartCoroutine(FlashLifeBar(player2Bar, PlayerNumber.P2));
+				player2.MakeSuperAvailable();
 			}	
 		}	
 		return false;

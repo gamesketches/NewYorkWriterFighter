@@ -24,10 +24,12 @@ public class FighterController : MonoBehaviour {
 	SpriteRenderer renderer;
 	[HideInInspector]
 	public bool locked = true;
+	bool superAvailable;
 	AudioSource audio;
 
 	// Use this for initialization
 	void Awake () {
+		superAvailable = false;
 		animator = GetComponent<CharacterAnimator>();
 		audio = GetComponents<AudioSource>()[1];
 		state = MovementState.Standing;
@@ -104,10 +106,11 @@ public class FighterController : MonoBehaviour {
 	void CheckButtonInput() {
 		string playerID = identity.ToString();
 		string attackButton = "none";
-		if(Input.GetButtonDown(playerID + "LP") && Input.GetButtonDown(playerID + "MP")) {
+		if(superAvailable && Input.GetButtonDown(playerID + "LP") && Input.GetButtonDown(playerID + "MP") && Input.GetButtonDown(playerID + "HP")) {
 			if(state != MovementState.Jumping) {
 				attacks.GetChild(attacks.childCount - 1).gameObject.SetActive(true);
 				state = MovementState.Attacking;
+				superAvailable = false;
 			}
 		}
 		else if(CheckThrow()) {
@@ -136,7 +139,6 @@ public class FighterController : MonoBehaviour {
 		if(attackButton != "none") {
 			if(!IsJumpAttack(attackButton) && !IsCrouchAttack(attackButton)) {
 				attacks.GetChild(GetButtonIndex(attackButton)).gameObject.SetActive(true);
-				animator.nextState = AnimationType.Jump;
 			}
 			state = MovementState.Attacking;
 		}
@@ -404,11 +406,16 @@ public class FighterController : MonoBehaviour {
 	public void ResetPlayer() {
 		state = MovementState.Standing;
 		animator.SwitchAnimation("Idle");
+		superAvailable = false;
 	}
 
 	IEnumerator HitStop(float hitStopTime) {
 		Time.timeScale = 0;
 		yield return new WaitForSecondsRealtime(hitStopTime);
 		Time.timeScale = 1;
+	}
+
+	public void MakeSuperAvailable() {
+		superAvailable = true;
 	}
 }
