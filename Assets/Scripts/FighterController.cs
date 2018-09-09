@@ -111,6 +111,7 @@ public class FighterController : MonoBehaviour {
 				attacks.GetChild(attacks.childCount - 1).gameObject.SetActive(true);
 				state = MovementState.Attacking;
 				superAvailable = false;
+				StartCoroutine(Camera.main.GetComponent<CameraController>().ZoomCamera(transform.position, animator.GetAnimationLength() * CharacterAnimator.frameSpeed *Time.fixedDeltaTime));
 			}
 		}
 		else if(CheckThrow()) {
@@ -246,9 +247,8 @@ public class FighterController : MonoBehaviour {
 		Debug.Log("Throw");
 		animator.SwitchAnimation("Damage");
 		state = MovementState.Recoiling;
-		//Camera.main.GetComponent<CameraController>().ToggleThrowMode();
+		StartCoroutine(Camera.main.GetComponent<CameraController>().ZoomCamera(transform.position, throwData.hitStun));
 		yield return new WaitForSeconds(throwData.hitStun);
-		//Camera.main.GetComponent<CameraController>().ToggleThrowMode();
 		if(gameManager.UpdateLifeBarCheckDeath(identity, throwData.damage)) {
 			Debug.Log("Killed");
 			yield return StartCoroutine(DeathAnimation());

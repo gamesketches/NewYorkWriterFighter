@@ -12,22 +12,22 @@ public class CameraController : MonoBehaviour {
 	public float throwSize;
 	public float sizeOffset;
 	public float cornerOffset;
-	public float throwYVal;
-	public bool throwMode;
+	bool zoomMode;
+	public float transitionTime = 0.2f;
+	public float zoomSize = 1.5f;
 	Camera camera;
 
 	// Use this for initialization
 	void Start () {
-		throwMode = false;
+		zoomMode = false;
+		zoomSize = 2.5f;
 		camera = GetComponent<Camera>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		float newXPosition = Mathf.Lerp(Player1.position.x, Player2.position.x, 0.5f);
-		if(throwMode) {
-			//transform.position = new Vector3(newXPosition, transform.position.y, transform.position.z);
-			camera.orthographicSize = Mathf.Clamp(Mathf.Abs(Player1.position.x - Player2.position.x) - sizeOffset, throwSize, maxSize);
+		if(zoomMode) {
 			return;
 		}
 		if(newXPosition < -GameManager.stageXEnds + cornerOffset) {
@@ -45,18 +45,28 @@ public class CameraController : MonoBehaviour {
 		Player2 = player2;
 	}
 
-	public void ToggleThrowMode(){
-		if(!throwMode) {
-			transform.position = new Vector3(transform.position.x, throwYVal, transform.position.z);
-		//	transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+	public IEnumerator ZoomCamera(Vector3 focusPoint, float time) {
+		zoomMode = true;
+		Vector3 middle = Vector3.Lerp(Player1.position, Player2.position, 0.5f);
+		middle.z = -10;
+		middle.y = transform.position.y;
+		focusPoint.z = -10;
+		yield return ZoomTransition(focusPoint, zoomSize);
+		yield return new WaitForSecondsRealtime(time - (transitionTime * 2));
+		yield return ZoomTransition(middle, Mathf.Clamp(Mathf.Abs(Player1.position.x - Player2.position.x) - sizeOffset, minSize, maxSize));
+		zoomMode = false;
 		}
-		else {
-			transform.position = new Vector3(transform.position.x, throwYVal, transform.position.z);
+
+	IEnumerator ZoomTransition(Vector3 targetPoint, float targetZoom) {
+		Vector3 startPosition = transform.position;
+		float startZoom = camera.orthographicSize;
+		for(float t = 0; t < transitionTime; t += Time.fixedDeltaTime) {
+			transform.position = Vector3.Lerp(startPosition, targetPoint, t / transitionTime);
+			camera.orthographicSize = Mathf.SmoothStep(startZoom, targetZoom, t / transitionTime);
+			yield return null;
 		}
-		throwMode = !throwMode;
+		transform.position = targetPoint;
+		camera.orthographicSize = targetZoom;
 	}
 
-	//IEnumerator ToggleThrowCamera(float yVal) {
-	//	float startY = transform.position.yVal;
-		
 }
