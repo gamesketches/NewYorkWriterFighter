@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -157,10 +157,6 @@ Prefab:
       propertyPath: opponent
       value: 
       objectReference: {fileID: 1243797385}
-    - target: {fileID: 1294227869775730, guid: 7559c0dc6e0dbfe40b8a90ba4439db53, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7559c0dc6e0dbfe40b8a90ba4439db53, type: 2}
   m_IsPrefabAsset: 0
@@ -268,8 +264,8 @@ MonoBehaviour:
   throwSize: 0
   sizeOffset: 6
   cornerOffset: 7.33
-  throwYVal: 0
-  throwMode: 0
+  transitionTime: 0.2
+  zoomSize: 1.5
 --- !u!1 &356833245
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,6 +469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eac88773c70e94834afb346db6c18258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crouchingOffset: 0
 --- !u!1 &672248921
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,7 +858,7 @@ MonoBehaviour:
   player1StartPos: {x: -2.12, y: -1.05, z: 0}
   player2StartPos: {x: 2.96, y: -1.05, z: 0}
   RoundText: {fileID: 1479406421}
-  debugP1: 6
+  debugP1: 3
   debugP2: 0
 --- !u!4 &948551938
 Transform:
