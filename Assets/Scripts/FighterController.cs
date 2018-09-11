@@ -302,12 +302,13 @@ public class FighterController : MonoBehaviour {
 	}
 
 	IEnumerator GetPushed(float distance, float stunTime) {
-		Debug.Log(distance);
-		Debug.Log(stunTime);
+		float previous = 0;
 		for(float i = 0; i < stunTime; i += Time.fixedDeltaTime){
-			if(leftSide) MoveLeft(distance * Time.fixedDeltaTime);
-			else MoveRight(distance * Time.fixedDeltaTime);
+			float newX = Mathf.SmoothStep(0, distance, i / stunTime);
+			if(leftSide) MoveLeft(newX - previous);
+			else MoveRight(newX - previous);
 			yield return null;
+			previous = newX;
 		}
 	}
 	
