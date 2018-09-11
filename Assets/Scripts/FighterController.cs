@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum PlayerNumber {P1, P2};
-public enum MovementState {Standing, Crouching, Jumping, Attacking, KnockedDown, Recoiling, Blocking, CrouchBlocking, Victory, Thrown};
+public enum MovementState {Standing, Crouching, Jumping, Attacking, KnockedDown, Recoiling, Blocking, CrouchBlocking, BlockStun, Victory, Thrown};
 public class FighterController : MonoBehaviour {
 
 	static float jumpHeight = 2.37f;
@@ -74,7 +74,7 @@ public class FighterController : MonoBehaviour {
 		if(state == MovementState.Jumping) {
 		//	Debug.Log("Cancel into attacks here");
 		}
-		else if(state == MovementState.Recoiling) {
+		else if(state == MovementState.Recoiling || state == MovementState.BlockStun ) {
 		//	Debug.Log("taking damage");
 		}
 		else if((opponent.GetState() == MovementState.Attacking || OpponentProjectileExists()) && HoldingBack()) {
@@ -212,7 +212,7 @@ public class FighterController : MonoBehaviour {
 		
 			if(SuccessfulBlock(attackData.blockType)) {
 				StartCoroutine(GetPushed(attackData.knockBack, attackData.blockStun));
-				state = MovementState.Recoiling;
+				state = MovementState.BlockStun;
 				yield return new WaitForSeconds(attackData.blockStun);
 			}
 			else {
@@ -286,8 +286,8 @@ public class FighterController : MonoBehaviour {
 
 
 	bool SuccessfulBlock(BlockType blockType) {
-		if(state != MovementState.Blocking && state != MovementState.CrouchBlocking) return false;
-	
+		if(state != MovementState.Blocking && state != MovementState.CrouchBlocking && state != MovementState.BlockStun) return false;
+		if(state == MovementState.BlockStun) Block();
 		switch(blockType) {
 			case BlockType.Mid:
 				return true;
@@ -302,12 +302,13 @@ public class FighterController : MonoBehaviour {
 	}
 
 	IEnumerator GetPushed(float distance, float stunTime) {
-		Debug.Log(distance);
-		Debug.Log(stunTime);
+		float previous = 0;
 		for(float i = 0; i < stunTime; i += Time.fixedDeltaTime){
-			if(leftSide) MoveLeft(distance * Time.fixedDeltaTime);
-			else MoveRight(distance * Time.fixedDeltaTime);
+			float newX = Mathf.SmoothStep(0, distance, i / stunTime);
+			if(leftSide) MoveLeft(newX - previous);
+			else MoveRight(newX - previous);
 			yield return null;
+			previous = newX;
 		}
 	}
 	

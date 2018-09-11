@@ -221,11 +221,13 @@ public class GameManager : MonoBehaviour {
 	void LoadCharacters() {
 		GameObject player1Obj = Instantiate((GameObject)Resources.Load(player1Character.ToString()));
 		player1Obj.transform.position = new Vector3(player1StartPos.x, player1Obj.transform.position.y, player1StartPos.z);
+		player1StartPos = player1Obj.transform.position;
 		player1Obj.SetActive (true);
 		player1 = player1Obj.GetComponent<FighterController>();
 		player1.SetPlayerIdentity(PlayerNumber.P1);
 		GameObject player2Obj = Instantiate((GameObject)Resources.Load(player2Character.ToString()));
 		player2Obj.transform.position = new Vector3(player2StartPos.x, player2Obj.transform.position.y, player2StartPos.z);
+		player2StartPos = player2Obj.transform.position;
 		player2Obj.SetActive (true);
 		player2 = player2Obj.GetComponent<FighterController>();
 		player2.SetPlayerIdentity(PlayerNumber.P2);
