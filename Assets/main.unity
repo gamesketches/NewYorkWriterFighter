@@ -645,10 +645,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
-    - target: {fileID: 1607149843644300, guid: 79358572dadc1744a832f6fee7054984, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79358572dadc1744a832f6fee7054984, type: 2}
   m_IsPrefabAsset: 0
@@ -858,7 +854,7 @@ MonoBehaviour:
   player1StartPos: {x: -2.12, y: -1.05, z: 0}
   player2StartPos: {x: 2.96, y: -1.05, z: 0}
   RoundText: {fileID: 1479406421}
-  debugP1: 3
+  debugP1: 5
   debugP2: 0
 --- !u!4 &948551938
 Transform:
