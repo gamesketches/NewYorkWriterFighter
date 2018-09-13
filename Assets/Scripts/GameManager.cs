@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour {
 	public static Character player1Character = Character.None;
 	public static Character player2Character = Character.None;
 	public static int stageID = 0;
+	List<GameObject> hitSparks;
 
 	public static float stageXEnds = 12.68f;
 	
@@ -58,6 +59,7 @@ public class GameManager : MonoBehaviour {
 		player2WinIcons.transform.GetChild(0).gameObject.SetActive(false);
 		player2WinIcons.transform.GetChild(1).gameObject.SetActive(false);
 		StartCoroutine(StartRound());
+		hitSparks = new List<GameObject>();
 	}
 	
 	// Update is called once per frame
@@ -259,4 +261,20 @@ public class GameManager : MonoBehaviour {
 			yield return new WaitForSecondsRealtime(0.2f);
 		}
 	}
+
+	public void PlayHitSpark(Vector3 position, bool blockSparks) {
+		GameObject sparks = null;
+		for(int i = 0; i <	hitSparks.Count; i++) {
+			if(!hitSparks[i].activeSelf) {
+				sparks = hitSparks[i];
+				sparks.SetActive(true);
+			}
+		}
+		if(sparks == null) {
+			sparks = Instantiate(Resources.Load<GameObject>("HitSpark"));
+			hitSparks.Add(sparks);
+		}
+		sparks.transform.position = position;
+	}	
+				
 }

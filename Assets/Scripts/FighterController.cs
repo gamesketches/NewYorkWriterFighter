@@ -231,6 +231,7 @@ public class FighterController : MonoBehaviour {
 				else {
 					animator.SwitchAnimation("Damage");
 					state = MovementState.Recoiling;
+					gameManager.PlayHitSpark(transform.position, false);
 					if(attackData.hitSFX != null) {
 						audio.clip = attackData.hitSFX;
 						audio.Play();

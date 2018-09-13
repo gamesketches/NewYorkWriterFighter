@@ -1,0 +1,555 @@
+fileFormatVersion: 2
+guid: d9d124bd0efa9418a8f7a28b88b347c0
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: hit sparks completed_0
+    21300002: hit sparks completed_1
+    21300004: hit sparks completed_2
+    21300006: hit sparks completed_3
+    21300008: hit sparks completed_4
+    21300010: hit sparks completed_5
+    21300012: hit sparks completed_6
+    21300014: hit sparks completed_7
+    21300016: hit sparks completed_8
+    21300018: hit sparks completed_9
+    21300020: hit sparks completed_10
+    21300022: hit sparks completed_11
+    21300024: hit sparks completed_12
+    21300026: hit sparks completed_13
+    21300028: hit sparks completed_14
+    21300030: hit sparks completed_15
+    21300032: hit sparks completed_16
+    21300034: hit sparks completed_17
+    21300036: hit sparks completed_18
+    21300038: hit sparks completed_19
+    21300040: hit sparks completed_20
+    21300042: hit sparks completed_21
+    21300044: hit sparks completed_22
+    21300046: hit sparks completed_23
+    21300048: hit sparks completed_24
+    21300050: hit sparks completed_25
+    21300052: hit sparks completed_26
+    21300054: hit sparks completed_27
+    21300056: hit sparks completed_28
+    21300058: hit sparks completed_29
+    21300060: hit sparks completed_30
+    21300062: hit sparks completed_31
+    21300064: hit sparks completed_32
+    21300066: hit sparks completed_33
+    21300068: hit sparks completed_34
+    21300070: hit sparks completed_35
+    21300072: hit sparks completed_36
+    21300074: hit sparks completed_37
+    21300076: hit sparks completed_38
+    21300078: hit sparks completed_39
+    21300080: hit sparks completed_40
+    21300082: hit sparks completed_41
+    21300084: hit sparks completed_42
+    21300086: hit sparks completed_43
+    21300088: hit sparks completed_44
+    21300090: hit sparks completed_45
+    21300092: hit sparks completed_46
+    21300094: hit sparks completed_47
+    21300096: hit sparks completed_48
+    21300098: hit sparks completed_49
+    21300100: hit sparks completed_50
+    21300102: hit sparks completed_51
+    21300104: hit sparks completed_52
+    21300106: hit sparks completed_53
+    21300108: hit sparks completed_54
+    21300110: hit sparks completed_55
+    21300112: hit sparks completed_56
+    21300114: hit sparks completed_57
+    21300116: hit sparks completed_58
+    21300118: hit sparks completed_59
+    21300120: hit sparks completed_60
+    21300122: hit sparks completed_61
+    21300124: hit sparks completed_62
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: hit sparks completed_0
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 549
+        width: 71
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56d733b1ca3d8426b86b8fa7d1967c85
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hit sparks completed_1
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 552
+        width: 81
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9fcd0dfffaeb4c24ad4e77fdcee6c4f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hit sparks completed_2
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 544
+        width: 67
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ce29e043d2ae4601a155b36e39a384a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hit sparks completed_4
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 545
+        width: 58
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e3e62dc307c34304aba5f71b59bef5e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hit sparks completed_5
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 541
+        width: 72
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae50a1237c7da48e59ac513377198bbb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hit sparks completed_12
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 265
+        width: 144
+        height: 216
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3ac7f0c117a84f8a9f47b9ee261c35c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hit sparks completed_13
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 279
+        width: 162
+        height: 179
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b00afd28d3545441db832faf495b6287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hit sparks completed_21
+      rect:
+        serializedVersion: 2
+        x: 826
+        y: 237
+        width: 116
+        height: 193
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99492a62b5a054b1294b38c44dd17d45
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hit sparks completed_22
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 266
+        width: 133
+        height: 193
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 201eb3a8f72c14476b8df36bf029f20c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hit sparks completed_29
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 253
+        width: 138
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b66d3e6ae2d3e4066bfb559132b2dc29
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hit sparks completed_33
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 367
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03e968a513e77448997834cfa09ec39b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hit sparks completed_46
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 304
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50a84f848d4494590baeea87165517c1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hit sparks completed_48
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 299
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 520e459ffbd464bdcaa77c41ffdbb949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hit sparks completed_51
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 92
+        width: 81
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4c75181594cd4b2cb912d0933d552f5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hit sparks completed_52
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 80
+        width: 71
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72874886108914c8bb4bc4a9e13dc815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hit sparks completed_53
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 86
+        width: 58
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5455282292c9f4abcab6df150ac28654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hit sparks completed_55
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 71
+        width: 67
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8289f6dd86b1c4d3a9ed6be933bb4105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hit sparks completed_56
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 81
+        width: 69
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bba331ce915746c9bb9b235210e34f3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 7bcf5775da3a04d4ba47d95d361f4114
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
