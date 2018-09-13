@@ -114,12 +114,12 @@ public class CursorLogic : MonoBehaviour {
 
 	void MakeFullNameDict() {
 		fullNames = new Dictionary<string, string>();
-		fullNames.Add("Alexandra", "Alexandra Kleeman");
-		fullNames.Add("Amy", "Amy Rose Speigel");
-		fullNames.Add("Tony", "Tony Tuliathimutte");
-		fullNames.Add("Arabelle", "Arabelle Sicardi");
-		fullNames.Add("Chelsea", "Chelsea Hodson");
-		fullNames.Add("Jia", "Jia Tolentino");
-		fullNames.Add("Saeed", "Saeed Jones");
+		fullNames.Add("Alexandra", "Alexandra Kleeman\nNovelist\nAuthor of You Too Can Have A Body Like Mine\n@AlexKleeman");
+		fullNames.Add("Amy", "Amy Rose Speigel\nWriter and Editor\nAuthor of Action: A Book About Sex\nCreator of Enormous Eye\n@AmyRosary");
+		fullNames.Add("Tony", "Tony Tuliathimutte\nNovelist\nAuthor of Private Citizens\n@tonytula");
+		fullNames.Add("Arabelle", "Arabelle Sicardi\nBeauty and Fashion Writer\nAllure, Ssense, Racked, DAZED, BuzzFeed, Jezebel\n@arabellesicardi");
+		fullNames.Add("Chelsea", "Chelsea Hodson\nEssayist\nAuthor of Tonight I’m Someone Else\n@ChelseaHodson");
+		fullNames.Add("Jia", "Jia Tolentino\nThe New Yorker Staff Writer\nFormer editor Jezebel and The Hairpin\n@jiatolentino");
+		fullNames.Add("Saeed", "Saeed Jones\nPoet and Memoirist\nAuthor of Prelude to Bruise\nBuzzFeed Executive Editor and AM to DM Host\n@theferocity");
 	}
 }
