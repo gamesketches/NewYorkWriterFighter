@@ -268,6 +268,7 @@ public class GameManager : MonoBehaviour {
 			if(!hitSparks[i].activeSelf) {
 				sparks = hitSparks[i];
 				sparks.SetActive(true);
+				break;
 			}
 		}
 		if(sparks == null) {
@@ -275,6 +276,8 @@ public class GameManager : MonoBehaviour {
 			hitSparks.Add(sparks);
 		}
 		sparks.transform.position = position;
+		if(blockSparks) sparks.GetComponent<SpriteRenderer>().color = Color.blue;
+		else sparks.GetComponent<SpriteRenderer>().color = Color.white;
 	}	
 				
 }

@@ -206,13 +206,14 @@ public class FighterController : MonoBehaviour {
 	}
 
 
-	public IEnumerator GetHit(AttackData attackData) {
+	public IEnumerator GetHit(AttackData attackData, Vector3 contactPoint) {
 		Debug.Log("Hit");
 		if(state != MovementState.KnockedDown) {
 		
 			if(SuccessfulBlock(attackData.blockType)) {
 				StartCoroutine(GetPushed(attackData.knockBack, attackData.blockStun));
 				state = MovementState.BlockStun;
+				gameManager.PlayHitSpark(contactPoint, true);
 				yield return new WaitForSeconds(attackData.blockStun);
 			}
 			else {
@@ -225,13 +226,14 @@ public class FighterController : MonoBehaviour {
 				else if(attackData.knockdown) {
 					animator.SwitchAnimation("Fall");
 					state = MovementState.KnockedDown;
+					gameManager.PlayHitSpark(contactPoint, true);
 					while(!animator.animationFinished) yield return null;
 					yield return new WaitForSeconds(1);
 				}
 				else {
 					animator.SwitchAnimation("Damage");
 					state = MovementState.Recoiling;
-					gameManager.PlayHitSpark(transform.position, false);
+					gameManager.PlayHitSpark(contactPoint, false);
 					if(attackData.hitSFX != null) {
 						audio.clip = attackData.hitSFX;
 						audio.Play();
