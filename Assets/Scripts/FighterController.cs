@@ -226,7 +226,8 @@ public class FighterController : MonoBehaviour {
 				else if(attackData.knockdown) {
 					animator.SwitchAnimation("Fall");
 					state = MovementState.KnockedDown;
-					gameManager.PlayHitSpark(contactPoint, true);
+					gameManager.PlayHitSpark(contactPoint, false);
+					StartCoroutine(GetPushed(attackData.knockBack, attackData.hitStun));
 					while(!animator.animationFinished) yield return null;
 					yield return new WaitForSeconds(1);
 				}
