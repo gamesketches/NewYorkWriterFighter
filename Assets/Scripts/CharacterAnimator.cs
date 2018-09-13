@@ -122,8 +122,10 @@ public class CharacterAnimator : MonoBehaviour {
 
 	public void SwitchAnimation(string animationType) {
 		AnimationType newState = (AnimationType)System.Enum.Parse(typeof(AnimationType), animationType);
-		if(state == newState || !animationFinished) return;
-		else state = newState;
+		if(state == newState || (!animationFinished && state != AnimationType.Attacking)) return;
+		if(state == AnimationType.Attacking) GetComponentInChildren<HitBoxController>().EndAttack();
+		state = newState;
+		
 		switch(state) {
 			case AnimationType.Idle:
 				curAnimation = idleAnimation;
