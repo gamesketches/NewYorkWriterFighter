@@ -27,11 +27,19 @@ public class ProjectileAttack : Attack {
 				gameObject.SetActive(false);
 			}
 			else if(curFrame == activeFrame) {
-				GameObject tempProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
+				GameObject tempProjectile;
+				if(player.characterIdentity == Character.Jia) {
+					float dogOffset = player.leftSide ? -2 : 2;
+					tempProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
+					tempProjectile.transform.position = new Vector3(transform.position.x + dogOffset, -2.11f, 0);
+				}
+				else {
+					tempProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
+				}
 				int sourceLayer = player.transform.GetChild(1).gameObject.layer;
 				int direction = player.leftSide ? 1 : -1;
 				tempProjectile.GetComponent<ProjectileController>().SetValues(projectileFrames, speed, direction, attackData, sourceLayer);
-				frameCounter = CharacterAnimator.frameSpeed;
+				Debug.Break();
 			}
 			frameCounter = CharacterAnimator.frameSpeed;
 		}

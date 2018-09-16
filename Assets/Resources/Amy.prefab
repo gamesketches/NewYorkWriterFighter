@@ -394,7 +394,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1124005196569280}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.68, y: -1.24, z: 0}
+  m_LocalPosition: {x: 2.43, y: -1.45, z: 0}
   m_LocalScale: {x: 1, y: 0.97, z: 1}
   m_Children:
   - {fileID: 4967222800368838}
@@ -2378,6 +2378,7 @@ MonoBehaviour:
   hitStun: 16
   blockStun: 16
   hitSFX: {fileID: 8300000, guid: b3799609876724054949a69fa2bdc9ab, type: 3}
+  superAttack: 1
 --- !u!114 &114152536026060756
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2595,6 +2596,7 @@ MonoBehaviour:
   hitStun: 18
   blockStun: 18
   hitSFX: {fileID: 8300000, guid: b3799609876724054949a69fa2bdc9ab, type: 3}
+  superAttack: 0
 --- !u!114 &114177150852769424
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2710,6 +2712,7 @@ MonoBehaviour:
   hitStun: 9
   blockStun: 9
   hitSFX: {fileID: 8300000, guid: cb25bc340cbdc40718e152f919a3eec0, type: 3}
+  superAttack: 0
 --- !u!114 &114348909021009848
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2863,6 +2866,7 @@ MonoBehaviour:
   hitStun: 26
   blockStun: 20
   hitSFX: {fileID: 8300000, guid: 89dbbc68d23f3437fab61b740a52c258, type: 3}
+  superAttack: 0
 --- !u!114 &114379694405776126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3086,6 +3090,7 @@ MonoBehaviour:
   hitStun: 9
   blockStun: 9
   hitSFX: {fileID: 8300000, guid: cec294ec72e97451281866cd726e5221, type: 3}
+  superAttack: 0
 --- !u!114 &114708808942453700
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3252,6 +3257,7 @@ MonoBehaviour:
   hitStun: 26
   blockStun: 20
   hitSFX: {fileID: 8300000, guid: 89dbbc68d23f3437fab61b740a52c258, type: 3}
+  superAttack: 0
 --- !u!114 &114813124255545712
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3561,6 +3567,7 @@ MonoBehaviour:
   hitStun: 18
   blockStun: 18
   hitSFX: {fileID: 8300000, guid: b3799609876724054949a69fa2bdc9ab, type: 3}
+  superAttack: 0
 --- !u!114 &114857537875723716
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3658,6 +3665,7 @@ MonoBehaviour:
   hitStun: 12
   blockStun: 12
   hitSFX: {fileID: 8300000, guid: 89dbbc68d23f3437fab61b740a52c258, type: 3}
+  superAttack: 0
 --- !u!114 &114873729548742644
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3851,6 +3859,7 @@ MonoBehaviour:
   hitStun: 8
   blockStun: 8
   hitSFX: {fileID: 8300000, guid: cb25bc340cbdc40718e152f919a3eec0, type: 3}
+  superAttack: 0
 --- !u!114 &114962552271968620
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3925,6 +3934,7 @@ MonoBehaviour:
   hitStun: 14
   blockStun: 14
   hitSFX: {fileID: 8300000, guid: cec294ec72e97451281866cd726e5221, type: 3}
+  superAttack: 0
 --- !u!114 &114970353713970310
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4022,6 +4032,7 @@ MonoBehaviour:
   hitStun: 12
   blockStun: 12
   hitSFX: {fileID: 8300000, guid: 89dbbc68d23f3437fab61b740a52c258, type: 3}
+  superAttack: 0
 --- !u!212 &212981493729413488
 SpriteRenderer:
   m_ObjectHideFlags: 1

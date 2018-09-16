@@ -26,10 +26,11 @@ public class FighterController : MonoBehaviour {
 	public bool locked = true;
 	bool superAvailable;
 	AudioSource audio;
+	public Character characterIdentity;
 
 	// Use this for initialization
 	void Awake () {
-		superAvailable = false;
+		superAvailable = true;//false;
 		animator = GetComponent<CharacterAnimator>();
 		audio = GetComponents<AudioSource>()[1];
 		state = MovementState.Standing;
@@ -111,9 +112,8 @@ public class FighterController : MonoBehaviour {
 				attacks.GetChild(attacks.childCount - 1).gameObject.SetActive(true);
 				state = MovementState.Attacking;
 				superAvailable = false;
-				Debug.Break();
 				float poseTime = animator.victoryAnimation.Length * Time.fixedDeltaTime * CharacterAnimator.frameSpeed;
-				StartCoroutine(HitStop(poseTime));
+				//StartCoroutine(HitStop(poseTime));
 				StartCoroutine(Camera.main.GetComponent<CameraController>().ZoomCamera(transform.position, poseTime));
 			}
 		}

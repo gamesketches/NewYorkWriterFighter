@@ -237,7 +237,7 @@ GameObject:
   m_Icon: {fileID: 2800000, guid: 0578815e3c04f42bf8f8094391eb7166, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1879283053992242
 GameObject:
   m_ObjectHideFlags: 1
@@ -292,7 +292,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1828773952248856}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.881023, y: -1.4592708, z: 0}
+  m_LocalPosition: {x: 0.12, y: -1.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4878020844809880}
@@ -2068,6 +2068,7 @@ MonoBehaviour:
   hitStun: 10
   blockStun: 10
   hitSFX: {fileID: 8300000, guid: cec294ec72e97451281866cd726e5221, type: 3}
+  superAttack: 0
 --- !u!114 &114232820012055996
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2251,6 +2252,7 @@ MonoBehaviour:
   hitStun: 10
   blockStun: 10
   hitSFX: {fileID: 8300000, guid: cb25bc340cbdc40718e152f919a3eec0, type: 3}
+  superAttack: 0
 --- !u!114 &114295618877779354
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2303,6 +2305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eac88773c70e94834afb346db6c18258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crouchingOffset: 0
 --- !u!114 &114414394704376704
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2400,6 +2403,7 @@ MonoBehaviour:
   hitStun: 10
   blockStun: 10
   hitSFX: {fileID: 8300000, guid: 89dbbc68d23f3437fab61b740a52c258, type: 3}
+  superAttack: 0
 --- !u!114 &114430831950714814
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2612,6 +2616,7 @@ MonoBehaviour:
   hitStun: 15
   blockStun: 15
   hitSFX: {fileID: 8300000, guid: b3799609876724054949a69fa2bdc9ab, type: 3}
+  superAttack: 0
 --- !u!114 &114461769345253536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2788,6 +2793,7 @@ MonoBehaviour:
   hitStun: 12
   blockStun: 12
   hitSFX: {fileID: 8300000, guid: cec294ec72e97451281866cd726e5221, type: 3}
+  superAttack: 0
 --- !u!114 &114503563295221006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2936,6 +2942,7 @@ MonoBehaviour:
   hitStun: 26
   blockStun: 20
   hitSFX: {fileID: 8300000, guid: 89dbbc68d23f3437fab61b740a52c258, type: 3}
+  superAttack: 0
 --- !u!114 &114695697156152828
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3153,6 +3160,7 @@ MonoBehaviour:
   hitStun: 10
   blockStun: 10
   hitSFX: {fileID: 8300000, guid: b3799609876724054949a69fa2bdc9ab, type: 3}
+  superAttack: 0
 --- !u!114 &114797487834472388
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3278,6 +3286,7 @@ MonoBehaviour:
   hitStun: 26
   blockStun: 20
   hitSFX: {fileID: 8300000, guid: b3799609876724054949a69fa2bdc9ab, type: 3}
+  superAttack: 0
 --- !u!114 &114802012762315096
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3554,6 +3563,7 @@ MonoBehaviour:
   hitStun: 26
   blockStun: 20
   hitSFX: {fileID: 8300000, guid: b3799609876724054949a69fa2bdc9ab, type: 3}
+  superAttack: 1
   activeFrame: 5
   speed: 5
   projectile: {fileID: 1021068755710614, guid: ba40b72a841ce425fbd7b97a120181ee, type: 2}
@@ -3684,6 +3694,7 @@ MonoBehaviour:
   hitStun: 9
   blockStun: 9
   hitSFX: {fileID: 8300000, guid: cb25bc340cbdc40718e152f919a3eec0, type: 3}
+  superAttack: 0
 --- !u!114 &114997456453283706
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3809,6 +3820,7 @@ MonoBehaviour:
   hitStun: 10
   blockStun: 10
   hitSFX: {fileID: 8300000, guid: 89dbbc68d23f3437fab61b740a52c258, type: 3}
+  superAttack: 0
 --- !u!212 &212101776871054588
 SpriteRenderer:
   m_ObjectHideFlags: 1
