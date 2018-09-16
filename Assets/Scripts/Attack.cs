@@ -21,6 +21,7 @@ public class Attack : MonoBehaviour {
 	public float hitStun;
 	public float blockStun;
 	public AudioClip hitSFX;
+	public bool superAttack;
 
 	public AttackData attackData;
 
@@ -60,8 +61,7 @@ public class Attack : MonoBehaviour {
 	virtual public void OnEnable() {
 		attackData.id = Attack.attackID;
 		curFrame = 0;
-		frameCounter = CharacterAnimator.frameSpeed;
-		transform.parent.parent.GetComponent<CharacterAnimator>().AttackAnimation(GetSprites());
+		frameCounter = transform.parent.parent.GetComponent<CharacterAnimator>().AttackAnimation(GetSprites(), superAttack);
 		hitBoxController.UpdateAttackData(attackData);
 		sfx.Play();
 		Attack.attackID++;

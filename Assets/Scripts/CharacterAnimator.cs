@@ -178,7 +178,7 @@ public class CharacterAnimator : MonoBehaviour {
 					Sprite[] attackFrames = transform.GetChild(2).GetChild(attack).gameObject.GetComponent<Attack>().GetSprites();
 					theFrames.AddRange(attackFrames);
 				}
-				AttackAnimation(theFrames.ToArray());
+				AttackAnimation(theFrames.ToArray(), false);
 				//curAnimation = theFrames.ToArray();
 				//frameCounter = frameSpeed;
 				//animationFinished = false;
@@ -198,12 +198,22 @@ public class CharacterAnimator : MonoBehaviour {
 		curFrame = 0;
 	}
 
-	public void AttackAnimation(Sprite[] frames) {
+	public int AttackAnimation(Sprite[] frames, bool superAttack) {
 		state = AnimationType.Attacking;
-		curAnimation = frames;
 		frameCounter = frameSpeed;
 		curFrame = 0;
 		animationFinished = false;
+		if(superAttack) {
+			List<Sprite> newAnimation = new List<Sprite>();
+			newAnimation.AddRange(victoryAnimation);
+			newAnimation.AddRange(frames);
+			curAnimation = newAnimation.ToArray();
+			return victoryAnimation.Length * frameSpeed;
+		}
+		else {
+			curAnimation = frames;
+			return frameSpeed;
+		}
 	}
 
 	void LoopingAnimation() {

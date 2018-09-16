@@ -111,7 +111,10 @@ public class FighterController : MonoBehaviour {
 				attacks.GetChild(attacks.childCount - 1).gameObject.SetActive(true);
 				state = MovementState.Attacking;
 				superAvailable = false;
-				StartCoroutine(Camera.main.GetComponent<CameraController>().ZoomCamera(transform.position, animator.GetAnimationLength() * CharacterAnimator.frameSpeed *Time.fixedDeltaTime));
+				Debug.Break();
+				float poseTime = animator.victoryAnimation.Length * Time.fixedDeltaTime * CharacterAnimator.frameSpeed;
+				StartCoroutine(HitStop(poseTime));
+				StartCoroutine(Camera.main.GetComponent<CameraController>().ZoomCamera(transform.position, poseTime));
 			}
 		}
 		else if(CheckThrow()) {

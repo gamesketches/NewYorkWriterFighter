@@ -19,8 +19,8 @@ public class ProjectileAttack : Attack {
 	}
 	
 	void FixedUpdate () {
-		frameCounter++;
-		if(frameCounter >= CharacterAnimator.frameSpeed) {
+		frameCounter--;
+		if(frameCounter < 0) {
 			curFrame++;
 			if(curFrame >= frames.Count) {
 				hurtBoxController.EndAttack();
@@ -31,9 +31,9 @@ public class ProjectileAttack : Attack {
 				int sourceLayer = player.transform.GetChild(1).gameObject.layer;
 				int direction = player.leftSide ? 1 : -1;
 				tempProjectile.GetComponent<ProjectileController>().SetValues(projectileFrames, speed, direction, attackData, sourceLayer);
-				frameCounter = 0;
+				frameCounter = CharacterAnimator.frameSpeed;
 			}
-			frameCounter = 0;
+			frameCounter = CharacterAnimator.frameSpeed;
 		}
 		
 	}
