@@ -231,6 +231,7 @@ GameObject:
   - component: {fileID: 50288397450947630}
   - component: {fileID: 82191676398084194}
   - component: {fileID: 82840124999547730}
+  - component: {fileID: 114686174105311200}
   m_Layer: 8
   m_Name: Tony
   m_TagString: Untagged
@@ -2944,6 +2945,23 @@ MonoBehaviour:
   blockStun: 20
   hitSFX: {fileID: 8300000, guid: 89dbbc68d23f3437fab61b740a52c258, type: 3}
   superAttack: 0
+--- !u!114 &114686174105311200
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1828773952248856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8f6d3c6e4250e84192f5b34ce9e71bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowColor: {r: 1, g: 1, b: 1, a: 1}
+  glowBrightness: 2
+  outlineWidth: 0
+  alphaThreshold: 0.01
+  drawOutside: 0
+  enableInstancing: 0
 --- !u!114 &114695697156152828
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3837,7 +3855,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

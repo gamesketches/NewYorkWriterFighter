@@ -230,13 +230,14 @@ GameObject:
   - component: {fileID: 50475216948285222}
   - component: {fileID: 82631087277146998}
   - component: {fileID: 82610119491379160}
+  - component: {fileID: 114136572633691304}
   m_Layer: 8
   m_Name: Alexandra
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: 12a0aa9cecd6d4374b96c4da94e3386a, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1735968588380366
 GameObject:
   m_ObjectHideFlags: 0
@@ -2560,6 +2561,23 @@ MonoBehaviour:
   blockStun: 9
   hitSFX: {fileID: 8300000, guid: cb25bc340cbdc40718e152f919a3eec0, type: 3}
   superAttack: 0
+--- !u!114 &114136572633691304
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1698289157710126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8f6d3c6e4250e84192f5b34ce9e71bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowColor: {r: 1, g: 1, b: 1, a: 1}
+  glowBrightness: 1
+  outlineWidth: 0
+  alphaThreshold: 0.01
+  drawOutside: 0
+  enableInstancing: 0
 --- !u!114 &114189635541280140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3658,6 +3676,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   opponent: {fileID: 0}
   locked: 1
+  characterIdentity: 0
 --- !u!114 &114893589196417608
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3735,7 +3754,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

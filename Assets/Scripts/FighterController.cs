@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SpriteGlow;
 
 public enum PlayerNumber {P1, P2};
 public enum MovementState {Standing, Crouching, Jumping, Attacking, KnockedDown, Recoiling, Blocking, CrouchBlocking, BlockStun, Victory, Thrown};
@@ -30,7 +31,7 @@ public class FighterController : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-		superAvailable = true;//false;
+		superAvailable = false;
 		animator = GetComponent<CharacterAnimator>();
 		audio = GetComponents<AudioSource>()[1];
 		state = MovementState.Standing;
@@ -113,6 +114,7 @@ public class FighterController : MonoBehaviour {
 				state = MovementState.Attacking;
 				superAvailable = false;
 				float poseTime = animator.victoryAnimation.Length * Time.fixedDeltaTime * CharacterAnimator.frameSpeed;
+				GetComponent<SpriteGlowEffect>().OutlineWidth = 0;
 				//StartCoroutine(HitStop(poseTime));
 				StartCoroutine(Camera.main.GetComponent<CameraController>().ZoomCamera(transform.position, poseTime));
 			}
@@ -415,6 +417,7 @@ public class FighterController : MonoBehaviour {
 		state = MovementState.Standing;
 		animator.SwitchAnimation("Idle");
 		superAvailable = false;
+		GetComponent<SpriteGlowEffect>().OutlineWidth = 0;
 	}
 
 	IEnumerator HitStop(float hitStopTime) {
@@ -425,5 +428,6 @@ public class FighterController : MonoBehaviour {
 
 	public void MakeSuperAvailable() {
 		superAvailable = true;
+		GetComponent<SpriteGlowEffect>().OutlineWidth = 1;
 	}
 }

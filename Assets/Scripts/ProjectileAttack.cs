@@ -39,7 +39,6 @@ public class ProjectileAttack : Attack {
 				int sourceLayer = player.transform.GetChild(1).gameObject.layer;
 				int direction = player.leftSide ? 1 : -1;
 				tempProjectile.GetComponent<ProjectileController>().SetValues(projectileFrames, speed, direction, attackData, sourceLayer);
-				Debug.Break();
 			}
 			frameCounter = CharacterAnimator.frameSpeed;
 		}

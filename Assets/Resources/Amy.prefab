@@ -60,13 +60,14 @@ GameObject:
   - component: {fileID: 50488906544148814}
   - component: {fileID: 82232963983937352}
   - component: {fileID: 82809540512516502}
+  - component: {fileID: 114933404441896914}
   m_Layer: 8
   m_Name: Amy
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: 4523de6e41d9c794e9a2162ae7c25db4, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1386066253835042
 GameObject:
   m_ObjectHideFlags: 0
@@ -3740,6 +3741,23 @@ MonoBehaviour:
   throwAttacks: 030000000100000004000000
   animationFinished: 0
   nextState: 0
+--- !u!114 &114933404441896914
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1124005196569280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8f6d3c6e4250e84192f5b34ce9e71bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowColor: {r: 1, g: 1, b: 1, a: 1}
+  glowBrightness: 2
+  outlineWidth: 0
+  alphaThreshold: 0.01
+  drawOutside: 0
+  enableInstancing: 0
 --- !u!114 &114940894207426284
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4049,7 +4067,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
