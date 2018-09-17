@@ -3940,6 +3940,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   opponent: {fileID: 0}
   locked: 1
+  characterIdentity: 5
 --- !u!212 &212753930803583644
 SpriteRenderer:
   m_ObjectHideFlags: 1

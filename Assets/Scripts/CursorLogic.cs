@@ -114,12 +114,12 @@ public class CursorLogic : MonoBehaviour {
 
 	void MakeFullNameDict() {
 		fullNames = new Dictionary<string, string>();
-		fullNames.Add("Alexandra", "Alexandra Kleeman\nNovelist\nAuthor of You Too Can Have A Body Like Mine\n@AlexKleeman");
-		fullNames.Add("Amy", "Amy Rose Speigel\nWriter and Editor\nAuthor of Action: A Book About Sex\nCreator of Enormous Eye\n@AmyRosary");
-		fullNames.Add("Tony", "Tony Tuliathimutte\nNovelist\nAuthor of Private Citizens\n@tonytula");
-		fullNames.Add("Arabelle", "Arabelle Sicardi\nBeauty and Fashion Writer\nAllure, Ssense, Racked, DAZED, BuzzFeed, Jezebel\n@arabellesicardi");
-		fullNames.Add("Chelsea", "Chelsea Hodson\nEssayist\nAuthor of Tonight I’m Someone Else\n@ChelseaHodson");
-		fullNames.Add("Jia", "Jia Tolentino\nThe New Yorker Staff Writer\nFormer editor Jezebel and The Hairpin\n@jiatolentino");
-		fullNames.Add("Saeed", "Saeed Jones\nPoet and Memoirist\nAuthor of Prelude to Bruise\nBuzzFeed Executive Editor and AM to DM Host\n@theferocity");
+		fullNames.Add("Alexandra", "<color=#ff8c52>Alexandra Kleeman</color>\nNovelist\n<i>You Too Can Have A Body Like Mine</i>\n<color=#55acee>@AlexKleeman</color>");
+		fullNames.Add("Amy", "<color=#ff8c52>Amy Rose Speigel</color>\nWriter and Editor\n<i>Action: A Book About Sex</i>\nCreator of Enormous Eye\n<color=#55acee>@AmyRosary</color>");
+		fullNames.Add("Tony", "<color=#ff8c52>Tony Tuliathimutte</color>\nNovelist\n<i>Private Citizens</i>\n<color=#55acee>@tonytula</color>");
+		fullNames.Add("Arabelle", "<color=#ff8c52>Arabelle Sicardi</color>\nBeauty and Fashion Writer\nAllure, Sense, Racked, DAZED, BuzzFeed, Jezebel\n<color=#55acee>@arabellesicardi</color>");
+		fullNames.Add("Chelsea", "<color=#ff8c52>Chelsea Hodson</color>\nEssayist\n<i>Tonight I’m Someone Else</i>\n<color=#55acee>@ChelseaHodson</color>");
+		fullNames.Add("Jia", "<color=#ff8c52>Jia Tolentino</color>\nThe New Yorker Staff Writer\nFormer editor Jezebel and The Hairpin\n<color=#55acee>@jiatolentino</color>");
+		fullNames.Add("Saeed", "<color=#ff8c52>Saeed Jones</color>\nPoet and Memoirist\n<i>Prelude to Bruise</i>\nBuzzFeed Executive Editor and AM to DM Host\n<color=#55acee>@theferocity</color>");
 	}
 }

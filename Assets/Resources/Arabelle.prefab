@@ -3751,6 +3751,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   opponent: {fileID: 0}
   locked: 1
+  characterIdentity: 2
 --- !u!114 &114916888622701702
 MonoBehaviour:
   m_ObjectHideFlags: 1
