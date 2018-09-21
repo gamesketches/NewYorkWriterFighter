@@ -27,6 +27,7 @@ public class FighterController : MonoBehaviour {
 	public bool locked = true;
 	bool superAvailable;
 	AudioSource audio;
+	AudioSource blockSound;
 	public Character characterIdentity;
 
 	// Use this for initialization
@@ -34,6 +35,8 @@ public class FighterController : MonoBehaviour {
 		superAvailable = false;
 		animator = GetComponent<CharacterAnimator>();
 		audio = GetComponents<AudioSource>()[1];
+		blockSound = gameObject.AddComponent<AudioSource>();
+		blockSound.clip = Resources.Load<AudioClip>("HeavyBlock");
 		state = MovementState.Standing;
 		attacks = transform.GetChild(2);
 		leftSide = identity == PlayerNumber.P1;
@@ -218,6 +221,7 @@ public class FighterController : MonoBehaviour {
 		
 			if(SuccessfulBlock(attackData.blockType)) {
 				StartCoroutine(GetPushed(attackData.knockBack, attackData.blockStun));
+				blockSound.Play();
 				state = MovementState.BlockStun;
 				gameManager.PlayHitSpark(contactPoint, true, attackData.damage);
 				yield return new WaitForSeconds(attackData.blockStun);
