@@ -108,7 +108,7 @@ public class FighterController : MonoBehaviour {
 	void CheckButtonInput() {
 		string playerID = identity.ToString();
 		string attackButton = "none";
-		if(superAvailable && Input.GetButtonDown(playerID + "LP") && Input.GetButtonDown(playerID + "MP") && Input.GetButtonDown(playerID + "HP")) {
+		if(superAvailable && Input.GetButton(playerID + "LP") && Input.GetButton(playerID + "MP") && Input.GetButton(playerID + "HP")) {
 			if(state != MovementState.Jumping) {
 				attacks.GetChild(attacks.childCount - 1).gameObject.SetActive(true);
 				state = MovementState.Attacking;
