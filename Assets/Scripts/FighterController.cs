@@ -218,7 +218,7 @@ public class FighterController : MonoBehaviour {
 			if(SuccessfulBlock(attackData.blockType)) {
 				StartCoroutine(GetPushed(attackData.knockBack, attackData.blockStun));
 				state = MovementState.BlockStun;
-				gameManager.PlayHitSpark(contactPoint, true);
+				gameManager.PlayHitSpark(contactPoint, true, attackData.damage);
 				yield return new WaitForSeconds(attackData.blockStun);
 			}
 			else {
@@ -231,7 +231,7 @@ public class FighterController : MonoBehaviour {
 				else if(attackData.knockdown) {
 					animator.SwitchAnimation("Fall");
 					state = MovementState.KnockedDown;
-					gameManager.PlayHitSpark(contactPoint, false);
+					gameManager.PlayHitSpark(contactPoint, false, attackData.damage);
 					StartCoroutine(GetPushed(attackData.knockBack, attackData.hitStun));
 					while(!animator.animationFinished) yield return null;
 					yield return new WaitForSeconds(1);
@@ -239,7 +239,7 @@ public class FighterController : MonoBehaviour {
 				else {
 					animator.SwitchAnimation("Damage");
 					state = MovementState.Recoiling;
-					gameManager.PlayHitSpark(contactPoint, false);
+					gameManager.PlayHitSpark(contactPoint, false, attackData.damage);
 					if(attackData.hitSFX != null) {
 						audio.clip = attackData.hitSFX;
 						audio.Play();

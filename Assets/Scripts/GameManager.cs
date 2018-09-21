@@ -262,7 +262,7 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	public void PlayHitSpark(Vector3 position, bool blockSparks) {
+	public void PlayHitSpark(Vector3 position, bool blockSparks, float damage) {
 		GameObject sparks = null;
 		for(int i = 0; i <	hitSparks.Count; i++) {
 			if(!hitSparks[i].activeSelf) {
@@ -275,6 +275,8 @@ public class GameManager : MonoBehaviour {
 			sparks = Instantiate(Resources.Load<GameObject>("HitSpark"));
 			hitSparks.Add(sparks);
 		}
+		float scaleFactor = Mathf.Clamp(damage / 90 + 1, 1, 3);
+		sparks.transform.localScale = new Vector3(scaleFactor, scaleFactor, 1);
 		sparks.transform.position = position;
 		if(blockSparks) sparks.GetComponent<SpriteRenderer>().color = Color.blue;
 		else sparks.GetComponent<SpriteRenderer>().color = Color.white;
