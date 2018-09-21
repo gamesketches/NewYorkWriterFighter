@@ -76,6 +76,7 @@ public class CharacterSelectManager : MonoBehaviour {
 		StartCoroutine(sceneFader.FadeInOut(0.3f));
 		AudioSource audio = GetComponent<AudioSource>();
 		audio.clip = Resources.Load<AudioClip>("VsScreen");
+		audio.loop = false;
 		yield return new WaitForSeconds(0.3f);
 		vsScreenElements.SetActive(true);
 		portraits.SetActive(false);
