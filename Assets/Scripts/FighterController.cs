@@ -114,6 +114,7 @@ public class FighterController : MonoBehaviour {
 				state = MovementState.Attacking;
 				superAvailable = false;
 				float poseTime = animator.victoryAnimation.Length * Time.fixedDeltaTime * CharacterAnimator.frameSpeed;
+				Debug.Log(poseTime);
 				GetComponent<SpriteGlowEffect>().OutlineWidth = 0;
 				//StartCoroutine(HitStop(poseTime));
 				StartCoroutine(Camera.main.GetComponent<CameraController>().ZoomCamera(transform.position, poseTime));
