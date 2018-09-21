@@ -288,10 +288,10 @@ RectTransform:
   m_Father: {fileID: 790633068}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.15, y: 0.17}
-  m_AnchorMax: {x: 0.34625, y: 0.31}
-  m_AnchoredPosition: {x: -1, y: 0}
-  m_SizeDelta: {x: -2, y: 0}
+  m_AnchorMin: {x: 0.081250004, y: 0.17}
+  m_AnchorMax: {x: 0.42000002, y: 0.31}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &284178835
 GameObject:
@@ -965,8 +965,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.06885476}
   m_AnchorMax: {x: 1, y: 0.24200001}
-  m_AnchoredPosition: {x: 1, y: -12.5}
-  m_SizeDelta: {x: -68, y: 1}
+  m_AnchoredPosition: {x: 0, y: -43.35}
+  m_SizeDelta: {x: 0, y: 15.2999935}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &815027393
 MonoBehaviour:
@@ -989,7 +989,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 842fec49f5ea3483bb8d5c6d08a313d7, type: 3}
-    m_FontSize: 18
+    m_FontSize: 19
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -1000,7 +1000,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Housing Works
+  m_Text: <Housing Works ?
 --- !u!222 &815027394
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1083,7 +1083,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1510,8 +1510,8 @@ RectTransform:
   m_Father: {fileID: 790633068}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.64750004, y: 0.17}
-  m_AnchorMax: {x: 0.84875, y: 0.31}
+  m_AnchorMin: {x: 0.57124996, y: 0.17}
+  m_AnchorMax: {x: 0.9075001, y: 0.31}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1964,7 +1964,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: df6e0b731b1e743b3a63bc001131453d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 19810fe76732e4eb5a8e7efaa06181f8, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2250,7 +2250,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7c6c4e795502d449b9a5ce574d3a4842, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6f8ccaf4e84044daf99f36fb61cd199f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2276,6 +2276,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac99e675e42a247a287e9dad5a36949b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StageNames:
+  - Greenlight
+  - Housing Works
+  - KGB Bar
 --- !u!1 &2022735080
 GameObject:
   m_ObjectHideFlags: 0

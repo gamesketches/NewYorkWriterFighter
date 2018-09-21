@@ -79,7 +79,7 @@ public class CursorLogic : MonoBehaviour {
 			audio.clip = Resources.Load<AudioClip>("charSelected");
 			audio.Play();
 			vsScreenPortrait.sprite = largePortrait.sprite;
-			vsScreenName.text = fullNames[characterName];
+			vsScreenName.text =portraits.GetChild(childIndex).name;
 			if(identity == PlayerNumber.P1) {
 				GameManager.player1Character = theCharacter;
 			}

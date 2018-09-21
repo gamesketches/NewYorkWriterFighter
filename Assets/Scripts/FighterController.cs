@@ -120,7 +120,9 @@ public class FighterController : MonoBehaviour {
 				Debug.Log(poseTime);
 				GetComponent<SpriteGlowEffect>().OutlineWidth = 0;
 				//StartCoroutine(HitStop(poseTime));
-				StartCoroutine(Camera.main.GetComponent<CameraController>().ZoomCamera(transform.position, poseTime));
+				Vector3 zoomPoint = transform.position;
+				zoomPoint.y += 0.4f;
+				StartCoroutine(Camera.main.GetComponent<CameraController>().ZoomCamera(zoomPoint, poseTime));
 			}
 		}
 		else if(CheckThrow()) {

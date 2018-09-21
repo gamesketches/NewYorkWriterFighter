@@ -11,6 +11,7 @@ public class StageSelectManager : MonoBehaviour {
 	int selectedStage = 0;
 	Image stageImage;
 	Text stageName;
+	public string[] StageNames;
 	bool selectingStage = false;
 
 	// Use this for initialization
@@ -18,6 +19,8 @@ public class StageSelectManager : MonoBehaviour {
 		stageImage = GetComponent<Image>();
 		stages = Resources.LoadAll<Sprite>("stages");	
 		GameManager.stageID = -1;
+		stageName = GetComponentInChildren<Text>();
+		stageName.text = "";
 	}
 	
 	// Update is called once per frame
@@ -40,9 +43,13 @@ public class StageSelectManager : MonoBehaviour {
 		}
 		else {
 			CheckChangeStage(Input.GetAxisRaw(playerNum.ToString() + "Horizontal"));
+			string colorString = GetRandomColorString();
+			stageName.text = colorString + "<</color> " + StageNames[selectedStage] + colorString +  " ></color>";
 			if(AnyButtonHit()) {
 				GameManager.stageID = selectedStage;
 				selectingStage = false;
+				stageName.text = StageNames[selectedStage];
+
 			}
 		}
 		
@@ -69,5 +76,10 @@ public class StageSelectManager : MonoBehaviour {
 			return true;
 		}
 		return false;
+	}
+
+	string GetRandomColorString(){
+		Color newColor = new Color(Random.value, Random.value, Random.value);
+		return "<color=#" + ColorUtility.ToHtmlStringRGB(newColor) + ">";
 	}
 }
