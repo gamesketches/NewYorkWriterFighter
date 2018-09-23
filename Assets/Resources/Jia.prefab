@@ -164,6 +164,7 @@ GameObject:
   - component: {fileID: 82333033300475678}
   - component: {fileID: 82938945442255850}
   - component: {fileID: 114564785306073942}
+  - component: {fileID: 114043199667661492}
   m_Layer: 8
   m_Name: Jia
   m_TagString: Untagged
@@ -2038,6 +2039,21 @@ MonoBehaviour:
   blockStun: 11
   hitSFX: {fileID: 8300000, guid: cec294ec72e97451281866cd726e5221, type: 3}
   superAttack: 0
+--- !u!114 &114043199667661492
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1637231967418520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f1222fd72f544fce969220750d7d921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  verticalAxis: 0
+  horizontalAxis: 0
+  attackButton: 
+  actionTimer: 0
 --- !u!114 &114072864860948336
 MonoBehaviour:
   m_ObjectHideFlags: 1

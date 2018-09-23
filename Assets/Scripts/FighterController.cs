@@ -25,6 +25,10 @@ public class FighterController : MonoBehaviour {
 	SpriteRenderer renderer;
 	[HideInInspector]
 	public bool locked = true;
+	//[HideInInspector]
+	//public bool AIPlayer = false;
+	AIController aiController;
+	
 	bool superAvailable;
 	AudioSource audio;
 	AudioSource blockSound;
@@ -147,7 +151,7 @@ public class FighterController : MonoBehaviour {
 		else if(Input.GetButtonDown(playerID + "LK")) {
 			attackButton = "LK";
 		}
-
+		if(aiController != null) attackButton = GetComponent<AIController>().attackButton;
 		if(attackButton != "none") {
 			if(!IsJumpAttack(attackButton) && !IsCrouchAttack(attackButton)) {
 				attacks.GetChild(GetButtonIndex(attackButton)).gameObject.SetActive(true);
@@ -375,10 +379,12 @@ public class FighterController : MonoBehaviour {
 	}
 
 	float HorizontalInput() {
+		if(aiController != null) return GetComponent<AIController>().horizontalAxis;
 		return Input.GetAxisRaw(identity.ToString() + "Horizontal");
 	}
 
 	float VerticalInput() {
+		if(aiController != null) return GetComponent<AIController>().verticalAxis;
 		return Input.GetAxisRaw(identity.ToString() + "Vertical");
 	}
 
@@ -425,6 +431,10 @@ public class FighterController : MonoBehaviour {
 		animator.SwitchAnimation("Idle");
 		superAvailable = false;
 		GetComponent<SpriteGlowEffect>().OutlineWidth = 0;
+	}
+
+	public void AddAI() {
+		aiController = gameObject.AddComponent<AIController>();
 	}
 
 	IEnumerator HitStop(float hitStopTime) {
