@@ -233,7 +233,7 @@ public class GameManager : MonoBehaviour {
 		player2Obj.SetActive (true);
 		player2 = player2Obj.GetComponent<FighterController>();
 		player2.SetPlayerIdentity(PlayerNumber.P2);
-		//player2.AddAI();
+		player2.AddAI();
 		player2.opponent = player1;
 		player1.opponent = player2;
 

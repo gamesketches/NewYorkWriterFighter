@@ -30,7 +30,6 @@ public class AIController : MonoBehaviour {
 		UpdateAttackStatus();
 		UpdateVerticalStatus();
 		UpdateHorizontalStatus();
-		horizontalAxis = Random.Range(-1, 1);
 	}
 
 	void UpdateAttackStatus() {
@@ -45,17 +44,26 @@ public class AIController : MonoBehaviour {
 	void UpdateVerticalStatus() {
 		verticalTimer -= Time.fixedDeltaTime;
 		if(verticalTimer <= 0) {
-			verticalTimer = 2f;
-			int roll = (int) (Random.value * 3);
+			int roll = (int) (Random.value * 10);
 			switch(roll) {
 				case 0: 
-					verticalAxis = 0;
-					break;
 				case 1:
-					verticalAxis = 1;
-					break;
 				case 2:
+				case 3:
+				case 4:
+					verticalAxis = 0;
+					verticalTimer = 2f;
+					break;
+				case 5:
+				case 6:
+				case 7:
+					verticalAxis = 1;
+					verticalTimer = 1f;
+					break;
+				case 8:
+				case 9:
 					verticalAxis = -1;
+					verticalTimer = 1f;
 					break;
 			}
 		}
@@ -64,7 +72,7 @@ public class AIController : MonoBehaviour {
 	void UpdateHorizontalStatus() {
 		horizontalTimer -= Time.fixedDeltaTime;
 		if(horizontalTimer <= 0) {
-			horizontalTimer = 1f;
+			horizontalTimer = 0.7f + (Random.value);
 			int roll = (int) (Random.value * 3);
 			Debug.Log(roll);
 			switch(roll) {

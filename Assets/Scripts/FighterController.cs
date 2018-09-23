@@ -151,7 +151,7 @@ public class FighterController : MonoBehaviour {
 		else if(Input.GetButtonDown(playerID + "LK")) {
 			attackButton = "LK";
 		}
-		if(aiController != null) attackButton = GetComponent<AIController>().attackButton;
+		if(aiController != null) attackButton = aiController.attackButton;
 		if(attackButton != "none") {
 			if(!IsJumpAttack(attackButton) && !IsCrouchAttack(attackButton)) {
 				attacks.GetChild(GetButtonIndex(attackButton)).gameObject.SetActive(true);
@@ -379,12 +379,13 @@ public class FighterController : MonoBehaviour {
 	}
 
 	float HorizontalInput() {
-		if(aiController != null) return GetComponent<AIController>().horizontalAxis;
+		if(aiController != null) return aiController.horizontalAxis;
+		
 		return Input.GetAxisRaw(identity.ToString() + "Horizontal");
 	}
 
 	float VerticalInput() {
-		if(aiController != null) return GetComponent<AIController>().verticalAxis;
+		if(aiController != null) return aiController.verticalAxis;
 		return Input.GetAxisRaw(identity.ToString() + "Vertical");
 	}
 
@@ -395,7 +396,7 @@ public class FighterController : MonoBehaviour {
 
 	public MovementState GetState() {
 		return state;
-	}
+}
 
 	int GetButtonIndex(string button) {
 		AttackButton theButton = (AttackButton)System.Enum.Parse(typeof(AttackButton), button);

@@ -347,11 +347,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 198437709722738368, guid: abf675a8e7ce8634388099b06c384507,
-        type: 2}
-      propertyPath: LightsModule.light
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 212924191676095330, guid: abf675a8e7ce8634388099b06c384507,
         type: 2}
       propertyPath: m_Materials.Array.data[0]
@@ -361,7 +356,8 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114043199667661492, guid: abf675a8e7ce8634388099b06c384507, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: abf675a8e7ce8634388099b06c384507, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &672248921
