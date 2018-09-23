@@ -14,6 +14,7 @@ public class CursorLogic : MonoBehaviour {
 	AudioSource audio;
 	public static float dragMoveTime = 0.3f;
 	float dragMoveTimer = 0;
+	Image cursorImage;
 	public Image largePortrait;
 	public Text characterName;
 	public Image vsScreenPortrait;
@@ -28,6 +29,7 @@ public class CursorLogic : MonoBehaviour {
 	void Start () {
 		selected = false;
 		MakeFullNameDict();
+		cursorImage = GetComponent<Image>();
 		audio = GetComponent<AudioSource>();
 		if(identity == PlayerNumber.P1) {
 			childIndex = 0;
@@ -44,6 +46,7 @@ public class CursorLogic : MonoBehaviour {
 	void FixedUpdate () {
 		if(dragMoveTimer > 0 || selected) {
 			dragMoveTimer -= Time.fixedDeltaTime;
+			cursorImage.color = Color.white;
 			return;
 		}
 
@@ -87,7 +90,8 @@ public class CursorLogic : MonoBehaviour {
 				GameManager.player2Character = theCharacter;
 			}
 		}
-
+		
+		cursorImage.color = GetRandomColor();
 		transform.position = portraits.GetChild(childIndex).position;
 	}
 	
@@ -110,6 +114,10 @@ public class CursorLogic : MonoBehaviour {
 		Transform portrait = portraits.GetChild(childIndex);
 		largePortrait.sprite = portrait.GetComponent<Image>().sprite;
 		characterName.text = fullNames[portrait.name];
+	}
+
+	Color GetRandomColor(){
+		return new Color(Random.value, Random.value, Random.value);
 	}
 
 	void MakeFullNameDict() {
