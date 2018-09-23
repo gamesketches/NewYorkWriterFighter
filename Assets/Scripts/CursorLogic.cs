@@ -46,7 +46,7 @@ public class CursorLogic : MonoBehaviour {
 	void FixedUpdate () {
 		if(dragMoveTimer > 0 || selected) {
 			dragMoveTimer -= Time.fixedDeltaTime;
-			cursorImage.color = Color.white;
+			cursorImage.color = selected ? Color.white : GetRandomColor();
 			return;
 		}
 
