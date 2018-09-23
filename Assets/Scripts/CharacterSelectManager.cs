@@ -35,6 +35,7 @@ public class CharacterSelectManager : MonoBehaviour {
 			ToggleCharacterSelectElements(false);
 		//	theCanvas.SetActive(false);
 			selectingCharacters = false;
+			StartCoroutine(FlashStartText());
 		}
 		else {
 			selectingCharacters = true;
@@ -131,6 +132,14 @@ public class CharacterSelectManager : MonoBehaviour {
 		p1Elements.SetActive(state);
 		p2Elements.SetActive(state);
 		stageSelect.SetActive(state);
+	}
+
+	IEnumerator FlashStartText() {
+		GameObject startText = titleScreen.transform.GetChild(0).gameObject;//GetComponentInChildren<Text>();
+		while(titleScreen.activeSelf) {
+			yield return new WaitForSeconds(0.85f);
+			startText.SetActive(!startText.activeSelf);
+		}
 	}
 		
 	void MakeWinQuotes() {
