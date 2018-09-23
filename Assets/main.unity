@@ -152,6 +152,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 198829505861623444, guid: 7559c0dc6e0dbfe40b8a90ba4439db53,
+        type: 2}
+      propertyPath: LightsModule.light
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 212796290199840544, guid: 7559c0dc6e0dbfe40b8a90ba4439db53,
         type: 2}
       propertyPath: m_Materials.Array.data[0]
@@ -346,6 +351,11 @@ Prefab:
     - target: {fileID: 4055230795291884, guid: abf675a8e7ce8634388099b06c384507, type: 2}
       propertyPath: m_RootOrder
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 198437709722738368, guid: abf675a8e7ce8634388099b06c384507,
+        type: 2}
+      propertyPath: LightsModule.light
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 212924191676095330, guid: abf675a8e7ce8634388099b06c384507,
         type: 2}
@@ -652,6 +662,11 @@ Prefab:
     - target: {fileID: 4997875618912736, guid: 79358572dadc1744a832f6fee7054984, type: 2}
       propertyPath: m_RootOrder
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 198357411679443694, guid: 79358572dadc1744a832f6fee7054984,
+        type: 2}
+      propertyPath: LightsModule.light
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 212753930803583644, guid: 79358572dadc1744a832f6fee7054984,
         type: 2}
@@ -1329,6 +1344,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 198332044990959018, guid: 4b138bdf44cae437abdfaa36e866dc63,
+        type: 2}
+      propertyPath: LightsModule.light
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 212508875446083988, guid: 4b138bdf44cae437abdfaa36e866dc63,
         type: 2}
       propertyPath: m_Materials.Array.data[0]
@@ -1714,6 +1734,11 @@ Prefab:
     - target: {fileID: 4877856002536024, guid: 947dec4e82502434baf14ebbc836d827, type: 2}
       propertyPath: m_RootOrder
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 198127826724137046, guid: 947dec4e82502434baf14ebbc836d827,
+        type: 2}
+      propertyPath: LightsModule.light
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 212463940591052870, guid: 947dec4e82502434baf14ebbc836d827,
         type: 2}
@@ -2185,6 +2210,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 198555410004792358, guid: 20b2b742c5e7a5c4cb05259478df8115,
+        type: 2}
+      propertyPath: LightsModule.light
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 212981493729413488, guid: 20b2b742c5e7a5c4cb05259478df8115,
         type: 2}
       propertyPath: m_Materials.Array.data[0]
@@ -2304,6 +2334,11 @@ Prefab:
     - target: {fileID: 4036748208381582, guid: 5a04f4a2bc860cb4787c8228f21a301e, type: 2}
       propertyPath: m_RootOrder
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 198782625460839204, guid: 5a04f4a2bc860cb4787c8228f21a301e,
+        type: 2}
+      propertyPath: LightsModule.light
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 212101776871054588, guid: 5a04f4a2bc860cb4787c8228f21a301e,
         type: 2}
