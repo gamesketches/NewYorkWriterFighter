@@ -50,10 +50,10 @@ public class GameManager : MonoBehaviour {
 		background.sprite = Resources.LoadAll<Sprite>("stages")[stageID];
 		bgm.clip = Resources.Load<AudioClip>("music/" + background.sprite.name);
 		bgm.Play();
+		#if UNITY_EDITOR
 		player1Character = debugP1;
 		player2Character = debugP2;
-		//player1Character = Character.Alexandra;
-		//player2Character = Character.Alexandra;
+		#endif
 		player1WinIcons.transform.GetChild(0).gameObject.SetActive(false);
 		player1WinIcons.transform.GetChild(1).gameObject.SetActive(false);
 		player2WinIcons.transform.GetChild(0).gameObject.SetActive(false);
