@@ -65,10 +65,18 @@ public class CharacterSelectManager : MonoBehaviour {
 				}
 			else if(player1Active && GameManager.player1Character != Character.None) {
 				GameManager.player2Character = (Character) Random.Range(0,7);
+				string opponentName = GameManager.player2Character.ToString();
+				LoadVsScreenHeadshot(opponentName, 3);
+				vsScreenElements.transform.GetChild(4).GetComponent<Text>().text = opponentName;
+				GameManager.AIPlayer = 1;
 				CloseCharacterSelect();
 				}
 			else if(player2Active && GameManager.player2Character != Character.None) {
-				GameManager.player2Character = (Character) Random.Range(0,7);
+				GameManager.player1Character = (Character) Random.Range(0,7);
+				string opponentName = GameManager.player1Character.ToString();
+				LoadVsScreenHeadshot(GameManager.player1Character.ToString(), 1);
+				vsScreenElements.transform.GetChild(2).GetComponent<Text>().text = opponentName;
+				GameManager.AIPlayer = 0;
 				CloseCharacterSelect();
 			}
 		}
@@ -138,6 +146,12 @@ public class CharacterSelectManager : MonoBehaviour {
 		sceneFader.BeginFade(1);
 		yield return new WaitForSeconds(0.3f);
 		SceneManager.LoadScene("CharacterSelect");
+	}
+
+	Image LoadVsScreenHeadshot(string charName, int childIndex) {
+		Image portrait = vsScreenElements.transform.GetChild(childIndex).GetComponent<Image>();
+		portrait.sprite = Resources.Load<Sprite>("headshots/" + charName);
+		return portrait;
 	}
 
 	void ToggleCharacterSelectElements(bool state){

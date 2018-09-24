@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour {
 	public static Character player1Character = Character.None;
 	public static Character player2Character = Character.None;
 	public static int stageID = 0;
+	public static int AIPlayer = -1;
 	List<GameObject> hitSparks;
 
 	public static float stageXEnds = 12.68f;
@@ -227,13 +228,14 @@ public class GameManager : MonoBehaviour {
 		player1Obj.SetActive (true);
 		player1 = player1Obj.GetComponent<FighterController>();
 		player1.SetPlayerIdentity(PlayerNumber.P1);
+		if(AIPlayer == 0) player1.AddAI();
 		GameObject player2Obj = Instantiate((GameObject)Resources.Load(player2Character.ToString()));
 		player2Obj.transform.position = new Vector3(player2StartPos.x, player2Obj.transform.position.y, player2StartPos.z);
 		player2StartPos = player2Obj.transform.position;
 		player2Obj.SetActive (true);
 		player2 = player2Obj.GetComponent<FighterController>();
 		player2.SetPlayerIdentity(PlayerNumber.P2);
-		player2.AddAI();
+		if(AIPlayer == 1) player2.AddAI();
 		player2.opponent = player1;
 		player1.opponent = player2;
 
