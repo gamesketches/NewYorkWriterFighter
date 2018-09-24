@@ -30,6 +30,7 @@ public class CharacterSelectManager : MonoBehaviour {
 		if(winner != -1) {
 			titleScreen.SetActive(false);
 			selectingCharacters = false;
+			ToggleCharacterSelectElements(false);
 			StartCoroutine(VictoryScreen());
 			return;
 		}
