@@ -25,6 +25,8 @@ public class CharacterSelectManager : MonoBehaviour {
 	void Awake () {
 		sceneFader = GetComponent<FadeInScene>();
 		MakeWinQuotes();
+		p1Elements.SetActive(false);
+		p2Elements.SetActive(false);
 		if(winner != -1) {
 			titleScreen.SetActive(false);
 			selectingCharacters = false;
@@ -56,12 +58,19 @@ public class CharacterSelectManager : MonoBehaviour {
 			player2Active = true;
 			if(!selectingCharacters) StartCoroutine(OpenCharacterSelect());
 		}
-		if(GameManager.player1Character != Character.None && 
-			GameManager.player2Character != Character.None && 
-				selectingCharacters && winner == -1 && GameManager.stageID > -1) {	
-			ToggleCharacterSelectElements(false);
-			StartCoroutine(VsScreen());
-			selectingCharacters = false;
+		if(selectingCharacters && winner == -1 && GameManager.stageID > -1) {
+			if(player1Active && player2Active && GameManager.player1Character != Character.None && 
+				GameManager.player2Character != Character.None) {	
+					CloseCharacterSelect();
+				}
+			else if(player1Active && GameManager.player1Character != Character.None) {
+				GameManager.player2Character = (Character) Random.Range(0,7);
+				CloseCharacterSelect();
+				}
+			else if(player2Active && GameManager.player2Character != Character.None) {
+				GameManager.player2Character = (Character) Random.Range(0,7);
+				CloseCharacterSelect();
+			}
 		}
 	}
 
@@ -73,6 +82,12 @@ public class CharacterSelectManager : MonoBehaviour {
 		titleScreen.SetActive(false);
 	}
 	
+	void CloseCharacterSelect() {
+		ToggleCharacterSelectElements(false);
+		StartCoroutine(VsScreen());
+		selectingCharacters = false;
+	}
+
 	IEnumerator VsScreen() {
 		StartCoroutine(sceneFader.FadeInOut(0.3f));
 		AudioSource audio = GetComponent<AudioSource>();
@@ -129,8 +144,10 @@ public class CharacterSelectManager : MonoBehaviour {
 
 		background.SetActive(state);
 		portraits.SetActive(state);
-		p1Elements.SetActive(state);
-		p2Elements.SetActive(state);
+		if(player1Active)
+			p1Elements.SetActive(state);
+		if(player2Active)
+			p2Elements.SetActive(state);
 		stageSelect.SetActive(state);
 	}
 
