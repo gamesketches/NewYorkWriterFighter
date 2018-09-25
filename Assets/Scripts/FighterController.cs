@@ -176,15 +176,16 @@ public class FighterController : MonoBehaviour {
 		animator.SwitchAnimation("Jump");
 		int leniencyTimer = inputLeniency;
 		int jumpDirection = 0;
-		for(float t = 0; t < 2; t += Time.deltaTime) {
+		float jumpTime = jumpY.keys[jumpY.length -1].time * 2;
+		for(float t = 0; t < jumpTime; t += Time.deltaTime) {
 			temp.y = Mathf.Lerp(groundedY, jumpHeight, jumpY.Evaluate(t)); 
 			if(leniencyTimer > 0) {
 				leniencyTimer--;
 				if(HorizontalInput() > 0) jumpDirection = 1;
 				else if(HorizontalInput() < 0) jumpDirection = -1;
 			}
-			if(jumpDirection != 0) temp.x += (walkSpeed * Time.deltaTime * jumpDirection);
-			transform.position = temp;
+			if(jumpDirection != 0) temp.x = transform.position.x + (walkSpeed * Time.deltaTime * jumpDirection);
+			transform.Translate(temp - transform.position);
 			if(animator.animationFinished) {
 				animator.SwitchAnimation("Jump");
 				state = MovementState.Jumping;
