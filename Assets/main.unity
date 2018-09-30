@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -744,7 +744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e95901c159a4ccfaf2f7ce4f04e7e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalLife: 800
+  totalLife: 500
   player1Bar: {fileID: 2020547140}
   player2Bar: {fileID: 991324586}
   player1WinIcons: {fileID: 672248921}
@@ -753,8 +753,8 @@ MonoBehaviour:
   player1StartPos: {x: -2.12, y: -1.05, z: 0}
   player2StartPos: {x: 2.96, y: -1.05, z: 0}
   RoundText: {fileID: 1479406421}
-  debugP1: 3
-  debugP2: 4
+  debugP1: 0
+  debugP2: 1
 --- !u!4 &948551938
 Transform:
   m_ObjectHideFlags: 0
@@ -1204,20 +1204,6 @@ Prefab:
     - target: {fileID: 4249196070837772, guid: 4b138bdf44cae437abdfaa36e866dc63, type: 2}
       propertyPath: m_RootOrder
       value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 212508875446083988, guid: 4b138bdf44cae437abdfaa36e866dc63,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1698289157710126, guid: 4b138bdf44cae437abdfaa36e866dc63, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114136572633691304, guid: 4b138bdf44cae437abdfaa36e866dc63,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b138bdf44cae437abdfaa36e866dc63, type: 2}
@@ -1799,20 +1785,6 @@ Prefab:
     - target: {fileID: 4549626683490880, guid: 20b2b742c5e7a5c4cb05259478df8115, type: 2}
       propertyPath: m_RootOrder
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 198555410004792358, guid: 20b2b742c5e7a5c4cb05259478df8115,
-        type: 2}
-      propertyPath: LightsModule.light
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 212981493729413488, guid: 20b2b742c5e7a5c4cb05259478df8115,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1124005196569280, guid: 20b2b742c5e7a5c4cb05259478df8115, type: 2}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20b2b742c5e7a5c4cb05259478df8115, type: 2}

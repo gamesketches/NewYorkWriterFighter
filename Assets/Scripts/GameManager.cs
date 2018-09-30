@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour {
 			LoadCharacters();
 		else 
 			ResetPlayers();
-		roundTime = 99.99f;
+		roundTime = 999.99f;
 		player1Bar.fillAmount = 0;
 		player2Bar.fillAmount = 0;
 		player1Life = totalLife;
