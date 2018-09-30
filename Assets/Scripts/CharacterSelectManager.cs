@@ -54,17 +54,20 @@ public class CharacterSelectManager : MonoBehaviour {
 		if(Input.GetButtonDown("P1Start")) {
 			player1Active = true;
 			if(!selectingCharacters) StartCoroutine(OpenCharacterSelect());
+			else p1Elements.SetActive(true);
+
 		}
 		else if(Input.GetButtonDown("P2Start")) {
 			player2Active = true;
 			if(!selectingCharacters) StartCoroutine(OpenCharacterSelect());
+			else p2Elements.SetActive(true);
 		}
 		if(selectingCharacters && winner == -1 && GameManager.stageID > -1) {
 			if(player1Active && player2Active && GameManager.player1Character != Character.None && 
 				GameManager.player2Character != Character.None) {	
 					CloseCharacterSelect();
 				}
-			else if(player1Active && GameManager.player1Character != Character.None) {
+			else if(player1Active && !player2Active && GameManager.player1Character != Character.None) {
 				GameManager.player2Character = (Character) Random.Range(0,7);
 				string opponentName = GameManager.player2Character.ToString();
 				LoadVsScreenHeadshot(opponentName, 3);
@@ -72,7 +75,7 @@ public class CharacterSelectManager : MonoBehaviour {
 				GameManager.AIPlayer = 1;
 				CloseCharacterSelect();
 				}
-			else if(player2Active && GameManager.player2Character != Character.None) {
+			else if(player2Active && !player1Active && GameManager.player2Character != Character.None) {
 				GameManager.player1Character = (Character) Random.Range(0,7);
 				string opponentName = GameManager.player1Character.ToString();
 				LoadVsScreenHeadshot(GameManager.player1Character.ToString(), 1);
