@@ -25,7 +25,7 @@ public class CharacterAnimator : MonoBehaviour {
 	public bool animationFinished;
 
 	SpriteRenderer renderer;
-	AnimationType state;
+	public AnimationType state;
 	public AnimationType nextState;
 
 	public static int frameSpeed = 3;
@@ -160,7 +160,7 @@ public class CharacterAnimator : MonoBehaviour {
 			case AnimationType.Damage:
 				curAnimation = damageAnimation;
 				renderer.sprite = curAnimation[0];
-				animationFinished = true;
+				animationFinished = false;
 				break;
 			case AnimationType.Fall:
 				curAnimation = fallAnimation;

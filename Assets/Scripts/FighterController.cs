@@ -225,7 +225,7 @@ public class FighterController : MonoBehaviour {
 	public IEnumerator GetHit(AttackData attackData, Vector3 contactPoint) {
 		Debug.Log("Hit");
 		if(state != MovementState.KnockedDown) {
-		
+			bool airborne = state == MovementState.Jumping;
 			if(SuccessfulBlock(attackData.blockType)) {
 				StartCoroutine(GetPushed(attackData.knockBack, attackData.blockStun));
 				blockSound.Play();
@@ -260,7 +260,8 @@ public class FighterController : MonoBehaviour {
 					yield return new WaitForSeconds(attackData.hitStun);
 				}
 			}
-		state = MovementState.Standing;
+		if(airborne) state = MovementState.Jumping;
+		else state = MovementState.Standing;
 		}
 	}
 
