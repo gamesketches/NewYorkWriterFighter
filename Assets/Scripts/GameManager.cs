@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour {
 		player2WinIcons.transform.GetChild(1).gameObject.SetActive(false);
 		StartCoroutine(StartRound());
 		hitSparks = new List<GameObject>();
+		hitSparks.Add(Instantiate(Resources.Load<GameObject>("HitSpark")));
 	}
 	
 	// Update is called once per frame

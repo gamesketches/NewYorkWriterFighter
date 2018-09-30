@@ -11,6 +11,7 @@ public class HitBoxController : MonoBehaviour {
 	void Start () {
 		colliders = GetComponents<BoxCollider2D>();
 		player = transform.parent.gameObject.GetComponent<FighterController>();
+		attackData = new AttackData(30, BlockType.Mid, false, 0, 5, 5, 0.2f, null);
 	}
 	
 	// Update is called once per frame
