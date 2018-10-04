@@ -2854,10 +2854,10 @@ MonoBehaviour:
       height: 1.94
     hurtBoxes:
     - serializedVersion: 2
-      x: 0.91
-      y: 0.8
-      width: 0.5
-      height: 0.55
+      x: 1.5
+      y: 0.14
+      width: 1.64
+      height: 1.41
     - serializedVersion: 2
       x: 0.82
       y: 0
@@ -2868,11 +2868,52 @@ MonoBehaviour:
       y: -1.34
       width: 1.39
       height: 1.67
+  - sprite: {fileID: 21300000, guid: bfe8b59041d0d4cddbb6a6999a73fe82, type: 3}
+    hitBoxes:
     - serializedVersion: 2
-      x: 1.77
-      y: 0.23
-      width: 1.61
-      height: 1.14
+      x: 2.17
+      y: 0.33
+      width: 1.8
+      height: 1.94
+    hurtBoxes:
+    - serializedVersion: 2
+      x: 1.5
+      y: 0.14
+      width: 1.64
+      height: 1.41
+    - serializedVersion: 2
+      x: 0.82
+      y: 0
+      width: 1.39
+      height: 1.03
+    - serializedVersion: 2
+      x: 0.82
+      y: -1.34
+      width: 1.39
+      height: 1.67
+  - sprite: {fileID: 21300000, guid: bfe8b59041d0d4cddbb6a6999a73fe82, type: 3}
+    hitBoxes:
+    - serializedVersion: 2
+      x: 2.17
+      y: 0.33
+      width: 1.8
+      height: 1.94
+    hurtBoxes:
+    - serializedVersion: 2
+      x: 1.5
+      y: 0.14
+      width: 1.64
+      height: 1.41
+    - serializedVersion: 2
+      x: 0.82
+      y: 0
+      width: 1.39
+      height: 1.03
+    - serializedVersion: 2
+      x: 0.82
+      y: -1.34
+      width: 1.39
+      height: 1.67
   - sprite: {fileID: 21300000, guid: 405e0209a7a2b465fbde10f48407cae6, type: 3}
     hitBoxes:
     - serializedVersion: 2
@@ -3648,6 +3689,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e4f0f13e644464a2e93da62adfa3ac96, type: 3}
   throwAttacks: 000000000000000005000000
   animationFinished: 0
+  state: 0
   nextState: 0
 --- !u!198 &198332044990959018
 ParticleSystem:
