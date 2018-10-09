@@ -731,7 +731,7 @@ MonoBehaviour:
   player2StartPos: {x: 2.96, y: -1.05, z: 0}
   RoundText: {fileID: 1479406421}
   debugP1: 0
-  debugP2: 3
+  debugP2: 6
 --- !u!4 &948551938
 Transform:
   m_ObjectHideFlags: 0
@@ -2406,20 +2406,6 @@ Prefab:
     - target: {fileID: 4036748208381582, guid: 5a04f4a2bc860cb4787c8228f21a301e, type: 2}
       propertyPath: m_RootOrder
       value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 198782625460839204, guid: 5a04f4a2bc860cb4787c8228f21a301e,
-        type: 2}
-      propertyPath: LightsModule.light
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 212101776871054588, guid: 5a04f4a2bc860cb4787c8228f21a301e,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1828773952248856, guid: 5a04f4a2bc860cb4787c8228f21a301e, type: 2}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a04f4a2bc860cb4787c8228f21a301e, type: 2}
