@@ -2929,10 +2929,10 @@ MonoBehaviour:
       y: -1.16
       width: 0.9
       height: 1.6
-  damage: 120
+  damage: 250
   blockType: 0
   knockdown: 0
-  knockBack: 2
+  knockBack: 1.4
   hitStop: 14
   hitStun: 16
   blockStun: 16

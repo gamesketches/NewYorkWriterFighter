@@ -2573,10 +2573,10 @@ MonoBehaviour:
       y: -1.35
       width: 1.74
       height: 1.18
-  damage: 100
+  damage: 220
   blockType: 2
   knockdown: 1
-  knockBack: 2
+  knockBack: 1.1
   hitStop: 20
   hitStun: 12
   blockStun: 12
@@ -3503,11 +3503,6 @@ MonoBehaviour:
       y: -1.35
       width: 1.74
       height: 1.18
-    - serializedVersion: 2
-      x: 0
-      y: 0
-      width: 0
-      height: 0
   - sprite: {fileID: 21300000, guid: 0c1e5c0ead5974e4d9bcad8a3189d9a2, type: 3}
     hitBoxes:
     - serializedVersion: 2

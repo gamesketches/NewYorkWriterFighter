@@ -2288,7 +2288,7 @@ MonoBehaviour:
       y: -1.14
       width: 1.11
       height: 1.73
-  damage: 150
+  damage: 250
   blockType: 0
   knockdown: 1
   knockBack: 0.3
@@ -3434,6 +3434,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 00a40344057db4a4c9b91326f3c945c8, type: 3}
   throwAttacks: 030000000100000004000000
   animationFinished: 0
+  state: 0
   nextState: 0
 --- !u!114 &114933404441896914
 MonoBehaviour:
@@ -3489,9 +3490,9 @@ MonoBehaviour:
     hitBoxes:
     - serializedVersion: 2
       x: 1
-      y: 0.78
+      y: 0.66
       width: 1.55
-      height: 0.87
+      height: 0.73
     hurtBoxes:
     - serializedVersion: 2
       x: 0.24
@@ -3509,12 +3510,7 @@ MonoBehaviour:
       width: 1.11
       height: 1.73
   - sprite: {fileID: 21300000, guid: 92b3e8e9dcd0d5b4e942b56150244e14, type: 3}
-    hitBoxes:
-    - serializedVersion: 2
-      x: 1
-      y: 0.78
-      width: 1.55
-      height: 0.87
+    hitBoxes: []
     hurtBoxes:
     - serializedVersion: 2
       x: 0.24

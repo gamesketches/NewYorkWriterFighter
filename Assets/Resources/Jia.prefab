@@ -2336,10 +2336,10 @@ MonoBehaviour:
       y: -0.93
       width: 0.9
       height: 1.75
-  damage: 100
+  damage: 180
   blockType: 1
   knockdown: 1
-  knockBack: 3
+  knockBack: 1
   hitStop: 20
   hitStun: 14
   blockStun: 14

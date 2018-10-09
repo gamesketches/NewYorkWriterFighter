@@ -2362,7 +2362,7 @@ MonoBehaviour:
       y: -1.19
       width: 1.67
       height: 1.7
-  damage: 150
+  damage: 250
   blockType: 0
   knockdown: 0
   knockBack: 0.8
