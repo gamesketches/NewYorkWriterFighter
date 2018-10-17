@@ -33,6 +33,7 @@ public class FighterController : MonoBehaviour {
 	AudioSource audio;
 	AudioSource blockSound;
 	public Character characterIdentity;
+	public bool freeSpecialOn;
 
 	// Use this for initialization
 	void Awake () {
@@ -158,7 +159,7 @@ public class FighterController : MonoBehaviour {
 			}
 			state = MovementState.Attacking;
 		}
-
+		if(freeSpecialOn && Input.GetKey(KeyCode.Space)) MakeSuperAvailable();
 	}
 
 	public void MoveRight(float distance) {

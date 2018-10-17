@@ -2425,6 +2425,7 @@ MonoBehaviour:
   opponent: {fileID: 0}
   locked: 1
   characterIdentity: 3
+  freeSpecialOn: 1
 --- !u!114 &114184651819928748
 MonoBehaviour:
   m_ObjectHideFlags: 1

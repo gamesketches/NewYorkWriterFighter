@@ -2929,7 +2929,7 @@ MonoBehaviour:
       y: -1.16
       width: 0.9
       height: 1.6
-  damage: 250
+  damage: 300
   blockType: 0
   knockdown: 0
   knockBack: 1.4
@@ -3425,6 +3425,7 @@ MonoBehaviour:
   opponent: {fileID: 0}
   locked: 1
   characterIdentity: 2
+  freeSpecialOn: 1
 --- !u!114 &114877281160039446
 MonoBehaviour:
   m_ObjectHideFlags: 1

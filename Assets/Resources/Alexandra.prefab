@@ -2741,7 +2741,7 @@ MonoBehaviour:
       y: -1.34
       width: 0.9
       height: 1.67
-  damage: 180
+  damage: 200
   blockType: 0
   knockdown: 0
   knockBack: 0.8
@@ -3570,6 +3570,7 @@ MonoBehaviour:
   opponent: {fileID: 0}
   locked: 1
   characterIdentity: 0
+  freeSpecialOn: 1
 --- !u!114 &114893589196417608
 MonoBehaviour:
   m_ObjectHideFlags: 1
