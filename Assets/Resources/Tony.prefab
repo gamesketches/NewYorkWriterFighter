@@ -240,7 +240,7 @@ GameObject:
   m_Icon: {fileID: 2800000, guid: 0578815e3c04f42bf8f8094391eb7166, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1879283053992242
 GameObject:
   m_ObjectHideFlags: 1
@@ -2094,7 +2094,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: bd26bc5432e1f428094e781aabc5ab60, type: 3}
   throwAttacks: 040000000400000005000000
   animationFinished: 0
-  state: 0
+  state: 10
   nextState: 0
 --- !u!114 &114247673839769524
 MonoBehaviour:
@@ -2211,7 +2211,7 @@ MonoBehaviour:
   leftSide: 0
   walkSpeed: 2.2
   throwDistance: 2
-  identity: 0
+  identity: 1
   jumpY:
     serializedVersion: 2
     m_Curve:
@@ -2225,8 +2225,8 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1
-      value: 1
+      time: 0.40148926
+      value: 0.73809433
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -2237,7 +2237,7 @@ MonoBehaviour:
     m_PostInfinity: 0
     m_RotationOrder: 4
   opponent: {fileID: 0}
-  locked: 1
+  locked: 0
   characterIdentity: 6
   freeSpecialOn: 1
 --- !u!114 &114378636344672272

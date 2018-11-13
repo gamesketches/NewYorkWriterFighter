@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEditor;
+/*
 
 [CustomPropertyDrawer(typeof(Frame))]
 public class FrameDrawer : PropertyDrawer {
@@ -78,4 +79,4 @@ public class FrameDrawer : PropertyDrawer {
 									boxRect.width * ppuScaling, boxRect.height * ppuScaling);
 	}
 
-}
+}*/

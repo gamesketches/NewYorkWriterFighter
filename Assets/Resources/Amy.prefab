@@ -67,7 +67,7 @@ GameObject:
   m_Icon: {fileID: 2800000, guid: 4523de6e41d9c794e9a2162ae7c25db4, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1386066253835042
 GameObject:
   m_ObjectHideFlags: 0
@@ -2887,7 +2887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71a010a4eb1e846539a86123994f97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftSide: 0
+  leftSide: 1
   walkSpeed: 2
   throwDistance: 2
   identity: 0
@@ -2897,18 +2897,18 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
+      inSlope: 1.8020257
+      outSlope: 1.8020257
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
+      time: 0.41918945
+      value: 0.75539017
+      inSlope: 1.8020257
+      outSlope: 1.8020257
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
@@ -2916,7 +2916,7 @@ MonoBehaviour:
     m_PostInfinity: 0
     m_RotationOrder: 4
   opponent: {fileID: 0}
-  locked: 1
+  locked: 0
   characterIdentity: 1
   freeSpecialOn: 1
 --- !u!114 &114712668477730350
@@ -3435,7 +3435,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 00a40344057db4a4c9b91326f3c945c8, type: 3}
   throwAttacks: 030000000100000004000000
   animationFinished: 0
-  state: 0
+  state: 10
   nextState: 0
 --- !u!114 &114933404441896914
 MonoBehaviour:

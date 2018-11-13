@@ -170,7 +170,7 @@ GameObject:
   m_Icon: {fileID: 2800000, guid: 007b1feeceacbd34c96885fe4f0c66c9, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1694218846528506
 GameObject:
   m_ObjectHideFlags: 1
@@ -2074,7 +2074,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 60c10f00722ff4bf88f7635674297c89, type: 3}
   throwAttacks: 040000000300000001000000
   animationFinished: 0
-  state: 0
+  state: 10
   nextState: 0
 --- !u!114 &114100749723301744
 MonoBehaviour:
@@ -2368,7 +2368,7 @@ MonoBehaviour:
   leftSide: 0
   walkSpeed: 2.5
   throwDistance: 2
-  identity: 0
+  identity: 1
   jumpY:
     serializedVersion: 2
     m_Curve:
@@ -2382,8 +2382,8 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1
-      value: 1
+      time: 0.49108887
+      value: 0.9931984
       inSlope: 0
       outSlope: 0
       tangentMode: 0
