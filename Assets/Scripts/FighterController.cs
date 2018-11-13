@@ -19,6 +19,7 @@ public class FighterController : MonoBehaviour {
 	public PlayerNumber identity;
 	MovementState state;
 	public AnimationCurve jumpY;
+	public float jumpX = 1.9f;
 	[HideInInspector]
 	public FighterController opponent;
 	Transform attacks;
@@ -185,7 +186,7 @@ public class FighterController : MonoBehaviour {
 				if(HorizontalInput() > 0) jumpDirection = 1;
 				else if(HorizontalInput() < 0) jumpDirection = -1;
 			}
-			if(jumpDirection != 0) temp.x = transform.position.x + (walkSpeed * Time.deltaTime * jumpDirection);
+			if(jumpDirection != 0) temp.x = transform.position.x + (walkSpeed * Time.deltaTime * jumpDirection * jumpX);
 			transform.Translate(temp - transform.position);
 			if(animator.animationFinished) {
 				animator.SwitchAnimation("Jump");

@@ -539,6 +539,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1607149843644300, guid: 79358572dadc1744a832f6fee7054984, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79358572dadc1744a832f6fee7054984, type: 2}
   m_IsPrefabAsset: 0
@@ -748,8 +752,8 @@ MonoBehaviour:
   player1StartPos: {x: -2.12, y: -1.05, z: 0}
   player2StartPos: {x: 2.96, y: -1.05, z: 0}
   RoundText: {fileID: 1479406421}
-  debugP1: 5
-  debugP2: 6
+  debugP1: 1
+  debugP2: 4
 --- !u!4 &948551938
 Transform:
   m_ObjectHideFlags: 0
@@ -1320,33 +1324,13 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 1285786278753462, guid: 947dec4e82502434baf14ebbc836d827, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 212463940591052870, guid: 947dec4e82502434baf14ebbc836d827,
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 114772372787743748, guid: 947dec4e82502434baf14ebbc836d827,
-        type: 2}
-      propertyPath: identity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114772372787743748, guid: 947dec4e82502434baf14ebbc836d827,
-        type: 2}
-      propertyPath: jumpY.m_Curve.Array.data[1].time
-      value: 0.4005127
-      objectReference: {fileID: 0}
-    - target: {fileID: 114772372787743748, guid: 947dec4e82502434baf14ebbc836d827,
-        type: 2}
-      propertyPath: jumpY.m_Curve.Array.data[1].value
-      value: 0.73469543
-      objectReference: {fileID: 0}
-    - target: {fileID: 114772372787743748, guid: 947dec4e82502434baf14ebbc836d827,
-        type: 2}
-      propertyPath: locked
+    - target: {fileID: 1285786278753462, guid: 947dec4e82502434baf14ebbc836d827, type: 2}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
