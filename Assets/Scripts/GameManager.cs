@@ -87,7 +87,11 @@ public class GameManager : MonoBehaviour {
 			LoadCharacters();
 		else 
 			ResetPlayers();
-		roundTime = 999.99f;
+		#if UNITY_EDITOR
+		  roundTime = 999.99f;
+		#else 
+		  roundTime = 99.99f;
+		#endif
 		player1Bar.fillAmount = 0;
 		player2Bar.fillAmount = 0;
 		player1Life = totalLife;
@@ -236,6 +240,9 @@ public class GameManager : MonoBehaviour {
 		player2Obj.SetActive (true);
 		player2 = player2Obj.GetComponent<FighterController>();
 		player2.SetPlayerIdentity(PlayerNumber.P2);
+		if(player1Character == player2Character) {
+			player2Obj.GetComponent<SpriteRenderer>().color = new Color(0.7f, 0.7f, 0.7f);
+		}
 		if(AIPlayer == 1) player2.AddAI();
 		player2.opponent = player1;
 		player1.opponent = player2;

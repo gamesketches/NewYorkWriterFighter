@@ -20,14 +20,13 @@ public class FighterController : MonoBehaviour {
 	MovementState state;
 	public AnimationCurve jumpY;
 	public float jumpX = 1.9f;
+	float baseY;
 	[HideInInspector]
 	public FighterController opponent;
 	Transform attacks;
 	SpriteRenderer renderer;
 	[HideInInspector]
 	public bool locked = true;
-	//[HideInInspector]
-	//public bool AIPlayer = false;
 	AIController aiController;
 	
 	bool superAvailable;
@@ -51,6 +50,7 @@ public class FighterController : MonoBehaviour {
 		}
 		renderer = GetComponent<SpriteRenderer>();
 		if(gameManager == null) gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+		baseY = transform.position.y;
 	}
 	
 	// Update is called once per frame
@@ -73,7 +73,7 @@ public class FighterController : MonoBehaviour {
 				MoveRight(walkSpeed * Time.fixedDeltaTime *2);
 			}
 		}
-		else if(state != MovementState.KnockedDown && state != MovementState.Victory){
+		else if(state != MovementState.KnockedDown && state != MovementState.Recoiling && state != MovementState.Victory){
 			CheckButtonInput();
 			CheckDirectionalInput();
 			if(state != MovementState.Jumping) AdjustFacing();
@@ -194,9 +194,11 @@ public class FighterController : MonoBehaviour {
 			}
 			yield return null;
 		}
-		temp.y = groundedY;
+		temp.y = baseY;//groundedY;
 		transform.position = temp;
 		state = MovementState.Standing;
+		animator.SwitchAnimation("Idle");
+		
 	} 
 
 	void Block() {
@@ -252,6 +254,12 @@ public class FighterController : MonoBehaviour {
 				}
 				else {
 					animator.SwitchAnimation("Damage");
+					if(state == MovementState.Jumping) {
+						animator.nextState = AnimationType.Jump;
+					}
+					else {
+						animator.nextState = AnimationType.Idle;
+					}
 					state = MovementState.Recoiling;
 					gameManager.PlayHitSpark(contactPoint, false, attackData.damage);
 					if(attackData.hitSFX != null) {
@@ -262,7 +270,7 @@ public class FighterController : MonoBehaviour {
 					yield return new WaitForSeconds(attackData.hitStun);
 				}
 			}
-		if(airborne) state = MovementState.Jumping;
+		if(animator.state == AnimationType.Jump) state = MovementState.Jumping;
 		else state = MovementState.Standing;
 		}
 	}

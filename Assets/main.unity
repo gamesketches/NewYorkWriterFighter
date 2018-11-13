@@ -753,7 +753,7 @@ MonoBehaviour:
   player2StartPos: {x: 2.96, y: -1.05, z: 0}
   RoundText: {fileID: 1479406421}
   debugP1: 1
-  debugP2: 4
+  debugP2: 1
 --- !u!4 &948551938
 Transform:
   m_ObjectHideFlags: 0

@@ -49,17 +49,6 @@ public class CharacterAnimator : MonoBehaviour {
 				LoopingAnimation();
 				nextState = AnimationType.Idle;
 				break;
-				/*if(TimesUp()) {
-					NextFrame();
-					frameCounter = idleAnimation.Length - 1;
-				}
-				break;
-			case AnimationType.Walk:
-				if(TimesUp()) {
-					NextFrame();
-					frameCounter = walkAnimation.Length;
-				}
-				break;*/
 			case AnimationType.Crouch:
 				if(TimesUp()) {
 					animationFinished = true;
@@ -82,6 +71,17 @@ public class CharacterAnimator : MonoBehaviour {
 				}
 				break;
 			case AnimationType.Damage:
+				if(TimesUp()) {
+					if(curFrame < curAnimation.Length -1) {
+						curFrame++;
+					}
+					else {
+						animationFinished = true;
+						SwitchAnimation(nextState.ToString());
+					}
+					frameCounter = frameSpeed;
+				}
+				break;
 			case AnimationType.Victory:
 				if(TimesUp()) {
 					if(curFrame < curAnimation.Length -1) {
@@ -103,19 +103,6 @@ public class CharacterAnimator : MonoBehaviour {
 					frameCounter = frameSpeed;
 				}
 				break;
-			/*case AnimationState.PreJump:
-				if(TimesUp()) {
-					SwitchAnimation("Jump");
-					animationFinished = true;
-				}
-				break;
-			case AnimationState.Land:
-				if(TimesUp()) {
-					animationFinished = true;
-				}
-				break;
-			*/
-			
 		}
 		renderer.sprite = curAnimation[curFrame];
 	}
@@ -179,21 +166,8 @@ public class CharacterAnimator : MonoBehaviour {
 					theFrames.AddRange(attackFrames);
 				}
 				AttackAnimation(theFrames.ToArray(), false);
-				//curAnimation = theFrames.ToArray();
-				//frameCounter = frameSpeed;
-				//animationFinished = false;
 				break;
-			/*case AnimationType.PreJump:
-				curAnimation = preJumpAnimation;
-				animationFinished = false;
-				frameCounter = 7;
-				break;
-			case AnimationType.Land:
-				curAnimation = new Sprite[] {landingFrame};
-				animationFinished = false;
-				frameCounter = 4;
-				break;
-			*/
+			
 		}
 		curFrame = 0;
 	}
