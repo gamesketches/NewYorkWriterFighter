@@ -73,7 +73,7 @@ public class FighterController : MonoBehaviour {
 				MoveRight(walkSpeed * Time.fixedDeltaTime *2);
 			}
 		}
-		else if(state != MovementState.KnockedDown && state != MovementState.Recoiling && state != MovementState.Victory){
+		else if(state != MovementState.KnockedDown && state != MovementState.Recoiling && state != MovementState.BlockStun && state != MovementState.Victory){
 			CheckButtonInput();
 			CheckDirectionalInput();
 			if(state != MovementState.Jumping) AdjustFacing();
@@ -194,10 +194,11 @@ public class FighterController : MonoBehaviour {
 			}
 			yield return null;
 		}
-		temp.y = baseY;//groundedY;
+		temp.y = baseY;
 		transform.position = temp;
 		state = MovementState.Standing;
 		animator.SwitchAnimation("Idle");
+		animator.nextState = AnimationType.Idle;
 		
 	} 
 

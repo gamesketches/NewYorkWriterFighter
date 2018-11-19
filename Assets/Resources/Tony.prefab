@@ -758,7 +758,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6998a5f2175e74f9da7f385e4bcca8c1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: fda21f780999b4edb961917ff8220c19, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2236,6 +2236,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 0
     m_RotationOrder: 4
+  jumpX: 1.9
   opponent: {fileID: 0}
   locked: 0
   characterIdentity: 6
