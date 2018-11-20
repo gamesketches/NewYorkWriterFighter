@@ -752,8 +752,8 @@ MonoBehaviour:
   player1StartPos: {x: -2.12, y: -1.05, z: 0}
   player2StartPos: {x: 2.96, y: -1.05, z: 0}
   RoundText: {fileID: 1479406421}
-  debugP1: 0
-  debugP2: 1
+  debugP1: 4
+  debugP2: 6
 --- !u!4 &948551938
 Transform:
   m_ObjectHideFlags: 0
