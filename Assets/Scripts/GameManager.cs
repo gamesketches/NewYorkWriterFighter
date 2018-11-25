@@ -247,6 +247,8 @@ public class GameManager : MonoBehaviour {
 		player2.opponent = player1;
 		player1.opponent = player2;
 
+		player1.locked = true;
+		player2.locked = true;
 		Camera.main.GetComponent<CameraController>().SetPlayerTransforms(player1.transform, player2.transform);
 
 	}
