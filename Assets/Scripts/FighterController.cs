@@ -188,7 +188,7 @@ public class FighterController : MonoBehaviour {
 			}
 			if(jumpDirection != 0) temp.x = transform.position.x + (walkSpeed * Time.deltaTime * jumpDirection * jumpX);
 			transform.Translate(temp - transform.position);
-			if(animator.animationFinished) {
+			if(animator.animationFinished && state != MovementState.KnockedDown) {
 				animator.SwitchAnimation("Jump");
 				state = MovementState.Jumping;
 			}
@@ -196,9 +196,11 @@ public class FighterController : MonoBehaviour {
 		}
 		temp.y = baseY;
 		transform.position = temp;
-		state = MovementState.Standing;
-		animator.SwitchAnimation("Idle");
-		animator.nextState = AnimationType.Idle;
+		if(!locked) {
+			state = MovementState.Standing;
+			animator.SwitchAnimation("Idle");
+			animator.nextState = AnimationType.Idle;
+		}
 		
 	} 
 
