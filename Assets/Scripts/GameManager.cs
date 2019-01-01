@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour {
 		SpriteRenderer background = GameObject.Find("Battlezone").GetComponent<SpriteRenderer>();
 		
 		background.sprite = Resources.LoadAll<Sprite>("stages")[stageID];
+		if(stageID == 0) AdjustForWiderStage();
 		bgm.clip = Resources.Load<AudioClip>("music/" + background.sprite.name);
 		bgm.Play();
 		#if UNITY_EDITOR
@@ -294,5 +295,14 @@ public class GameManager : MonoBehaviour {
 		if(blockSparks) sparks.GetComponent<SpriteRenderer>().color = Color.blue;
 		else sparks.GetComponent<SpriteRenderer>().color = Color.white;
 	}	
+
+	void AdjustForWiderStage(){
+		BoxCollider2D[] colliders = GameObject.Find("Battlezone").GetComponents<BoxCollider2D>();
+
+		colliders[0].offset = new Vector2(-12.8f, 0);
+		colliders[1].offset = new Vector2(12.8f, 0);
+
+		Camera.main.GetComponent<CameraController>().cornerOffset = 6.41f;
+	}
 				
 }
