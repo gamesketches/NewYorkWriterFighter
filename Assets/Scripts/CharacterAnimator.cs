@@ -182,7 +182,7 @@ public class CharacterAnimator : MonoBehaviour {
 			newAnimation.AddRange(victoryAnimation);
 			newAnimation.AddRange(frames);
 			curAnimation = newAnimation.ToArray();
-			return victoryAnimation.Length * frameSpeed;
+			return (victoryAnimation.Length) * (frameSpeed +1);
 		}
 		else {
 			curAnimation = frames;
