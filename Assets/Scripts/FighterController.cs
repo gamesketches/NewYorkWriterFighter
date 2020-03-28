@@ -283,7 +283,7 @@ public class FighterController : MonoBehaviour {
 		animator.SwitchAnimation("Damage");
 		state = MovementState.Recoiling;
 		StartCoroutine(Camera.main.GetComponent<CameraController>().ZoomCamera(transform.position, throwData.hitStun));
-		yield return new WaitForSeconds(throwData.hitStun);
+		yield return new WaitForSeconds(throwData.hitStun - (Time.deltaTime * 15));
 		if(gameManager.UpdateLifeBarCheckDeath(identity, throwData.damage)) {
 			Debug.Log("Killed");
 			yield return StartCoroutine(DeathAnimation());

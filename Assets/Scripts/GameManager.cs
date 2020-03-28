@@ -301,19 +301,24 @@ public class GameManager : MonoBehaviour {
 
     public IEnumerator PlayThrowSparks(Vector3 position, int[] frameCounts)
     {
-        AudioClip sfx = Resources.Load<AudioClip>("ThrowHit");
-        audio.clip = sfx;
+        audio.clip = Resources.Load<AudioClip>("Grab");
+        audio.Play();
         GameObject newSparks = Instantiate(Resources.Load<GameObject>("HitSpark"));
         HitSparkBehavior sparkBehavior = newSparks.GetComponent<HitSparkBehavior>();
-        sparkBehavior.transform.localScale = new Vector3(2, 2, 2);
+        sparkBehavior.transform.localScale = new Vector3(1.4f, 1.4f, 1.4f);
         sparkBehavior.transform.position = position;
-        foreach (int delay in frameCounts)
+        yield return new WaitForSeconds(frameCounts[0] * CharacterAnimator.frameSpeed * Time.deltaTime);
+        audio.clip = Resources.Load<AudioClip>("ThrowHit");
+        sparkBehavior.transform.localScale = new Vector3(2f, 2f, 2f);
+        for (int i = 1;  i < frameCounts.Length; i++)
         {
             //yield return StartCoroutine(sparkBehavior.PlayAnimationWithinFrames(delay * CharacterAnimator.frameSpeed));
-            yield return StartCoroutine(sparkBehavior.PlayAnimation());
+            yield return new WaitForSeconds(frameCounts[i] * CharacterAnimator.frameSpeed * Time.deltaTime);
+            StartCoroutine(sparkBehavior.PlayAnimation());
             newSparks.SetActive(true);
             audio.Play();
         }
+        yield return new WaitForSeconds(0.2f);
         Destroy(newSparks);
     }
 

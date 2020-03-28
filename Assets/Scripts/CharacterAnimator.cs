@@ -14,6 +14,8 @@ public class CharacterAnimator : MonoBehaviour {
 	public Sprite[] crouchBlockAnimation;
 	public Sprite[] fallAnimation;
 	public Sprite[] victoryAnimation;
+    public Sprite grabFrame;
+    public Sprite fallFrame;
 	public int[] throwAttacks;
 
 	Sprite[] curAnimation;
@@ -112,6 +114,7 @@ public class CharacterAnimator : MonoBehaviour {
 		if(state == newState || (!animationFinished && state != AnimationType.Attacking)) return;
 		if(state == AnimationType.Attacking) GetComponentInChildren<HitBoxController>().EndAttack();
 		state = newState;
+        renderer.sortingOrder = 1;
 		
 		switch(state) {
 			case AnimationType.Idle:
@@ -160,8 +163,13 @@ public class CharacterAnimator : MonoBehaviour {
 				animationFinished = false;
 				break;
 			case AnimationType.Throw:
+                renderer.sortingOrder = 2;
 				List<Sprite> theFrames = new List<Sprite>();
-				foreach(int attack in throwAttacks) {
+                for(int i = 0; i < 6; i++)
+                {
+                    theFrames.Add(grabFrame);
+                }
+                foreach (int attack in throwAttacks) {
 					Sprite[] attackFrames = transform.GetChild(2).GetChild(attack).gameObject.GetComponent<Attack>().GetSprites();
 					theFrames.AddRange(attackFrames);
 				}
@@ -193,6 +201,7 @@ public class CharacterAnimator : MonoBehaviour {
     public int[] GetThrowAttackTimings()
     {
         List<int> frameCounts = new List<int>();
+        frameCounts.Add(6);
         foreach (int attack in throwAttacks)
         {
             Sprite[] attackFrames = transform.GetChild(2).GetChild(attack).gameObject.GetComponent<Attack>().GetSprites();
