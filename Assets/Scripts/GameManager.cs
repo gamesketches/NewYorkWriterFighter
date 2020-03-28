@@ -41,8 +41,11 @@ public class GameManager : MonoBehaviour {
 
 	public Character debugP1, debugP2;
 
+    public static GameManager _instance;
+
 	// Use this for initialization
 	void Awake () {
+        _instance = this;
 		audio = GetComponent<AudioSource>();
 		bgm = GetComponents<AudioSource>()[1];
 		roundCounter = 0;
@@ -296,7 +299,25 @@ public class GameManager : MonoBehaviour {
 		else sparks.GetComponent<SpriteRenderer>().color = Color.white;
 	}	
 
-	void AdjustForWiderStage(){
+    public IEnumerator PlayThrowSparks(Vector3 position, int[] frameCounts)
+    {
+        AudioClip sfx = Resources.Load<AudioClip>("ThrowHit");
+        audio.clip = sfx;
+        GameObject newSparks = Instantiate(Resources.Load<GameObject>("HitSpark"));
+        HitSparkBehavior sparkBehavior = newSparks.GetComponent<HitSparkBehavior>();
+        sparkBehavior.transform.localScale = new Vector3(2, 2, 2);
+        sparkBehavior.transform.position = position;
+        foreach (int delay in frameCounts)
+        {
+            //yield return StartCoroutine(sparkBehavior.PlayAnimationWithinFrames(delay * CharacterAnimator.frameSpeed));
+            yield return StartCoroutine(sparkBehavior.PlayAnimation());
+            newSparks.SetActive(true);
+            audio.Play();
+        }
+        Destroy(newSparks);
+    }
+
+    void AdjustForWiderStage(){
 		BoxCollider2D[] colliders = GameObject.Find("Battlezone").GetComponents<BoxCollider2D>();
 
 		colliders[0].offset = new Vector2(-12.8f, 0);

@@ -190,7 +190,18 @@ public class CharacterAnimator : MonoBehaviour {
 		}
 	}
 
-	void LoopingAnimation() {
+    public int[] GetThrowAttackTimings()
+    {
+        List<int> frameCounts = new List<int>();
+        foreach (int attack in throwAttacks)
+        {
+            Sprite[] attackFrames = transform.GetChild(2).GetChild(attack).gameObject.GetComponent<Attack>().GetSprites();
+            frameCounts.Add(attackFrames.Length);
+        }
+        return frameCounts.ToArray();
+    }
+
+    void LoopingAnimation() {
 		if(TimesUp()) {
 			NextFrame();
 			frameCounter = frameSpeed;
