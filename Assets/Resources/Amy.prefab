@@ -707,10 +707,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b7ac5d64844364d2bafc6074527dc762, type: 3}
   - {fileID: 21300000, guid: 00a40344057db4a4c9b91326f3c945c8, type: 3}
   grabFrame: {fileID: 21300000, guid: 92b3e8e9dcd0d5b4e942b56150244e14, type: 3}
-  fallFrame: {fileID: 21300000, guid: 11f82d5944e0e46e68a2bb1a0ed3b6bc, type: 3}
+  airHitFrame: {fileID: 21300000, guid: 11f82d5944e0e46e68a2bb1a0ed3b6bc, type: 3}
   throwAttacks: 030000000100000004000000
   animationFinished: 0
-  state: 10
+  state: 11
   nextState: 0
 --- !u!61 &61865475482026184
 BoxCollider2D:

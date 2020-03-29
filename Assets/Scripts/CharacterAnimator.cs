@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum AnimationType {Idle, Walk, Crouch, PreJump, Jump, Damage, Fall, Throw, Block, CrouchBlock, Attacking, Victory};
+public enum AnimationType {Idle, Walk, Crouch, PreJump, Jump, Damage, AirDamage, Fall, Throw, Block, CrouchBlock, Attacking, Victory};
 public class CharacterAnimator : MonoBehaviour {
 
 	public Sprite[] walkAnimation;
@@ -15,7 +15,7 @@ public class CharacterAnimator : MonoBehaviour {
 	public Sprite[] fallAnimation;
 	public Sprite[] victoryAnimation;
     public Sprite grabFrame;
-    public Sprite fallFrame;
+    public Sprite airHitFrame;
 	public int[] throwAttacks;
 
 	Sprite[] curAnimation;
@@ -73,18 +73,19 @@ public class CharacterAnimator : MonoBehaviour {
 				}
 				break;
 			case AnimationType.Damage:
+            case AnimationType.AirDamage:
 				if(TimesUp()) {
 					if(curFrame < curAnimation.Length -1) {
 						curFrame++;
 					}
 					else {
 						animationFinished = true;
-						SwitchAnimation(nextState.ToString());
+						//SwitchAnimation(nextState.ToString());
 					}
 					frameCounter = frameSpeed;
 				}
 				break;
-			case AnimationType.Victory:
+            case AnimationType.Victory:
 				if(TimesUp()) {
 					if(curFrame < curAnimation.Length -1) {
 						curFrame++;
@@ -152,6 +153,12 @@ public class CharacterAnimator : MonoBehaviour {
 				renderer.sprite = curAnimation[0];
 				animationFinished = false;
 				break;
+            case AnimationType.AirDamage:
+                curAnimation = new Sprite[1] { airHitFrame };
+                renderer.sprite = airHitFrame;
+                frameCounter = 10;
+                animationFinished = false;
+                break;
 			case AnimationType.Fall:
 				curAnimation = fallAnimation;
 				frameCounter = frameSpeed;

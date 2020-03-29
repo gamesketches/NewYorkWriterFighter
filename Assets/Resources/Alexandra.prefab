@@ -7821,7 +7821,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4059d3d33e7414e5381f5c4fefd42f92, type: 3}
   - {fileID: 21300000, guid: e4f0f13e644464a2e93da62adfa3ac96, type: 3}
   grabFrame: {fileID: 21300000, guid: f5d475c3c5114488da76fb9f382831e6, type: 3}
-  fallFrame: {fileID: 21300000, guid: 49a06a660de164e47b34c5916a45bd67, type: 3}
+  airHitFrame: {fileID: 21300000, guid: c1402874b119c4b46a4ddf6cc8e56ad9, type: 3}
   throwAttacks: 000000000000000005000000
   animationFinished: 0
   state: 10
