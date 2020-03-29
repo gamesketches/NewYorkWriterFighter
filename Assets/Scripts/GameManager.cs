@@ -258,10 +258,10 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void ResetPlayers() {
-		player1.ResetPlayer();
+        player1.transform.position = player1StartPos;
+        player2.transform.position = player2StartPos;
+        player1.ResetPlayer();
 		player2.ResetPlayer();
-		player1.transform.position = player1StartPos;
-		player2.transform.position = player2StartPos;
 	}
 
 	IEnumerator PlayAudioAndYield(AudioClip clip) {

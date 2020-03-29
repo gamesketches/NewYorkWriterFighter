@@ -180,7 +180,8 @@ public class FighterController : MonoBehaviour {
 		int leniencyTimer = inputLeniency;
 		int jumpDirection = 0;
 		float jumpTime = jumpY.keys[jumpY.length -1].time * 2;
-		for(float t = 0; t < jumpTime; t += Time.deltaTime) {
+        float t;
+		for(t = 0; t < jumpTime; t += Time.deltaTime) {
 			temp.y = Mathf.Lerp(groundedY, jumpHeight, jumpY.Evaluate(t)); 
 			if(leniencyTimer > 0) {
 				leniencyTimer--;
@@ -189,19 +190,30 @@ public class FighterController : MonoBehaviour {
 			}
 			if(jumpDirection != 0) temp.x = transform.position.x + (walkSpeed * Time.deltaTime * jumpDirection * jumpX);
 			transform.Translate(temp - transform.position);
-            //if (state == MovementState.AirRecoiling || state == MovementState.KnockedDown) break;
-			if(animator.animationFinished && state != MovementState.KnockedDown) {
-				animator.SwitchAnimation("Jump");
-				state = MovementState.Jumping;
-			}
+            if (state == MovementState.AirRecoiling || state == MovementState.KnockedDown) break;
 			yield return null;
 		}
-        /*if(state == MovementState.AirRecoiling || state == MovementState.KnockedDown)
+        jumpTime = jumpY.keys[jumpY.length - 1].time;
+        if(state == MovementState.AirRecoiling || state == MovementState.KnockedDown)
         {
-            float fallDistance = temp.y - Mathf.Abs(temp.y);
-            for(float t = 0.8f; t < )
-
-        }*/
+            if (t < jumpTime) jumpTime = t;
+            else jumpTime = jumpTime - (t - jumpTime);
+            float fallHeight = temp.y;
+            if (opponent.transform.position.x < transform.position.x) jumpDirection = 1;
+            else jumpDirection = -1;
+            for(t = 0; t < jumpTime; t += Time.deltaTime)
+            {
+                if (animator.animationFinished && state != MovementState.KnockedDown)
+                {
+                    animator.SwitchAnimation("Jump");
+                }
+                if (jumpDirection != 0) temp.x = transform.position.x + (walkSpeed * Time.deltaTime * jumpDirection * jumpX);
+                transform.Translate(temp - transform.position);
+                temp.y = Mathf.Lerp(fallHeight, groundedY, t / jumpTime);
+                yield return null;
+            }
+            
+        }
         temp.y = baseY;
 		transform.position = temp;
 		if(!locked) {
@@ -463,6 +475,7 @@ public class FighterController : MonoBehaviour {
 		animator.SwitchAnimation("Idle");
 		superAvailable = false;
 		GetComponent<SpriteGlowEffect>().OutlineWidth = 0;
+        AdjustFacing();
 	}
 
 	public void AddAI() {
