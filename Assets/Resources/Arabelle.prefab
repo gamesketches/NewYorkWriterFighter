@@ -1932,8 +1932,10 @@ GameObject:
   - component: {fileID: 4580072632712332}
   - component: {fileID: 114347361754144864}
   - component: {fileID: 82862435116466214}
+  - component: {fileID: 2860995392090391626}
   - component: {fileID: 199697245320065820}
   - component: {fileID: 198127826724137046}
+  - component: {fileID: 5607510957145200956}
   m_Layer: 8
   m_Name: SpecialAttack
   m_TagString: Untagged
@@ -2381,12 +2383,12 @@ MonoBehaviour:
       y: -1.16
       width: 0.9
       height: 1.6
-  damage: 300
+  damage: 40
   blockType: 0
   knockdown: 0
-  knockBack: 1.4
+  knockBack: 0.2
   hitStop: 14
-  hitStun: 16
+  hitStun: 6
   blockStun: 16
   hitSFX: {fileID: 8300000, guid: 89dbbc68d23f3437fab61b740a52c258, type: 3}
   superAttack: 1
@@ -2486,6 +2488,52 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2860995392090391626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699095443220362}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a1b5d255e544102ba70ce7b8c8c0e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xTravel:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.15979867
+      outSlope: 0.15979867
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5980687
+      value: 0.09557058
+      inSlope: 0.2530495
+      outSlope: 0.2530495
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.5942142
+    - serializedVersion: 3
+      time: 0.6425781
+      value: 0.11804962
+      inSlope: 0.5050402
+      outSlope: 0.5050402
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  delay: 0.7
 --- !u!199 &199697245320065820
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -7152,6 +7200,44 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &5607510957145200956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699095443220362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67725dbffd22f44f5ad1de246848afdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xTravel:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.27356288
+      outSlope: 0.27356288
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.37268066
+      value: 0.1019516
+      inSlope: 0.27356288
+      outSlope: 0.27356288
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  delay: 0.7
+  frameChanges: 0400000003000000030000000300000002000000
 --- !u!1 &1718237002317426
 GameObject:
   m_ObjectHideFlags: 0

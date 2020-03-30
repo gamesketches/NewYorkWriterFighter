@@ -129,7 +129,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4553809492827524, guid: 7559c0dc6e0dbfe40b8a90ba4439db53, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.42
+      value: -1.6
       objectReference: {fileID: 0}
     - target: {fileID: 4553809492827524, guid: 7559c0dc6e0dbfe40b8a90ba4439db53, type: 3}
       propertyPath: m_LocalPosition.z
@@ -797,8 +797,8 @@ MonoBehaviour:
   player1StartPos: {x: -2.12, y: -1.05, z: 0}
   player2StartPos: {x: 2.96, y: -1.05, z: 0}
   RoundText: {fileID: 1479406421}
-  debugP1: 5
-  debugP2: 6
+  debugP1: 0
+  debugP2: 4
 --- !u!4 &948551938
 Transform:
   m_ObjectHideFlags: 0

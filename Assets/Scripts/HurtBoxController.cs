@@ -64,11 +64,12 @@ public class HurtBoxController : MonoBehaviour {
 			else {
 				data = other.gameObject.GetComponent<HitBoxController>().GetAttackData();
 			}
-			if(data.id != lastAttack) {
-				Vector3 hitSpot = other.bounds.ClosestPoint(transform.position);
-				StartCoroutine(player.GetHit(data, hitSpot));
-				lastAttack = data.id;
-			}
+            if (data.id != lastAttack)
+            {
+                Vector3 hitSpot = other.bounds.ClosestPoint(transform.position);
+                StartCoroutine(player.GetHit(data, hitSpot));
+                lastAttack = data.id;
+            }
 		}
 	}
 

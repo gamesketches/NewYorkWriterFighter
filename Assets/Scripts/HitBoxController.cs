@@ -40,10 +40,37 @@ public class HitBoxController : MonoBehaviour {
 		return attackData;
 	}
 
-	public void EndAttack() {
+    public void SetAttackData(AttackData newData)
+    {
+        attackData = newData;
+    }
+
+    public void EndAttack() {
 		foreach(BoxCollider2D collider in colliders) {
 			collider.enabled = false;
 		}
 		attackData = new AttackData(0, BlockType.Mid, false, 0, 0, 0, 0, null);
 	}
+
+    public void UpdateAttackId()
+    {
+        Attack.attackID++;
+        attackData.id = Attack.attackID;
+    }
+
+    public void UpdateAttackDamage(int newDamage)
+    {
+        attackData.damage = newDamage;
+    }
+
+    public void UpdateKnockdownState(bool knockDown)
+    {
+        attackData.knockdown = knockDown;
+    }
+
+    public void UpdateKnockBack(float knockBack)
+    {
+        attackData.knockBack = knockBack;
+
+    }
 }

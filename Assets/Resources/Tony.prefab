@@ -1465,7 +1465,7 @@ MonoBehaviour:
   hitSFX: {fileID: 8300000, guid: b3799609876724054949a69fa2bdc9ab, type: 3}
   superAttack: 1
   activeFrame: 5
-  speed: 5
+  speed: 20
   projectile: {fileID: 1021068755710614, guid: ba40b72a841ce425fbd7b97a120181ee, type: 3}
   projectileFrames:
   - {fileID: 21300000, guid: f58846474527943e98c7f8846bdc4f6a, type: 3}

@@ -917,7 +917,7 @@ MonoBehaviour:
   airHitFrame: {fileID: 21300000, guid: dafea2dfb41c24c20b5820ddddc3ef93, type: 3}
   throwAttacks: 010000000200000005000000
   animationFinished: 0
-  state: 10
+  state: 11
   nextState: 0
 --- !u!61 &61735302131212188
 BoxCollider2D:
@@ -1423,7 +1423,7 @@ MonoBehaviour:
       y: -1.19
       width: 1.67
       height: 1.7
-  damage: 250
+  damage: 400
   blockType: 0
   knockdown: 0
   knockBack: 0.8

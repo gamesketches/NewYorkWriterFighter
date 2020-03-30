@@ -2658,6 +2658,7 @@ GameObject:
   - component: {fileID: 82107668141774666}
   - component: {fileID: 199241990656442128}
   - component: {fileID: 198555410004792358}
+  - component: {fileID: 1759346076903144807}
   m_Layer: 8
   m_Name: SpecialAttack
   m_TagString: Untagged
@@ -3070,7 +3071,7 @@ MonoBehaviour:
   damage: 300
   blockType: 0
   knockdown: 1
-  knockBack: 0.3
+  knockBack: 2
   hitStop: 14
   hitStun: 16
   blockStun: 16
@@ -7838,6 +7839,43 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &1759346076903144807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715978384061684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a1b5d255e544102ba70ce7b8c8c0e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xTravel:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1.1249884
+      outSlope: 1.1249884
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.32958984
+      value: 0.37078476
+      inSlope: 1.1249884
+      outSlope: 1.1249884
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  delay: 1.5
 --- !u!1 &1930965698058828
 GameObject:
   m_ObjectHideFlags: 0
