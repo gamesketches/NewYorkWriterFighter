@@ -24,7 +24,6 @@ public class SaeedLungeKick : MonoBehaviour {
 
 	IEnumerator MoveSaeed(){
 		yield return new WaitForSeconds(delay);
-		float multiplyer = player.leftSide ? 1 : -1;
 		float travelTime = xTravel.keys[xTravel.length - 1].time;
 		for(float t = 0; t < travelTime; t += Time.fixedDeltaTime) {
 			if(player.leftSide) {

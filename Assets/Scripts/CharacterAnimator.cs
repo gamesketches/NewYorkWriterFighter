@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum AnimationType {Idle, Walk, Crouch, PreJump, Jump, Damage, Fall, Throw, Block, CrouchBlock, Attacking, Victory};
+public enum AnimationType {Idle, Walk, Crouch, PreJump, Jump, Damage, AirDamage, Fall, Throw, Block, CrouchBlock, Attacking, Victory};
 public class CharacterAnimator : MonoBehaviour {
 
 	public Sprite[] walkAnimation;
@@ -14,6 +14,8 @@ public class CharacterAnimator : MonoBehaviour {
 	public Sprite[] crouchBlockAnimation;
 	public Sprite[] fallAnimation;
 	public Sprite[] victoryAnimation;
+    public Sprite grabFrame;
+    public Sprite airHitFrame;
 	public int[] throwAttacks;
 
 	Sprite[] curAnimation;
@@ -71,18 +73,19 @@ public class CharacterAnimator : MonoBehaviour {
 				}
 				break;
 			case AnimationType.Damage:
+            case AnimationType.AirDamage:
 				if(TimesUp()) {
 					if(curFrame < curAnimation.Length -1) {
 						curFrame++;
 					}
 					else {
 						animationFinished = true;
-						SwitchAnimation(nextState.ToString());
+						//SwitchAnimation(nextState.ToString());
 					}
 					frameCounter = frameSpeed;
 				}
 				break;
-			case AnimationType.Victory:
+            case AnimationType.Victory:
 				if(TimesUp()) {
 					if(curFrame < curAnimation.Length -1) {
 						curFrame++;
@@ -112,6 +115,7 @@ public class CharacterAnimator : MonoBehaviour {
 		if(state == newState || (!animationFinished && state != AnimationType.Attacking)) return;
 		if(state == AnimationType.Attacking) GetComponentInChildren<HitBoxController>().EndAttack();
 		state = newState;
+        renderer.sortingOrder = 1;
 		
 		switch(state) {
 			case AnimationType.Idle:
@@ -149,6 +153,12 @@ public class CharacterAnimator : MonoBehaviour {
 				renderer.sprite = curAnimation[0];
 				animationFinished = false;
 				break;
+            case AnimationType.AirDamage:
+                curAnimation = new Sprite[1] { airHitFrame };
+                renderer.sprite = airHitFrame;
+                frameCounter = 10;
+                animationFinished = false;
+                break;
 			case AnimationType.Fall:
 				curAnimation = fallAnimation;
 				frameCounter = frameSpeed;
@@ -160,8 +170,13 @@ public class CharacterAnimator : MonoBehaviour {
 				animationFinished = false;
 				break;
 			case AnimationType.Throw:
+                renderer.sortingOrder = 2;
 				List<Sprite> theFrames = new List<Sprite>();
-				foreach(int attack in throwAttacks) {
+                for(int i = 0; i < 6; i++)
+                {
+                    theFrames.Add(grabFrame);
+                }
+                foreach (int attack in throwAttacks) {
 					Sprite[] attackFrames = transform.GetChild(2).GetChild(attack).gameObject.GetComponent<Attack>().GetSprites();
 					theFrames.AddRange(attackFrames);
 				}
@@ -190,7 +205,19 @@ public class CharacterAnimator : MonoBehaviour {
 		}
 	}
 
-	void LoopingAnimation() {
+    public int[] GetThrowAttackTimings()
+    {
+        List<int> frameCounts = new List<int>();
+        frameCounts.Add(6);
+        foreach (int attack in throwAttacks)
+        {
+            Sprite[] attackFrames = transform.GetChild(2).GetChild(attack).gameObject.GetComponent<Attack>().GetSprites();
+            frameCounts.Add(attackFrames.Length);
+        }
+        return frameCounts.ToArray();
+    }
+
+    void LoopingAnimation() {
 		if(TimesUp()) {
 			NextFrame();
 			frameCounter = frameSpeed;

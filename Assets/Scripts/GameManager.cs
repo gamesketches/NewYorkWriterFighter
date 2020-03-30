@@ -41,8 +41,11 @@ public class GameManager : MonoBehaviour {
 
 	public Character debugP1, debugP2;
 
+    public static GameManager _instance;
+
 	// Use this for initialization
 	void Awake () {
+        _instance = this;
 		audio = GetComponent<AudioSource>();
 		bgm = GetComponents<AudioSource>()[1];
 		roundCounter = 0;
@@ -255,10 +258,10 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void ResetPlayers() {
-		player1.ResetPlayer();
+        player1.transform.position = player1StartPos;
+        player2.transform.position = player2StartPos;
+        player1.ResetPlayer();
 		player2.ResetPlayer();
-		player1.transform.position = player1StartPos;
-		player2.transform.position = player2StartPos;
 	}
 
 	IEnumerator PlayAudioAndYield(AudioClip clip) {
@@ -296,7 +299,30 @@ public class GameManager : MonoBehaviour {
 		else sparks.GetComponent<SpriteRenderer>().color = Color.white;
 	}	
 
-	void AdjustForWiderStage(){
+    public IEnumerator PlayThrowSparks(Vector3 position, int[] frameCounts)
+    {
+        audio.clip = Resources.Load<AudioClip>("Grab");
+        audio.Play();
+        GameObject newSparks = Instantiate(Resources.Load<GameObject>("HitSpark"));
+        HitSparkBehavior sparkBehavior = newSparks.GetComponent<HitSparkBehavior>();
+        sparkBehavior.transform.localScale = new Vector3(1.4f, 1.4f, 1.4f);
+        sparkBehavior.transform.position = position;
+        yield return new WaitForSeconds(frameCounts[0] * CharacterAnimator.frameSpeed * Time.deltaTime);
+        audio.clip = Resources.Load<AudioClip>("ThrowHit");
+        sparkBehavior.transform.localScale = new Vector3(2f, 2f, 2f);
+        for (int i = 1;  i < frameCounts.Length; i++)
+        {
+            //yield return StartCoroutine(sparkBehavior.PlayAnimationWithinFrames(delay * CharacterAnimator.frameSpeed));
+            yield return new WaitForSeconds(frameCounts[i] * CharacterAnimator.frameSpeed * Time.deltaTime);
+            StartCoroutine(sparkBehavior.PlayAnimation());
+            newSparks.SetActive(true);
+            audio.Play();
+        }
+        yield return new WaitForSeconds(0.2f);
+        Destroy(newSparks);
+    }
+
+    void AdjustForWiderStage(){
 		BoxCollider2D[] colliders = GameObject.Find("Battlezone").GetComponents<BoxCollider2D>();
 
 		colliders[0].offset = new Vector2(-12.8f, 0);

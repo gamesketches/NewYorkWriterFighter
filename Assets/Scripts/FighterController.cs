@@ -4,7 +4,7 @@ using UnityEngine;
 using SpriteGlow;
 
 public enum PlayerNumber {P1, P2};
-public enum MovementState {Standing, Crouching, Jumping, Attacking, KnockedDown, Recoiling, Blocking, CrouchBlocking, BlockStun, Victory, Thrown};
+public enum MovementState {Standing, Crouching, Jumping, Attacking, KnockedDown, Recoiling, AirRecoiling, Blocking, CrouchBlocking, BlockStun, Victory, Thrown};
 public class FighterController : MonoBehaviour {
 
 	static float jumpHeight = 2.37f;
@@ -73,7 +73,8 @@ public class FighterController : MonoBehaviour {
 				MoveRight(walkSpeed * Time.fixedDeltaTime *2);
 			}
 		}
-		else if(state != MovementState.KnockedDown && state != MovementState.Recoiling && state != MovementState.BlockStun && state != MovementState.Victory){
+		else if(state != MovementState.KnockedDown && state != MovementState.Recoiling && 
+                        state != MovementState.BlockStun && state != MovementState.Victory){
 			CheckButtonInput();
 			CheckDirectionalInput();
 			if(state != MovementState.Jumping) AdjustFacing();
@@ -179,7 +180,8 @@ public class FighterController : MonoBehaviour {
 		int leniencyTimer = inputLeniency;
 		int jumpDirection = 0;
 		float jumpTime = jumpY.keys[jumpY.length -1].time * 2;
-		for(float t = 0; t < jumpTime; t += Time.deltaTime) {
+        float t;
+		for(t = 0; t < jumpTime; t += Time.deltaTime) {
 			temp.y = Mathf.Lerp(groundedY, jumpHeight, jumpY.Evaluate(t)); 
 			if(leniencyTimer > 0) {
 				leniencyTimer--;
@@ -188,13 +190,31 @@ public class FighterController : MonoBehaviour {
 			}
 			if(jumpDirection != 0) temp.x = transform.position.x + (walkSpeed * Time.deltaTime * jumpDirection * jumpX);
 			transform.Translate(temp - transform.position);
-			if(animator.animationFinished && state != MovementState.KnockedDown) {
-				animator.SwitchAnimation("Jump");
-				state = MovementState.Jumping;
-			}
+            if (state == MovementState.AirRecoiling || state == MovementState.KnockedDown) break;
 			yield return null;
 		}
-		temp.y = baseY;
+        jumpTime = jumpY.keys[jumpY.length - 1].time;
+        if(state == MovementState.AirRecoiling || state == MovementState.KnockedDown)
+        {
+            if (t < jumpTime) jumpTime = t;
+            else jumpTime = jumpTime - (t - jumpTime);
+            float fallHeight = temp.y;
+            if (opponent.transform.position.x < transform.position.x) jumpDirection = 1;
+            else jumpDirection = -1;
+            for(t = 0; t < jumpTime; t += Time.deltaTime)
+            {
+                if (animator.animationFinished && state != MovementState.KnockedDown)
+                {
+                    animator.SwitchAnimation("Jump");
+                }
+                if (jumpDirection != 0) temp.x = transform.position.x + (walkSpeed * Time.deltaTime * jumpDirection * jumpX);
+                transform.Translate(temp - transform.position);
+                temp.y = Mathf.Lerp(fallHeight, groundedY, t / jumpTime);
+                yield return null;
+            }
+            
+        }
+        temp.y = baseY;
 		transform.position = temp;
 		if(!locked) {
 			state = MovementState.Standing;
@@ -256,15 +276,17 @@ public class FighterController : MonoBehaviour {
 					yield return new WaitForSeconds(1);
 				}
 				else {
-					animator.SwitchAnimation("Damage");
 					if(state == MovementState.Jumping) {
-						animator.nextState = AnimationType.Jump;
+                        animator.SwitchAnimation("AirDamage");
+                        //animator.nextState = AnimationType.Jump;
+                        state = MovementState.AirRecoiling;
 					}
 					else {
-						animator.nextState = AnimationType.Idle;
-					}
-					state = MovementState.Recoiling;
-					gameManager.PlayHitSpark(contactPoint, false, attackData.damage);
+                        animator.SwitchAnimation("Damage");
+                        //animator.nextState = AnimationType.Idle;
+                        state = MovementState.Recoiling;
+                    }
+                    gameManager.PlayHitSpark(contactPoint, false, attackData.damage);
 					if(attackData.hitSFX != null) {
 						audio.clip = attackData.hitSFX;
 						audio.Play();
@@ -273,8 +295,13 @@ public class FighterController : MonoBehaviour {
 					yield return new WaitForSeconds(attackData.hitStun);
 				}
 			}
-		if(animator.state == AnimationType.Jump) state = MovementState.Jumping;
-		else state = MovementState.Standing;
+		if(animator.state == AnimationType.AirDamage){
+             state = MovementState.Jumping;
+                animator.SwitchAnimation("Jump");
+            } else {
+                state = MovementState.Standing;
+                animator.SwitchAnimation("Idle");
+            }
 		}
 	}
 
@@ -283,7 +310,7 @@ public class FighterController : MonoBehaviour {
 		animator.SwitchAnimation("Damage");
 		state = MovementState.Recoiling;
 		StartCoroutine(Camera.main.GetComponent<CameraController>().ZoomCamera(transform.position, throwData.hitStun));
-		yield return new WaitForSeconds(throwData.hitStun);
+		yield return new WaitForSeconds(throwData.hitStun - (Time.deltaTime * 15));
 		if(gameManager.UpdateLifeBarCheckDeath(identity, throwData.damage)) {
 			Debug.Log("Killed");
 			yield return StartCoroutine(DeathAnimation());
@@ -382,6 +409,7 @@ public class FighterController : MonoBehaviour {
 			animator.SwitchAnimation("Throw");
 			AttackData throwData = new AttackData(100, BlockType.Mid, true, 0, 0, animator.GetAnimationLength(), 0, null);
 			StartCoroutine(opponent.GetThrown(throwData));
+            StartCoroutine(gameManager.PlayThrowSparks(opponent.transform.position, animator.GetThrowAttackTimings()));
 			state = MovementState.Attacking;
 			return true;
 		}
@@ -447,6 +475,7 @@ public class FighterController : MonoBehaviour {
 		animator.SwitchAnimation("Idle");
 		superAvailable = false;
 		GetComponent<SpriteGlowEffect>().OutlineWidth = 0;
+        AdjustFacing();
 	}
 
 	public void AddAI() {
