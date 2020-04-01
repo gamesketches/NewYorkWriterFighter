@@ -518,6 +518,7 @@ GameObject:
   - component: {fileID: 82232963983937352}
   - component: {fileID: 82809540512516502}
   - component: {fileID: 114933404441896914}
+  - component: {fileID: 8064156868753850743}
   m_Layer: 8
   m_Name: Amy
   m_TagString: Untagged
@@ -969,6 +970,18 @@ MonoBehaviour:
   alphaThreshold: 0.01
   drawOutside: 0
   enableInstancing: 0
+--- !u!168 &8064156868753850743
+AudioEchoFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124005196569280}
+  m_Enabled: 1
+  m_Delay: 400
+  m_DecayRatio: 0.3
+  m_WetMix: 0.5
+  m_DryMix: 1
 --- !u!1 &1386066253835042
 GameObject:
   m_ObjectHideFlags: 0

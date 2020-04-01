@@ -7634,6 +7634,7 @@ GameObject:
   - component: {fileID: 82631087277146998}
   - component: {fileID: 82610119491379160}
   - component: {fileID: 114136572633691304}
+  - component: {fileID: 5376471823700451598}
   m_Layer: 8
   m_Name: Alexandra
   m_TagString: Untagged
@@ -8083,6 +8084,18 @@ MonoBehaviour:
   alphaThreshold: 0.01
   drawOutside: 0
   enableInstancing: 0
+--- !u!168 &5376471823700451598
+AudioEchoFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698289157710126}
+  m_Enabled: 1
+  m_Delay: 400
+  m_DecayRatio: 0.3
+  m_WetMix: 0.5
+  m_DryMix: 1
 --- !u!1 &1735968588380366
 GameObject:
   m_ObjectHideFlags: 0

@@ -28,6 +28,7 @@ public class FighterController : MonoBehaviour {
 	[HideInInspector]
 	public bool locked = true;
 	AIController aiController;
+    AudioEchoFilter echoFilter;
 	
 	bool superAvailable;
 	AudioSource audio;
@@ -40,6 +41,8 @@ public class FighterController : MonoBehaviour {
 		superAvailable = false;
 		animator = GetComponent<CharacterAnimator>();
 		audio = GetComponents<AudioSource>()[1];
+        echoFilter = GetComponent<AudioEchoFilter>();
+        echoFilter.enabled = false;
 		blockSound = gameObject.AddComponent<AudioSource>();
 		blockSound.clip = Resources.Load<AudioClip>("HeavyBlock");
 		state = MovementState.Standing;
@@ -267,7 +270,7 @@ public class FighterController : MonoBehaviour {
 				StartCoroutine(HitStop(attackData.hitStop));
 				if(gameManager.UpdateLifeBarCheckDeath(identity, attackData.damage)) {
 					Debug.Log("Killed");
-					yield return StartCoroutine(DeathAnimation());
+					yield return StartCoroutine(DefeatAnimation());
 				}	
 				else if(attackData.knockdown) {
 					animator.SwitchAnimation("Fall");
@@ -311,7 +314,7 @@ public class FighterController : MonoBehaviour {
 		yield return new WaitForSeconds(throwData.hitStun - (Time.deltaTime * 15));
 		if(gameManager.UpdateLifeBarCheckDeath(identity, throwData.damage)) {
 			Debug.Log("Killed");
-			yield return StartCoroutine(DeathAnimation());
+			yield return StartCoroutine(DefeatAnimation());
 		}
 		else{
 			animator.SwitchAnimation("Fall");
@@ -327,21 +330,24 @@ public class FighterController : MonoBehaviour {
 		state = MovementState.Standing;
 	}
 
-	IEnumerator DeathAnimation() {
+	IEnumerator DefeatAnimation() {
 		locked = true;
 		Debug.Log("Killed");
-		Debug.Log("In Death Animation");
-		animator.SwitchAnimation("Fall");
+		animator.SwitchAnimation("Defeat");
 		state = MovementState.KnockedDown;
-		Time.timeScale = 0.2f;
+        gameManager.AdjustBGMVolume(0);
+        echoFilter.enabled = true;
+		Time.timeScale = 0.1f;
 		GetComponent<AudioSource>().Play();
 		while(!animator.animationFinished) {
 			if(leftSide) MoveLeft(walkSpeed * Time.deltaTime);
 			else MoveRight(walkSpeed *Time.deltaTime);
 			yield return null;
 		}
-		Time.timeScale = 1;
-		while(state == MovementState.KnockedDown) yield return null;
+        StartCoroutine(gameManager.AdjustBGMVolume(1, 0.5f));
+        Time.timeScale = 1;
+        echoFilter.enabled = true;
+        while (state == MovementState.KnockedDown) yield return null;
 	}
 
 

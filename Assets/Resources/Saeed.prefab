@@ -1170,6 +1170,7 @@ GameObject:
   - component: {fileID: 82877834485966496}
   - component: {fileID: 82261792372718560}
   - component: {fileID: 114748176375625764}
+  - component: {fileID: 439046824721456694}
   m_Layer: 8
   m_Name: Saeed
   m_TagString: Untagged
@@ -1614,6 +1615,18 @@ MonoBehaviour:
   alphaThreshold: 0.01
   drawOutside: 0
   enableInstancing: 0
+--- !u!168 &439046824721456694
+AudioEchoFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607149843644300}
+  m_Enabled: 1
+  m_Delay: 400
+  m_DecayRatio: 0.3
+  m_WetMix: 0.5
+  m_DryMix: 1
 --- !u!1 &1609590084498512
 GameObject:
   m_ObjectHideFlags: 0

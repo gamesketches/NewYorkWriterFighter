@@ -7375,6 +7375,7 @@ GameObject:
   - component: {fileID: 82191676398084194}
   - component: {fileID: 82840124999547730}
   - component: {fileID: 114686174105311200}
+  - component: {fileID: 6773388282533326699}
   m_Layer: 8
   m_Name: Tony
   m_TagString: Untagged
@@ -7811,6 +7812,18 @@ MonoBehaviour:
   alphaThreshold: 0.01
   drawOutside: 0
   enableInstancing: 0
+--- !u!168 &6773388282533326699
+AudioEchoFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828773952248856}
+  m_Enabled: 1
+  m_Delay: 400
+  m_DecayRatio: 0.3
+  m_WetMix: 0.5
+  m_DryMix: 1
 --- !u!1 &1879283053992242
 GameObject:
   m_ObjectHideFlags: 0

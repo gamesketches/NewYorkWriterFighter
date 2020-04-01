@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum AnimationType {Idle, Walk, Crouch, PreJump, Jump, Damage, AirDamage, Fall, Throw, Block, CrouchBlock, Attacking, Victory};
+public enum AnimationType {Idle, Walk, Crouch, PreJump, Jump, Damage, AirDamage, Fall, Throw, Block, CrouchBlock, Attacking, Defeat, Victory};
 public class CharacterAnimator : MonoBehaviour {
 
 	public Sprite[] walkAnimation;
@@ -85,6 +85,20 @@ public class CharacterAnimator : MonoBehaviour {
 					frameCounter = frameSpeed;
 				}
 				break;
+            case AnimationType.Defeat:
+                if(TimesUp())
+                {
+                    if(curFrame < curAnimation.Length - 1)
+                    {
+                        curFrame++;
+                    }
+                    else
+                    {
+                        animationFinished = true;
+                    }
+                    frameCounter = frameSpeed;
+                }
+                break;
             case AnimationType.Victory:
 				if(TimesUp()) {
 					if(curFrame < curAnimation.Length -1) {
@@ -164,7 +178,17 @@ public class CharacterAnimator : MonoBehaviour {
 				frameCounter = frameSpeed;
 				animationFinished = false;
 				break;
-			case AnimationType.Victory:
+            case AnimationType.Defeat:
+                List<Sprite> defeatAnimation = new List<Sprite>();
+                foreach(Sprite frame in fallAnimation)
+                {
+                    for (int i = 0; i < 5; i++) defeatAnimation.Add(frame);
+                }
+                curAnimation = defeatAnimation.ToArray();
+                frameCounter = frameSpeed;
+                animationFinished = false;
+                break; 
+            case AnimationType.Victory:
 				curAnimation = victoryAnimation;
 				frameCounter = frameSpeed;
 				animationFinished = false;

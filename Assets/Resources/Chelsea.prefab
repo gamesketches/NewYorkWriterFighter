@@ -727,6 +727,7 @@ GameObject:
   - component: {fileID: 82453516119619594}
   - component: {fileID: 82398282294903482}
   - component: {fileID: 114205131534862816}
+  - component: {fileID: 8367061446519694699}
   m_Layer: 8
   m_Name: Chelsea
   m_TagString: Untagged
@@ -1176,6 +1177,18 @@ MonoBehaviour:
   alphaThreshold: 0.01
   drawOutside: 0
   enableInstancing: 0
+--- !u!168 &8367061446519694699
+AudioEchoFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1294227869775730}
+  m_Enabled: 1
+  m_Delay: 400
+  m_DecayRatio: 0.3
+  m_WetMix: 0.5
+  m_DryMix: 1
 --- !u!1 &1339262701228418
 GameObject:
   m_ObjectHideFlags: 0

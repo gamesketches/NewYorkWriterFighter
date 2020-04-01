@@ -312,7 +312,6 @@ public class GameManager : MonoBehaviour {
         sparkBehavior.transform.localScale = new Vector3(2f, 2f, 2f);
         for (int i = 1;  i < frameCounts.Length; i++)
         {
-            //yield return StartCoroutine(sparkBehavior.PlayAnimationWithinFrames(delay * CharacterAnimator.frameSpeed));
             yield return new WaitForSeconds(frameCounts[i] * CharacterAnimator.frameSpeed * Time.deltaTime);
             StartCoroutine(sparkBehavior.PlayAnimation());
             newSparks.SetActive(true);
@@ -320,6 +319,22 @@ public class GameManager : MonoBehaviour {
         }
         yield return new WaitForSeconds(0.2f);
         Destroy(newSparks);
+    }
+
+    public void AdjustBGMVolume(float newVolume)
+    {
+        bgm.volume = newVolume;
+    }
+
+    public IEnumerator AdjustBGMVolume(float newVolume, float time)
+    {
+        float startVolume = bgm.volume;
+        for(float t = 0; t < time; t += Time.deltaTime)
+        {
+            bgm.volume = Mathf.Lerp(startVolume, newVolume, t / time);
+            yield return null;
+        }
+        bgm.volume = newVolume;
     }
 
     void AdjustForWiderStage(){
