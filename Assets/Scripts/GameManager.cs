@@ -175,8 +175,8 @@ public class GameManager : MonoBehaviour {
 		if(playerNum == PlayerNumber.P1) {
 			if(player1WinIcons.transform.GetChild(0).gameObject.activeSelf) {
 				player1WinIcons.transform.GetChild(1).gameObject.SetActive(true);
-				return true;
-				Debug.Log("Player 1 Wins");
+                Debug.Log("Player 1 Wins");
+                return true;
 			}
 			else{
 				roundCounter++;
@@ -187,8 +187,8 @@ public class GameManager : MonoBehaviour {
 		else if(playerNum == PlayerNumber.P2) {
 			if(player2WinIcons.transform.GetChild(0).gameObject.activeSelf) {
 				player2WinIcons.transform.GetChild(1).gameObject.SetActive(true);
-				return true;
-				Debug.Log("Player 2 Wins");
+                Debug.Log("Player 2 Wins");
+                return true;
 			}
 			else{
 				roundCounter++;

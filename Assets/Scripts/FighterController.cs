@@ -180,55 +180,52 @@ public class FighterController : MonoBehaviour {
 	}
 
 	IEnumerator Jump() {
-        Debug.Log("Starting jump coroutine");
-        if(state != MovementState.Jumping) {
-    		state = MovementState.Jumping;
-    		Vector3 temp = transform.position;
-    		animator.SwitchAnimation("Jump");
-    		int leniencyTimer = inputLeniency;
-    		int jumpDirection = 0;
-    		float jumpTime = jumpY.keys[jumpY.length -1].time * 2;
-            float t;
-    		for(t = 0; t < jumpTime; t += Time.deltaTime) {
-    			temp.y = Mathf.Lerp(baseY, jumpHeight, jumpY.Evaluate(t)); 
-    			if(leniencyTimer > 0) {
-    				leniencyTimer--;
-    				if(HorizontalInput() > 0) jumpDirection = 1;
-    				else if(HorizontalInput() < 0) jumpDirection = -1;
-    			}
-    			if(jumpDirection != 0) temp.x = transform.position.x + (walkSpeed * Time.deltaTime * jumpDirection * jumpX);
-    			transform.Translate(temp - transform.position);
-                if (state == MovementState.AirRecoiling || state == MovementState.KnockedDown) break;
-    			yield return null;
-    		}
-            jumpTime = jumpY.keys[jumpY.length - 1].time;
-            if(state == MovementState.AirRecoiling || state == MovementState.KnockedDown)
+        state = MovementState.Jumping;
+        Vector3 temp = transform.position;
+        animator.SwitchAnimation("Jump");
+        int leniencyTimer = inputLeniency;
+        int jumpDirection = 0;
+        float baseJumpTime = jumpY.keys[jumpY.length - 1].time;
+        float jumpTime = baseJumpTime * 2;
+        float t;
+        for (t = 0; t < jumpTime; t += Time.deltaTime)
+        {
+            temp.y = Mathf.Lerp(baseY, jumpHeight, jumpY.Evaluate(t));
+            if (leniencyTimer > 0)
             {
-                if (t < jumpTime) jumpTime = t;
-                else jumpTime = jumpTime - (t - jumpTime);
-                float fallHeight = temp.y;
-                if (opponent.transform.position.x < transform.position.x) jumpDirection = 1;
-                else jumpDirection = -1;
-                for(t = 0; t < jumpTime; t += Time.deltaTime)
-                {
-                    if (jumpDirection != 0) temp.x = transform.position.x + (walkSpeed * Time.deltaTime * jumpDirection * jumpX);
-                    transform.Translate(temp - transform.position);
-                    temp.y = Mathf.Lerp(fallHeight, baseY, t / jumpTime);
-                    yield return null;
-                }
+                leniencyTimer--;
+                if (HorizontalInput() > 0) jumpDirection = 1;
+                else if (HorizontalInput() < 0) jumpDirection = -1;
             }
-            temp.y = baseY;
-    		transform.position = temp;
-    		if(!locked) {
-                Debug.Log("Switching back standing");
-    			state = MovementState.Standing;
-    			animator.SwitchAnimation("Idle");
-    			animator.nextState = AnimationType.Idle;
-    		}
-            yield return null;
+            if (jumpDirection != 0) temp.x = transform.position.x + (walkSpeed * Time.deltaTime * jumpDirection * jumpX);
+            transform.Translate(temp - transform.position);
+            if (state == MovementState.AirRecoiling || state == MovementState.KnockedDown) break;
             yield return null;
         }
-        Debug.Log("Ending jump coroutine");
+        if (state == MovementState.AirRecoiling || state == MovementState.KnockedDown)
+        {
+            if (t < baseJumpTime) jumpTime = t;
+            else jumpTime = baseJumpTime - (t - baseJumpTime);
+            float fallHeight = temp.y;
+            if (opponent.transform.position.x < transform.position.x) jumpDirection = 1;
+            else jumpDirection = -1;
+            for (t = 0; t < jumpTime; t += Time.deltaTime)
+            {
+                if (jumpDirection != 0) temp.x = transform.position.x + (walkSpeed * Time.deltaTime * jumpDirection * jumpX);
+                transform.Translate(temp - transform.position);
+                temp.y = Mathf.Lerp(fallHeight, baseY, t / jumpTime);
+                yield return null;
+            }
+        }
+        temp.y = baseY;
+        transform.position = temp;
+        if (!locked)
+        {
+            state = MovementState.Standing;
+            animator.SwitchAnimation("Idle");
+            animator.nextState = AnimationType.Idle;
+        }
+    Debug.Log("Ending jump coroutine");
 	} 
 
 	void Block() {
@@ -259,7 +256,6 @@ public class FighterController : MonoBehaviour {
 	public IEnumerator GetHit(AttackData attackData, Vector3 contactPoint) {
 		Debug.Log("Hit");
 		if(state != MovementState.KnockedDown) {
-			bool airborne = state == MovementState.Jumping;
 			if(SuccessfulBlock(attackData.blockType)) {
 				StartCoroutine(GetPushed(attackData.knockBack, attackData.blockStun));
 				blockSound.Play();
@@ -272,7 +268,6 @@ public class FighterController : MonoBehaviour {
 				if(gameManager.UpdateLifeBarCheckDeath(identity, attackData.damage)) {
 					Debug.Log("Killed");
 					yield return StartCoroutine(DeathAnimation());
-	
 				}	
 				else if(attackData.knockdown) {
 					animator.SwitchAnimation("Fall");
@@ -283,29 +278,25 @@ public class FighterController : MonoBehaviour {
 					yield return new WaitForSeconds(1);
 				}
 				else {
-					if(state == MovementState.Jumping) {
+                    gameManager.PlayHitSpark(contactPoint, false, attackData.damage);
+                    if (attackData.hitSFX != null)
+                    {
+                        audio.clip = attackData.hitSFX;
+                        audio.Play();
+                    }
+                    if (state == MovementState.Jumping) {
                         animator.SwitchAnimation("AirDamage");
-                        //animator.nextState = AnimationType.Jump;
                         state = MovementState.AirRecoiling;
 					}
 					else {
                         animator.SwitchAnimation("Damage");
-                        //animator.nextState = AnimationType.Idle;
                         state = MovementState.Recoiling;
+                        StartCoroutine(GetPushed(attackData.knockBack, attackData.hitStun));
+                        yield return new WaitForSeconds(attackData.hitStun);
                     }
-                    gameManager.PlayHitSpark(contactPoint, false, attackData.damage);
-					if(attackData.hitSFX != null) {
-						audio.clip = attackData.hitSFX;
-						audio.Play();
-					}
-					StartCoroutine(GetPushed(attackData.knockBack, attackData.hitStun));
-					yield return new WaitForSeconds(attackData.hitStun);
 				}
 			}
-		if(animator.state == AnimationType.AirDamage){
-             state = MovementState.Jumping;
-                animator.SwitchAnimation("Jump");
-            } else {
+		if(animator.state != AnimationType.AirDamage){
                 state = MovementState.Standing;
                 animator.SwitchAnimation("Idle");
             }
