@@ -59,10 +59,9 @@ public class FighterController : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		if(locked) return;
-        //if (leftSide) Debug.Log(state);
 		if(state == MovementState.Attacking ) { 
 			if(animator.animationFinished) {
-                if(transform.position.y > baseY)
+                if(!Mathf.Approximately(transform.position.y, baseY))
                 {
                     animator.SwitchAnimation("Jump");
                     state = MovementState.Jumping;
